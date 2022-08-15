@@ -2,11 +2,13 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     --primary-component-width: 1200px;
-   
+
     --lightgray-color: #f3f2e6;
     --brown-color: #4c301b;
 }
