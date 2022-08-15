@@ -1,5 +1,10 @@
 .header__navigation {
     width: var(--primary-component-width);
     margin: 0 auto;
-    padding: 0.4rem;
+    padding: 0.2rem;
+}
+
+.navigation__title {
+    font-weight: 300;
+    padding: 1rem;
 }
