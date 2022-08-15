@@ -5,6 +5,10 @@
 }
 
 .navigation__title {
-    font-weight: 300;
+    font-weight: 200;
     padding: 1rem;
+}
+
+.navigation__span--reads {
+    font-weight: 300;
 }
