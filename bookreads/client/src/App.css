@@ -14,3 +14,7 @@ body {
 #root {
     height: 100%;
 }
+
+h2 {
+    font-size: 2.8rem;
+}
