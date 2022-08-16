@@ -1,11 +1,17 @@
+import { Link } from 'react-router-dom';
+import bookreads from '../../../assets/bookreads-logo.png'
+
 import './Navigation.css';
 
 const Navigation = () => {
     return (
         <nav className="navigation header__navigation">
-            <h2 className="navigation__title navigation__title--bookreads">
-                book<span className="navigation__span navigation__span--reads">reads</span>
-            </h2>
+         
+            <article className="header__navigation--article">
+                <Link to={'/'}>
+                    <img src={bookreads} className="navigation__article--logo" alt="bookreads" />
+                </Link>
+            </article>
         </nav>
     );
 }
