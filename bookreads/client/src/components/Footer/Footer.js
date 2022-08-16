@@ -12,37 +12,37 @@ const Footer = () => {
                                     COMPANY
                                 </h4>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         About us
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Careers
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Terms
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Privacy
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Interesd Based Ads
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Ad Preferences
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Help
                                     </a>
                                 </li>
@@ -54,22 +54,22 @@ const Footer = () => {
                                     WORK WITH US
                                 </h4>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Authors
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Advertise
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         Authors & ads blog
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="/" className="footer__li--link">
                                         API
                                     </a>
                                 </li>
@@ -81,22 +81,22 @@ const Footer = () => {
                             </h4>
                             <ul className="footer__ul--inner footer__ul--icons">
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link footer__li--icon">
+                                    <a href="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link footer__li--icon">
+                                    <a href="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link footer__li--icon">
+                                    <a href="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link footer__li--icon">
+                                    <a href="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-linkedin-in"></i>
                                     </a>
                                 </li>
