@@ -26,10 +26,29 @@ const Header = () => {
                             <h3 className="header__aside--title">
                                 Discover & read more
                             </h3>
-                            <button className="aside__button--email" onClick={() => navigate('/nopage')}>
+                            <button className="aside__button aside__button--google" onClick={() => navigate('/google')}>
+                                <i className="fa-brands fa-google"></i>
+                                &nbsp;
+                                Continue with Google
+                            </button>
+                            <button className="aside__button aside__button--email" onClick={() => navigate('/nopage')}>
                                 Sign up with email
                             </button>
-                            <p>
+
+                            <p className='aside__paragraph--agree'>
+                                By creating an account, you agree to the Bookreads
+                                &nbsp;
+                                <Link className="paragraph__span--lightblue" to={'/'}>
+                                    Terms of Service
+                                </Link>
+                                &nbsp;
+                                and
+                                &nbsp;
+                                <Link className="paragraph__span--lightblue" to={'/'}>
+                                    Privacy Policy
+                                </Link>.
+                            </p>
+                            <p className="header__aside--paragraph">
                                 Already a member?
                                 &nbsp;
                                 <Link to={'Sign In'}>
