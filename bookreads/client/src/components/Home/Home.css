@@ -1,0 +1,15 @@
+.main__wrapper {
+    max-width: var(--primary-component-width);
+    margin: 0 auto;
+}
+
+.wrapper__section--about {
+    display: flex;
+    gap: 10rem;
+
+    margin: 1rem 0;
+}
+
+.article__paragraph {
+    margin: 10px 0;
+}
