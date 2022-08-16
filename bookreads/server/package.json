@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
