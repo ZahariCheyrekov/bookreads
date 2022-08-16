@@ -1,7 +1,7 @@
 import Navigation from "./Navigation/Navigation";
 
 import './Header.css';
-import books from '../../assets/books.png'
+import books from '../../assets/books-banner.png'
 
 const Header = () => {
     return (
