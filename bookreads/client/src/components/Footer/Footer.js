@@ -76,27 +76,27 @@ const Footer = () => {
                             </ul>
                         </li>
                         <li className="footer__ul--li">
-                            <ul className="footer__ul--inner">
-                                <h4 className="footer__ul--title">
-                                    CONNECT
-                                </h4>
+                            <h4 className="footer__ul--title">
+                                CONNECT
+                            </h4>
+                            <ul className="footer__ul--inner footer__ul--icons">
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
-                                        <i className="fa-brands fa-facebook"></i>
+                                    <a href="#" className="footer__li--link footer__li--icon">
+                                        <i className="fa-brands fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="#" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="#" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="#" className="footer__li--link">
+                                    <a href="#" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-linkedin-in"></i>
                                     </a>
                                 </li>
