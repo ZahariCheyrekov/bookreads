@@ -6,17 +6,32 @@
 .header__section {
     background-color: var(--banner-color);
     height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.section__article--books {
+.section__article {
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+.article__article--info {
+    max-width: var(--primary-component-width);
+    margin: 50px auto;
+}
+
+.article__title--small {
+    font-weight: 600;
+}
+
+.article__title--big {
+    font-weight: 300;
 }
 
 .article__books--img {
-    width: 100%;
-    height: 100%;
-
     object-fit: cover;
     overflow: hidden;
+    position: absolute;
+    bottom: 0;
 }
