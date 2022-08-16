@@ -5,7 +5,7 @@
 
 .header__section {
     background-color: var(--banner-color);
-    height: 50vh;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -30,8 +30,9 @@
 }
 
 .article__books--img {
-    object-fit: cover;
-    overflow: hidden;
     position: absolute;
     bottom: 0;
+
+    object-fit: cover;
+    overflow: hidden;
 }
