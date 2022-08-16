@@ -3,12 +3,13 @@
     padding: 2rem 0;
 }
 
-.footer__container {
-    margin: 0 20px;
-    padding: 0 10px;
-}
-
 .footer__container,
 .footer__ul {
     display: flex;
+}
+
+.footer__container {
+    max-width: var(--primary-component-width);
+    margin: 0 auto;
+    justify-content: space-between;
 }
