@@ -51,7 +51,7 @@ const Header = () => {
                             <p className="header__aside--paragraph">
                                 Already a member?
                                 &nbsp;
-                                <Link to={'Sign In'}>
+                                <Link to={'/signin'}>
                                     Sign In
                                 </Link>
                             </p>
