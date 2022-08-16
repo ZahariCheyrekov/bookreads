@@ -20,6 +20,7 @@
     max-width: var(--primary-component-width);
     margin: 50px auto;
     position: relative;
+    padding-right: 400px;
 }
 
 .article__title--small {
