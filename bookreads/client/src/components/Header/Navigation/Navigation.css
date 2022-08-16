@@ -1,14 +1,10 @@
 .header__navigation {
     width: var(--primary-component-width);
     margin: 0 auto;
-    padding: 0.2rem;
+    padding: 1rem 0.2rem;
 }
 
-.navigation__title {
-    font-weight: 200;
-    padding: 1rem 0;
-}
-
-.navigation__span--reads {
-    font-weight: 300;
+.header__navigation--article {
+    height: 100%;
+    width: 260px;
 }
