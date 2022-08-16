@@ -10,6 +10,8 @@ html {
     --primary-component-width: 1200px;
 
     --lightgray-color: #f3f2e6;
+    --white-color: #fff;
+    --gray-color: #616161;
     --brown-color: #4c301b;
     --banner-color: #ffeecc;
 }
