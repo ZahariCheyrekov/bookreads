@@ -107,7 +107,7 @@ const Footer = () => {
                 <section className="footer__section">
                     <article className="footer__article--stores">
                         <img src="https://s.gr-assets.com/assets/app/badge-ios-desktop-homepage-6ac7ae16eabce57f6c855361656a7540.svg" alt="App Store" />
-                        <img src="https://www.pngmart.com/files/10/Get-It-On-Google-Play-PNG-Clipart.png" alt="Google Play" />
+                        <img src="https://www.pngmart.com/files/10/Get-It-On-Google-Play-Transparent-PNG.png" alt="Google Play" />
                     </article>
                     <p className="footer__section--paragraph">
                         &copy; {new Date().getFullYear()} Bookreads, Inc.
