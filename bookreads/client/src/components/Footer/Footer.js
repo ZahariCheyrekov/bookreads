@@ -7,7 +7,7 @@ const Footer = () => {
                 <section className="footer__section">
                     <ul className="footer__ul">
                         <li className="footer__ul--li">
-                            <ul className="footer__ul">
+                            <ul className="footer__ul--inner">
                                 <h4 className="footer__ul--title">
                                     COMPANY
                                 </h4>
@@ -49,7 +49,7 @@ const Footer = () => {
                             </ul>
                         </li>
                         <li className="footer__ul--li">
-                            <ul className="footer__ul">
+                            <ul className="footer__ul--inner">
                                 <h4 className="footer__ul--title">
                                     WORK WITH US
                                 </h4>
@@ -76,7 +76,7 @@ const Footer = () => {
                             </ul>
                         </li>
                         <li className="footer__ul--li">
-                            <ul className="footer__ul">
+                            <ul className="footer__ul--inner">
                                 <h4 className="footer__ul--title">
                                     CONNECT
                                 </h4>
