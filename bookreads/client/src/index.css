@@ -9,6 +9,7 @@
 html {
     --primary-component-width: 1200px;
 
+    --dark-button-color: #1e1915;
     --lightgray-color: #f3f2e6;
     --black-color: #000;
     --white-color: #fff;
