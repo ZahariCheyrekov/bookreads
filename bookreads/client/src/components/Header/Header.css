@@ -38,8 +38,9 @@
     max-width: 350px;
 
     padding: 20px;
+    text-align: center;
     border-radius: 10px;
-    border: 1px solid;
+    border: 1px solid var(--black-color);
 
     background-color: var(--white-color);
 }
@@ -48,21 +49,52 @@
     color: var(--black-color);
     font-weight: 300;
     font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.aside__button {
+    width: 100%;
+    margin: 6px 0;
+    padding: 12px;
+
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+
+    border-radius: 2px;
+    border: none;
+}
+
+.aside__button--google {
+    background-color: var(--white-color);
+    border: 1px solid var(--black-color);
 }
 
 .aside__button--email {
     background-color: var(--brown-color);
     color: var(--white-color);
+}
 
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
+.aside__button--email:hover {
+    background-color: var(--brown-color-light);
+}
 
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    
-    border-radius: 2px;
-    border: none;
+.aside__paragraph--agree {
+    font-size: 0.8rem;
+    line-height: 1.4;
+
+    margin-top: 10px;
+    color: var(--gray-color);
+}
+
+.paragraph__span--lightblue {
+    color: var(--lightblue-color);
+    font-weight: 500;
+}
+
+.header__aside--paragraph {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--black-color);
 }
 
 .article__books--img {
