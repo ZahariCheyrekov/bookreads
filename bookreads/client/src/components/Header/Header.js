@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from "gapi-script"
 
 import Navigation from "./Navigation/Navigation";
 import books from '../../assets/books-banner.png'
@@ -6,6 +9,25 @@ import books from '../../assets/books-banner.png'
 import './Header.css';
 
 const Header = () => {
+    const googleSuccess = async (res) => {
+        console.log(res);
+    }
+
+    const googleFailure = (error) => {
+        console.log(error);
+        console.log('Google sign in was unsuccessful. Try again later.');
+    }
+
+    useEffect(() => {
+        function start() {
+            gapi.client.init({
+                clientId: '628078431859-fb1qpeog0rg8ci92r5ui1cb49a4pe256.apps.googleusercontent.com',
+                scope: 'email',
+            });
+        }
+        gapi.load('client:auth2', start);
+    }, []);
+
     return (
         <header className="header">
             <Navigation />
@@ -25,11 +47,20 @@ const Header = () => {
                                 Discover & read more
                             </h3>
 
-                            <button className="aside__button aside__button--google" >
-                                <i className="fa-brands fa-google"></i>
-                                &nbsp;
-                                Continue with Google
-                            </button>
+                            <GoogleLogin
+                                onSuccess={googleSuccess}
+                                onFailure={googleFailure}
+                                render={renderProps => (
+                                    <button onClick={renderProps.onClick}
+                                        disabled={renderProps.disabled}
+                                        className="aside__button aside__button--google">
+                                        <i className="fa-brands fa-google"></i>
+                                        &nbsp;
+                                        Continue with Google
+                                    </button>
+                                )}
+                                cookiePolicy="single_host_origin"
+                            />
 
                             <Link to={'/signup'}>
                                 <button className="aside__button aside__button--email">
