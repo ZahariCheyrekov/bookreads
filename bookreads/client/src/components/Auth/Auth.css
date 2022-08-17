@@ -9,7 +9,7 @@
 .form__auth {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 360px;
     margin: 0 auto;
 }
 
@@ -62,7 +62,7 @@
 
 .section__content {
     line-height: 1.4;
-    width: 400px;
+    width: 360px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@
     content: "";
     position: absolute;
     top: 50%;
-    width: 28%;
+    width: 23%;
     border-top: 0.1rem solid var(--dark-button-color);
 }
 
@@ -99,6 +99,7 @@
 .section__content--button {
     border: 2px solid var(--gray-color);
     background-color: transparent;
+    width: 100%;
 }
 
 .section__content--button:hover {
