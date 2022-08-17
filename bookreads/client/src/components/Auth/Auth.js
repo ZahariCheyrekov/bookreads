@@ -8,6 +8,7 @@ import './Auth.css';
 const Auth = () => {
     const { pathname } = useLocation();
     const [isSignIn, setIsSignIn] = useState();
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         if (pathname === '/signin') {
@@ -16,6 +17,10 @@ const Auth = () => {
             setIsSignIn(false);
         }
     }, [pathname]);
+
+    const handleClick = () => {
+        setShowPassword(prevState => !prevState);
+    }
 
     return (
         <main className="main__auth">
@@ -35,13 +40,15 @@ const Auth = () => {
                 <label htmlFor="email" className="form__auth--label">Email</label>
                 <input type="text" className="form__auth--input" />
 
-                <label htmlFor="password" className="form__auth--label">Password</label>
-                <input type="password" name="password" className="form__auth--input" />
+                <label htmlFor="password" className="form__auth--label password">Password
+                    <input type={showPassword ? "text" : "password"} name="password" className="form__auth--input password" />
+                    <i className="fa-regular fa-eye" onClick={handleClick}></i>
+                </label>
 
                 {!isSignIn && (
                     <>
-                        <label htmlFor="repeatPassword" className="form__auth--label">Repeat password</label>
-                        <input type="text" name="repeatPassword" className="form__auth--input" />
+                        <label htmlFor="repeatPassword" className="form__auth--label password">Repeat password</label>
+                        <input type={showPassword ? "text" : "password"} name="repeatPassword" className="form__auth--input password" />
                     </>
                 )}
 
