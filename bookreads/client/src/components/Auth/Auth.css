@@ -24,11 +24,28 @@
     font-size: 1.2rem;
 }
 
+.form__auth--label.password {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__auth--input.password {
+    padding-right: 2.3rem;
+}
+
 .form__auth--input {
     border: 1px solid var(--gray-color);
     background-color: rgb(240, 240, 240);
     outline: none;
     transition: all ease-in-out 0.2s;
+}
+
+.fa-regular.fa-eye {
+    position: absolute;
+    top: 52%;
+    right: 10px;
+    cursor: pointer;
 }
 
 .form__auth--input:hover {
