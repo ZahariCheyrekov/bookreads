@@ -14,14 +14,14 @@
 .header__ul--li {
     font-size: 1.2rem;
     color: var(--brown-color);
-    padding: 1rem;
 }
 
 .header__ul--li a {
     text-decoration: none;
+    padding: 1rem;
 }
 
-.header__ul--li:hover {
+.header__ul--li a:hover {
     background-color: var(--brown-color);
     color: var(--white-color);
 }
