@@ -3,29 +3,17 @@ import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script"
 
+import { googleSuccess, googleFailure, start } from '../../services/googleServices';
+import { GOOGLE_CLIENT_AUTH } from '../../constants/googleConstants';
+
 import Navigation from "./Navigation/Navigation";
 import books from '../../assets/books-banner.png'
 
 import './Header.css';
 
 const Header = () => {
-    const googleSuccess = async (res) => {
-        console.log(res);
-    }
-
-    const googleFailure = (error) => {
-        console.log(error);
-        console.log('Google sign in was unsuccessful. Try again later.');
-    }
-
     useEffect(() => {
-        function start() {
-            gapi.client.init({
-                clientId: `${process.env.REACT_APP_GOOGLE_CLIENT_ID}`,
-                scope: 'email',
-            });
-        }
-        gapi.load('client:auth2', start);
+        gapi.load(GOOGLE_CLIENT_AUTH, start);
     }, []);
 
     return (
