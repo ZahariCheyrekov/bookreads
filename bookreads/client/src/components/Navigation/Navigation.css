@@ -1,5 +1,39 @@
 .header__navigation {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
     width: var(--primary-component-width);
     margin: 0 auto;
-    padding: 1rem 0.2rem;
+}
+
+.header__ul {
+    display: flex;
+}
+
+.header__ul--li {
+    font-size: 1.2rem;
+    color: var(--brown-color);
+    padding: 1rem;
+}
+
+.header__ul--li a {
+    text-decoration: none;
+}
+
+.header__ul--li:hover {
+    background-color: var(--brown-color);
+    color: var(--white-color);
+}
+
+.header__form--search {
+    width: 50%;
+}
+
+.header__form--input {
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid var(--gray-color);
+    font-size: 1rem;
+    padding: 0.4rem 0.2rem;
 }
