@@ -1,4 +1,4 @@
-import { USER } from '../constants/user';
+import { USER } from '../constants/userConstants';
 
 const saveUser = (userData) => localStorage.setItem(USER, JSON.stringify(userData));
 
