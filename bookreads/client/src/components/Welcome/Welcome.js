@@ -1,8 +1,8 @@
-import Header from '../Header/Header';
+import Header from './Header/Header';
 
-import './Home.css';
+import './Welcome.css';
 
-const Home = () => {
+const Welcome = () => {
     return (
         <>
             <Header />
@@ -35,4 +35,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Welcome;
