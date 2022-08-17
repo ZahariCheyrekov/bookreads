@@ -21,7 +21,7 @@ const Header = () => {
     useEffect(() => {
         function start() {
             gapi.client.init({
-                clientId: '628078431859-fb1qpeog0rg8ci92r5ui1cb49a4pe256.apps.googleusercontent.com',
+                clientId: `${process.env.REACT_APP_GOOGLE_CLIENT_ID}`,
                 scope: 'email',
             });
         }
