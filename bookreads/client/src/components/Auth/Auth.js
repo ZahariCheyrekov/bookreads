@@ -9,6 +9,7 @@ const Auth = () => {
     const { pathname } = useLocation();
     const [isSignIn, setIsSignIn] = useState();
     const [showPassword, setShowPassword] = useState(false);
+    const [formData, setFormData] = useState({ name: '', email: '', password: '', repeatPassword: '' });
 
     useEffect(() => {
         if (pathname === '/signin') {
@@ -22,40 +23,46 @@ const Auth = () => {
         setShowPassword(prevState => !prevState);
     }
 
+    const handleChange = (ev) => {
+        setFormData({ ...formData, [ev.target.name]: ev.target.value.trim() })
+    }
+
+    const handleAuth = (ev) => {
+        ev.preventDefault();
+    }
+
     return (
         <main className="main__auth">
             <Logo />
             <form className="form__auth">
-                <legend className="form__auth--legend">
-                    {isSignIn ? "Sign In" : "Sign Up"}
-                </legend>
+                <legend className="form__auth--legend">{isSignIn ? "Sign In" : "Sign Up"}</legend>
 
                 {!isSignIn && (
                     <>
                         <label htmlFor="name" className="form__auth--label">Your name</label>
-                        <input type="text" name="name" className="form__auth--input" />
+                        <input type="text" name="name" className="form__auth--input" onChange={handleChange} />
                     </>
                 )}
 
                 <label htmlFor="email" className="form__auth--label">Email</label>
-                <input type="text" className="form__auth--input" />
+                <input type="text" name="email" className="form__auth--input" onChange={handleChange} />
 
                 <label htmlFor="password" className="form__auth--label password">Password
-                    <input type={showPassword ? "text" : "password"} name="password" className="form__auth--input password" />
+                    <input type={showPassword ? "text" : "password"} name="password" className="form__auth--input password" onChange={handleChange} />
                     <i className="fa-regular fa-eye" onClick={handleClick}></i>
                 </label>
 
                 {!isSignIn && (
                     <>
                         <label htmlFor="repeatPassword" className="form__auth--label password">Repeat password</label>
-                        <input type={showPassword ? "text" : "password"} name="repeatPassword" className="form__auth--input password" />
+                        <input type={showPassword ? "text" : "password"} name="repeatPassword" className="form__auth--input password" onChange={handleChange} />
                     </>
                 )}
-
-                <button className="form__auth--button auth__button">
+                <button className="form__auth--button auth__button" onClick={handleAuth}>
                     {isSignIn ? "Sign In" : "Sign Up"}
                 </button>
             </form>
+
             <section className="auth__section section__content">
                 <p className="section__content--paragraph">
                     By signing in, you agree to the Bookreads Terms of Service and Privacy Policy.
