@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Navigation from "./Navigation/Navigation";
 import books from '../../assets/books-banner.png'
@@ -6,8 +6,6 @@ import books from '../../assets/books-banner.png'
 import './Header.css';
 
 const Header = () => {
-    const navigate = useNavigate();
-
     return (
         <header className="header">
             <Navigation />
@@ -26,14 +24,18 @@ const Header = () => {
                             <h3 className="header__aside--title">
                                 Discover & read more
                             </h3>
-                            <button className="aside__button aside__button--google" onClick={() => navigate('/google')}>
+
+                            <button className="aside__button aside__button--google" >
                                 <i className="fa-brands fa-google"></i>
                                 &nbsp;
                                 Continue with Google
                             </button>
-                            <button className="aside__button aside__button--email" onClick={() => navigate('/nopage')}>
-                                Sign up with email
-                            </button>
+
+                            <Link to={'/signup'}>
+                                <button className="aside__button aside__button--email">
+                                    Sign up with email
+                                </button>
+                            </Link>
 
                             <p className='aside__paragraph--agree'>
                                 By creating an account, you agree to the Bookreads
