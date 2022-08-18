@@ -1,8 +1,8 @@
 import { USER } from '../constants/userConstants';
 
-const saveUser = (userData) => localStorage.setItem(USER, JSON.stringify(userData));
+export const saveUser = (userData) => localStorage.setItem(USER, JSON.stringify(userData));
 
-const getUser = () => {
+export const getUser = () => {
     const serializesUser = localStorage.getItem(USER);
 
     if (serializesUser) {
@@ -11,6 +11,6 @@ const getUser = () => {
     }
 }
 
-const removeUser = () => localStorage.removeItem(USER);
+export const removeUser = () => localStorage.removeItem(USER);
 
-const getToken = () => getUser()?.token;
+export const getToken = () => getUser()?.token;
