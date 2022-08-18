@@ -5,7 +5,7 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script"
 
 import { googleFailure, start } from '../../../services/googleServices';
-import { GOOGLE_CLIENT_AUTH } from '../../../constants/googleConstants';
+import { GOOGLE_CLIENT_AUTH } from '../../../constants/google';
 import { saveUser } from '../../../features/user/userSlice';
 
 import Navigation from "../../Navigation/Navigation";
