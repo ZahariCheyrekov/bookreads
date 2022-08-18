@@ -7,7 +7,7 @@ import './Navigation.css';
 import { removeUser } from '../../features/user/userSlice';
 
 const Navigation = () => {
-    const user = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     const logout = () => {
@@ -17,7 +17,7 @@ const Navigation = () => {
     return (
         <nav className="navigation header__navigation">
             <Logo />
-            {user?.user?.email ?
+            {user?.email ?
                 <>
                     <ul className="header__ul">
                         <li className="header__ul--li">
