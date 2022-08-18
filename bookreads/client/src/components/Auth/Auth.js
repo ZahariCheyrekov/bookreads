@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { saveUser } from '../../features/user/userSlice';
 
 import Logo from '../Logo/Logo';
 
 import './Auth.css';
 
 const Auth = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { pathname } = useLocation();
     const [isSignIn, setIsSignIn] = useState();
     const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +33,9 @@ const Auth = () => {
 
     const handleAuth = (ev) => {
         ev.preventDefault();
+
+        dispatch(saveUser(formData));
+        navigate('/home');
     }
 
     return (
