@@ -1,4 +1,6 @@
 import { gapi } from 'gapi-script'
+
+import { saveUser } from './localStorage';
 import { GOOGLE_SCOPE } from '../constants/googleConstants';
 
 export const googleSuccess = async (res) => {
@@ -6,7 +8,7 @@ export const googleSuccess = async (res) => {
     const token = res?.tokenId;
 
     try {
-        console.log(result, token)
+        saveUser({ result, token });
     } catch (error) {
         console.log(error);
     }
