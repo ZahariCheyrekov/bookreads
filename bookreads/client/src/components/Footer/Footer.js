@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './Footer.css';
 
 const Footer = () => {
@@ -12,39 +14,39 @@ const Footer = () => {
                                     COMPANY
                                 </h4>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         About us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Careers
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Terms
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Privacy
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Interesd Based Ads
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Ad Preferences
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Help
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
@@ -54,24 +56,24 @@ const Footer = () => {
                                     WORK WITH US
                                 </h4>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Authors
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Advertise
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         Authors & ads blog
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link">
+                                    <Link to="/" className="footer__li--link">
                                         API
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
@@ -81,24 +83,24 @@ const Footer = () => {
                             </h4>
                             <ul className="footer__ul--inner footer__ul--icons">
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link footer__li--icon">
+                                    <Link to="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-facebook-f"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link footer__li--icon">
+                                    <Link to="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-twitter"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link footer__li--icon">
+                                    <Link to="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-instagram"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__li--item">
-                                    <a href="/" className="footer__li--link footer__li--icon">
+                                    <Link to="/" className="footer__li--link footer__li--icon">
                                         <i className="fa-brands fa-linkedin-in"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
