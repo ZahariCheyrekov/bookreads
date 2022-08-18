@@ -1,6 +1,6 @@
 import { gapi } from 'gapi-script'
 
-import { GOOGLE_SCOPE } from '../constants/googleConstants';
+import { GOOGLE_SCOPE } from '../constants/google';
 
 export const googleFailure = (error) => {
     console.log(error);
