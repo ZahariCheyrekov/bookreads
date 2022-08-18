@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from '../Logo/Logo';
 
 import './Navigation.css';
+import { removeUser } from '../../features/user/userSlice';
 
 const Navigation = () => {
     const user = useSelector((state) => state.user);
-    console.log(user.user);
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch(removeUser());
+    }
 
     return (
         <nav className="navigation header__navigation">
@@ -36,6 +41,7 @@ const Navigation = () => {
                 </>
                 : null
             }
+            <button onClick={logout}>logout</button>
         </nav>
     );
 }
