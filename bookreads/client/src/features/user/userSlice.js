@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import * as localStorage from '../../services/localStorage';
+
 const initialState = {
-    user: {}
+    user: localStorage.getUser()
 }
 
 const userSlice = createSlice({
@@ -9,9 +11,11 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         saveUser(state, action) {
+            localStorage.saveUser(action.payload);
             state.user = action.payload;
         },
         removeUser(state) {
+            localStorage.removeUser();
             state.user = {}
         }
     }
