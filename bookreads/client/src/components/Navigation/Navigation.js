@@ -50,13 +50,18 @@ const Navigation = () => {
                             <img
                                 onClick={handleProfileClick}
                                 src={user?.imageUrl ? user.imageUrl : defaultUserPhoto}
+                                alt={user.name}
                             />
 
                             {profileOpen && (
                                 <ul className="header__article--ul article__profile--ul">
                                     <h4 className="profile__ul--name">{user.name}</h4>
                                     <li className="profile__ul--li">
-                                        <Link to={'/'} onClick={handleProfileClick}>Profile</Link>
+                                        <Link to={`/user/${user.name.split(' ').join('').toLowerCase()}/${user.googleId}`}
+                                            onClick={handleProfileClick}
+                                        >
+                                            Profile
+                                        </Link>
                                     </li>
                                     <li className="profile__ul--li">
                                         <Link to={'/'} onClick={handleProfileClick}>Friends</Link>
