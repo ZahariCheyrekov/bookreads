@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
+import User from '../models/User.js';
+import { SALT, TOKEN_EXPIRATION_TIME } from '../constants/index.js';
+
 export const getUsers = async (req, res) => {
     try {
         const users = await User.find();
@@ -11,7 +14,6 @@ export const getUsers = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 }
-
 
 export const signin = async (req, res) => {
     const { email, password } = req.body;
@@ -39,7 +41,7 @@ export const signin = async (req, res) => {
 }
 
 export const signup = async (req, res) => {
-    const {name, email, password, repeatPassword } = req.body;
+    const { name, email, password, repeatPassword } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
