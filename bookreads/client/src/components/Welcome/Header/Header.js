@@ -24,7 +24,7 @@ const Header = () => {
         const token = res?.tokenId;
 
         try {
-            dispatch(saveUser(result, token));
+            dispatch(saveUser({ result: result, token }));
         } catch (error) {
             console.log(error);
         }
