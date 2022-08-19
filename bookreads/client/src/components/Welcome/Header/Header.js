@@ -8,7 +8,6 @@ import { googleFailure, start } from '../../../services/googleServices';
 import { GOOGLE_CLIENT_AUTH } from '../../../constants/google';
 import { saveUser } from '../../../features/user/userSlice';
 
-import Navigation from "../../Navigation/Navigation";
 import books from '../../../assets/books-banner.png'
 
 import './Header.css';
@@ -33,8 +32,6 @@ const Header = () => {
 
     return (
         <header className="header">
-            <Navigation />
-
             <section className="header__section">
                 <article className="section__article" >
                     <article className="article__article article__article--info">
