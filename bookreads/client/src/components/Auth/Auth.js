@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { signin, signup } from '../../api/requester';
 import { SIGN_IN, SIGN_UP } from '../../constants/actionType';
 import { saveUser } from '../../features/user/userSlice';
 
@@ -17,9 +18,9 @@ const Auth = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '', repeatPassword: '' });
 
     useEffect(() => {
-        if (pathname === '/signin') {
+        if (pathname === '/user/signin') {
             setIsSignIn(true);
-        } else if (pathname === '/signup') {
+        } else if (pathname === '/user/signup') {
             setIsSignIn(false);
         }
     }, [pathname]);
@@ -35,10 +36,25 @@ const Auth = () => {
     const handleAuth = async (ev) => {
         ev.preventDefault();
 
-        const action = isSignIn ? SIGN_IN : SIGN_UP;
-        // await auth(action, formData);
 
-        dispatch(saveUser(formData));
+        let user;
+
+        if (isSignIn) {
+            user = await signin(formData);
+        } else {
+            user = await signup(formData);
+        }
+
+        console.log(user);
+        dispatch(saveUser(user.data));
+
+        // if (isSignIn) {
+        // dispatch(signin(formData));
+        // } else {
+        // dispatch(signup(formData));
+        // }
+
+        // dispatch(saveUser(formData));
         navigate('/home');
     }
 
@@ -81,7 +97,7 @@ const Auth = () => {
                 <span className="section__content--span">
                     {isSignIn ? "Don't have an account?" : "Already have an account?"}
                 </span>
-                <Link to={isSignIn ? "/signup" : "/signin"}>
+                <Link to={isSignIn ? "/user/signup" : "/user/signin"}>
                     <button className="section__content--button auth__button">
                         {isSignIn ? "Sign Up" : "Sign In"}
                     </button>
