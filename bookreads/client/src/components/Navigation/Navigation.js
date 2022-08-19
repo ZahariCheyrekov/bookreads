@@ -24,7 +24,7 @@ const Navigation = () => {
         <section className="section__navigation">
             <nav className="navigation header__navigation">
                 <Logo />
-                {Object.keys(user).length > 0
+                {user && Object.keys(user).length > 0
                     ?
                     <>
                         <ul className="header__ul">
