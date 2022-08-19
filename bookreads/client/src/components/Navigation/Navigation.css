@@ -26,9 +26,6 @@
     color: var(--white-color);
 }
 
-.header__form--search {
-    width: 50%;
-}
 
 .header__form--input {
     width: 100%;
@@ -36,4 +33,13 @@
     border: 1px solid var(--gray-color);
     font-size: 1rem;
     padding: 0.4rem 0.2rem;
+}
+
+.header__article--profile {
+    max-width: 40px;
+}
+
+.header__article--profile img {
+    border-radius: 50%;
+    cursor: pointer;
 }
