@@ -1,6 +1,11 @@
+.section__navigation {
+    background-color: var(--lightgray-color);
+}
+
 .header__navigation {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
 
     width: var(--primary-component-width);
@@ -26,6 +31,9 @@
     color: var(--white-color);
 }
 
+.header__form--search {
+    width: 600px;
+}
 
 .header__form--input {
     width: 100%;
@@ -37,9 +45,33 @@
 
 .header__article--profile {
     max-width: 40px;
+    position: relative;
 }
 
 .header__article--profile img {
     border-radius: 50%;
     cursor: pointer;
+}
+
+.article__profile--ul {
+    position: absolute;
+    width: 250px;
+    z-index: 50;
+    margin-top: 5px;
+    box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.10);
+    background-color: var(--white-color);
+    padding: 12px;
+    right: 0;
+}
+
+.profile__ul--name {
+    text-transform: uppercase;
+}
+
+.profile__ul--li {
+    margin: 18px 0;
+}
+
+.profile__ul--li:last-child {
+    margin-bottom: 0;
 }
