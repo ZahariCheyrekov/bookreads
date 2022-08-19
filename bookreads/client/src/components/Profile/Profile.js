@@ -11,12 +11,12 @@ const Profile = () => {
         <main className="main__profile">
             <section className="main__profile--section">
                 <article className="profile__section--article">
-                    <img src={user?.imageUrl ? user.imageUrl : defaultUserPhoto}
-                        alt={`${user.name}`}
+                    <img src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
+                        alt={`${user?.result?.name}`}
                     />
                 </article>
                 <h4 className="profile__section--user">
-                    {user.name}
+                    {user?.result?.name}
                 </h4>
                 <Link to={'/user/edit'}>
                     <button className="profile__section--edit">
