@@ -18,8 +18,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Welcome />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/signin" element={<Auth />} />
-                <Route path="/signup" element={<Auth />} />
+                <Route path="/user/signin" element={<Auth />} />
+                <Route path="/user/signup" element={<Auth />} />
                 <Route path="/user/:name/:id" element={<Profile />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
