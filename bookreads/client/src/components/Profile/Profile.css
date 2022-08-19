@@ -1,0 +1,26 @@
+.main__profile--section {
+    max-width: var(--primary-component-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile__section--article {
+    max-width: 100px;
+}
+
+.profile__section--article img {
+    border-radius: 50%;
+}
+
+.profile__section--user {
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.profile__section--edit {
+    padding: 6px 30px;
+    font-size: 1rem;
+}
