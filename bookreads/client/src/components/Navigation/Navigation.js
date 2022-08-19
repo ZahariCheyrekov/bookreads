@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from '../Logo/Logo';
+import defaultUserPhoto from '../../assets/default-user-photo.png';
+import { removeUser } from '../../features/user/userSlice';
 
 import './Navigation.css';
-import { removeUser } from '../../features/user/userSlice';
 
 const Navigation = () => {
     const { user } = useSelector((state) => state.user);
@@ -38,10 +39,15 @@ const Navigation = () => {
                     <form className="header__form--search">
                         <input className="header__form--input" placeholder="Search books" />
                     </form>
+
+                    <button onClick={logout}>logout</button>
+
+                    <article className="header__article header__article--profile">
+                        <img src={user?.imageUrl ? user.imageUrl : defaultUserPhoto} />
+                    </article>
                 </>
                 : null
             }
-            <button onClick={logout}>logout</button>
         </nav>
     );
 }
