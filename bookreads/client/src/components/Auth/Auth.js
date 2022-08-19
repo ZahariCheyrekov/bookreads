@@ -39,8 +39,10 @@ const Auth = () => {
 
         if (isSignIn) {
             user = await signin(formData);
+            // dispatch(signin(formData))
         } else {
             user = await signup(formData);
+            // dispatch(signup(formData))
         }
 
         // !!! 
