@@ -24,7 +24,8 @@ const Navigation = () => {
         <section className="section__navigation">
             <nav className="navigation header__navigation">
                 <Logo />
-                {user?.email ?
+                {Object.keys(user).length > 0
+                    ?
                     <>
                         <ul className="header__ul">
                             <li className="header__ul--li">
@@ -49,15 +50,15 @@ const Navigation = () => {
                         <article className="header__article header__article--profile">
                             <img
                                 onClick={handleProfileClick}
-                                src={user?.imageUrl ? user.imageUrl : defaultUserPhoto}
-                                alt={user.name}
+                                src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
+                                alt={user?.result?.name}
                             />
 
                             {profileOpen && (
                                 <ul className="header__article--ul article__profile--ul">
-                                    <h4 className="profile__ul--name">{user.name}</h4>
+                                    <h4 className="profile__ul--name">{user?.result?.name}</h4>
                                     <li className="profile__ul--li">
-                                        <Link to={`/user/${user.name.split(' ').join('').toLowerCase()}/${user.googleId}`}
+                                        <Link to={`/user/${user.result.name.split(' ').join('').toLowerCase()}/${user.googleId}`}
                                             onClick={handleProfileClick}
                                         >
                                             Profile
