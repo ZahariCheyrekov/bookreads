@@ -60,7 +60,7 @@ const Header = () => {
                                 )}
                                 cookiePolicy="single_host_origin"
                             />
-                            <Link to={'/signup'}>
+                            <Link to={'/user/signup'}>
                                 <button className="aside__button aside__button--email">
                                     Sign up with email
                                 </button>
@@ -79,7 +79,7 @@ const Header = () => {
                             </p>
                             <p className="header__aside--paragraph">
                                 Already a member?&nbsp;
-                                <Link to={'/signin'}>Sign In</Link>
+                                <Link to={'/user/signin'}>Sign In</Link>
                             </p>
                         </aside>
                     </article>
