@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { signin, signup } from '../../api/requester';
-import { SIGN_IN, SIGN_UP } from '../../constants/actionType';
 import { saveUser } from '../../features/user/userSlice';
 
 import Logo from '../Logo/Logo';
@@ -36,7 +35,6 @@ const Auth = () => {
     const handleAuth = async (ev) => {
         ev.preventDefault();
 
-
         let user;
 
         if (isSignIn) {
@@ -45,16 +43,11 @@ const Auth = () => {
             user = await signup(formData);
         }
 
+        // !!! 
+        // TODO: Fix this: dispatch(saveUser(user.data))...
         console.log(user);
         dispatch(saveUser(user.data));
 
-        // if (isSignIn) {
-        // dispatch(signin(formData));
-        // } else {
-        // dispatch(signup(formData));
-        // }
-
-        // dispatch(saveUser(formData));
         navigate('/home');
     }
 
