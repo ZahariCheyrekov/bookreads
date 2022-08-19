@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { SIGN_IN, SIGN_UP } from '../../constants/actionType';
 import { saveUser } from '../../features/user/userSlice';
 
 import Logo from '../Logo/Logo';
@@ -31,8 +32,11 @@ const Auth = () => {
         setFormData({ ...formData, [ev.target.name]: ev.target.value.trim() })
     }
 
-    const handleAuth = (ev) => {
+    const handleAuth = async (ev) => {
         ev.preventDefault();
+
+        const action = isSignIn ? SIGN_IN : SIGN_UP;
+        // await auth(action, formData);
 
         dispatch(saveUser(formData));
         navigate('/home');
