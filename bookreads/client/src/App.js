@@ -33,7 +33,7 @@ function App() {
                     ))}
                 </Route>
                 <Route path='/create' element={<BookForm />} />
-                <Route path='/book/:id' element={<BookDetails />} />
+                <Route path='/books/:id' element={<BookDetails />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
