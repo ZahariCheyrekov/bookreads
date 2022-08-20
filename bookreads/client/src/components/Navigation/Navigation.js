@@ -32,7 +32,6 @@ const Navigation = () => {
     }
     const handleProfileClick = () => {
         setProfileOpen(prevState => !prevState);
-        navigate('/');
     }
 
     return (
@@ -80,7 +79,11 @@ const Navigation = () => {
                                         </Link>
                                     </li>
                                     <li className="profile__ul--li">
-                                        <Link to={'/'} onClick={handleProfileClick}>Friends</Link>
+                                        <Link to={'/'}
+                                            onClick={handleProfileClick}
+                                        >
+                                            Friends
+                                        </Link>
                                     </li>
                                     <li className="profile__ul--li">
                                         <Link to={'/'} onClick={() => {
