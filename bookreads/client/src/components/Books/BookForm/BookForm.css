@@ -1,0 +1,15 @@
+.main__form--book {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form__book--legend {
+    font-size: 1.4rem;
+}
+
+.form__book--label {
+    margin: 20px 0 4px;
+}
