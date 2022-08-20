@@ -7,6 +7,7 @@ import { configDatabase } from './config/configDatabase.js';
 import { DEFAULT_PORT } from './constants/index.js';
 
 import userRoutes from './routes/user.js';
+import bookRoutes from './routes/book.js';
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/user', userRoutes);
+app.use('/books', bookRoutes);
 
 app.get('/', (req, res) => {
     res.send('Application is running correctly.');
