@@ -15,6 +15,7 @@ import Footer from './components/Footer/Footer';
 
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
+import BookDetails from './components/Books/BookDetails/BookDetails';
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                     ))}
                 </Route>
                 <Route path='/create' element={<BookForm />} />
+                <Route path='/book/:id' element={<BookDetails />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
