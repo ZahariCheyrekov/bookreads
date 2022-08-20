@@ -1,23 +1,24 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Logo from '../Logo/Logo';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
-import { removeUser } from '../../features/user/userSlice';
 
 import './Navigation.css';
+import { AuthContext } from '../../contexts/AuthContext';
+import { removeUser } from '../../services/localStorage';
 
 const Navigation = () => {
-    const dispatch = useDispatch();
-    const { user } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
     const [profileOpen, setProfileOpen] = useState(false);
 
     const logout = () => {
-        dispatch(removeUser());
+        removeUser();
     }
     const handleProfileClick = () => {
         setProfileOpen(prevState => !prevState);
+        navigate('/');
     }
 
     return (
@@ -50,7 +51,7 @@ const Navigation = () => {
                         <article className="header__article header__article--profile">
                             <img
                                 onClick={handleProfileClick}
-                                src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
+                                src={user?.result?.imageUrl ? user.result?.imageUrl : defaultUserPhoto}
                                 alt={user?.result?.name}
                             />
 
@@ -58,7 +59,7 @@ const Navigation = () => {
                                 <ul className="header__article--ul article__profile--ul">
                                     <h4 className="profile__ul--name">{user?.result?.name}</h4>
                                     <li className="profile__ul--li">
-                                        <Link to={`/user/${user.result.name.split(' ').join('').toLowerCase()}/${user.googleId}`}
+                                        <Link to={`/user/${user?.result?.name.split(' ').join('').toLowerCase()}/${user?.result?.googleId || user?.result?._id}`}
                                             onClick={handleProfileClick}
                                         >
                                             Profile

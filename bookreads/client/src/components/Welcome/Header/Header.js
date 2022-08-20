@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script"
 
 import { googleFailure, start } from '../../../services/googleServices';
 import { GOOGLE_CLIENT_AUTH } from '../../../constants/google';
-import { saveUser } from '../../../features/user/userSlice';
 
 import books from '../../../assets/books-banner.png'
 
 import './Header.css';
+import { saveUser } from '../../../services/localStorage';
 
 const Header = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         gapi.load(GOOGLE_CLIENT_AUTH, start);
@@ -23,11 +22,9 @@ const Header = () => {
         const result = res?.profileObj;
         const token = res?.tokenId;
 
-        try {
-            dispatch(saveUser({ result: result, token }));
-        } catch (error) {
-            console.log(error);
-        }
+        const user = { result: result, token }
+        saveUser(user);
+        navigate('/');
     }
 
     return (

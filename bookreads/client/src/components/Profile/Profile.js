@@ -1,11 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useContext } from 'react';
+
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 
 import './Profile.css';
 
 const Profile = () => {
-    const { user } = useSelector((state) => state.user);
+    const user = useContext(AuthContext);
 
     return (
         <main className="main__profile">

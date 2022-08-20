@@ -1,20 +1,21 @@
 import * as api from '../api/requester';
 
-export const signin = (userData) => async (dispatch) => {
-    try {
-        const { data } = await api.signin(userData);
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-}
+import { saveUser } from './localStorage';
+import { SIGN_IN, SIGN_UP } from '../constants/actionType';
 
-export const signup = (userData) => async (dispatch) => {
+export const auth = async (action, data, navigate) => {
     try {
-        const { data } = await api.signup(userData);
-        console.log(data);
-        return data;
+        let result;
+
+        if (action === SIGN_IN) {
+            result = await api.signin(data);
+        } else if (action === SIGN_UP) {
+            result = await api.signup(data);
+        }
+
+        const user = result.data;
+        saveUser(user);
+        navigate('/');
     } catch (error) {
         console.log(error);
     }

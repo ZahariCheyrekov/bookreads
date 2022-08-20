@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { signin, signup } from '../../api/requester';
-import { saveUser } from '../../features/user/userSlice';
+
+import { SIGN_IN, SIGN_UP } from '../../constants/actionType';
+import { auth } from '../../services/auth';
 
 import Logo from '../Logo/Logo';
 
 import './Auth.css';
 
 const Auth = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const [isSignIn, setIsSignIn] = useState();
@@ -35,22 +34,8 @@ const Auth = () => {
     const handleAuth = async (ev) => {
         ev.preventDefault();
 
-        let user;
-
-        if (isSignIn) {
-            user = await signin(formData);
-            // dispatch(signin(formData))
-        } else {
-            user = await signup(formData);
-            // dispatch(signup(formData))
-        }
-
-        // !!! 
-        // TODO: Fix this: dispatch(saveUser(user.data))...
-        console.log(user);
-        dispatch(saveUser(user.data));
-
-        navigate('/home');
+        const actionType = isSignIn ? SIGN_IN : SIGN_UP;
+        await auth(actionType, formData, navigate);
     }
 
     return (
