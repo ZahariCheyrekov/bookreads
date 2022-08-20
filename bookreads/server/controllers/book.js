@@ -4,6 +4,8 @@ import BookSchema from '../models/Book.js';
 
 export const createBook = async (req, res) => {
     const bookData = req.body;
+    bookData.description = bookData.description.split('\n ');
+    
     const newBook = new BookSchema(bookData);
 
     try {
