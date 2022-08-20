@@ -10,11 +10,11 @@ const bookSchema = mongoose.Schema({
         required: true
     },
     description: {
-        type: [String],
+        type: Array,
         required: true
     },
     tags: {
-        type: String,
+        type: Array,
         required: true
     },
     pages: {
@@ -38,7 +38,7 @@ const bookSchema = mongoose.Schema({
         required: true
     },
     reviews: {
-        type: [String]
+        type: Array
     }
 });
 
