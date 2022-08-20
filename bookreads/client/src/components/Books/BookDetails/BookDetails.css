@@ -1,15 +1,41 @@
 .div__wrapper {
     max-width: var(--primary-component-width);
     margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
 }
 
 .aside__book--article {
-    max-width: 200px;
+    width: 220px;
 }
 
 .aside__book--article img {
-    object-fit: cover;
+    object-fit: fill;
 
-    border-radius: 0 12px 12px 0;
-    box-shadow: 0px 0px 8px;
+    border-radius: 0 14px 14px 0;
+    box-shadow: 0 0 8px rgb(107, 107, 107);
+}
+
+.book__title {
+    font-family: Copernicus, "Libre Baskerville", Georgia, serif;
+    font-weight: 400;
+}
+
+.book__author {
+    font-family: serif;
+    font-weight: 200;
+    font-size: 1.6rem;
+    margin: 20px 0;
+}
+
+.book__summary {
+    max-width: 900px;
+    line-height: 1.4;
+    word-spacing: 2px;
+}
+
+.book__summary--paragraph {
+    margin: 24px 0;
 }
