@@ -15,7 +15,8 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
-export const createBook = (bookData) => API.post(`/books`, bookData);
+export const getBookById = (id) => API.get(`/books/${id}`);
+export const createBook = (bookData) => API.post('/books', bookData);
 
 export const signin = (userData) => API.post(`/user/signin`, userData);
 export const signup = (userData) => API.post(`/user/signup`, userData);
