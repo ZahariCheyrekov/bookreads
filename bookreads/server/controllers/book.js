@@ -13,7 +13,15 @@ export const getBookById = async (req, res) => {
 
 export const createBook = async (req, res) => {
     const bookData = req.body;
-    bookData.description = bookData.description.split('\n ');
+    const description = bookData.description.trim().split(/\n+/);
+
+    let descriptionArr = [];
+
+    description.forEach(paragraph => descriptionArr.push(paragraph));
+    bookData.description = descriptionArr;
+
+    const tags = bookData.tags.split(', ');
+    bookData.tags = tags;
 
     const newBook = new BookSchema(bookData);
 
