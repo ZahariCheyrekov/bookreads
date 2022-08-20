@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { getCard } from '../../../services/book';
 
@@ -37,6 +37,16 @@ const BookDetails = () => {
                                 </p>
                             )}
                         </summary>
+
+                        <ul className="book__tags">
+                            {book.tags.map((tag, index) =>
+                                <li key={index} className="book__tag">
+                                    <Link to={`/genres/${tag.toLowerCase().split(' ').join('-')}`}>
+                                        {tag}
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
                     </section>
                 </div >
                 : null
