@@ -1,0 +1,15 @@
+.div__wrapper {
+    max-width: var(--primary-component-width);
+    margin: 0 auto;
+}
+
+.aside__book--article {
+    max-width: 200px;
+}
+
+.aside__book--article img {
+    object-fit: cover;
+
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0px 0px 8px;
+}
