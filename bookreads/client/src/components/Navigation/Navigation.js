@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import decode from 'jwt-decode';
 
 import Logo from '../Logo/Logo';
@@ -11,7 +11,6 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { removeUser } from '../../services/localStorage';
 
 const Navigation = () => {
-    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const [profileOpen, setProfileOpen] = useState(false);
 

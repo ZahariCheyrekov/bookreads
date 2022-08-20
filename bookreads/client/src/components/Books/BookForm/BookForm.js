@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { createBook } from "../../../api/requester";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 import './BookForm.css';
 
 const BookForm = () => {
-    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const [bookData, setBookData] = useState(
         {
