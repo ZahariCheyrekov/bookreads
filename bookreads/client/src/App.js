@@ -10,7 +10,9 @@ import Welcome from './components/Welcome/Welcome';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
 import NotFound from './components/NotFound/NotFound';
+import BookForm from './components/Books/BookForm/BookForm';
 import Footer from './components/Footer/Footer';
+
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
 
@@ -29,6 +31,7 @@ function App() {
                         <Route key={path} path={`/user/${path}`} element={<Auth />} />
                     ))}
                 </Route>
+                <Route path='/create' element={<BookForm />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
