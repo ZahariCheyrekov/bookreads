@@ -6,35 +6,35 @@
     margin: 0 auto;
 }
 
-.form__auth {
+.main__form {
     display: flex;
     flex-direction: column;
     max-width: 360px;
     margin: 0 auto;
 }
 
-.form__auth--legend {
+.form__legend {
     font-family: 'Copernicus';
     font-size: 2.6rem;
     text-align: center;
     margin: 15px 0;
 }
 
-.form__auth--label {
+.form__label {
     font-size: 1.2rem;
 }
 
-.form__auth--label.password {
+.form__label.password {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-.form__auth--input.password {
+.form__input.password {
     padding-right: 2.3rem;
 }
 
-.form__auth--input {
+.form__input {
     border: 1px solid var(--gray-color);
     background-color: rgb(240, 240, 240);
     outline: none;
@@ -48,16 +48,16 @@
     cursor: pointer;
 }
 
-.form__auth--input:hover {
+.form__input:hover {
     background-color: rgb(219, 219, 219);
 }
 
-.form__auth--input:focus {
+.form__input:focus {
     background-color: var(--white-color);
     box-shadow: 0px 0px 2px;
 }
 
-.form__auth--input,
+.form__input,
 .auth__button {
     margin: 14px 0;
     padding: 0.4rem 0.8rem;
@@ -67,13 +67,13 @@
     height: 34px;
 }
 
-.form__auth--button {
+.form__button {
     background-color: var(--dark-button-color);
     color: var(--white-color);
     border: none;
 }
 
-.form__auth--button:hover {
+.form__button:hover {
     background-color: #2e2c29;
 }
 
