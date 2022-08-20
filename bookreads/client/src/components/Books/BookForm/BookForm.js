@@ -24,11 +24,10 @@ const BookForm = () => {
     const handleChange = (ev) => {
         setBookData({ ...bookData, [ev.target.name]: ev.target.value });
     }
+
     const handleClick = (ev) => {
         ev.preventDefault();
-
         createBook({ ...bookData, creatorToken: user?.token });
-        navigate('/home');
     }
 
     return (
@@ -43,7 +42,7 @@ const BookForm = () => {
                 <input type="text" name="author" className="form__input" onChange={handleChange} />
 
                 <label htmlFor="description" className="form__label">Description</label>
-                <input type="text" name="description" className="form__input" onChange={handleChange} />
+                <textarea name="description" className="form__input form__textarea" onChange={handleChange} />
 
                 <label htmlFor="tags" className="form__label">Tags</label>
                 <input type="text" name="tags" className="form__input" onChange={handleChange} />
