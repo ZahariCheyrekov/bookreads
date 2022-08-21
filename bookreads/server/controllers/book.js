@@ -47,3 +47,15 @@ export const editBook = async (req, res) => {
     const updatedBook = await BookSchema.findByIdAndUpdate(_id, book);
     res.json(updatedBook);
 }
+
+export const deleteBook = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`No book with id: ${id}`);
+    }
+
+    await BookSchema.findByIdAndRemove(id);
+
+    res.json({ message: 'Book was deleted successfully.' });
+}
