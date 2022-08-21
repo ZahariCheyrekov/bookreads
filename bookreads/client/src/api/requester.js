@@ -18,6 +18,7 @@ API.interceptors.request.use((req) => {
 export const getBookById = (id) => API.get(`/books/${id}`);
 export const createBook = (bookData) => API.post('/books', bookData);
 export const editBook = (bookId, bookData) => API.patch(`/books/${bookId}/edit`, bookData);
+export const deleteBook = (bookId) => API.delete(`/books/${bookId}`);
 
 export const signin = (userData) => API.post(`/user/signin`, userData);
 export const signup = (userData) => API.post(`/user/signup`, userData);
