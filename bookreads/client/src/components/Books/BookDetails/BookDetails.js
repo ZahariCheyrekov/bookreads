@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 import { getCard } from '../../../services/book';
 import BookReviews from '../BookReviews/BookReviews';
@@ -7,9 +8,11 @@ import BookReviews from '../BookReviews/BookReviews';
 import './BookDetails.css';
 
 const BookDetails = () => {
+    const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [book, setBook] = useState(null);
     const [visibleSummary, setVisibleSummary] = useState(false);
+    const isOwner = user?._id || user?.result?.googleId === book?.creatorId;
 
     useEffect(() => {
         const fetchBook = async () => {
@@ -31,6 +34,18 @@ const BookDetails = () => {
                         <article className="aside__book--article">
                             <img src={book.bookCoverUrl} alt={book.title} />
                         </article>
+                        {isOwner && (
+                            <>
+                                <Link to={`/books/${id}/edit`}>
+                                    <button className="aside__book--button">
+                                        Edit book
+                                    </button>
+                                </Link>
+                                <button className="aside__book--button book__delete--button">
+                                    Delete book
+                                </button>
+                            </>
+                        )}
                     </aside>
                     <section className="section__book--content">
                         <article className="section__article--book">
