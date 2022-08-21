@@ -1,10 +1,16 @@
-import { useContext, useState } from "react";
-import { createBook } from "../../../api/requester";
-import { AuthContext } from "../../../contexts/AuthContext";
+import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { createBook } from '../../../api/requester';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { getCard } from '../../../services/book';
+
+import FormField from './FormField/FormField';
 
 import './BookForm.css';
 
 const BookForm = () => {
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [bookData, setBookData] = useState(
         {
@@ -19,6 +25,16 @@ const BookForm = () => {
         }
     );
 
+    useEffect(() => {
+        if (id) {
+            const fetchBook = async () => {
+                const book = await getCard(id);
+                setBookData(book);
+            }
+            fetchBook();
+        }
+    }, [id]);
+
     const handleChange = (ev) => {
         setBookData({ ...bookData, [ev.target.name]: ev.target.value });
     }
@@ -31,33 +47,20 @@ const BookForm = () => {
     return (
         <main className="main__auth">
             <form className="main__form--book">
-                <legend className="form__legend">Create book</legend>
+                <legend className="form__legend">{id ? 'Edit' : 'Create'} book</legend>
 
-                <label htmlFor="title" className="form__label">Title</label>
-                <input type="text" name="title" className="form__input" onChange={handleChange} />
+                <FormField htmlFor={'title'} content={'Title'} value={id && bookData?.title} onChange={handleChange} />
+                <FormField htmlFor={'author'} content={'Author'} value={id && bookData?.author} onChange={handleChange} />
+                <FormField htmlFor={'description'} content={'Description'} textearea={true} value={id && bookData?.description} onChange={handleChange} />
+                <FormField htmlFor={'tags'} content={'Tags'} value={id && bookData?.tags} onChange={handleChange} />
+                <FormField htmlFor={'pages'} content={'Pages'} type={'number'} value={id && bookData?.pages} onChange={handleChange} />
+                <FormField htmlFor={'language'} content={'Language'} value={id && bookData?.language} onChange={handleChange} />
+                <FormField htmlFor={'bookCoverUrl'} content={'Book cover url'} value={id && bookData?.bookCoverUrl} onChange={handleChange} />
+                <FormField htmlFor={'datePublished'} content={'Date published'} type={'date'} value={bookData?.datePublished.slice(0, 10)} onChange={handleChange} />
 
-                <label htmlFor="author" className="form__label">Author</label>
-                <input type="text" name="author" className="form__input" onChange={handleChange} />
-
-                <label htmlFor="description" className="form__label">Description</label>
-                <textarea name="description" className="form__input form__textarea" onChange={handleChange} />
-
-                <label htmlFor="tags" className="form__label">Tags</label>
-                <input type="text" name="tags" className="form__input" onChange={handleChange} />
-
-                <label htmlFor="pages" className="form__label">Pages</label>
-                <input type="number" name="pages" className="form__input" onChange={handleChange} />
-
-                <label htmlFor="language" className="form__label">Language</label>
-                <input type="text" name="language" className="form__input" onChange={handleChange} />
-
-                <label htmlFor="bookCoverUrl" className="form__label">Book cover url</label>
-                <input type="text" name="bookCoverUrl" className="form__input" onChange={handleChange} />
-
-                <label htmlFor="datePublished" className="form__label">Date published</label>
-                <input type="date" name="datePublished" className="form__input" onChange={handleChange} />
-
-                <button className="form__button auth__button" onClick={handleClick}>Create book</button>
+                <button className="form__button auth__button" onClick={handleClick}>
+                    {id ? 'Edit' : 'Create'} book
+                </button>
             </form>
         </main >
     );
