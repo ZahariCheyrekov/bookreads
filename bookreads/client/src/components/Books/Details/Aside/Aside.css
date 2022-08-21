@@ -1,5 +1,7 @@
 .aside__book--content {
     width: 220px;
+    position: sticky;
+    top: 100px;
 }
 
 .aside__book--article {
