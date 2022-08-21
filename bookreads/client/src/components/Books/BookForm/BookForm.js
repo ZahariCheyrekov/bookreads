@@ -42,12 +42,13 @@ const BookForm = () => {
 
     const handleClick = (ev) => {
         ev.preventDefault();
+        const creatorId = user?.result?.googleId || user?._id;
 
         if (id) {
             editBook(id, bookData);
             navigate(`/books/${id}`);
         } else {
-            createBook({ ...bookData, creatorToken: user?.token });
+            createBook({ ...bookData, creatorId });
         }
     }
 
