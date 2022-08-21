@@ -1,8 +1,10 @@
+import './BookReviews.css';
+
 const BookReviews = () => {
     return (
-        <>
-            BookReviews
-        </>
+        <section className="reviews">
+            <h3 className="reviews__title">Reviews & Ratings</h3>
+        </section>
     );
 }
 
