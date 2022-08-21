@@ -2,6 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/requester';
 
+import './Aside.css';
+
 const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
     const navigate = useNavigate();
 
