@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 import { getCard } from '../../../services/book';
 
+import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
+import Tags from './Tags/Tags';
 import Table from './Table/Table';
 import Reviews from '../Reviews/Reviews';
 
 import './Details.css';
-import Aside from './Aside/Aside';
 
 const Details = () => {
     const { user } = useContext(AuthContext);
@@ -42,17 +43,7 @@ const Details = () => {
                             <h2 className="book__author">{book.author}</h2>
 
                             <Summary description={book?.description} />
-
-                            <ul className="book__tags">
-                                {book.tags.map((tag, index) =>
-                                    <li key={index} className="book__tag">
-                                        <Link to={`/genres/${tag.toLowerCase().split(' ').join('-')}`}>
-                                            {tag}
-                                        </Link>
-                                    </li>
-                                )}
-                            </ul>
-
+                            <Tags tags={book.tags} />
                             <Table book={book} />
                         </article>
 
