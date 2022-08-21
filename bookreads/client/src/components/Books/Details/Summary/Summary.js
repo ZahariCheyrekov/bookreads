@@ -16,11 +16,12 @@ const Summary = ({ description }) => {
                     {paragraph}
                 </p>
             )}
-            <span className={visibleSummary ? 'book__more--hidden' : 'book__summary--more'}
+            <span className={visibleSummary ? 'book__summary--less' : 'book__summary--more'}
                 onClick={handleVisibleSummary}
             >
-                Show more&nbsp;
-                <i className="fa-solid fa-angle-down"></i>
+                {visibleSummary ? 'Show less' : 'Show more'}
+                &nbsp;
+                <i className={`fa-solid fa-angle-down ${visibleSummary ? 'up-arrow' : 'down-arrow'}`}></i>
             </span>
         </summary>
     );
