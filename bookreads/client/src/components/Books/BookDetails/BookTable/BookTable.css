@@ -1,0 +1,15 @@
+.book__table--heading {
+    font-family: Copernicus, "Libre Baskerville", Georgia, serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+.book__table {
+    width: 400px;
+    border-spacing: 0 1rem;
+}
+
+.book__table--data {
+    color: var(--gray-color);
+}
