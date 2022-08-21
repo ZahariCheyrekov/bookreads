@@ -33,7 +33,7 @@ const bookSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-    creatorToken: {
+    creatorId: {
         type: String,
         required: true
     },
