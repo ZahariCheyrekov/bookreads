@@ -32,7 +32,11 @@ function App() {
                         <Route key={path} path={`/user/${path}`} element={<Auth />} />
                     ))}
                 </Route>
-                <Route path='/create' element={<BookForm />} />
+                <Route element={<BookForm />}>
+                    {['create', 'books/:id/edit'].map((path) => (
+                        <Route key={path} path={`/${path}`} element={<BookForm />} />
+                    ))}
+                </Route>
                 <Route path='/books/:id' element={<BookDetails />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
