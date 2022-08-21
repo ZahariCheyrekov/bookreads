@@ -1,16 +1,16 @@
+.book__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    font-weight: 500;
+    word-spacing: 2px;
+    margin: 2.8rem 0;
+}
+
 .book__tag a {
     text-decoration: none;
     position: relative;
-}
-
-.book__tag a::before {
-    background-color: var(--book-link-color);
-    transform-origin: bottom left;
-}
-
-.book__tag a::after {
-    background-color: var(--book-link-color);
-    transform-origin: bottom right;
 }
 
 .book__tag a::before,
@@ -25,13 +25,7 @@
     height: 0.18rem;
 
     transform: scaleX(1);
-    transition: transform 0.3s ease-out
-}
-
-.book__tag a:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-    transition: transform 0.3s ease-out;
+    background-color: var(--book-link-color);
 }
 
 .book__tag a:hover::after {
@@ -40,11 +34,4 @@
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
-}
-
-.hr__divider {
-    border: none;
-    background-color: var(--divider-color);
-    height: 0.1rem;
-    margin: 1.4rem 0;
 }
