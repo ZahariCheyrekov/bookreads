@@ -19,12 +19,10 @@
     margin: 20px 0;
 }
 
-.book__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.hr__divider {
+    border: none;
+    background-color: var(--divider-color);
 
-    font-weight: 500;
-    word-spacing: 2px;
-    margin: 2.8rem 0;
+    height: 0.1rem;
+    margin: 1.4rem 0;
 }
