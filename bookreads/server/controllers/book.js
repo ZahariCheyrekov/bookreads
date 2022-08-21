@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 import BookSchema from '../models/Book.js';
 
 export const getBookById = async (req, res) => {
@@ -32,4 +34,16 @@ export const createBook = async (req, res) => {
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
+}
+
+export const editBook = async (req, res) => {
+    const { id: _id } = req.params;
+    const book = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return res.status(404).send(`Unable to find card with id: ${_id}`);
+    }
+
+    const updatedBook = await BookSchema.findByIdAndUpdate(_id, book);
+    res.json(updatedBook);
 }
