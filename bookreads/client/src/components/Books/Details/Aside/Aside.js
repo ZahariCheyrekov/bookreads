@@ -13,23 +13,25 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
     }
 
     return (
-        <aside className="aside__book--content">
-            <article className="aside__book--article">
-                <img src={bookCoverUrl} alt={title} />
-            </article>
-            {isOwner && (
-                <>
-                    <Link to={`/books/${id}/edit`}>
-                        <button className="aside__book--button">
-                            Edit book
+        <section className="section__aside">
+            <aside className="aside__book--content">
+                <article className="aside__book--article">
+                    <img src={bookCoverUrl} alt={title} />
+                </article>
+                {isOwner && (
+                    <>
+                        <Link to={`/books/${id}/edit`}>
+                            <button className="aside__book--button">
+                                Edit book
+                            </button>
+                        </Link>
+                        <button className="aside__book--button book__delete--button" onClick={handleDelete}>
+                            Delete book
                         </button>
-                    </Link>
-                    <button className="aside__book--button book__delete--button" onClick={handleDelete}>
-                        Delete book
-                    </button>
-                </>
-            )}
-        </aside>
+                    </>
+                )}
+            </aside>
+        </section>
     );
 }
 
