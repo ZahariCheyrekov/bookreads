@@ -1,0 +1,8 @@
+.form__book--label {
+    margin: 20px 0 4px;
+}
+
+.form__textarea {
+    resize: none;
+    height: 60px;
+}
