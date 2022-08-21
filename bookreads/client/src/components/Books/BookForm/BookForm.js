@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { createBook } from '../../../api/requester';
+import { createBook, editBook } from '../../../api/requester';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { getCard } from '../../../services/book';
 
@@ -10,6 +10,7 @@ import FormField from './FormField/FormField';
 import './BookForm.css';
 
 const BookForm = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [bookData, setBookData] = useState(
@@ -41,7 +42,13 @@ const BookForm = () => {
 
     const handleClick = (ev) => {
         ev.preventDefault();
-        createBook({ ...bookData, creatorToken: user?.token });
+
+        if (id) {
+            editBook(id, bookData);
+            navigate(`/books/${id}`);
+        } else {
+            createBook({ ...bookData, creatorToken: user?.token });
+        }
     }
 
     return (
