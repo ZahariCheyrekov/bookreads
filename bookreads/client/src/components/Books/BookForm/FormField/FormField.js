@@ -1,3 +1,5 @@
+import './FormField.css';
+
 const FormField = ({ htmlFor, content, type, textearea, value, onChange }) => {
     return (
         <>
