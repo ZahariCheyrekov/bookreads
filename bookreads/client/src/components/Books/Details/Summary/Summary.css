@@ -30,13 +30,22 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--white-color) 1.6rem);
 }
 
-.book__more--hidden {
-    display: none;
+.book__summary--less {
+    background: transparent;
 }
 
-.book__summary--more:hover {
+.book__summary--more:hover,
+.book__summary--less:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.fa-solid.fa-angle-down {
+    transition: all ease-in-out 0.4s;
+}
+
+.fa-solid.fa-angle-down.up-arrow {
+    transform: rotate(180deg);
 }
 
 .book__summary--paragraph:not(:first-child) {
