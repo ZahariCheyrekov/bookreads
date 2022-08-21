@@ -1,6 +1,6 @@
-import './BookReviews.css';
+import './Reviews.css';
 
-const BookReviews = () => {
+const Reviews = () => {
     return (
         <section className="reviews">
             <h3 className="reviews__title">Reviews & Ratings</h3>
@@ -8,4 +8,4 @@ const BookReviews = () => {
     );
 }
 
-export default BookReviews;
+export default Reviews;

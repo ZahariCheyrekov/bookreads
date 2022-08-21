@@ -4,14 +4,14 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 import { getCard } from '../../../services/book';
 
-import BookSummary from './BookSummary/BookSummary';
-import BookTable from './BookTable/BookTable';
-import BookReviews from '../BookReviews/BookReviews';
+import Summary from './Summary/Summary';
+import Table from './Table/Table';
+import Reviews from '../Reviews/Reviews';
 
-import './BookDetails.css';
-import BookAside from './BookAside/BookAside';
+import './Details.css';
+import Aside from './Aside/Aside';
 
-const BookDetails = () => {
+const Details = () => {
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [book, setBook] = useState(null);
@@ -29,7 +29,7 @@ const BookDetails = () => {
         <main className="main__auth">
             {book ?
                 <div className="div__wrapper">
-                    <BookAside
+                    <Aside
                         id={id}
                         isOwner={isOwner}
                         bookCoverUrl={book.bookCoverUrl}
@@ -41,7 +41,7 @@ const BookDetails = () => {
                             <h1 className="book__title">{book.title}</h1>
                             <h2 className="book__author">{book.author}</h2>
 
-                            <BookSummary description={book?.description} />
+                            <Summary description={book?.description} />
 
                             <ul className="book__tags">
                                 {book.tags.map((tag, index) =>
@@ -53,11 +53,11 @@ const BookDetails = () => {
                                 )}
                             </ul>
 
-                            <BookTable book={book} />
+                            <Table book={book} />
                         </article>
 
                         <hr className="hr__divider" />
-                        <BookReviews />
+                        <Reviews />
                     </section>
                 </div >
                 : null
@@ -66,4 +66,4 @@ const BookDetails = () => {
     );
 }
 
-export default BookDetails;
+export default Details;

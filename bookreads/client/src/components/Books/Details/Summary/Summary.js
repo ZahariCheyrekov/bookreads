@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import './BookSummary.css';
+import './Summary.css';
 
-const BookSummary = ({ description }) => {
+const Summary = ({ description }) => {
     const [visibleSummary, setVisibleSummary] = useState(false);
 
     const handleVisibleSummary = () => {
@@ -26,4 +26,4 @@ const BookSummary = ({ description }) => {
     );
 }
 
-export default BookSummary;
+export default Summary;

@@ -1,6 +1,6 @@
-import './BookTable.css';
+import './Table.css';
 
-const BookTable = ({ book }) => {
+const Table = ({ book }) => {
     return (
         <table className="book__table">
             <tbody className="book__table--tbody">
@@ -36,4 +36,4 @@ const BookTable = ({ book }) => {
     );
 }
 
-export default BookTable;
+export default Table;

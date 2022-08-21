@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/requester';
 
-const BookAside = ({ id, isOwner, bookCoverUrl, title }) => {
+const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
     const navigate = useNavigate();
 
     const handleDelete = () => {
@@ -31,4 +31,4 @@ const BookAside = ({ id, isOwner, bookCoverUrl, title }) => {
     );
 }
 
-export default BookAside;
+export default Aside;
