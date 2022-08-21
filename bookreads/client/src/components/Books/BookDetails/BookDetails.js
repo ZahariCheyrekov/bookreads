@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 import { getCard } from '../../../services/book';
+import { deleteBook } from '../../../api/requester';
+
 import BookReviews from '../BookReviews/BookReviews';
 
 import './BookDetails.css';
 
 const BookDetails = () => {
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [book, setBook] = useState(null);
@@ -26,6 +29,11 @@ const BookDetails = () => {
         setVisibleSummary(prevState => !prevState);
     }
 
+    const handleDelete = () => {
+        deleteBook(id);
+        navigate('/');
+    }
+
     return (
         <main className="main__auth">
             {book ?
@@ -41,7 +49,7 @@ const BookDetails = () => {
                                         Edit book
                                     </button>
                                 </Link>
-                                <button className="aside__book--button book__delete--button">
+                                <button className="aside__book--button book__delete--button" onClick={handleDelete}>
                                     Delete book
                                 </button>
                             </>
