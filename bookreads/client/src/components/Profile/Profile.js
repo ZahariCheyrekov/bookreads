@@ -7,7 +7,7 @@ import defaultUserPhoto from '../../assets/default-user-photo.png';
 import './Profile.css';
 
 const Profile = () => {
-    const user = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <main className="main__profile">
