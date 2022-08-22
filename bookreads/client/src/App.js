@@ -6,7 +6,6 @@ import './index.css';
 
 import Navigation from './components/Navigation/Navigation';
 import Auth from './components/Auth/Auth';
-import Welcome from './components/Welcome/Welcome';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
 import NotFound from './components/NotFound/NotFound';
@@ -22,9 +21,8 @@ function App() {
         <AuthContextProvider>
             <Navigation />
             <Routes>
-                <Route path="/" element={<Welcome />} />
                 <Route element={<UserRoutes />}>
-                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/user/:name/:id" element={<Profile />} />
                 </Route>
                 <Route element={<GuestRoutes />}>
