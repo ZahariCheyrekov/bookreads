@@ -27,7 +27,7 @@ const Details = () => {
     }, [id]);
 
     return (
-        <main className="main__auth">
+        <main className="main__details">
             {book ?
                 <div className="div__wrapper">
                     <Aside
