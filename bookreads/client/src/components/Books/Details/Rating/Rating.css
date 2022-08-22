@@ -1,7 +1,9 @@
-.rating__stars {
+.rating {
     width: 200px;
-    margin: 10px 0;
+}
 
+.rating__stars {
+    margin: 10px 0;
     display: flex;
     justify-content: space-between;
 }
