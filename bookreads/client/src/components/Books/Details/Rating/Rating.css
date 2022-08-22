@@ -1,0 +1,27 @@
+.rating__stars {
+    width: 200px;
+    margin: 10px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-solid.fa-star {
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 0 5.5px;
+}
+
+.fa-solid.fa-star.rated {
+    color: var(--star-color);
+}
+
+.fa-solid.fa-star.unrated {
+    color: var(--gray-color);
+}
+
+.rating__title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.1rem;
+}
