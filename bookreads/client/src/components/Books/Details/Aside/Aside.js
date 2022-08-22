@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/requester';
+import Rating from '../Rating/Rating';
 
 import './Aside.css';
 
@@ -20,7 +21,7 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
                 </article>
                 {isOwner && (
                     <>
-                        <Link to={`/books/${id}/edit`}>
+                        <Link to={`/books/${id}/edit`} className="aside__book--link">
                             <button className="aside__book--button">
                                 Edit book
                             </button>
@@ -30,6 +31,7 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
                         </button>
                     </>
                 )}
+                <Rating />
             </aside>
         </section>
     );
