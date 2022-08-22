@@ -1,3 +1,7 @@
+.main__details {
+    margin: 6rem 2rem 2rem;
+}
+
 .div__wrapper {
     max-width: var(--primary-component-width);
     margin: 0 auto;
