@@ -5,37 +5,36 @@ import './App.css';
 import './index.css';
 
 import Navigation from './components/Navigation/Navigation';
-import Auth from './components/Auth/Auth';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
-import NotFound from './components/NotFound/NotFound';
+import Details from './components/Books/Details/Details';
 import BookForm from './components/Books/BookForm/BookForm';
+import Auth from './components/Auth/Auth';
+import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
-import Details from './components/Books/Details/Details';
 
 function App() {
     return (
         <AuthContextProvider>
             <Navigation />
             <Routes>
+                <Route path="/" element={<Home />} />
                 <Route element={<UserRoutes />}>
-                    <Route path="/" element={<Home />} />
                     <Route path="/user/:name/:id" element={<Profile />} />
+                    <Route path='/books/:id' element={<Details />} />
+
+                    {['create', 'books/:id/edit'].map((path) => (
+                        <Route key={path} path={`/${path}`} element={<BookForm />} />
+                    ))}
                 </Route>
                 <Route element={<GuestRoutes />}>
                     {['signin', 'signup'].map((path) => (
                         <Route key={path} path={`/user/${path}`} element={<Auth />} />
                     ))}
                 </Route>
-                <Route element={<BookForm />}>
-                    {['create', 'books/:id/edit'].map((path) => (
-                        <Route key={path} path={`/${path}`} element={<BookForm />} />
-                    ))}
-                </Route>
-                <Route path='/books/:id' element={<Details />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
