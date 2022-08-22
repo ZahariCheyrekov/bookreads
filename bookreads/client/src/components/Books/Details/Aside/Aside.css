@@ -1,4 +1,8 @@
 .aside__book--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 220px;
     position: sticky;
     top: 100px;
@@ -15,11 +19,15 @@
     box-shadow: 0 0 10px var(--gray-color);
 }
 
+.aside__book--link {
+    width: 100%;
+}
+
 .aside__book--button {
     width: 100%;
     height: 2.6rem;
 
-    margin: 0.8rem 0;
+    margin: 0 0 0.8rem;
     padding: 0 1.6rem;
     font-size: 1.2rem;
 
@@ -27,6 +35,10 @@
     border: 2px solid var(--gray-color);
     border-radius: 1rem;
     background-color: transparent;
+}
+
+.aside__book--button:first-child {
+    margin: 0.8rem 0;
 }
 
 .aside__book--button:hover {
