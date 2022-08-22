@@ -2,13 +2,14 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../contexts/AuthContext';
+import Rating from '../Details/Rating/Rating';
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
 
 import './Reviews.css';
-import Rating from '../Details/Rating/Rating';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext);
+
     return (
         <section className="reviews">
             <h3 className="reviews__title">Reviews & Ratings</h3>
@@ -29,6 +30,7 @@ const Reviews = () => {
                     <button className="reviews__user--button">Write a Review</button>
                 </section>
             </article>
+            <hr className="hr__divider" />
         </section >
     );
 }
