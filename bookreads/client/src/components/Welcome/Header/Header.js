@@ -7,9 +7,9 @@ import { googleFailure, start } from '../../../services/google';
 import { GOOGLE_CLIENT_AUTH } from '../../../constants/google';
 
 import books from '../../../assets/books-banner.png'
+import { saveUser } from '../../../services/localStorage';
 
 import './Header.css';
-import { saveUser } from '../../../services/localStorage';
 
 const Header = () => {
     const navigate = useNavigate();
