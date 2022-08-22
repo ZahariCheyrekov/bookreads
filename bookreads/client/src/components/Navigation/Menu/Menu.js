@@ -12,7 +12,12 @@ const Menu = ({ profileOpen, handleProfileClick, logout }) => {
         <>
             {profileOpen && (
                 <ul className="header__article--ul article__profile--ul">
-                    <h4 className="profile__ul--name">{user?.result?.name}</h4>
+                    <Link to={`/user/${user?.result?.name.split(' ').join('')
+                        .toLowerCase()}/${user?.result?.googleId || user?.result?._id}`}
+                        onClick={handleProfileClick}
+                    >
+                        <h4 className="profile__ul--name">{user?.result?.name}</h4>
+                    </Link>
                     <li className="profile__ul--li">
                         <Link to={`/user/${user?.result?.name.split(' ').join('')
                             .toLowerCase()}/${user?.result?.googleId || user?.result?._id}`}
