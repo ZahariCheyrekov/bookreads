@@ -17,7 +17,7 @@
 
 .article__article--info {
     max-width: var(--primary-component-width);
-    margin: 50px auto;
+    margin: 75px auto 20px;
     position: relative;
     padding-right: 400px;
 }
