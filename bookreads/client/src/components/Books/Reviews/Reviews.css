@@ -9,7 +9,7 @@
 }
 
 .reviews__user--question {
-    font-family: Copernicus, "Libre Baskerville", Georgia, serif;
+    font-family: Georgia, serif;
     font-weight: normal;
     font-size: 2.4rem;
     margin: 14px 0;
@@ -17,11 +17,18 @@
 
 .reviews__review--action {
     display: flex;
+    gap: 2rem;
 }
 
 .reviews__user--button {
     background-color: var(--dark-button-color);
     color: var(--white-color);
+
+    height: 3rem;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    border-radius: 1.4rem;
+    border: none;
 }
 
 .reviews__user--button:hover {
