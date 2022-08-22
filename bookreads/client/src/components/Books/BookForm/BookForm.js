@@ -53,7 +53,7 @@ const BookForm = () => {
     }
 
     return (
-        <main className="main__auth">
+        <main className="main">
             <form className="main__form--book">
                 <legend className="form__legend">{id ? 'Edit' : 'Create'} book</legend>
 
