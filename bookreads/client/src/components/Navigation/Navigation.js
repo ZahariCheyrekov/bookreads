@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 
@@ -12,6 +12,7 @@ import { removeUser } from '../../services/localStorage';
 
 const Navigation = () => {
     const navigate = useNavigate();
+    const menuRef = useRef();
     const { user, setUser } = useContext(AuthContext);
     const [profileOpen, setProfileOpen] = useState(false);
 
@@ -32,6 +33,18 @@ const Navigation = () => {
             }
         }
     }, [user?.token, logout]);
+
+    useEffect(() => {
+        window.addEventListener('mousedown', clickHandler)
+    }, []);
+
+    const clickHandler = (ev) => {
+        if (menuRef.current !== null) {
+            if (!menuRef.current.contains(ev.target)) {
+                setProfileOpen(false);
+            }
+        }
+    }
 
     const handleProfileClick = () => {
         setProfileOpen(prevState => !prevState);
@@ -64,7 +77,7 @@ const Navigation = () => {
                             <input className="header__form--input" placeholder="Search books" />
                         </form>
 
-                        <article className="header__article header__article--profile">
+                        <article className="header__article header__article--profile" ref={menuRef}>
                             <img
                                 onClick={handleProfileClick}
                                 src={user?.result?.imageUrl ? user.result?.imageUrl : defaultUserPhoto}
