@@ -74,7 +74,7 @@
 }
 
 .form__button:hover {
-    background-color: #2e2c29;
+    background-color: var(--dark-button-hover-color);
 }
 
 .section__content {
