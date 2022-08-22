@@ -4,8 +4,11 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const UserRoutes = () => {
-    const user = useContext(AuthContext);
-    return user ? <Outlet /> : <Navigate to={'/user/signin'} />
+    const { user, isLoading } = useContext(AuthContext);
+    
+    if (!isLoading) {
+        return !user ? <Navigate to={'/user/signin'} /> : <Outlet />;
+    }
 }
 
 export default UserRoutes;

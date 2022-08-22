@@ -4,8 +4,11 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const GuestRoutes = () => {
-    const user = useContext(AuthContext);
-    return !user ? <Navigate to={'/'} /> : <Outlet />;
+    const { user, isLoading } = useContext(AuthContext);
+
+    if (!isLoading) {
+        return user ? <Navigate to={'/'} /> : <Outlet />;
+    }
 }
 
 export default GuestRoutes;
