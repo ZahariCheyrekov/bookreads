@@ -14,8 +14,8 @@ export const AuthContextProvider = ({ children }) => {
         const currentUser = getUser();
         if (currentUser) {
             setUser(currentUser);
-            setIsLoading(false);
         }
+        setIsLoading(false);
     }, [location]);
 
     return (
