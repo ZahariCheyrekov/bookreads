@@ -75,7 +75,7 @@
 }
 
 .aside__button--email:hover {
-    background-color: var(--brown-color-light);
+    background-color: var(--brown-light-color);
 }
 
 .aside__paragraph--agree {
