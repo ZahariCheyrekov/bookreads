@@ -24,8 +24,10 @@ const Reviews = () => {
                 </Link>
 
                 <h2 className="reviews__user--question">What do you think?</h2>
-                <Rating />
-                <button className="reviews__user--button">Write a Review</button>
+                <section className="reviews__review--action">
+                    <Rating />
+                    <button className="reviews__user--button">Write a Review</button>
+                </section>
             </article>
         </section >
     );
