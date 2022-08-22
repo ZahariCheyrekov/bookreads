@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 
 import Logo from '../Logo/Logo';
@@ -11,8 +11,15 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { removeUser } from '../../services/localStorage';
 
 const Navigation = () => {
-    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { user, setUser } = useContext(AuthContext);
     const [profileOpen, setProfileOpen] = useState(false);
+
+    const logout = useCallback(() => {
+        removeUser();
+        setUser(null);
+        navigate('/');
+    }, [setUser, navigate]);
 
     useEffect(() => {
         const token = user?.token;
@@ -24,11 +31,8 @@ const Navigation = () => {
                 logout();
             }
         }
-    }, [user?.token]);
+    }, [user?.token, logout]);
 
-    const logout = () => {
-        removeUser();
-    }
     const handleProfileClick = () => {
         setProfileOpen(prevState => !prevState);
     }
@@ -42,7 +46,7 @@ const Navigation = () => {
                     <>
                         <ul className="header__ul">
                             <li className="header__ul--li">
-                                <Link to={'/home'}>
+                                <Link to={'/'}>
                                     Home
                                 </Link>
                             </li>
