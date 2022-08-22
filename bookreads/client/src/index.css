@@ -10,13 +10,15 @@ html {
     --primary-component-width: 1200px;
 
     --main-margin: 6rem 2rem 2rem;
-    
+
     --black-color: #000;
     --dark-button-color: #1e1915;
     --brown-color: #4c301b;
     --brown-color-light: #663815;
     --dark-red-color: #a61b1b;
     --red-color: #ff0000;
+    --star-color: #ff7400;
+    --star-color-light: #de9d69;
     --gray-color: #616161;
     --divider-color: #cfccc9;
     --lightblue-color: #00635D;
