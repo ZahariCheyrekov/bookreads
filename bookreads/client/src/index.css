@@ -9,6 +9,8 @@
 html {
     --primary-component-width: 1200px;
 
+    --main-margin: 6rem 2rem 2rem;
+    
     --black-color: #000;
     --dark-button-color: #1e1915;
     --brown-color: #4c301b;
