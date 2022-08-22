@@ -1,3 +1,7 @@
+.main__profile {
+    margin: var(--main-margin);
+}
+
 .main__profile--section {
     max-width: var(--primary-component-width);
     margin: 0 auto;

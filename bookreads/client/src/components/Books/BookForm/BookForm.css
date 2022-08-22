@@ -1,3 +1,7 @@
+.main {
+    margin: var(--main-margin);
+}
+
 .main__form--book {
     display: flex;
     flex-direction: column;

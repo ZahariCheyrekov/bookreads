@@ -1,5 +1,5 @@
 .main__details {
-    margin: 6rem 2rem 2rem;
+    margin: var(--main-margin);
 }
 
 .div__wrapper {
