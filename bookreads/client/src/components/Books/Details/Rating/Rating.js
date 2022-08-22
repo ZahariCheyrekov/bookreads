@@ -16,9 +16,7 @@ const Rating = () => {
                         className={`fa-solid fa-star ${star - 1 < (hoverStar || rating) ? 'rated' : 'unrated'}`}
                         key={star}
                         onClick={() => setRating(star)}
-                        onMouseEnter={() => {
-                            setHoverStar(star)
-                        }}
+                        onMouseEnter={() => setHoverStar(star)}
                         onMouseLeave={() => setHoverStar(null)}
                     />
                 )}
