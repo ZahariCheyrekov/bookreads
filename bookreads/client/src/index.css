@@ -13,12 +13,13 @@ html {
 
     --black-color: #000;
     --dark-button-color: #1e1915;
+    --dark-button-hover-color: #2e2c29;
     --brown-color: #4c301b;
-    --brown-color-light: #663815;
+    --brown-light-color: #663815;
     --dark-red-color: #a61b1b;
     --red-color: #ff0000;
     --star-color: #ff7400;
-    --star-color-light: #de9d69;
+    --star-light-color: #de9d69;
     --gray-color: #616161;
     --divider-color: #cfccc9;
     --lightblue-color: #00635D;
