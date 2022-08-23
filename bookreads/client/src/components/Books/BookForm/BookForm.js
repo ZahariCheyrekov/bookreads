@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { createBook, editBook } from '../../../api/requester';
+import { createBook, createPost, editBook } from '../../../api/requester';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { getBook } from '../../../services/book';
+import { CREATED_A_BOOK } from '../../../constants/actionType';
 
 import FormField from './FormField/FormField';
 
@@ -46,6 +47,7 @@ const BookForm = () => {
 
         if (id) {
             editBook(id, bookData);
+            createPost({ creatorId: creatorId, status: CREATED_A_BOOK, bookId: id, createdAt: new Date() });
             navigate(`/books/${id}`);
         } else {
             createBook({ ...bookData, creatorId });
