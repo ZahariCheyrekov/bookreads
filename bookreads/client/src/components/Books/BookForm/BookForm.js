@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { createBook, createPost, editBook } from '../../../api/requester';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { getBook } from '../../../services/book';
-import { CREATED_A_BOOK } from '../../../constants/actionType';
+import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../constants/actionType';
 
 import FormField from './FormField/FormField';
 
@@ -43,14 +43,15 @@ const BookForm = () => {
 
     const handleClick = (ev) => {
         ev.preventDefault();
-        const creatorId = user?.result?.googleId || user?._id;
+        const creatorId = user?.result?.googleId || user?.result?._id;
 
         if (id) {
             editBook(id, bookData);
-            createPost({ creatorId: creatorId, status: CREATED_A_BOOK, bookId: id, createdAt: new Date() });
+            createPost({ creatorId, status: EDITED_A_BOOK, bookId: id, createdAt: new Date() });
             navigate(`/books/${id}`);
         } else {
             createBook({ ...bookData, creatorId });
+            createPost({ creatorId, status: CREATED_A_BOOK, bookId: id, createdAt: new Date() });
         }
     }
 
