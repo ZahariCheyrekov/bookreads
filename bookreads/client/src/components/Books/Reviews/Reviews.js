@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 import Rating from '../Details/Rating/Rating';
@@ -8,6 +8,7 @@ import defaultUserPhoto from '../../../assets/default-user-photo.png';
 import './Reviews.css';
 
 const Reviews = () => {
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
 
     return (
@@ -27,7 +28,9 @@ const Reviews = () => {
                 <h2 className="reviews__user--question">What do you think?</h2>
                 <section className="reviews__review--action">
                     <Rating />
-                    <button className="reviews__user--button">Write a Review</button>
+                    <Link to={`/review/edit/${id}`}>
+                        <button className="reviews__user--button">Write a Review</button>
+                    </Link>
                 </section>
             </article>
             <hr className="hr__divider" />
