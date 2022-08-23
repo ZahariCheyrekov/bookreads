@@ -53,3 +53,26 @@
 .book__delete--button:hover {
     background-color: var(--dark-red-color);
 }
+
+.book__button--status {
+    background-color: var(--green-color);
+    color: var(--white-color);
+
+    position: relative;
+}
+
+.book__button--status:hover {
+    background-color: var(--lightgreen-color);
+}
+
+.fa-solid.fa-angle-down.actions {
+    position: absolute;
+    right: 20px;
+    top: 0;
+
+    width: 20px;
+    height: 100%;
+    padding: 10px;
+
+    border-left: 1px solid var(--gray-color);
+}
