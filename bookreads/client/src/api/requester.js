@@ -20,6 +20,7 @@ export const createBook = (bookData) => API.post('/books', bookData);
 export const editBook = (bookId, bookData) => API.patch(`/books/${bookId}/edit`, bookData);
 export const deleteBook = (bookId) => API.delete(`/books/${bookId}`);
 
+export const getPosts = () => API.get('/');
 export const createPost = (postData) => API.post('/', postData);
 
 export const signin = (userData) => API.post(`/user/signin`, userData);
