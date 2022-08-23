@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
-import { getCard } from '../../../services/book';
+import { getBook } from '../../../services/book';
 
 import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
@@ -20,7 +20,7 @@ const Details = () => {
 
     useEffect(() => {
         const fetchBook = async () => {
-            const book = await getCard(id);
+            const book = await getBook(id);
             setBook(book);
         }
         fetchBook();
@@ -48,7 +48,7 @@ const Details = () => {
                         </article>
 
                         <hr className="hr__divider" />
-                        <Reviews />
+                        <Reviews book={book} />
                     </section>
                 </div >
                 : null
