@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/requester';
@@ -31,6 +32,10 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
                         </button>
                     </>
                 )}
+                <button className="aside__book--button book__button--status">
+                    Want to read
+                    <i className="fa-solid fa-angle-down actions"></i>
+                </button>
                 <Rating />
             </aside>
         </section>
