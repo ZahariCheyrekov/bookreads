@@ -1,5 +1,5 @@
 .main__details {
-    margin: var(--main-margin);
+    padding: var(--main-padding);
 }
 
 .div__wrapper {

@@ -1,5 +1,5 @@
 .main__profile {
-    margin: var(--main-margin);
+    padding: var(--main-padding);
 }
 
 .main__profile--section {

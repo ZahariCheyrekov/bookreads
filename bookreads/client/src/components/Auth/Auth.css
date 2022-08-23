@@ -1,5 +1,5 @@
 .main__auth {
-    margin: var(--main-margin);
+    padding: var(--main-padding);
 }
 
 .main__auth .header__navigation--article {
