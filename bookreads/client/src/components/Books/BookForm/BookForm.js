@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { createBook, editBook } from '../../../api/requester';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { getCard } from '../../../services/book';
+import { getBook } from '../../../services/book';
 
 import FormField from './FormField/FormField';
 
@@ -29,7 +29,7 @@ const BookForm = () => {
     useEffect(() => {
         if (id) {
             const fetchBook = async () => {
-                const book = await getCard(id);
+                const book = await getBook(id);
                 setBookData(book);
             }
             fetchBook();
