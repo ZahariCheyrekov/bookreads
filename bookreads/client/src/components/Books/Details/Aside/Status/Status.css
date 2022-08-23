@@ -1,0 +1,8 @@
+.book__status--wrapper {
+    position: absolute;
+    right: 0;
+}
+
+.book__status--section {
+    background-color: var(--white-color);
+}

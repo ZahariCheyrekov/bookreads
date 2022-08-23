@@ -48,7 +48,7 @@ const Details = () => {
                         </article>
 
                         <hr className="hr__divider" />
-                        <Reviews book={book} />
+                        <Reviews book={book} />         
                     </section>
                 </div >
                 : null
