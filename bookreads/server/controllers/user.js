@@ -4,10 +4,21 @@ import bcrypt from 'bcrypt';
 import User from '../models/User.js';
 import { SALT, TOKEN_EXPIRATION_TIME } from '../constants/index.js';
 
+export const getUserById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const { name } = await User.findOne({ id });
+        res.status(200).json(name);
+
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
 export const getUsers = async (req, res) => {
     try {
         const users = await User.find();
-
         res.status(200).json(users);
 
     } catch (error) {
