@@ -8,6 +8,7 @@ import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
 import Details from './components/Books/Details/Details';
+import Review from './components/Books/Reviews/Review/Review';
 import BookForm from './components/Books/BookForm/BookForm';
 import Auth from './components/Auth/Auth';
 import NotFound from './components/NotFound/NotFound';
@@ -25,6 +26,7 @@ function App() {
                 <Route element={<UserRoutes />}>
                     <Route path="/user/:name/:id" element={<Profile />} />
                     <Route path='/books/:id' element={<Details />} />
+                    <Route path='/review/edit/:id' element={<Review />} />
 
                     {['create', 'books/:id/edit'].map((path) => (
                         <Route key={path} path={`/${path}`} element={<BookForm />} />
