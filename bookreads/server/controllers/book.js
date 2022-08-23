@@ -22,7 +22,7 @@ export const createBook = async (req, res) => {
     description.forEach(paragraph => descriptionArr.push(paragraph));
     bookData.description = descriptionArr;
 
-    const tags = bookData.tags.split(', ');
+    const tags = bookData.tags.split(/[, ]+/);
     bookData.tags = tags;
 
     const newBook = new BookSchema(bookData);
