@@ -1,0 +1,80 @@
+.review__wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.review__book--link {
+    color: var(--lightblue-color);
+}
+
+.review__title {
+    font-weight: normal;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.review__book--info {
+    display: flex;
+    gap: 1rem;
+}
+
+.review__book--image {
+    width: 70px;
+}
+
+.review__book--title {
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.review__rating--user {
+    display: flex;
+    align-items: baseline;
+}
+
+.review__rating--title {
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.review__hr {
+    margin: 12px 0;
+    border: none;
+    height: 0.1rem;
+    background-color: var(--lightgray-color);
+}
+
+.review__form--question {
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+.review__form {
+    margin: 10px 0;
+}
+
+.review__form--textarea {
+    width: 100%;
+    resize: vertical;
+    height: 200px;
+    min-height: 100px;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid var(--divider-color);
+    padding: 8px;
+}
+
+.review__form--textarea:focus {
+    box-shadow: 0px 0px 4px var(--divider-color);
+}
+
+.review__spoilers {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.review__button--save {
+    padding: 4px 20px;
+    font-size: 1rem;
+}
