@@ -20,7 +20,6 @@ const postSchema = mongoose.Schema({
     },
     bookId: {
         type: String,
-        required: true
     },
     createdAt: {
         type: Date,
