@@ -1,18 +1,65 @@
 .post {
     background-color: var(--white-color);
+    border: 1px solid var(--divider-color);
+    border-radius: 2px;
+
     margin: 20px 0;
-    padding-top: 0.5rem;
+    padding: 1rem 1rem 1rem 2rem;
+
     position: relative;
-    height: 200px;
+    min-height: 200px;
 }
 
-.post__user {
-    max-width: 40px;
-    overflow: hidden;
+.post__information {
+    line-height: 1.4;
+    padding: 0 46px 0 0;
+}
 
+.post__book {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__user--name,
+.post__book--title {
+    display: inline;
+    font-weight: bold;
+    font-weight: 500;
+}
+
+.post__user--name {
+    margin-right: 6px;
+}
+
+.post__status {
+    font-family: "Helvetica", sans-serif;
+    margin-right: 6px;
+    color: var(--gray-color);
+}
+
+.post__time {
     position: absolute;
-    left: -20px;
+    top: 1rem;
+    right: 1rem;
+}
 
-    border: 1px solid var(--gray-color);
-    border-radius: 50%;
+.post__book {
+    margin: 12px 0;
+}
+
+.post__book--img {
+    max-width: 120px;
+    max-height: 200px;
+}
+
+.post__book--img img {
+    object-fit: fill;
+}
+
+.post__book--summary {
+    max-width: 420px;
+}
+
+.post__summary--title {
+    font-size: 1.2rem;
 }
