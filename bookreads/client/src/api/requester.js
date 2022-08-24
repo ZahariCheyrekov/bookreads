@@ -22,6 +22,7 @@ export const deleteBook = (bookId) => API.delete(`/books/${bookId}`);
 
 export const getPosts = () => API.get('/');
 export const createPost = (postData) => API.post('/', postData);
+export const likePost = (postId) => API.post(`/posts/${postId}`);
 
 export const getUserById = (userId) => API.get(`/user/${userId}`);
 
