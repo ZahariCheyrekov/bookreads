@@ -8,3 +8,12 @@ export const getPosts = async () => {
         console.log(error);
     }
 }
+
+export const likePost = async (id) => {
+    try {
+        const { data } = await api.likePost(id);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
