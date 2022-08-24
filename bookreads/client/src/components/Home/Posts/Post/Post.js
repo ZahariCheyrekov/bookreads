@@ -66,14 +66,21 @@ const Post = ({ post }) => {
                                 {book.title}
                             </h4>
                         </Link>
-                        <span className="post__book--author">
-                            by
-                            <h5 className="book__author--name">{book.author}</h5>
-                        </span>
+                        <h4 className="post__book--author">by {book.author}</h4>
                         <p className="post__book--description">
                             {book.description}
+
                         </p>
+                        <span className="post__summary--dots">
+                            ...
+                            <span className="post__summary--more">
+                                <Link to={`/books/${book._id}`}>
+                                    Continue reading
+                                </Link>
+                            </span>
+                        </span>
                     </summary>
+
                 </section>
                 : null
             }
