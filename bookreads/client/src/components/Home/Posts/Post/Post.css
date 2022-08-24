@@ -4,10 +4,12 @@
     border-radius: 2px;
 
     margin: 20px 0;
-    padding: 1rem 1rem 1rem 2rem;
-
     position: relative;
     min-height: 200px;
+}
+
+.post__wrapper {
+    padding: 1rem 1rem 1rem 2rem;
 }
 
 .post__information {
@@ -54,10 +56,12 @@
 
 .post__book--img img {
     object-fit: fill;
+    width: 120px;
+    height: 200px;
 }
 
 .post__book--summary {
-    max-width: 412px;
+    margin-left: 20px;
     position: relative;
 }
 
@@ -86,7 +90,35 @@
 }
 
 .post__summary--more {
-
     padding: 0 10px;
     color: var(--lightblue-color);
+}
+
+.post__article--comment {
+    display: flex;
+    gap: 0.5rem;
+    padding: 12px;
+
+    background-color: var(--comment-section-color);
+    border-top: 1px solid var(--divider-color);
+}
+
+.post__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.post__form--area {
+    border-color: var(--divider-color);
+    border-radius: 4px 4px 0 0;
+    outline: none;
+
+    min-height: 40px;
+    padding: 4px;
+    resize: vertical;
+}
+
+.post__form--area:focus {
+    box-shadow: 0px 0px 6px var(--divider-color);
 }

@@ -34,7 +34,7 @@ const Post = ({ post }) => {
     return (
         <article className="post">
             <User user={postUser} creatorId={post?.creatorId} abs={true} />
-            <div className="class">
+            <div className="post__wrapper">
                 <section className="post__information">
                     <Link to={`/user/${postUser?.split(' ').join('').toLowerCase()}/${post.creatorId}`}>
                         <h4 className="post__user--name">
