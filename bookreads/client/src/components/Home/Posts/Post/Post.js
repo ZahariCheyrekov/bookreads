@@ -30,60 +30,68 @@ const Post = ({ post }) => {
         }
         fetchUser();
     }, [post?.creatorId])
-    console.log(book)
+
     return (
         <article className="post">
             <User user={postUser} creatorId={post?.creatorId} abs={true} />
-            <section className="post__information">
-                <Link to={`/user/${postUser?.split(' ').join('').toLowerCase()}/${post.creatorId}`}>
-                    <h4 className="post__user--name">
-                        {postUser}
-                    </h4>
-                </Link>
-                <span className="post__status">
-                    {post.status}
-                </span>
-                {book ?
-                    <Link to={`/books/${book._id}`}>
-                        <h4 className="post__book--title">
-                            {book.title}
+            <div className="class">
+                <section className="post__information">
+                    <Link to={`/user/${postUser?.split(' ').join('').toLowerCase()}/${post.creatorId}`}>
+                        <h4 className="post__user--name">
+                            {postUser}
                         </h4>
                     </Link>
-                    : null
-                }
-                <time className="post__time">
-                </time>
-            </section>
-
-            {book ?
-                <section className="post__book">
-                    <article className="post__book--img">
-                        <img src={book.bookCoverUrl} alt={book.title} />
-                    </article>
-                    <summary className="post__book--summary">
+                    <span className="post__status">
+                        {post.status}
+                    </span>
+                    {book ?
                         <Link to={`/books/${book._id}`}>
-                            <h4 className="post__summary--title">
+                            <h4 className="post__book--title">
                                 {book.title}
                             </h4>
                         </Link>
-                        <h4 className="post__book--author">by {book.author}</h4>
-                        <p className="post__book--description">
-                            {book.description}
-
-                        </p>
-                        <span className="post__summary--dots">
-                            ...
-                            <span className="post__summary--more">
-                                <Link to={`/books/${book._id}`}>
-                                    Continue reading
-                                </Link>
-                            </span>
-                        </span>
-                    </summary>
-
+                        : null
+                    }
+                    <time className="post__time">
+                    </time>
                 </section>
-                : null
-            }
+
+                {book ?
+                    <section className="post__book">
+                        <article className="post__book--img">
+                            <img className="post__img" src={book.bookCoverUrl} alt={book.title} />
+                        </article>
+                        <summary className="post__book--summary">
+                            <Link to={`/books/${book._id}`}>
+                                <h4 className="post__summary--title">
+                                    {book.title}
+                                </h4>
+                            </Link>
+                            <h4 className="post__book--author">by {book.author}</h4>
+                            <p className="post__book--description">
+                                {book.description}
+
+                            </p>
+                            <span className="post__summary--dots">
+                                ...
+                                <span className="post__summary--more">
+                                    <Link to={`/books/${book._id}`}>
+                                        Continue reading
+                                    </Link>
+                                </span>
+                            </span>
+                        </summary>
+                    </section>
+                    : null
+                }
+            </div>
+            <article className="post__article--comment">
+                <User user={user?.result?.name} creatorId={user?.result?._id} />
+                <form className="post__form">
+                    <textarea className="post__form--area" placeholder="Write a comment" />
+                    <button className="post__form--button">Comment</button>
+                </form>
+            </article>
         </article>
     );
 }
