@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import defaultUserPhoto from '../../../../assets/default-user-photo.png';
+import User from './User/User';
+import { AuthContext } from '../../../../contexts/AuthContext';
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
 
 import './Post.css';
 
 const Post = ({ post }) => {
-    const [user, setUser] = useState(null);
+    const { user } = useContext(AuthContext);
+    const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
 
     useEffect(() => {
@@ -24,20 +26,57 @@ const Post = ({ post }) => {
     useEffect(() => {
         const fetchUser = async () => {
             const user = await getUserById(post?.creatorId);
-            setUser(user);
+            setPostUser(user);
         }
         fetchUser();
     }, [post?.creatorId])
-
+    console.log(book)
     return (
         <article className="post">
-            <article className="post__user">
-                <Link to={`/user/${user?.split(' ').join('').toLowerCase()}/${post?.creatorId}`}>
-                    <img src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
-                        alt={`${user?.result?.name}`}
-                    />
+            <User user={postUser} creatorId={post?.creatorId} abs={true} />
+            <section className="post__information">
+                <Link to={`/user/${postUser?.split(' ').join('').toLowerCase()}/${post.creatorId}`}>
+                    <h4 className="post__user--name">
+                        {postUser}
+                    </h4>
                 </Link>
-            </article>
+                <span className="post__status">
+                    {post.status}
+                </span>
+                {book ?
+                    <Link to={`/books/${book._id}`}>
+                        <h4 className="post__book--title">
+                            {book.title}
+                        </h4>
+                    </Link>
+                    : null
+                }
+                <time className="post__time">
+                </time>
+            </section>
+
+            {book ?
+                <section className="post__book">
+                    <article className="post__book--img">
+                        <img src={book.bookCoverUrl} alt={book.title} />
+                    </article>
+                    <summary className="post__book--summary">
+                        <Link to={`/books/${book._id}`}>
+                            <h4 className="post__summary--title">
+                                {book.title}
+                            </h4>
+                        </Link>
+                        <span className="post__book--author">
+                            by
+                            <h5 className="book__author--name">{book.author}</h5>
+                        </span>
+                        <p className="post__book--description">
+                            {book.description}
+                        </p>
+                    </summary>
+                </section>
+                : null
+            }
         </article>
     );
 }
