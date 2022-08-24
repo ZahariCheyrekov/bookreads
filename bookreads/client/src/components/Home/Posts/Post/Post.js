@@ -1,15 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import User from './User/User';
-import { AuthContext } from '../../../../contexts/AuthContext';
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
 
 import './Post.css';
+import CommentForm from './CommentForm/CommentForm';
 
 const Post = ({ post }) => {
-    const { user } = useContext(AuthContext);
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
 
@@ -85,13 +84,7 @@ const Post = ({ post }) => {
                     : null
                 }
             </div>
-            <article className="post__article--comment">
-                <User user={user?.result?.name} creatorId={user?.result?._id} />
-                <form className="post__form">
-                    <textarea className="post__form--area" placeholder="Write a comment" />
-                    <button className="post__form--button">Comment</button>
-                </form>
-            </article>
+            <CommentForm />
         </article>
     );
 }
