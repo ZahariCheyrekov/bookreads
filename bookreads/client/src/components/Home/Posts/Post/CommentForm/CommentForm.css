@@ -26,3 +26,13 @@
 .post__form--area:focus {
     box-shadow: 0px 0px 6px var(--divider-color);
 }
+
+.post__form--button {
+    background-color: var(--lightgray-color);
+    border: 1px solid var(--divider-color);
+    padding: 4px 0;
+}
+
+.post__form--button:hover {
+    background-color: var(--gray-hover-color);
+}
