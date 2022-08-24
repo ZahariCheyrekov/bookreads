@@ -3,6 +3,11 @@
 }
 
 .form__input.form__textarea {
-    height: 60px;
-    resize: none;
+    min-height: 100px;
+    resize: vertical;
+    transition: none;
+}
+
+.form__textarea::-webkit-scrollbar {
+    border-radius: 50%;
 }
