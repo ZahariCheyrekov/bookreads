@@ -29,22 +29,27 @@ export const createPost = async (req, res) => {
 
 export const likePost = async (req, res) => {
     const { id } = req.params;
+    const { userId } = req.body;
+
+    if (!userId) {
+        return res.json({ message: 'Unauthenticated' });
+    }
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`No posts with id: ${id}`);
+        return res.status(404).send(`No post with id: ${id}`);
     }
 
     const post = await PostSchema.findById(id);
 
-    const index = post.likes.findIndex((currentId) => currentId === String(id));
+    const index = post.likes.findIndex((id) => id === String(userId));
 
     if (index === -1) {
-        post.likes.push(id);
+        post.likes.push(userId);
     } else {
-        post.likes = post.likes.filter((currentId) => currentId !== String(id));
+        post.likes = post.likes.filter((id) => id !== String(userId));
     }
 
-    const updatedPost = await PostSchema.findByIdAndUpdate(id, post, { new: true });
+    await PostSchema.findByIdAndUpdate(id, post);
 
-    res.json(updatedPost.likes);
+    res.json(userId);
 }
