@@ -5,10 +5,11 @@
 .main__profile--section {
     max-width: var(--primary-component-width);
     margin: 0 auto;
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
 }
 
 .profile__section--article {
