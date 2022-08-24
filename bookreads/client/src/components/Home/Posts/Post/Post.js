@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import User from './User/User';
@@ -7,10 +7,12 @@ import CommentForm from './CommentForm/CommentForm';
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
 import { likePost } from '../../../../services/post';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 import './Post.css';
 
 const Post = ({ post }) => {
+    const { user } = useContext(AuthContext);
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
     const [likes, setLikes] = useState([]);
@@ -24,7 +26,7 @@ const Post = ({ post }) => {
             }
             fetchBook();
         }
-    }, [post?.bookId]);
+    }, [post?.bookId, post?.likes]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -35,8 +37,16 @@ const Post = ({ post }) => {
     }, [post?.creatorId])
 
     const handleLike = async () => {
-        const likes = await likePost(post?._id);
-        setLikes(likes);
+        const existingLike = likes.find(like => like === user?.result?._id);
+
+        if (!existingLike) {
+            const like = await likePost(post?._id, user?.result?._id);
+            setLikes([...likes, like]);
+        } else {
+            const filteredLikes = likes.filter(like => like !== user?.result?._id);
+            setLikes(filteredLikes);
+            await likePost(post?._id, user?.result?._id);
+        }
     }
 
     return (
@@ -93,12 +103,16 @@ const Post = ({ post }) => {
                     : null
                 }
                 <section className="post__buttons">
-                    <span>{likes?.length}</span>
                     <button className="post__button post__button--like" onClick={handleLike}>Like</button>
                     <span> · </span>
                     <button className="post__button post__button--comment">Comment</button>
                 </section>
             </div>
+            <section className="post__likes--section">
+                <span className="post__likes">
+                    {likes.length}
+                </span>
+            </section>
             <CommentForm />
         </article>
     );
