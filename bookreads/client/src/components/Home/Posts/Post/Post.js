@@ -83,6 +83,11 @@ const Post = ({ post }) => {
                     </section>
                     : null
                 }
+                <section className="post__buttons">
+                    <button className="post__button post__button--like">Like</button>
+                    <span> · </span>
+                    <button className="post__button post__button--comment">Comment</button>
+                </section>
             </div>
             <CommentForm />
         </article>
