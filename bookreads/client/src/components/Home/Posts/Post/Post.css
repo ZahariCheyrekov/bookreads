@@ -57,9 +57,36 @@
 }
 
 .post__book--summary {
-    max-width: 420px;
+    max-width: 412px;
+    position: relative;
 }
 
 .post__summary--title {
-    font-size: 1.2rem;
+    font-size: 1.12rem;
+}
+
+.post__book--author {
+    font-weight: normal;
+    font-size: 1rem;
+    margin: 6px 0;
+}
+
+.post__book--description {
+    line-height: 1.23;
+    word-spacing: 2px;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.post__summary--dots {
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+    background-color: var(--white-color);
+}
+
+.post__summary--more {
+
+    padding: 0 10px;
+    color: var(--lightblue-color);
 }
