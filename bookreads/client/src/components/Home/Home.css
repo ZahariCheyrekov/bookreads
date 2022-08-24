@@ -1,0 +1,4 @@
+.main__home {
+    background-color: var(--home--bg-color);
+    padding: 4rem 2rem 2rem;
+}

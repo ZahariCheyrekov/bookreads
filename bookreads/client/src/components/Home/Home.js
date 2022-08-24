@@ -13,9 +13,8 @@ const Home = () => {
         <>
             {user
                 ?
-                <main className="main">
+                <main className="main__home">
                     <Posts />
-                    Home
                 </main>
                 : <Welcome />
             }
