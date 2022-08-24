@@ -4,6 +4,7 @@
 
     position: absolute;
     left: -20px;
+    top: 12px;
 
     border: 1px solid var(--gray-color);
     border-radius: 50%;
