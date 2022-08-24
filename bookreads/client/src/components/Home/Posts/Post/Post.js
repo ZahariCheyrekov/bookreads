@@ -2,21 +2,25 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import User from './User/User';
+import CommentForm from './CommentForm/CommentForm';
+
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
+import { likePost } from '../../../../services/post';
 
 import './Post.css';
-import CommentForm from './CommentForm/CommentForm';
 
 const Post = ({ post }) => {
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
+    const [likes, setLikes] = useState([]);
 
     useEffect(() => {
         if (post?.bookId) {
             const fetchBook = async () => {
                 const book = await getBook(post.bookId);
                 setBook(book);
+                setLikes(post.likes);
             }
             fetchBook();
         }
@@ -29,6 +33,11 @@ const Post = ({ post }) => {
         }
         fetchUser();
     }, [post?.creatorId])
+
+    const handleLike = async () => {
+        const likes = await likePost(post?._id);
+        setLikes(likes);
+    }
 
     return (
         <article className="post">
@@ -84,7 +93,8 @@ const Post = ({ post }) => {
                     : null
                 }
                 <section className="post__buttons">
-                    <button className="post__button post__button--like">Like</button>
+                    <span>{likes?.length}</span>
+                    <button className="post__button post__button--like" onClick={handleLike}>Like</button>
                     <span> · </span>
                     <button className="post__button post__button--comment">Comment</button>
                 </section>
