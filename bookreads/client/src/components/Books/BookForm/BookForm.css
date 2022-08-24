@@ -1,6 +1,5 @@
 .main {
     padding: var(--main-padding);
-    background-color: var(--lightgray-color);
 }
 
 .main__form--book {
