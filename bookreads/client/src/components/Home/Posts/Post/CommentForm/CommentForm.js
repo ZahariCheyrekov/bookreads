@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+
 import { AuthContext } from '../../../../../contexts/AuthContext';
 import { createComment } from '../../../../../services/post';
 
@@ -31,12 +32,15 @@ const CommentForm = ({ postId, comments, setComments }) => {
 
         const commentData = {
             creatorId: user?.result?._id,
+            creatorName: user?.result?.name,
             comment,
             createdAt: new Date()
         };
 
-        await createComment(postId, commentData);
-        setComments([...comments, commentData]);
+        const newComment = await createComment(postId, commentData);
+        setComments([...comments, newComment]);
+
+        ev.target.parentNode.reset();
     }
 
     return (
