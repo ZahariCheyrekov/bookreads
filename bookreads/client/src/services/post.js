@@ -9,9 +9,9 @@ export const getPosts = async () => {
     }
 }
 
-export const likePost = async (postId, userId) => {
+export const likePost = async (postId, userId, userName) => {
     try {
-        const { data } = await api.likePost(postId, userId);
+        const { data } = await api.likePost(postId, userId, userName);
         return data;
     } catch (error) {
         console.log(error);
