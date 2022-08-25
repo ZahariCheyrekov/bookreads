@@ -33,6 +33,10 @@
     padding: 4px 0;
 }
 
-.post__form--button:hover {
+.post__form--button.active:hover {
     background-color: var(--gray-hover-color);
+}
+
+.post__form--button.disabled:hover {
+    cursor: not-allowed;
 }
