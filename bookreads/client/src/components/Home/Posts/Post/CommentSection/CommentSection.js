@@ -9,12 +9,10 @@ const CommentSection = ({ comments }) => {
                 < section className="comment__section">
                     <ul className="comment__ul">
                         {comments.map(comment =>
-                            <li
-                                key={comments.length + 1 * Math.random()}
-                                className="comment__ul--item"
-                            >
-                                <Comment comment={comment} />
-                            </li>
+                            <Comment
+                                key={Math.random()}
+                                comment={comment}
+                            />
                         )}
                     </ul>
                 </section >
