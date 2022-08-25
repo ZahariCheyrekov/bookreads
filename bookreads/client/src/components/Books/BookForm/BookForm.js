@@ -66,7 +66,7 @@ const BookForm = () => {
                 <FormField htmlFor={'tags'} content={'Tags'} value={id && bookData?.tags} onChange={handleChange} />
                 <FormField htmlFor={'pages'} content={'Pages'} type={'number'} value={id && bookData?.pages} onChange={handleChange} />
                 <FormField htmlFor={'language'} content={'Language'} value={id && bookData?.language} onChange={handleChange} />
-                <FormField htmlFor={'bookCoverUrl'} content={'Book cover url'} value={id && bookData?.bookCoverUrl} onChange={handleChange} />
+                <FormField htmlFor={'bookCoverUrl'} content={'Book cover url'} type={'url'} value={id && bookData?.bookCoverUrl} onChange={handleChange} />
                 <FormField htmlFor={'datePublished'} content={'Date published'} type={'date'} value={bookData?.datePublished.slice(0, 10)} onChange={handleChange} />
 
                 <button className="form__button auth__button" onClick={handleClick}>
