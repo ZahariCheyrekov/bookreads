@@ -15,7 +15,6 @@ const Posts = () => {
         }
         fetchPosts();
     }, []);
-    console.log(posts);
 
     return (
         <section className="posts">

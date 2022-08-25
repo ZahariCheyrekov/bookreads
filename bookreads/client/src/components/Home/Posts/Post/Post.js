@@ -112,7 +112,9 @@ const Post = ({ post }) => {
                         {likedByUser ? 'Unlike' : 'Like'}
                     </button>
                     <span> · </span>
-                    <button className="post__button post__button--comment">Comment</button>
+                    <button className="post__button post__button--comment">
+                        Comment
+                    </button>
                 </section>
             </div>
 
