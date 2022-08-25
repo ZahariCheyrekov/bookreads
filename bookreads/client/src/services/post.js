@@ -17,3 +17,21 @@ export const likePost = async (postId, userId, userName) => {
         console.log(error);
     }
 }
+
+export const getComments = async (postId) => {
+    try {
+        const { data } = await api.getComments(postId);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const createComment = async (postId, commentData) => {
+    try {
+        const { data } = await api.createComment(postId, commentData);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
