@@ -1,0 +1,7 @@
+.post__likes--section {
+    background-color: var(--comment-section-color);
+    border-top: 1px solid var(--divider-color);
+
+    padding: 8px;
+    padding-left: 12px;
+}

@@ -103,9 +103,3 @@
 .post__button:hover {
     text-decoration: underline;
 }
-
-.post__likes--section {
-    background-color: var(--comment-section-color);
-    padding: 8px;
-    padding-left: 12px;
-}
