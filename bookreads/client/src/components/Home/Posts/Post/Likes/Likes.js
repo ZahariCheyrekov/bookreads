@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import Like from './Like/Like';
 
 import './Likes.css';
