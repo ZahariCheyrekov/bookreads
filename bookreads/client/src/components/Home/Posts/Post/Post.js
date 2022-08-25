@@ -18,6 +18,7 @@ const Post = ({ post }) => {
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
     const [likes, setLikes] = useState([]);
+    const [comments, setComments] = useState([]);
     const likedByUser = likes.find(like => like.userId === user?.result?._id);
 
     useEffect(() => {
@@ -119,8 +120,8 @@ const Post = ({ post }) => {
             </div>
 
             <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
-            <CommentSection />
-            <CommentForm />
+            <CommentSection comments={comments} />
+            <CommentForm postId={post?._id} comments={comments} setComments={setComments} />
         </article>
     );
 }
