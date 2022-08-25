@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import User from './User/User';
+import Likes from './Likes/Likes';
 import CommentForm from './CommentForm/CommentForm';
 
 import { getBook } from '../../../../services/book';
@@ -16,6 +17,7 @@ const Post = ({ post }) => {
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
     const [likes, setLikes] = useState([]);
+    const likedByUser = likes.find(like => like.userId === user?.result?._id);
 
     useEffect(() => {
         if (post?.bookId) {
@@ -37,16 +39,18 @@ const Post = ({ post }) => {
     }, [post?.creatorId])
 
     const handleLike = async () => {
-        const existingLike = likes.find(like => like === user?.result?._id);
+        const userId = user?.result?._id;
+        const userName = user?.result?.name;
+        const existingLike = likes.find(like => like.userId === userId);
 
-        if (!existingLike) {
-            const like = await likePost(post?._id, user?.result?._id);
-            setLikes([...likes, like]);
-        } else {
-            const filteredLikes = likes.filter(like => like !== user?.result?._id);
+        if (existingLike) {
+            const filteredLikes = likes.filter(like => like.userId !== userId);
             setLikes(filteredLikes);
-            await likePost(post?._id, user?.result?._id);
+        } else {
+            setLikes([...likes, { userId, userName }]);
         }
+
+        await likePost(post?._id, userId, userName);
     }
 
     return (
@@ -103,16 +107,15 @@ const Post = ({ post }) => {
                     : null
                 }
                 <section className="post__buttons">
-                    <button className="post__button post__button--like" onClick={handleLike}>Like</button>
+                    <button className="post__button post__button--like" onClick={handleLike}>
+                        {likedByUser ? 'Unlike' : 'Like'}
+                    </button>
                     <span> · </span>
                     <button className="post__button post__button--comment">Comment</button>
                 </section>
             </div>
-            <section className="post__likes--section">
-                <span className="post__likes">
-                    {likes.length}
-                </span>
-            </section>
+
+            <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
             <CommentForm />
         </article>
     );
