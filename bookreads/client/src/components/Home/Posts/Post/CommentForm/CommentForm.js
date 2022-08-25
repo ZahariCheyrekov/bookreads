@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../../contexts/AuthContext';
+import { createComment } from '../../../../../services/post';
 
 import User from '../User/User';
 
 import './CommentForm.css';
 
-const CommentForm = () => {
+const CommentForm = ({ postId, comments, setComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true);
@@ -25,8 +26,17 @@ const CommentForm = () => {
         }
     }
 
-    const handleComment = () => {
+    const handleComment = async (ev) => {
+        ev.preventDefault();
 
+        const commentData = {
+            creatorId: user?.result?._id,
+            comment,
+            createdAt: new Date()
+        };
+
+        await createComment(postId, commentData);
+        setComments([...comments, commentData]);
     }
 
     return (
@@ -41,6 +51,7 @@ const CommentForm = () => {
                 />
                 {showCommentButton &&
                     <button
+                        type="submit"
                         className={`post__form--button ${commentButtonDisabled ? 'disabled' : 'active'}`}
                         onClick={handleComment}
                         disabled={commentButtonDisabled}
