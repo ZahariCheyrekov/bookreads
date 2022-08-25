@@ -1,0 +1,11 @@
+.comment__ul--item {
+    padding: 0.5rem;
+}
+
+.comment__paragraph {
+    margin: 10px 0 0;
+}
+
+.comment__ul--item .comment__paragraph:nth-child(2) {
+    margin: 4px 0 0;
+}
