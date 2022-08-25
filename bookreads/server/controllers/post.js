@@ -56,6 +56,7 @@ export const likePost = async (req, res) => {
 
 export const createComment = async (req, res) => {
     const { id } = req.params;
+    const { creatorId, comment } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).send(`No post with id: ${id}`);
@@ -63,5 +64,7 @@ export const createComment = async (req, res) => {
 
     const post = await PostSchema.findById(id);
 
-    console.log(post);
+    post.comments.push({ creatorId, comment });
+
+    return res.status(201).json({ creatorId, comment });
 }
