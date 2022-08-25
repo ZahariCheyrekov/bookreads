@@ -41,7 +41,7 @@ const Navigation = () => {
 
     const clickHandler = (ev) => {
         if (menuRef.current !== null) {
-            if (!menuRef.current.contains(ev.target)) {
+            if (!menuRef?.current?.contains(ev.target)) {
                 setProfileOpen(false);
             }
         }
