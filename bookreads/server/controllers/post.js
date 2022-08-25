@@ -54,17 +54,34 @@ export const likePost = async (req, res) => {
     return res.status(201).json({ userId, userName });
 }
 
+export const getComments = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const post = await PostSchema.findById(id);
+        res.status(200).json(post.comments);
+
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
 export const createComment = async (req, res) => {
     const { id } = req.params;
-    const { creatorId, comment } = req.body;
+    const commentData = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).send(`No post with id: ${id}`);
     }
 
+    const commentBody = commentData.comment.trim().split(/\n+/);
+    commentData.comment = commentBody;
+
     const post = await PostSchema.findById(id);
 
-    post.comments.push({ creatorId, comment });
+    post.comments.push(commentData);
 
-    return res.status(201).json({ creatorId, comment });
+    await PostSchema.findByIdAndUpdate(id, post);
+
+    return res.status(201).json(commentData);
 }
