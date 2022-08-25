@@ -1,6 +1,7 @@
 import './CommentSection.css';
 
-const CommentSection = () => {
+const CommentSection = ({ comments }) => {
+    console.log(comments);
     return (
         <section className="comment__section">
             <p>
