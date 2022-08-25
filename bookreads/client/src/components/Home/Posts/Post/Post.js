@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import User from './User/User';
 import Likes from './Likes/Likes';
+import CommentSection from './CommentSection/CommentSection';
 import CommentForm from './CommentForm/CommentForm';
 
 import { getBook } from '../../../../services/book';
@@ -116,6 +117,7 @@ const Post = ({ post }) => {
             </div>
 
             <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
+            <CommentSection />
             <CommentForm />
         </article>
     );
