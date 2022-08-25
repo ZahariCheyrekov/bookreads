@@ -29,7 +29,7 @@ export const createPost = async (req, res) => {
 
 export const likePost = async (req, res) => {
     const { id } = req.params;
-    const { userId } = req.body;
+    const { userId, userName } = req.body;
 
     if (!userId) {
         return res.json({ message: 'Unauthenticated' });
@@ -41,15 +41,15 @@ export const likePost = async (req, res) => {
 
     const post = await PostSchema.findById(id);
 
-    const index = post.likes.findIndex((id) => id === String(userId));
+    const index = post.likes.findIndex(like => like.userId === userId);
 
     if (index === -1) {
-        post.likes.push(userId);
+        post.likes.push({ userId, userName });
     } else {
-        post.likes = post.likes.filter((id) => id !== String(userId));
+        post.likes = post.likes.filter(like => like.userId !== userId);
     }
 
     await PostSchema.findByIdAndUpdate(id, post);
 
-    res.json(userId);
+    return res.status(201).json({ userId, userName });
 }
