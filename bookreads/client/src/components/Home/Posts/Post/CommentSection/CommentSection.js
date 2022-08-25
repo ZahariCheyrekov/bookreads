@@ -1,8 +1,14 @@
+import './CommentSection.css';
+
 const CommentSection = () => {
     return (
-        <>
-            CommentSection
-        </>
+        <section className="comment__section">
+            <p>
+                lorem
+                lorem
+                lorem
+            </p>
+        </section>
     );
 }
 
