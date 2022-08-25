@@ -8,7 +8,7 @@ import CommentForm from './CommentForm/CommentForm';
 
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
-import { likePost } from '../../../../services/post';
+import { getComments, likePost } from '../../../../services/post';
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import './Post.css';
@@ -39,6 +39,14 @@ const Post = ({ post }) => {
         }
         fetchUser();
     }, [post?.creatorId])
+
+    useEffect(() => {
+        const fetchComments = async () => {
+            const comments = await getComments(post?._id);
+            setComments(comments);
+        }
+        fetchComments();
+    }, [post?._id]);
 
     const handleLike = async () => {
         const userId = user?.result?._id;
