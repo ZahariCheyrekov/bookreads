@@ -22,15 +22,26 @@
     text-decoration: underline;
 }
 
+.comment__paragraphs {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: clip;
+    overflow: hidden;
+}
+
+.comment__paragraphs.visible {
+    display: block;
+}
+
 .comment__paragraph {
     margin: 10px 0 0;
     font-size: 0.9rem;
     line-height: 1.4;
+}
 
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.comment__paragraph:first-child {
+    margin-top: 4px;
 }
 
 .comment__button {
