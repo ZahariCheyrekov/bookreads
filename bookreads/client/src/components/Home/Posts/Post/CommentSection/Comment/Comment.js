@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { deleteComment } from '../../../../../../api/requester';
@@ -6,11 +6,20 @@ import { AuthContext } from '../../../../../../contexts/AuthContext';
 
 import './Comment.css';
 
-const Comment = ({ comment, comments, setComments, postId }) => {
+const Comment = ({ comment, comments, setComments, postId, postCreatorId }) => {
     const { user } = useContext(AuthContext);
-    const [showDeleteButton] = useState(comment.creatorId === user.result._id);
+    const [showDeleteButton, setShowDeleteButton] = useState(false);
     const [visibleText, setVisibleText] = useState(false);
     const [visibleButton] = useState(comment.comment.join('').length >= 270);
+
+    useEffect(() => {
+        const isCommentOwner =
+            (comment.creatorId === user.result._id)
+            || (postCreatorId === user.result._id);
+
+        setShowDeleteButton(isCommentOwner);
+
+    }, [comment.creatorId, postId, user?.result?._id, postCreatorId]);
 
     const handleDelete = () => {
         deleteComment(postId, comment.commentId);
