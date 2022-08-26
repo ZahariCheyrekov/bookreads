@@ -2,8 +2,29 @@
     padding: 0.5rem;
 }
 
+.comment__article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment__author {
+    font-size: 0.95rem;
+}
+
+.comment__button--delete {
+    border: none;
+    background: transparent;
+    color: var(--gray-color);
+}
+
+.comment__button--delete:hover {
+    text-decoration: underline;
+}
+
 .comment__paragraph {
     margin: 10px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .comment__ul--item .comment__paragraph:nth-child(2) {
