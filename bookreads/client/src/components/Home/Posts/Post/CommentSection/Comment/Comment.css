@@ -34,8 +34,13 @@
 }
 
 .comment__button {
-    display: inline;
-    overflow: visible;
+    background-color: transparent;
+    color: var(--lightblue-color);
+    border: none;
+}
+
+.comment__button:hover {
+    text-decoration: underline;
 }
 
 .comment__ul--item .comment__paragraph:nth-child(2) {
