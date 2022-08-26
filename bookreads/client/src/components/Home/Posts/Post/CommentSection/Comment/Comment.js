@@ -40,11 +40,11 @@ const Comment = ({ comment, comments, setComments, postId }) => {
                     className="comment__paragraph"
                 >
                     {paragraph}
-                    <button className="comment__button">
-                        more
-                    </button>
                 </p>
             )}
+            <button className="comment__button">
+                more
+            </button>
         </li>
     );
 }
