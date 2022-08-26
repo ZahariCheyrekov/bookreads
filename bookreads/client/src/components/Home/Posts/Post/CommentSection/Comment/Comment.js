@@ -10,7 +10,7 @@ const Comment = ({ comment, comments, setComments, postId }) => {
     const { user } = useContext(AuthContext);
     const [showDeleteButton] = useState(comment.creatorId === user.result._id);
     const [visibleText, setVisibleText] = useState(false);
-    const [visibleButton, setVisibleButton] = useState(comment.comment.join('').length >= 270);
+    const [visibleButton] = useState(comment.comment.join('').length >= 270);
 
     const handleDelete = () => {
         deleteComment(postId, comment.commentId);
