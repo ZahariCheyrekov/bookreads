@@ -115,7 +115,7 @@ const Post = ({ post }) => {
             </div>
 
             <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
-            <CommentSection postId={post?._id} />
+            <CommentSection postId={post?._id} postCreatorId={post.creatorId} />
         </article>
     );
 }
