@@ -25,6 +25,8 @@ export const getComments = (postId) => API.get(`/post/${postId}/comments`);
 export const createPost = (postData) => API.post('/', postData);
 export const likePost = (postId, userId, userName) => API.post(`/posts/${postId}`, { userId, userName });
 export const createComment = (postId, commentData) => API.post(`/post/${postId}/comment`, commentData);
+export const deleteComment = (postId, commentId) => API.delete(`/post/${postId}/comment/${commentId}`);
+
 export const getUserById = (userId) => API.get(`/user/${userId}`);
 
 export const signin = (userData) => API.post(`/user/signin`, userData);
