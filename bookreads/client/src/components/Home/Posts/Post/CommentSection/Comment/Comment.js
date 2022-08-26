@@ -20,10 +20,7 @@ const Comment = ({ comment, comments, setComments, postId }) => {
         <li className="comment__ul--item">
             <article className="comment__article">
                 <h5 className="comment__author">
-                    <Link to={`/user/
-                ${comment.creatorName.split(' ').join('').toLowerCase()}/
-                ${comment.creatorId}`}
-                    >
+                    <Link to={`/user/${comment.creatorName.split(' ').join('').toLowerCase()}/${comment.creatorId}`}>
                         {comment.creatorName}
                     </Link>
                 </h5>
@@ -43,6 +40,9 @@ const Comment = ({ comment, comments, setComments, postId }) => {
                     className="comment__paragraph"
                 >
                     {paragraph}
+                    <button className="comment__button">
+                        more
+                    </button>
                 </p>
             )}
         </li>
