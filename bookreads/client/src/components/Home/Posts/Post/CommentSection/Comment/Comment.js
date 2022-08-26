@@ -2,18 +2,31 @@ import { Link } from 'react-router-dom';
 
 import './Comment.css';
 
-const Comment = ({ comment }) => {
-    console.log(comment)
+const Comment = ({ comment, postId }) => {
+    console.log(comment,postId)
+    
+    const handleDelete = () => {
+
+    }
+
     return (
         <li className="comment__ul--item">
-            <h5 className="comment__author">
-                <Link to={`/user/
+            <article className="comment__article">
+                <h5 className="comment__author">
+                    <Link to={`/user/
                 ${comment.creatorName.split(' ').join('').toLowerCase()}/
                 ${comment.creatorId}`}
+                    >
+                        {comment.creatorName}
+                    </Link>
+                </h5>
+                <button
+                    className="comment__button--delete"
+                    onClick={handleDelete}
                 >
-                    {comment.creatorName}
-                </Link>
-            </h5>
+                    Delete
+                </button>
+            </article>
             {comment.comment.map((paragraph, index) =>
                 <p
                     key={index}
