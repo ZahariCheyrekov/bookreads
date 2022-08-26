@@ -35,8 +35,9 @@
 
 .comment__button {
     background-color: transparent;
-    color: var(--lightblue-color);
     border: none;
+    color: var(--lightblue-color);
+    font-size: 1rem;
 }
 
 .comment__button:hover {
