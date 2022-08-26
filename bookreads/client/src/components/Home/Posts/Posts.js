@@ -18,7 +18,7 @@ const Posts = () => {
 
     return (
         <section className="posts">
-            {posts.length > 0 ?
+            {posts?.length > 0 ?
                 posts.map(post =>
                     <Post
                         key={post._id}
