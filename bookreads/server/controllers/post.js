@@ -85,3 +85,19 @@ export const createComment = async (req, res) => {
 
     return res.status(201).json(commentData);
 }
+
+export const deleteComment = async (req, res) => {
+    const { id, commentId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`No post with id: ${id}`);
+    }
+
+    const post = await PostSchema.findById(id);
+
+    post.comments = post.comments.filter(comment => comment.commentId !== commentId);
+
+    await PostSchema.findByIdAndUpdate(id, post);
+
+    return res.status(200).json(commentId);
+}
