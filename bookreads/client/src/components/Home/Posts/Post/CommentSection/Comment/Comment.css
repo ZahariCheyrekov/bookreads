@@ -26,6 +26,16 @@
     margin: 10px 0 0;
     font-size: 0.9rem;
     line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.comment__button {
+    display: inline;
+    overflow: visible;
 }
 
 .comment__ul--item .comment__paragraph:nth-child(2) {
