@@ -78,18 +78,14 @@
     line-height: 1.23;
     word-spacing: 2px;
     max-height: 120px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.post__summary--dots {
-    position: absolute;
-    bottom: 3px;
-    right: 0;
-    background-color: var(--white-color);
-}
-
 .post__summary--more {
-    padding: 0 10px;
     color: var(--lightblue-color);
 }
 
