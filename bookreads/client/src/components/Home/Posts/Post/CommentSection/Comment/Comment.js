@@ -10,6 +10,7 @@ const Comment = ({ comment, comments, setComments, postId }) => {
     const { user } = useContext(AuthContext);
     const [showDeleteButton] = useState(comment.creatorId === user.result._id);
     const [visibleText, setVisibleText] = useState(false);
+    const [visibleButton, setVisibleButton] = useState(comment.comment.join('').length >= 270);
 
     const handleDelete = () => {
         deleteComment(postId, comment.commentId);
@@ -39,18 +40,24 @@ const Comment = ({ comment, comments, setComments, postId }) => {
                     </button>
                 }
             </article>
-            {comment.comment.map((paragraph, index) =>
-                <p
-                    key={index}
-                    className="comment__paragraph"
-                >
-                    {paragraph}
-                </p>
-            )}
-            <button className="comment__button" onClick={handleClick}>
-                {visibleText ? 'Less' : 'More'}
-            </button>
-        </li>
+            <section className="comment__body">
+                <article className={`comment__paragraphs ${visibleText && 'visible'}`}>
+                    {comment.comment.map((paragraph, index) =>
+                        <p
+                            key={index}
+                            className="comment__paragraph"
+                        >
+                            {paragraph}
+                        </p>
+                    )}
+                </article>
+                {visibleButton &&
+                    <button className="comment__button" onClick={handleClick}>
+                        {visibleText ? 'Less' : 'More'}
+                    </button>
+                }
+            </section>
+        </li >
     );
 }
 
