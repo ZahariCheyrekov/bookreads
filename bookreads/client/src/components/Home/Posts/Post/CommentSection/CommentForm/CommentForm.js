@@ -42,6 +42,8 @@ const CommentForm = ({ postId, comments, setComments }) => {
         const newComment = await createComment(postId, commentData);
         setComments([...comments, newComment]);
 
+        setComment('');
+        setCommentButtonDisabled(true);
         ev.target.parentNode.reset();
     }
 
