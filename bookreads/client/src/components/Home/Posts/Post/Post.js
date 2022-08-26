@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import User from './User/User';
 import Likes from './Likes/Likes';
 import CommentSection from './CommentSection/CommentSection';
-import CommentForm from './CommentForm/CommentForm';
 
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
-import { getComments, likePost } from '../../../../services/post';
+import { likePost } from '../../../../services/post';
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import './Post.css';
@@ -18,7 +17,6 @@ const Post = ({ post }) => {
     const [postUser, setPostUser] = useState(null);
     const [book, setBook] = useState(null);
     const [likes, setLikes] = useState([]);
-    const [comments, setComments] = useState([]);
     const likedByUser = likes.find(like => like.userId === user?.result?._id);
 
     useEffect(() => {
@@ -40,13 +38,6 @@ const Post = ({ post }) => {
         fetchUser();
     }, [post?.creatorId])
 
-    useEffect(() => {
-        const fetchComments = async () => {
-            const comments = await getComments(post?._id);
-            setComments(comments);
-        }
-        fetchComments();
-    }, [post?._id]);
 
     const handleLike = async () => {
         const userId = user?.result?._id;
@@ -128,8 +119,7 @@ const Post = ({ post }) => {
             </div>
 
             <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
-            <CommentSection comments={comments} />
-            <CommentForm postId={post?._id} comments={comments} setComments={setComments} />
+            <CommentSection postId={post?._id} />
         </article>
     );
 }
