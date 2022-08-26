@@ -8,7 +8,7 @@ import { getComments } from '../../../../../services/post';
 
 import './CommentSection.css';
 
-const CommentSection = ({ postId }) => {
+const CommentSection = ({ postId, postCreatorId }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -31,6 +31,7 @@ const CommentSection = ({ postId }) => {
                                 comments={comments}
                                 setComments={setComments}
                                 postId={postId}
+                                postCreatorId={postCreatorId}
                             />
                         )}
                     </ul>
