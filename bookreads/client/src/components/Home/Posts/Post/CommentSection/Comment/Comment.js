@@ -1,12 +1,19 @@
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { deleteComment } from '../../../../../../api/requester';
+import { AuthContext } from '../../../../../../contexts/AuthContext';
 
 import './Comment.css';
 
-const Comment = ({ comment, postId }) => {
-    console.log(comment,postId)
-    
-    const handleDelete = () => {
+const Comment = ({ comment, comments, setComments, postId }) => {
+    const { user } = useContext(AuthContext);
+    const [showDeleteButton] = useState(comment.creatorId === user.result._id);
 
+    const handleDelete = () => {
+        deleteComment(postId, comment.commentId);
+        const commentsAfterDelete = comments.filter(current => current.commentId !== comment.commentId);
+        setComments([...commentsAfterDelete]);
     }
 
     return (
@@ -20,12 +27,15 @@ const Comment = ({ comment, postId }) => {
                         {comment.creatorName}
                     </Link>
                 </h5>
-                <button
-                    className="comment__button--delete"
-                    onClick={handleDelete}
-                >
-                    Delete
-                </button>
+
+                {showDeleteButton &&
+                    <button
+                        className="comment__button--delete"
+                        onClick={handleDelete}
+                    >
+                        Delete
+                    </button>
+                }
             </article>
             {comment.comment.map((paragraph, index) =>
                 <p
