@@ -1,6 +1,14 @@
 import express from 'express';
 
-import { getPosts, createPost, likePost, createComment, getComments, deleteComment } from '../controllers/post.js';
+import {
+    getPosts,
+    createPost,
+    likePost,
+    createComment,
+    getComments,
+    getPostLikes,
+    deleteComment
+} from '../controllers/post.js';
 
 const router = express.Router();
 
@@ -9,6 +17,7 @@ router.post('/', createPost);
 router.post('/posts/:id', likePost);
 router.get('/post/:id/comments', getComments);
 router.post('/post/:id/comment', createComment);
+router.get('/post/:id/likes', getPostLikes);
 router.delete('/post/:id/comment/:commentId', deleteComment);
 
 export default router;
