@@ -9,11 +9,16 @@ import './Comment.css';
 const Comment = ({ comment, comments, setComments, postId }) => {
     const { user } = useContext(AuthContext);
     const [showDeleteButton] = useState(comment.creatorId === user.result._id);
+    const [visibleText, setVisibleText] = useState(false);
 
     const handleDelete = () => {
         deleteComment(postId, comment.commentId);
         const commentsAfterDelete = comments.filter(current => current.commentId !== comment.commentId);
         setComments([...commentsAfterDelete]);
+    }
+
+    const handleClick = () => {
+        setVisibleText(prevState => !prevState);
     }
 
     return (
@@ -42,8 +47,8 @@ const Comment = ({ comment, comments, setComments, postId }) => {
                     {paragraph}
                 </p>
             )}
-            <button className="comment__button">
-                more
+            <button className="comment__button" onClick={handleClick}>
+                {visibleText ? 'Less' : 'More'}
             </button>
         </li>
     );
