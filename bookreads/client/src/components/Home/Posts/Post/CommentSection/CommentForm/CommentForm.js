@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
+import uuid from 'react-uuid';
 
-import { AuthContext } from '../../../../../contexts/AuthContext';
-import { createComment } from '../../../../../services/post';
+import { AuthContext } from '../../../../../../contexts/AuthContext';
+import { createComment } from '../../../../../../services/post';
 
-import User from '../User/User';
+import User from '../../User/User';
 
 import './CommentForm.css';
 
@@ -34,7 +35,8 @@ const CommentForm = ({ postId, comments, setComments }) => {
             creatorId: user?.result?._id,
             creatorName: user?.result?.name,
             comment,
-            createdAt: new Date()
+            createdAt: new Date(),
+            commentId: uuid()
         };
 
         const newComment = await createComment(postId, commentData);
