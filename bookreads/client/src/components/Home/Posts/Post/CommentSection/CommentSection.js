@@ -28,6 +28,8 @@ const CommentSection = ({ postId }) => {
                             <Comment
                                 key={uuid()}
                                 comment={comment}
+                                comments={comments}
+                                setComments={setComments}
                                 postId={postId}
                             />
                         )}
