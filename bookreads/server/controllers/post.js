@@ -5,25 +5,23 @@ import PostSchema from '../models/Post.js';
 export const getPosts = async (req, res) => {
     try {
         const posts = await PostSchema.find();
-
-        res.status(200).json(posts);
+        return res.status(200).json(posts);
 
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        return res.status(404).json({ message: error.message });
     }
 }
 
 export const createPost = async (req, res) => {
     const post = req.body;
-
     const newPost = new PostSchema(post);
 
     try {
         await newPost.save();
-        res.status(201).json(newPost);
+        return res.status(201).json(newPost);
 
     } catch (error) {
-        res.status(409).json({ message: error.message });
+        return res.status(409).json({ message: error.message });
     }
 }
 
@@ -40,7 +38,6 @@ export const likePost = async (req, res) => {
     }
 
     const post = await PostSchema.findById(id);
-
     const index = post.likes.findIndex(like => like.userId === userId);
 
     if (index === -1) {
@@ -59,10 +56,22 @@ export const getComments = async (req, res) => {
 
     try {
         const post = await PostSchema.findById(id);
-        res.status(200).json(post.comments);
+        return res.status(200).json(post.comments);
 
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        return res.status(404).json({ message: error.message });
+    }
+}
+
+export const getPostLikes = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const post = await PostSchema.findById(id);
+        return res.status(200).json(post.likes);
+
+    } catch (error) {
+        return res.status(404).json({ message: error.message });
     }
 }
 
