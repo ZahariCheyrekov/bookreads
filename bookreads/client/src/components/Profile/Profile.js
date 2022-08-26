@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import './Profile.css';
 const Profile = () => {
     const { id } = useParams();
     const [user, setUser] = useState(null);
+    const [image, setImage] = useState('');
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -17,6 +19,15 @@ const Profile = () => {
         }
         fetchUser();
     }, [id]);
+
+    const upload = () => {
+        const url = '';
+        const formData = new FormData();
+        formData.append('image', image);
+        axios.post(url, formData).then(res => {
+            console.log(res);
+        });
+    }
 
     return (
         <main className="main__profile">
@@ -34,6 +45,20 @@ const Profile = () => {
                         Edit profile
                     </button>
                 </Link>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(ev) => setImage(ev.target.files[0])}
+                />
+                {image &&
+                    <>
+                        <img src={image?.image?.slice(5)} alt={user} />
+
+                        <button onClick={upload}>
+                            Upload
+                        </button>
+                    </>
+                }
             </section>
         </main>
     );
