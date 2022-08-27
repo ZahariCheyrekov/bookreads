@@ -1,20 +1,48 @@
 .book {
+    width: 152px;
+    margin-right: 2.4rem;
+
     transition: all ease-in-out 0.25s;
 }
 
 .book:hover {
+    cursor: pointer;
     transform: scale(1.1);
 }
 
+.book:hover .title__name:nth-child(2) {
+    text-decoration: underline;
+}
+
 .book__article {
-    width: 152px;
+    width: 100%;
     height: 235px;
 
-    margin-right: 1.4rem;
     border-radius: 0 14px 14px 0;
     box-shadow: 0 0 10px var(--gray-hover-color);
 }
 
 .book__article--img {
     border-radius: 0 14px 14px 0;
+}
+
+.title__name,
+.book__author--name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.title__name {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 1.4rem;
+    margin: 16px 0 10px;
+}
+
+.book__author--name {
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: normal;
 }
