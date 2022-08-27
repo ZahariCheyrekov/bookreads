@@ -8,3 +8,12 @@ export const getBook = async (id) => {
         console.log(error);
     }
 }
+
+export const getBooks = async (id) => {
+    try {
+        const { data } = await api.getBooksByTags(id);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
