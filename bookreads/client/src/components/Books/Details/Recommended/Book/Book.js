@@ -1,8 +1,8 @@
 const Book = () => {
     return (
-        <article>
+        <li>
             book
-        </article>
+        </li>
     );
 }
 
