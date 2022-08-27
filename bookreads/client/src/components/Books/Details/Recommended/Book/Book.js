@@ -1,4 +1,6 @@
-const Book = () => {
+const Book = ({ book }) => {
+    console.log(book);
+    
     return (
         <li>
             book
