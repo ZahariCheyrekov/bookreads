@@ -9,8 +9,8 @@ import './Review.css';
 const Review = () => {
     const { id } = useParams();
     const [book, setBook] = useState();
-    const [setSpoilers] = useState(false);
-    const [setParentRating] = useState(0);
+    const [spoiler, setSpoilers] = useState(false);
+    const [rating, setParentRating] = useState(0);
 
     useEffect(() => {
         const fetchBook = async () => {
