@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getBooks } from '../../../../services/book';
+import Book from './Book/Book';
 
 import './Recommended.css';
 
@@ -22,9 +23,7 @@ const Recommended = ({ tags }) => {
             <h3 className="recommended__title">Recommended books</h3>
             <ul className="recommended__books">
                 {recommendedBooks.map(book =>
-                    <li>
-
-                    </li>
+                    <Book />
                 )}
             </ul>
             <hr className="hr__divider" />
