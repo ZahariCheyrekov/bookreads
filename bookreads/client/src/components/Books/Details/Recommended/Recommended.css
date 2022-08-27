@@ -1,3 +1,7 @@
+.recommended {
+    max-height: 450px;
+}
+
 .recommended__title {
     font-family: Georgia, serif;
     font-weight: 400;
