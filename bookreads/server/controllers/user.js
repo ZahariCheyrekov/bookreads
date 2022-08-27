@@ -67,13 +67,30 @@ export const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, SALT);
 
-        const result = await User.create({ email, password: hashedPassword, name });
+        const result = await User.create({ email, password: hashedPassword, name, imageUrl: '' });
 
         const token = jwt.sign({ email: result.email, id: result._id }, process.env.SECRET, { expiresIn: TOKEN_EXPIRATION_TIME });
 
-        res.status(200).json({ result, token });
+        return res.status(200).json({ result, token });
 
     } catch (error) {
-        res.status(500).json({ message: 'Something went wrong.' });
+        return res.status(500).json({ message: 'Something went wrong.' });
     }
+}
+
+export const uploadUserImage = async (req, res) => {
+    const { id } = req.params;
+    const { imageUrl } = req.body;
+
+    const existingUser = await User.findOne({ id });
+
+    if (!existingUser) {
+        return res.status(404).json({ message: 'User doesn\'t exist.' });
+    }
+
+    existingUser.imageUrl = imageUrl;
+
+    await User.findByIdAndUpdate(id, existingUser);
+
+    return res.status(204);
 }
