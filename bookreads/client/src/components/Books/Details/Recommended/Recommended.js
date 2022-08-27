@@ -29,7 +29,6 @@ const Recommended = ({ tags }) => {
                     />
                 )}
             </ul>
-            <hr className="hr__divider" />
         </section>
     );
 }
