@@ -1,4 +1,12 @@
 .book__article {
-    max-width: 152px;
+    width: 152px;
     height: 235px;
+
+    margin-right: 2.4rem;
+    border-radius: 0 14px 14px 0;
+    box-shadow: 0 0 10px var(--gray-color);
+}
+
+.book__article--img {
+    border-radius: 0 14px 14px 0;
 }
