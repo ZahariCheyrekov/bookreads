@@ -8,6 +8,7 @@ import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
 import Tags from './Tags/Tags';
 import Table from './Table/Table';
+import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
 
 import './Details.css';
@@ -48,6 +49,7 @@ const Details = () => {
                         </article>
 
                         <hr className="hr__divider" />
+                        <Recommended />
                         <Reviews book={book} />
                     </section>
                 </div >
