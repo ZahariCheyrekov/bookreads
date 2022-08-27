@@ -1,3 +1,5 @@
+import './Book.css';
+
 const Book = ({ book }) => {
     return (
         <li className="book">
