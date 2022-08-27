@@ -29,6 +29,7 @@ export const createComment = (postId, commentData) => API.post(`/post/${postId}/
 export const deleteComment = (postId, commentId) => API.delete(`/post/${postId}/comment/${commentId}`);
 
 export const getUserById = (userId) => API.get(`/user/${userId}`);
+export const uploadUserImage = (userId, imageUrl) => API.patch(`/user/${userId}/image`, { imageUrl });
 
 export const signin = (userData) => API.post(`/user/signin`, userData);
 export const signup = (userData) => API.post(`/user/signup`, userData);
