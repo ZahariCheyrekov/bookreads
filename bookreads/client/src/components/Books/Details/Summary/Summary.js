@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './Summary.css';
 
 const Summary = ({ description }) => {
     const [visibleSummary, setVisibleSummary] = useState(false);
+    const [hasSummaryButton, setHasSummaryButton] = useState();
+
+    useEffect(() => {
+        setHasSummaryButton(description.join('').length >= 400)
+    }, [description]);
 
     const handleVisibleSummary = () => {
         setVisibleSummary(prevState => !prevState);
@@ -16,13 +21,15 @@ const Summary = ({ description }) => {
                     {paragraph}
                 </p>
             )}
-            <span className={visibleSummary ? 'book__summary--less' : 'book__summary--more'}
-                onClick={handleVisibleSummary}
-            >
-                {visibleSummary ? 'Show less' : 'Show more'}
-                &nbsp;
-                <i className={`fa-solid fa-angle-down ${visibleSummary ? 'up-arrow' : 'down-arrow'}`}></i>
-            </span>
+            {hasSummaryButton &&
+                <span className={visibleSummary ? 'book__summary--less' : 'book__summary--more'}
+                    onClick={handleVisibleSummary}
+                >
+                    {visibleSummary ? 'Show less' : 'Show more'}
+                    &nbsp;
+                    <i className={`fa-solid fa-angle-down ${visibleSummary ? 'up-arrow' : 'down-arrow'}`}></i>
+                </span>
+            }
         </summary>
     );
 }
