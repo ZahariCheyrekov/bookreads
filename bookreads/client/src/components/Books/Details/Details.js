@@ -50,6 +50,8 @@ const Details = () => {
 
                         <hr className="hr__divider" />
                         <Recommended tags={book.tags} />
+                        
+                        <hr className="hr__divider" />
                         <Reviews book={book} />
                     </section>
                 </div >
