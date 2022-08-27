@@ -20,7 +20,9 @@ const Recommended = ({ tags }) => {
     return (
         <section className="recommended">
             <h3 className="recommended__title">Recommended books</h3>
+            <ul className="recommended__books">
 
+            </ul>
 
             <hr className="hr__divider" />
         </section>
