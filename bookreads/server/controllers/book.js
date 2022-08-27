@@ -7,10 +7,25 @@ export const getBookById = async (req, res) => {
 
     try {
         const book = await BookSchema.findById(id);
-        res.status(200).json(book);
+        return res.status(200).json(book);
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        return res.status(404).json({ message: error.message });
     }
+}
+
+export const getBooksByTags = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find book with id: ${id}`);
+    }
+
+    const book = await BookSchema.findById(id);
+    let books = await BookSchema.find({ tags: { $in: book.tags } });
+
+    books = books.filter(book => String(book._id) !== id);
+
+    return res.status(200).json(books);
 }
 
 export const createBook = async (req, res) => {
