@@ -10,4 +10,5 @@
 
 .recommended__books {
     display: flex;
+    margin: 2.4rem 0;
 }

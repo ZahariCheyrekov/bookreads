@@ -1,10 +1,18 @@
+.book {
+    transition: all ease-in-out 0.25s;
+}
+
+.book:hover {
+    transform: scale(1.1);
+}
+
 .book__article {
     width: 152px;
     height: 235px;
 
-    margin-right: 2.4rem;
+    margin-right: 1.4rem;
     border-radius: 0 14px 14px 0;
-    box-shadow: 0 0 10px var(--gray-color);
+    box-shadow: 0 0 10px var(--gray-hover-color);
 }
 
 .book__article--img {
