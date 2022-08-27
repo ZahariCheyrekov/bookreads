@@ -23,7 +23,7 @@ const Recommended = ({ tags }) => {
             <h3 className="recommended__title">Recommended books</h3>
             <ul className="recommended__books">
                 {recommendedBooks.map(book =>
-                    <Book />
+                    <Book book={book} />
                 )}
             </ul>
             <hr className="hr__divider" />
