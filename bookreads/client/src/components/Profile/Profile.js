@@ -1,32 +1,31 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import FileBase64 from 'react-file-base64';
 
+import { AuthContext } from '../../contexts/AuthContext';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 import { getUserById } from '../../services/user';
+import { uploadUserImage } from '../../api/requester';
 
 import './Profile.css';
 
 const Profile = () => {
     const { id } = useParams();
-    const [user, setUser] = useState(null);
+    const { user } = useContext(AuthContext);
+    const [currentUser, setCurrentUser] = useState(null);
     const [image, setImage] = useState('');
 
     useEffect(() => {
         const fetchUser = async () => {
             const user = await getUserById(id);
-            setUser(user);
+            setCurrentUser(user);
         }
         fetchUser();
     }, [id]);
 
-    const upload = () => {
-        const url = '';
-        const formData = new FormData();
-        formData.append('image', image);
-        axios.post(url, formData).then(res => {
-            console.log(res);
-        });
+    const uploadImage = () => {
+        const imageUrl = image.base64;
+        uploadUserImage(user?.result?._id, imageUrl);
     }
 
     return (
@@ -34,27 +33,25 @@ const Profile = () => {
             <section className="main__profile--section">
                 <article className="profile__section--article">
                     <img src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
-                        alt={`${user}`}
+                        alt={`${currentUser}`}
                     />
                 </article>
                 <h4 className="profile__section--user">
-                    {user}
+                    {currentUser}
                 </h4>
                 <Link to={'/user/edit'}>
                     <button className="profile__section--edit">
                         Edit profile
                     </button>
                 </Link>
-                <input
+                <FileBase64
                     type="file"
-                    accept="image/*"
-                    onChange={(ev) => setImage(ev.target.files[0])}
-                />
+                    multiple={false}
+                    onDone={(base64) => (setImage(base64))} />
                 {image &&
                     <>
-                        <img src={image?.image?.slice(5)} alt={user} />
-
-                        <button onClick={upload}>
+                        <img src={image.base64} alt={currentUser} />
+                        <button onClick={uploadImage}>
                             Upload
                         </button>
                     </>
