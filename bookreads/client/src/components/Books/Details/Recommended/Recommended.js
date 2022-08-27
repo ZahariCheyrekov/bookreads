@@ -21,9 +21,12 @@ const Recommended = ({ tags }) => {
         <section className="recommended">
             <h3 className="recommended__title">Recommended books</h3>
             <ul className="recommended__books">
+                {recommendedBooks.map(book =>
+                    <li>
 
+                    </li>
+                )}
             </ul>
-
             <hr className="hr__divider" />
         </section>
     );
