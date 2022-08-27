@@ -6,14 +6,16 @@
     left: -20px;
     top: 12px;
 
-    border: 1px solid var(--gray-color);
     border-radius: 50%;
 }
 
 .post__user {
     max-width: 40px;
     overflow: hidden;
+}
 
-    border: 1px solid var(--gray-color);
+.user__img {
     border-radius: 50%;
+    border: 1px solid var(--gray-color);
+
 }
