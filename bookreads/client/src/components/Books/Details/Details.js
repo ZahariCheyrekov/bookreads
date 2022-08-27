@@ -49,7 +49,7 @@ const Details = () => {
                         </article>
 
                         <hr className="hr__divider" />
-                        <Recommended />
+                        <Recommended tags={book.tags} />
                         <Reviews book={book} />
                     </section>
                 </div >
