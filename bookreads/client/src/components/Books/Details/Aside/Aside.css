@@ -10,13 +10,14 @@
 
 .aside__book--article {
     width: 100%;
+    height: 320px;
 }
 
 .aside__book--article img {
-    object-fit: fill;
+    object-fit: cover;
 
     border-radius: 0 14px 14px 0;
-    box-shadow: 0 0 10px var(--gray-color);
+    box-shadow: 0 0 8px var(--gray-color);
 }
 
 .aside__book--link {
