@@ -49,7 +49,7 @@ const CommentForm = ({ postId, comments, setComments }) => {
 
     return (
         <article className="post__article--comment">
-            <User user={user?.result?.name} creatorId={user?.result?._id} />
+            <User />
             <form className="post__form">
                 <textarea
                     className="post__form--area"
