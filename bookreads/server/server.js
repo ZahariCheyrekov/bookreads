@@ -9,6 +9,7 @@ import { DEFAULT_PORT } from './constants/index.js';
 import userRoutes from './routes/user.js';
 import bookRoutes from './routes/book.js';
 import postRoutes from './routes/post.js';
+import reviewRouter from './routes/review.js';
 
 const app = express();
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(cors());
 app.use('/user', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/', postRoutes);
+app.use('/', reviewRouter);
 
 app.get('/', (req, res) => {
     res.send('Application is running correctly.');
