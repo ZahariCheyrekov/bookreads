@@ -54,7 +54,7 @@
 }
 
 .post__book--img img {
-    object-fit: fill;
+    object-fit: cover;
     width: 120px;
     height: 200px;
 }

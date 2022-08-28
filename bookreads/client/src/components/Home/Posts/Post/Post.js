@@ -38,7 +38,6 @@ const Post = ({ post }) => {
         fetchUser();
     }, [post?.creatorId])
 
-
     const handleLike = async () => {
         const userId = user?.result?._id;
         const userName = user?.result?.name;
