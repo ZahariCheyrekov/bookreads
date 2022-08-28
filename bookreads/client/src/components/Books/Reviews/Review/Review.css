@@ -60,6 +60,7 @@
     width: 100%;
     bottom: 0;
     padding-top: 2.4rem;
+    font-weight: 500;
     cursor: pointer;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--white-color) 1.6rem);
 }
@@ -79,4 +80,21 @@
 
 .review__span.less .fa-solid.fa-angle-down.down-arrow {
     transform: rotate(180deg);
+}
+
+.review__section--buttons {
+    margin: 20px 0;
+    display: flex;
+}
+
+.review__button {
+    cursor: pointer;
+}
+
+.review__button--like {
+    margin-right: 20px;
+}
+
+.review__button--text:hover {
+    text-decoration: underline;
 }
