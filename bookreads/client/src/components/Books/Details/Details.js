@@ -49,8 +49,8 @@ const Details = () => {
                         </article>
 
                         <hr className="hr__divider" />
-                        <Recommended tags={book.tags} />
-                        
+                        <Recommended />
+
                         <hr className="hr__divider" />
                         <Reviews book={book} />
                     </section>

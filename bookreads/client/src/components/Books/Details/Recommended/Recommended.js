@@ -6,7 +6,7 @@ import Book from './Book/Book';
 
 import './Recommended.css';
 
-const Recommended = ({ tags }) => {
+const Recommended = () => {
     const { id } = useParams();
     const [recommendedBooks, setRecommendedBooks] = useState([]);
 
@@ -16,7 +16,7 @@ const Recommended = ({ tags }) => {
             setRecommendedBooks(books);
         }
         fetchRecommendedBooks();
-    }, [id, tags]);
+    }, [id]);
 
     return (
         <section className="recommended">
