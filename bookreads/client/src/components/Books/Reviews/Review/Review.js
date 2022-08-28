@@ -71,18 +71,24 @@ const Review = ({ review }) => {
                                 <i className="fa-solid fa-angle-down down-arrow"></i>
                             </span>
                         </section>
-                        {likes.length > 0 ?
+                        {(likes.length > 0 || comments.length > 0) ?
                             <section className="review__likes__comments">
                                 <article className="review__likes">
-                                    <span className="review__likes--count">
+                                    <span className="review__likes--number">
                                         {likes.length}&nbsp;
                                     </span>
-                                    <span className="review__comments--count">
+                                    <span className="review__likes--text">
                                         {likes.length === 1 ? 'like' : 'likes'}
                                     </span>
                                 </article>
+                                <span className="review__likes__comments--dot"> · </span>
                                 <article className="review__comments">
-
+                                    <span className="review__comments--number">
+                                        {comments.length}&nbsp;
+                                    </span>
+                                    <span className="review__comments--text">
+                                        {comments.length == 0 || comments.length === 1 ? 'comment' : 'comments'}
+                                    </span>
                                 </article>
                             </section>
                             : null

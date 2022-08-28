@@ -83,9 +83,18 @@
 }
 
 .review__likes__comments {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    align-items: center;
     margin-top: 20px;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--gray-color);
+}
+
+.review__likes__comments--dot {
+    font-size: 1.4rem;
+    padding: 0 6px;
+    color: var(--black-color);
 }
 
 .review__section--buttons {
