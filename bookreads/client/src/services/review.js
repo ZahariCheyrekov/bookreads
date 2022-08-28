@@ -8,3 +8,12 @@ export const getReviews = async (id) => {
         console.log(error);
     }
 }
+
+export const createCommentOnReview = async (id, commentData) => {
+    try {
+        const { data } = await api.createComment(id, commentData);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
