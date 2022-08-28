@@ -9,6 +9,10 @@ const reviewSchema = mongoose.Schema({
         type: Object,
         required: true
     },
+    spoilers: {
+        type: Boolean,
+        default: false
+    },
     rating: {
         type: Number
     },
