@@ -48,6 +48,10 @@
     transform: rotate(180deg);
 }
 
+.book__summary--paragraph {
+    margin-bottom: 1rem;
+}
+
 .book__summary--paragraph:not(:first-child) {
     margin: 24px 0;
 }
