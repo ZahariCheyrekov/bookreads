@@ -1,15 +1,26 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../../contexts/AuthContext';
+
 import Rating from '../Details/Rating/Rating';
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
+import { getReviews } from '../../../services/review';
 
 import './Reviews.css';
 
 const Reviews = ({ book }) => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            const reviews = await getReviews(id);
+            console.log(reviews);
+        }
+        fetchReviews();
+    }, [id]);
 
     return (
         <section className="reviews">
