@@ -18,7 +18,7 @@
     border-radius: 50%;
 }
 
-.review__user--article:before {
+.review__user--article::after {
     content: "";
     position: absolute;
     top: 0;
@@ -32,7 +32,7 @@
     opacity: 0;
 }
 
-.review__user--article:hover::before {
+.review__user--article:hover::after {
     opacity: 0.3;
 }
 
