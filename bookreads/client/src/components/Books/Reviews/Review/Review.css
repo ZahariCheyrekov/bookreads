@@ -3,7 +3,7 @@
 }
 
 .review__aside {
-    width: 155px;
+    width: 100%;
 }
 
 .review__user--img {
@@ -31,4 +31,52 @@
 
 .review__button--follow:hover {
     background-color: var(--dark-button-hover-color);
+}
+
+.review__content {
+    padding-left: 80px;
+}
+
+.review__section--content {
+    max-height: 200px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.review__section--content.active {
+    max-height: unset;
+    overflow: visible;
+    margin-bottom: 50px;
+}
+
+.review__paragraph {
+    margin: 24px 0;
+    line-height: 1.5;
+}
+
+.review__span {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-top: 2.4rem;
+    cursor: pointer;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--white-color) 1.6rem);
+}
+
+.review__span:hover {
+    text-decoration: underline;
+}
+
+.review__span.less {
+    bottom: -30px;
+    background: transparent;
+}
+
+.fa-solid.fa-angle-down.down-arrow {
+    transition: all ease-in-out 0.4s;
+}
+
+.review__span.less .fa-solid.fa-angle-down.down-arrow {
+    transform: rotate(180deg);
 }
