@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+
+import { AuthContext } from '../../../../contexts/AuthContext';
+
+import { likeReview } from '../../../../api/requester';
+
 import './Review.css';
 
 const Review = ({ review }) => {
+    const { user } = useContext(AuthContext);
+    const [likes, setLikes] = useState([]);
     const [showContent, setShowContent] = useState(false);
     console.log(review);
 
     const handleShowContent = () => {
         setShowContent(prevState => !prevState);
+    }
+
+    const handleLike = () => {
+        likeReview(review._id, user.result._id);
     }
 
     return (
@@ -45,15 +56,20 @@ const Review = ({ review }) => {
                             </span>
                         </section>
                         <section className="review__section--buttons">
-                            <article className="review__button review__button--like">
+                            <article
+                                className="review__button review__button--like"
+                                onClick={handleLike}
+                            >
                                 <i className="fa-regular fa-thumbs-up"></i>
-                                &nbsp;<span className="review__button--text">
+                                &nbsp;
+                                <span className="review__button--text">
                                     Like
                                 </span>
                             </article>
                             <article className="review__button review__button--comment">
                                 <i className="fa-regular fa-comments"></i>
-                                &nbsp;<span className="review__button--text">
+                                &nbsp;
+                                <span className="review__button--text">
                                     Comment
                                 </span>
                             </article>
