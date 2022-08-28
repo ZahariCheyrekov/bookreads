@@ -49,11 +49,13 @@ const Review = ({ review }) => {
                 ? <li className="review__item">
                     <aside className="review__aside">
                         <Link to={`/user/${review.user.name.split(' ').join('-').toLowerCase()}/${review.user.id}`}>
-                            <img
-                                className="review__user--img"
-                                src={review.user.imageUrl}
-                                alt={review.user.name}
-                            />
+                            <article className="review__user--article">
+                                <img
+                                    className="review__user--img"
+                                    src={review.user.imageUrl}
+                                    alt={review.user.name}
+                                />
+                            </article>
                         </Link>
                         <h4 className="review__user--name">
                             {review.user.name}

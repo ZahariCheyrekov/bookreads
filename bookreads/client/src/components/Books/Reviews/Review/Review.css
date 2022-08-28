@@ -6,11 +6,34 @@
     width: 100%;
 }
 
-.review__user--img {
+.review__user--article {
     width: 60px;
     height: 60px;
+
     object-fit: cover;
+    position: relative;
+}
+
+.review__user--article img {
     border-radius: 50%;
+}
+
+.review__user--article:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: 50%;
+    background: var(--black-color);
+    transition: all ease-in-out 0.25s;
+    opacity: 0;
+}
+
+.review__user--article:hover::before {
+    opacity: 0.3;
 }
 
 .review__user--name {
