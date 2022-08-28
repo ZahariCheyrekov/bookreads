@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 
@@ -47,11 +48,13 @@ const Review = ({ review }) => {
             {review
                 ? <li className="review__item">
                     <aside className="review__aside">
-                        <img
-                            className="review__user--img"
-                            src={review.user.imageUrl}
-                            alt={review.user.name}
-                        />
+                        <Link to={`/user/${review.user.name.split(' ').join('-').toLowerCase()}/${review.user.id}`}>
+                            <img
+                                className="review__user--img"
+                                src={review.user.imageUrl}
+                                alt={review.user.name}
+                            />
+                        </Link>
                         <h4 className="review__user--name">
                             {review.user.name}
                         </h4>
