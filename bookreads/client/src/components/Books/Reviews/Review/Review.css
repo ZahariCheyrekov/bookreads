@@ -82,6 +82,12 @@
     transform: rotate(180deg);
 }
 
+.review__likes__comments {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 20px;
+    color: var(--gray-color);
+}
+
 .review__section--buttons {
     margin: 20px 0;
     display: flex;
@@ -93,6 +99,10 @@
 
 .review__button--like {
     margin-right: 20px;
+}
+
+.review__button--like.active {
+    color: var(--lightblue-color);
 }
 
 .review__button--text:hover {
