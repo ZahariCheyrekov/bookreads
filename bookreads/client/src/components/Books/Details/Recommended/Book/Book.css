@@ -20,6 +20,7 @@
 
 .book__article--img {
     border-radius: 0 14px 14px 0;
+    object-fit: cover;
 }
 
 .title__name,
