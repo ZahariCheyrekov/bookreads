@@ -76,6 +76,10 @@
     gap: 0.4rem;
 }
 
+.spoilers--hide {
+    accent-color: var(--blue-color);
+}
+
 .review__button--save {
     padding: 4px 20px;
     font-size: 1rem;
