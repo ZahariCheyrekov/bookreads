@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 import Rating from '../Details/Rating/Rating';
+import Review from './Review/Review';
+
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
 import { getReviews } from '../../../services/review';
 
@@ -17,7 +19,7 @@ const Reviews = ({ book }) => {
     useEffect(() => {
         const fetchReviews = async () => {
             const reviews = await getReviews(id);
-            console.log(reviews);
+            setReviews(reviews);
         }
         fetchReviews();
     }, [id]);
@@ -45,6 +47,17 @@ const Reviews = ({ book }) => {
                 </section>
             </article>
             <hr className="hr__divider" />
+
+            <section className="reviews">
+                <ul className="reviews__list">
+                    {reviews.map(review =>
+                        <Review
+                            key={review?._id}
+                            review={review}
+                        />
+                    )}
+                </ul>
+            </section>
         </section >
     );
 }
