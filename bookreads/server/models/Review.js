@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const reviewSchema = mongoose.Schema({
-    postId: {
+    bookId: {
         type: String,
         required: true
     },
