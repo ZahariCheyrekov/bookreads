@@ -8,7 +8,9 @@ import './Review.css';
 
 const Review = ({ review }) => {
     const { user } = useContext(AuthContext);
-    const [likes, setLikes] = useState([]);
+    const [likes, setLikes] = useState(review.likes);
+    const [comments, setComments] = useState(review.comments);
+    const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
     console.log(review);
 
@@ -17,8 +19,22 @@ const Review = ({ review }) => {
     }
 
     const handleLike = () => {
-        likeReview(review._id, user.result._id);
+        const userId = user?.result?._id;
+        likeReview(review._id, userId);
+
+        // const existingLike = likes.find(like => like === userId);
+
+        if (likedByUser) {
+            const filteredLikes = likes.filter(like => like !== userId);
+            setLikes(filteredLikes);
+            setLikedByUser(false);
+        } else {
+            setLikes([...likes, userId]);
+            setLikedByUser(true);
+        }
     }
+
+    console.log(likes);
 
     return (
         <>
@@ -55,19 +71,35 @@ const Review = ({ review }) => {
                                 <i className="fa-solid fa-angle-down down-arrow"></i>
                             </span>
                         </section>
+                        {likes.length > 0 ?
+                            <section className="review__likes__comments">
+                                <article className="review__likes">
+                                    <span className="review__likes--count">
+                                        {likes.length}&nbsp;
+                                    </span>
+                                    <span className="review__comments--count">
+                                        {likes.length === 1 ? 'like' : 'likes'}
+                                    </span>
+                                </article>
+                                <article className="review__comments">
+
+                                </article>
+                            </section>
+                            : null
+                        }
                         <section className="review__section--buttons">
                             <article
-                                className="review__button review__button--like"
+                                className={`review__button review__button--like ${likedByUser ? 'active' : ''}`}
                                 onClick={handleLike}
                             >
-                                <i className="fa-regular fa-thumbs-up"></i>
+                                <i className="fa-regular fa-thumbs-up" />
                                 &nbsp;
                                 <span className="review__button--text">
                                     Like
                                 </span>
                             </article>
                             <article className="review__button review__button--comment">
-                                <i className="fa-regular fa-comments"></i>
+                                <i className="fa-regular fa-comments" />
                                 &nbsp;
                                 <span className="review__button--text">
                                     Comment
@@ -76,7 +108,7 @@ const Review = ({ review }) => {
                         </section>
                         <hr className="hr__divider"></hr>
                     </article>
-                </li>
+                </li >
                 : null
             }
         </>
