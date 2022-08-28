@@ -1,0 +1,34 @@
+.review__item {
+    display: flex;
+}
+
+.review__aside {
+    width: 155px;
+}
+
+.review__user--img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.review__user--name {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.review__button--follow {
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+    padding: 0.6rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 1.4rem;
+    border: none;
+}
+
+.review__button--follow:hover {
+    background-color: var(--dark-button-hover-color);
+}
