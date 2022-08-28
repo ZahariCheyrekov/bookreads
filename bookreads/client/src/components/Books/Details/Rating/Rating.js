@@ -8,6 +8,11 @@ const Rating = ({ setParentRating, showRateTitle, small }) => {
     const [rating, setRating] = useState(null);
     const [hoverStar, setHoverStar] = useState(null);
 
+    const handleRating = (star) => {
+        setRating(star);
+        setParentRating(star);
+    }
+
     return (
         <article className={`rating ${small && 'small'}`}>
             <span className="rating__stars">
@@ -19,10 +24,7 @@ const Rating = ({ setParentRating, showRateTitle, small }) => {
                         ${small && 'small'}`
                         }
                         key={star}
-                        onClick={() => {
-                            setRating(star);
-                            setParentRating(star);
-                        }}
+                        onClick={() => handleRating(star)}
                         onMouseEnter={() => setHoverStar(star)}
                         onMouseLeave={() => setHoverStar(null)}
                     />
