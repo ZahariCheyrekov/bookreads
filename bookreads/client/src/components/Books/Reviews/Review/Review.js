@@ -44,6 +44,20 @@ const Review = ({ review }) => {
                                 <i className="fa-solid fa-angle-down down-arrow"></i>
                             </span>
                         </section>
+                        <section className="review__section--buttons">
+                            <article className="review__button review__button--like">
+                                <i className="fa-regular fa-thumbs-up"></i>
+                                &nbsp;<span className="review__button--text">
+                                    Like
+                                </span>
+                            </article>
+                            <article className="review__button review__button--comment">
+                                <i className="fa-regular fa-comments"></i>
+                                &nbsp;<span className="review__button--text">
+                                    Comment
+                                </span>
+                            </article>
+                        </section>
                         <hr className="hr__divider"></hr>
                     </article>
                 </li>
