@@ -34,3 +34,26 @@ export const createReview = async (req, res) => {
         return res.status(409).json({ message: error.message });
     }
 }
+
+export const likeReview = async (req, res) => {
+    const { id } = req.params;
+    const { like } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find book with id: ${id}`);
+    }
+
+    const review = await ReviewSchema.findById(id);
+
+    const index = review.likes.findIndex(currentLike => currentLike === like);
+
+    if (index === -1) {
+        review.likes.push(like);
+    } else {
+        review.likes = review.likes.filter(currentLike => currentLike !== like);
+    }
+
+    await ReviewSchema.findByIdAndUpdate(id, review);
+
+    return res.status(200).json({ userLike: like });
+}
