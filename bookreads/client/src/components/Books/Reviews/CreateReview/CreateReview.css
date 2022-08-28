@@ -1,59 +1,59 @@
-.review__wrapper {
+.create__review__wrapper {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.review__book--link {
+.create__review__book--link {
     color: var(--lightblue-color);
 }
 
-.review__title {
+.create__review__title {
     font-weight: normal;
     font-size: 2.2rem;
     margin-bottom: 1rem;
 }
 
-.review__book--info {
+.create__review__book--info {
     display: flex;
     gap: 1rem;
 }
 
-.review__book--image {
+.create__review__book--image {
     width: 70px;
 }
 
-.review__book--title {
+.create__review__book--title {
     font-weight: normal;
     font-size: 1.4rem;
 }
 
-.review__rating--user {
+.create__review__rating--user {
     display: flex;
     align-items: baseline;
 }
 
-.review__rating--title {
+.create__review__rating--title {
     font-weight: normal;
     font-size: 1.1rem;
 }
 
-.review__hr {
+.create__review__hr {
     margin: 12px 0;
     border: none;
     height: 0.1rem;
     background-color: var(--lightgray-color);
 }
 
-.review__form--question {
+.create__review__form--question {
     font-weight: normal;
     margin-top: 20px;
 }
 
-.review__form {
+.create__review__form {
     margin: 10px 0;
 }
 
-.review__form--textarea {
+.create__review__form--textarea {
     width: 100%;
     min-height: 100px;
     height: 200px;
@@ -66,11 +66,11 @@
     border: 1px solid var(--divider-color);
 }
 
-.review__form--textarea:focus {
+.create__review__form--textarea:focus {
     box-shadow: 0px 0px 4px var(--divider-color);
 }
 
-.review__spoilers {
+.create__review__spoilers {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -80,7 +80,7 @@
     accent-color: var(--blue-color);
 }
 
-.review__button--save {
+.create__review__button--save {
     padding: 4px 20px;
     font-size: 1rem;
 }
