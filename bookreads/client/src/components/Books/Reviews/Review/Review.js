@@ -1,15 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import { AuthContext } from '../../../../contexts/AuthContext';
+
 import { getBook } from '../../../../services/book';
+import { createReview } from '../../../../api/requester';
 import Rating from '../../Details/Rating/Rating';
 
 import './Review.css';
 
 const Review = () => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
     const [book, setBook] = useState();
-    const [spoiler, setSpoilers] = useState(false);
+    const [reviewContent, setReviewContent] = useState('');
+    const [spoilers, setSpoilers] = useState(false);
     const [rating, setParentRating] = useState(0);
 
     useEffect(() => {
@@ -22,6 +27,24 @@ const Review = () => {
 
     const handleSpoilers = () => {
         setSpoilers(prevState => !prevState);
+    }
+    const handleReviewContent = (ev) => {
+        setReviewContent(ev.target.value);
+    }
+
+    const handleReview = () => {
+        const bookData = {
+            bookId: book._id,
+            user: {
+                name: user?.result?.name,
+                id: user?.result?._id,
+                imageUrl: user?.result?.imageUrl,
+            },
+            spoilers,
+            rating,
+            reviewContent
+        }
+        createReview(book._id, bookData);
     }
 
     return (
@@ -54,19 +77,32 @@ const Review = () => {
                     <section className="review__write">
                         <span className="review__rating--user">
                             <h4 className="review__rating--title">My rating:</h4>
-                            <Rating setParentRating={setParentRating} showRateTitle={false} small={true} />
+
+                            <Rating
+                                setParentRating={setParentRating}
+                                showRateTitle={false}
+                                small={true}
+                            />
                         </span>
                     </section>
                     <hr className="review__hr" />
+
                     <section className="review__section--form">
                         <h4 className="review__form--question">What do you think?</h4>
 
                         <form className="review__form">
-                            <textarea className="review__form--textarea" />
+                            <textarea
+                                className="review__form--textarea"
+                                onChange={handleReviewContent}
+                            />
                         </form>
 
                         <article className="review__spoilers">
-                            <input className="spoilers--hide" type="checkbox" onClick={handleSpoilers} />
+                            <input
+                                className="spoilers--hide"
+                                type="checkbox"
+                                onClick={handleSpoilers}
+                            />
                             <span className="review__spoilers--span">
                                 Hide entire review because of spoilers
                             </span>
@@ -74,11 +110,12 @@ const Review = () => {
                         <hr className="review__hr" />
 
                         <section className="review__save">
-                            <Link to={`/books/${id}`}>
-                                <button className="review__button review__button--save">
-                                    Save
-                                </button>
-                            </Link>
+                            <button
+                                className="review__button review__button--save"
+                                onClick={handleReview}
+                            >
+                                Save
+                            </button>
                         </section>
                     </section>
                 </div>
