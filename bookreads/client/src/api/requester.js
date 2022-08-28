@@ -24,6 +24,7 @@ export const deleteBook = (bookId) => API.delete(`/books/${bookId}`);
 export const getReviewsById = (bookId) => API.get(`/books/${bookId}/reviews`);
 export const createReview = (bookId, reviewData) => API.post(`/review/edit/${bookId}`, reviewData);
 export const likeReview = (reviewId, like) => API.post(`/books/${reviewId}`, { like });
+export const commentOnReview = (reviewId, commentData) => API.post(`/books/${reviewId}`, commentData);
 
 export const getPosts = () => API.get('/');
 export const getComments = (postId) => API.get(`/post/${postId}/comments`);
