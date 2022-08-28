@@ -3,16 +3,17 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import { likeReview } from '../../../../api/requester';
+import { createCommentOnReview } from '../../../../services/review';
 
 import './Review.css';
 
 const Review = ({ review }) => {
     const { user } = useContext(AuthContext);
     const [likes, setLikes] = useState(review.likes);
+    const [comment, setComment] = useState('');
     const [comments, setComments] = useState(review.comments);
     const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
-    console.log(review);
 
     const handleShowContent = () => {
         setShowContent(prevState => !prevState);
@@ -21,8 +22,6 @@ const Review = ({ review }) => {
     const handleLike = () => {
         const userId = user?.result?._id;
         likeReview(review._id, userId);
-
-        // const existingLike = likes.find(like => like === userId);
 
         if (likedByUser) {
             const filteredLikes = likes.filter(like => like !== userId);
@@ -34,7 +33,14 @@ const Review = ({ review }) => {
         }
     }
 
-    console.log(likes);
+    const handleComment = () => {
+        const commentData = {
+            user: review.user,
+            comment,
+            createdAt: new Date()
+        }
+        createCommentOnReview(review._id, commentData);
+    }
 
     return (
         <>
@@ -87,7 +93,7 @@ const Review = ({ review }) => {
                                         {comments.length}&nbsp;
                                     </span>
                                     <span className="review__comments--text">
-                                        {comments.length == 0 || comments.length === 1 ? 'comment' : 'comments'}
+                                        {comments.length === 0 || comments.length === 1 ? 'comment' : 'comments'}
                                     </span>
                                 </article>
                             </section>
