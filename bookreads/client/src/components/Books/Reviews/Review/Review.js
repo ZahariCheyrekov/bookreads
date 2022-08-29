@@ -10,8 +10,10 @@ import './Review.css';
 
 const Review = ({ review }) => {
     const { user } = useContext(AuthContext);
+    const [reviewRating] = useState(review.rating);
     const [likes, setLikes] = useState(review.likes);
     const [comments, setComments] = useState(review.comments);
+    const [hasButton] = useState(review.reviewContent.join(' ').length >= 300);
     const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
 
@@ -55,6 +57,14 @@ const Review = ({ review }) => {
                         </button>
                     </aside>
                     <article className="review__content">
+                        <section className="review__rating">
+                            {[...Array(5)].map((_, index) =>
+                                <i
+                                    key={index}
+                                    className={`fa-solid fa-star fa-review ${index < reviewRating ? 'rated' : ''}`}
+                                />
+                            )}
+                        </section>
                         <section className={`review__section--content ${showContent && 'active'}`}>
                             {review.reviewContent.map((paragraph, index) =>
                                 <p
@@ -64,13 +74,15 @@ const Review = ({ review }) => {
                                     {paragraph}
                                 </p>
                             )}
-                            <span
-                                className={`review__span ${showContent ? 'less' : 'more'}`}
-                                onClick={handleShowContent}
-                            >
-                                Show {showContent ? 'less' : 'more'}&nbsp;
-                                <i className="fa-solid fa-angle-down down-arrow"></i>
-                            </span>
+                            {hasButton &&
+                                <span
+                                    className={`review__span ${showContent ? 'less' : 'more'}`}
+                                    onClick={handleShowContent}
+                                >
+                                    Show {showContent ? 'less' : 'more'}&nbsp;
+                                    <i className="fa-solid fa-angle-down down-arrow"></i>
+                                </span>
+                            }
                         </section>
                         {(likes.length > 0 || comments.length > 0) ?
                             <section className="review__likes__comments">
