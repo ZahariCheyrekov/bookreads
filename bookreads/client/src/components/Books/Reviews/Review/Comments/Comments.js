@@ -3,6 +3,8 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../../contexts/AuthContext';
 import { createCommentOnReview } from '../../../../../services/review';
 
+import './Comments.css';
+
 const Comments = ({ review, comments, setComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
@@ -15,7 +17,7 @@ const Comments = ({ review, comments, setComments }) => {
         }
         createCommentOnReview(review._id, commentData);
     }
-    
+
     const handleChange = (ev) => {
         setComment(ev.target.value);
     }
