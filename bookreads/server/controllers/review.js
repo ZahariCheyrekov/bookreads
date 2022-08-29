@@ -74,3 +74,19 @@ export const addCommentOnReview = async (req, res) => {
 
     return res.status(201).json(commentData);
 }
+
+export const deleteCommentOnReview = async (req, res) => {
+    const { id, commentId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find book with id: ${id}`);
+    }
+
+    const review = await ReviewSchema.findById(id);
+
+    review.comments = review.comments.filter(comment => comment.commentId !== commentId);
+
+    await ReviewSchema.findByIdAndUpdate(id, review);
+
+    return res.status(200).json(commentId);
+}
