@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 import { createCommentOnReview } from '../../../../../services/review';
@@ -31,9 +32,10 @@ const Comments = ({ review, comments, setComments }) => {
                     src={user?.result?.imageUrl}
                     alt={user?.result?.name}
                 />
-                <form className="areview__form">
+                <form className="review__form">
                     <textarea
                         className="review__form--textarea"
+                        placeholder="Add a comment"
                         onChange={handleChange}
                     />
                     <button
