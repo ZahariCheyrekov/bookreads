@@ -9,12 +9,11 @@ const Comments = ({ review, comments, setComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [visibleButton, setVisibleButton] = useState(false);
-    const [disabledButton, setDisabledButton] = useState(true);
 
     const handleComment = (ev) => {
         ev.preventDefault();
 
-        if (!disabledButton) {
+        if (visibleButton) {
             const commentData = {
                 user: review.user,
                 comment: comment.trim(),
@@ -23,7 +22,7 @@ const Comments = ({ review, comments, setComments }) => {
             commentOnReview(review._id, commentData);
 
             setComment('');
-            setDisabledButton(true);
+            setVisibleButton(false);
             ev.target.parentNode.reset();
         }
     }
@@ -32,14 +31,10 @@ const Comments = ({ review, comments, setComments }) => {
         setComment(ev.target.value);
 
         if (ev.target.value.trim() !== '') {
-            setDisabledButton(false);
+            setVisibleButton(true);
         } else {
-            setDisabledButton(true);
+            setVisibleButton(false);
         }
-    }
-
-    const handleVisibleButton = () => {
-        setVisibleButton(true);
     }
 
     return (
@@ -56,13 +51,11 @@ const Comments = ({ review, comments, setComments }) => {
                         className="review__form--textarea"
                         placeholder="Add a comment"
                         onChange={handleChange}
-                        onClick={handleVisibleButton}
                     />
                     {visibleButton &&
                         <button
-                            className={`review__form--btn ${disabledButton ? 'disabled' : 'active'}`}
+                            className="review__form--btn"
                             onClick={handleComment}
-                            disabled={disabledButton}
                         >
                             Post
                         </button>
