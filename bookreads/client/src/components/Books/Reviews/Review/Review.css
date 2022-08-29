@@ -2,10 +2,6 @@
     display: flex;
 }
 
-.review__aside {
-    width: 100%;
-}
-
 .review__user--article {
     width: 60px;
     height: 60px;
@@ -57,7 +53,18 @@
 }
 
 .review__content {
-    padding-left: 80px;
+    padding-left: 60px;
+    width: 100%;
+}
+
+.fa-solid.fa-star.fa-review {
+    font-size: 1.2rem;
+    cursor: unset;
+    color: var(--gray-color);
+}
+
+.fa-solid.fa-star.fa-review.rated {
+    color: var(--star-color);
 }
 
 .review__section--content {
@@ -74,7 +81,7 @@
 }
 
 .review__paragraph {
-    margin: 24px 0;
+    margin: 20px 0;
     line-height: 1.5;
 }
 
@@ -108,7 +115,7 @@
 .review__likes__comments {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--gray-color);
