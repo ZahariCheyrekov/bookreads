@@ -1,4 +1,4 @@
-import * as api from '../api/requester';
+import * as userAPI from '../api/userAPI';
 
 import { saveUser } from './localStorage';
 import { SIGN_IN, SIGN_UP } from '../constants/actionType';
@@ -8,9 +8,9 @@ export const auth = async (action, data, navigate) => {
         let result;
 
         if (action === SIGN_IN) {
-            result = await api.signin(data);
+            result = await userAPI.signin(data);
         } else if (action === SIGN_UP) {
-            result = await api.signup(data);
+            result = await userAPI.signup(data);
         }
 
         const user = result.data;

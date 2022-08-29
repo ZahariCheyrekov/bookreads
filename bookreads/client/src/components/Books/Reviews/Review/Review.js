@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
-import { likeReview } from '../../../../api/requester';
+import { likeReview } from '../../../../api/reviewAPI';
 
 import Comments from './Comments/Comments';
 

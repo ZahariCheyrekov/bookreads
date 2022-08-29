@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { deleteComment } from '../../../../../../api/requester';
+import { deleteComment } from '../../../../../../api/postAPI';
 import { AuthContext } from '../../../../../../contexts/AuthContext';
 
 import './Comment.css';

@@ -1,8 +1,8 @@
-import * as api from '../api/requester';
+import * as reviewAPI from '../api/reviewAPI';
 
 export const getReviews = async (id) => {
     try {
-        const { data } = await api.getReviewsById(id);
+        const { data } = await reviewAPI.getReviewsById(id);
         return data;
     } catch (error) {
         console.log(error);

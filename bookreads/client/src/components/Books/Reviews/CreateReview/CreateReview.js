@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import { getBook } from '../../../../services/book';
-import { createReview } from '../../../../api/requester';
+import { createReview } from '../../../../api/reviewAPI';
 import Rating from '../../Details/Rating/Rating';
 
 import './CreateReview.css';

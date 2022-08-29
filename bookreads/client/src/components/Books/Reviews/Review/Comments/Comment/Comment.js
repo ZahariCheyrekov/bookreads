@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
-import { deleteReviewComment } from '../../../../../../api/requester';
+import { deleteReviewComment } from '../../../../../../api/reviewAPI';
 
 import './Comment.css';
 

@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { createBook, createPost, editBook } from '../../../api/requester';
+import { createBook, editBook } from '../../../api/bookAPI';
+import { createPost } from '../../../api/postAPI';
+
 import { AuthContext } from '../../../contexts/AuthContext';
 import { getBook } from '../../../services/book';
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../constants/actionType';

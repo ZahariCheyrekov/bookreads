@@ -5,7 +5,7 @@ import FileBase64 from 'react-file-base64';
 import { AuthContext } from '../../contexts/AuthContext';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 import { getUserById } from '../../services/user';
-import { uploadUserImage } from '../../api/requester';
+import { uploadUserImage } from '../../api/userAPI';
 
 import './Profile.css';
 

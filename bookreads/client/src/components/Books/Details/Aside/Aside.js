@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import { deleteBook } from '../../../../api/requester';
+import { deleteBook } from '../../../../api/bookAPI';
 import Rating from '../Rating/Rating';
 
 import './Aside.css';

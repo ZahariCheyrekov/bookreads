@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
-import { commentOnReview } from '../../../../../api/requester';
+import { commentOnReview } from '../../../../../api/reviewAPI'; 
 
 import Comment from './Comment/Comment';
 

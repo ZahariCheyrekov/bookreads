@@ -1,8 +1,8 @@
-import * as api from '../api/requester';
+import * as userAPI from '../api/userAPI';
 
 export const getUserById = async (id) => {
     try {
-        const { data } = await api.getUserById(id);
+        const { data } = await userAPI.getUserById(id);
         return data;
     } catch (error) {
         console.log(error);

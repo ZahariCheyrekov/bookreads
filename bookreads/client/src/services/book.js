@@ -1,8 +1,8 @@
-import * as api from '../api/requester';
+import * as bookAPI from '../api/bookAPI';
 
 export const getBook = async (id) => {
     try {
-        const { data } = await api.getBookById(id);
+        const { data } = await bookAPI.getBookById(id);
         return data;
     } catch (error) {
         console.log(error);
@@ -11,7 +11,7 @@ export const getBook = async (id) => {
 
 export const getBooks = async (id) => {
     try {
-        const { data } = await api.getBooksByTags(id);
+        const { data } = await bookAPI.getBooksByTags(id);
         return data;
     } catch (error) {
         console.log(error);

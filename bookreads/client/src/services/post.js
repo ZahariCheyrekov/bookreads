@@ -1,8 +1,8 @@
-import * as api from '../api/requester';
+import * as postAPI from '../api/postAPI';
 
 export const getPosts = async () => {
     try {
-        const { data } = await api.getPosts();
+        const { data } = await postAPI.getPosts();
         return data;
     } catch (error) {
         console.log(error);
@@ -11,7 +11,7 @@ export const getPosts = async () => {
 
 export const likePost = async (postId, userId, userName) => {
     try {
-        const { data } = await api.likePost(postId, userId, userName);
+        const { data } = await postAPI.likePost(postId, userId, userName);
         return data;
     } catch (error) {
         console.log(error);
@@ -20,7 +20,7 @@ export const likePost = async (postId, userId, userName) => {
 
 export const getComments = async (postId) => {
     try {
-        const { data } = await api.getComments(postId);
+        const { data } = await postAPI.getComments(postId);
         return data;
     } catch (error) {
         console.log(error);
@@ -29,7 +29,7 @@ export const getComments = async (postId) => {
 
 export const getPostLikes = async (postId) => {
     try {
-        const { data } = await api.getPostLikes(postId);
+        const { data } = await postAPI.getPostLikes(postId);
         return data;
     } catch (error) {
         console.log(error);
@@ -38,7 +38,7 @@ export const getPostLikes = async (postId) => {
 
 export const createComment = async (postId, commentData) => {
     try {
-        const { data } = await api.createComment(postId, commentData);
+        const { data } = await postAPI.createComment(postId, commentData);
         return data;
     } catch (error) {
         console.log(error);
