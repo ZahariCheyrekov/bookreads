@@ -33,15 +33,6 @@ const Review = ({ review }) => {
         }
     }
 
-    const handleComment = () => {
-        const commentData = {
-            user: review.user,
-            comment,
-            createdAt: new Date()
-        }
-        createCommentOnReview(review._id, commentData);
-    }
-
     return (
         <>
             {review
