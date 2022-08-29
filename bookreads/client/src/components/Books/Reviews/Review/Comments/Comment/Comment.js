@@ -1,9 +1,21 @@
-import uuid from 'react-uuid';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import uuid from 'react-uuid';
 
 import './Comment.css';
 
 const Comment = ({ comment }) => {
+    const [hasButton, setHasButton] = useState(false);
+    const [showSummary, setShowSummary] = useState(false);
+
+    useEffect(() => {
+        setHasButton(comment.comment.join('').length >= 300);
+    }, [comment.comment]);
+
+    const handleClick = () => {
+        setShowSummary(prevState => !prevState);
+    }
+
     return (
         <li className="review__user--comment">
             < article className="review__user__comment--img" >
@@ -21,7 +33,7 @@ const Comment = ({ comment }) => {
                         {comment.user.name}
                     </Link>
                 </h4>
-                <summary className="review__user__comment--summray">
+                <summary className={`review__user__comment--summray ${showSummary ? 'active' : ''}`}>
                     {comment.comment.map(paragraph =>
                         <p
                             key={uuid()}
@@ -31,6 +43,13 @@ const Comment = ({ comment }) => {
                         </p>
                     )}
                 </summary>
+                {hasButton ?
+                    <button className="review__comment__summary--btn" onClick={handleClick}>
+                        {showSummary ? 'Less' : 'More'}&nbsp;
+                        <i className={`fa-solid fa-angle-down down-arrow ${showSummary ? 'up' : ''}`} />
+                    </button>
+                    : null
+                }
             </article>
         </li >
     );
