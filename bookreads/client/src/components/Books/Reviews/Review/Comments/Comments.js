@@ -12,7 +12,7 @@ const Comments = ({ review, comments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [visibleButton, setVisibleButton] = useState(false);
-    const [reviewComments, setReviewComments] = useState(comments);
+    const [reviewComments, setReviewComments] = useState([...comments]);
 
     const handleComment = async (ev) => {
         ev.preventDefault();
@@ -22,6 +22,7 @@ const Comments = ({ review, comments }) => {
 
             const commentData = {
                 user: review.user,
+                commentId: uuid(),
                 commentContent,
                 createdAt: new Date()
             }
@@ -52,7 +53,10 @@ const Comments = ({ review, comments }) => {
                     {reviewComments.map(currentComment =>
                         <Comment
                             key={uuid()}
+                            reveiewId={review._id}
                             comment={currentComment}
+                            reviewComments={reviewComments}
+                            setReviewComments={setReviewComments}
                         />
                     )}
                 </ul>
