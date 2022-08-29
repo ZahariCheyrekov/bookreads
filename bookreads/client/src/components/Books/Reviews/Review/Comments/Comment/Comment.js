@@ -6,7 +6,7 @@ import { deleteReviewComment } from '../../../../../../api/requester';
 
 import './Comment.css';
 
-const Comment = ({ reveiewId, comment, reviewComments, setReviewComments }) => {
+const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setComments }) => {
     const [hasButton] = useState(comment.commentContent.join('').length >= 300);
     const [showSummary, setShowSummary] = useState(false);
 
@@ -20,6 +20,8 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments }) => {
 
         const filteredComments = reviewComments.filter(currentComment => currentComment.commentId !== commentToRemoveId);
         setReviewComments(filteredComments);
+        setComments(filteredComments);
+
         deleteReviewComment(reveiewId, commentToRemoveId);
     }
 

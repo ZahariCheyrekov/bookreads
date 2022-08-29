@@ -8,7 +8,7 @@ import Comment from './Comment/Comment';
 
 import './Comments.css';
 
-const Comments = ({ review, comments }) => {
+const Comments = ({ review, comments, setComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [visibleButton, setVisibleButton] = useState(false);
@@ -28,6 +28,7 @@ const Comments = ({ review, comments }) => {
             }
             await commentOnReview(review._id, commentData);
             setReviewComments([...reviewComments, commentData]);
+            setComments([...reviewComments, commentData])
 
             setComment('');
             setVisibleButton(false);
@@ -57,6 +58,7 @@ const Comments = ({ review, comments }) => {
                             comment={currentComment}
                             reviewComments={reviewComments}
                             setReviewComments={setReviewComments}
+                            setComments={setComments}
                         />
                     )}
                 </ul>
