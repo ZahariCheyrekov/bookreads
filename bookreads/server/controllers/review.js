@@ -68,8 +68,6 @@ export const addCommentOnReview = async (req, res) => {
 
     const review = await ReviewSchema.findById(id);
 
-    const commentBody = commentData.comment.trim().split(/\n+/);
-    commentData.comment = commentBody;
     review.comments.push(commentData);
 
     await ReviewSchema.findByIdAndUpdate(id, review);
