@@ -1,3 +1,17 @@
 .review__user--comment {
     display: flex;
+    margin-bottom: 14px;
+}
+
+.review__user__comment--name {
+    font-weight: 500;
+}
+
+.review__user__comment--summray {
+    margin: 6px 0;
+    line-height: 1.4;
+}
+
+.review__comment__summary--paragraph:not(:nth-child(1)) {
+    margin: 20px 0;
 }
