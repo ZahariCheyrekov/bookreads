@@ -2,15 +2,25 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
+import { deleteReviewComment } from '../../../../../../api/requester';
 
 import './Comment.css';
 
-const Comment = ({ comment }) => {
+const Comment = ({ reveiewId, comment, reviewComments, setReviewComments }) => {
     const [hasButton] = useState(comment.commentContent.join('').length >= 300);
     const [showSummary, setShowSummary] = useState(false);
 
     const handleClick = () => {
         setShowSummary(prevState => !prevState);
+    }
+
+    const handleDeleteComment = () => {
+        const indexOfComment = reviewComments.findIndex(currentComment => currentComment.commentId === comment.commentId);
+        const commentToRemoveId = reviewComments[indexOfComment].commentId;
+
+        const filteredComments = reviewComments.filter(currentComment => currentComment.commentId !== commentToRemoveId);
+        setReviewComments(filteredComments);
+        deleteReviewComment(reveiewId, commentToRemoveId);
     }
 
     return (
@@ -31,7 +41,10 @@ const Comment = ({ comment }) => {
                             {comment.user.name}
                         </Link>
                     </h4>
-                    <button className="review__user__comment--delete">
+                    <button
+                        className="review__user__comment--delete"
+                        onClick={handleDeleteComment}
+                    >
                         Delete
                     </button>
                 </section>
