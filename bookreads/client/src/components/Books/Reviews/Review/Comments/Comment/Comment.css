@@ -3,6 +3,10 @@
     margin-bottom: 14px;
 }
 
+.review__user__comment--content {
+    width: 100%;
+}
+
 .review__user__comment--name {
     font-weight: 500;
 }
