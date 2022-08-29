@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 import './Comment.css';
 
 const Comment = ({ comment }) => {
-    const [hasButton, setHasButton] = useState(false);
+    const [hasButton] = useState(comment.commentContent.join('').length >= 300);
     const [showSummary, setShowSummary] = useState(false);
-
-    useEffect(() => {
-        setHasButton(comment.comment.join('').length >= 300);
-    }, [comment.comment]);
 
     const handleClick = () => {
         setShowSummary(prevState => !prevState);
@@ -18,7 +15,7 @@ const Comment = ({ comment }) => {
 
     return (
         <li className="review__user--comment">
-            < article className="review__user__comment--img" >
+            <article className="review__user__comment--img" >
                 <Link to={`/user/${comment.user.name.split(' ').join('-').toLowerCase()}/${comment.user.id}`}>
                     <img
                         className="review__user__comment--img"
@@ -34,7 +31,7 @@ const Comment = ({ comment }) => {
                     </Link>
                 </h4>
                 <summary className={`review__user__comment--summray ${showSummary ? 'active' : ''}`}>
-                    {comment.comment.map(paragraph =>
+                    {comment.commentContent.map(paragraph =>
                         <p
                             key={uuid()}
                             className="review__comment__summary--paragraph"
