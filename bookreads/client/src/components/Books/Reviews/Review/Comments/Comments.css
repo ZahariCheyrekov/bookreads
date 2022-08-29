@@ -35,6 +35,11 @@
     box-shadow: 0px 0px 4px var(--divider-color);
 }
 
+.review__form--btn.disabled {
+    cursor: not-allowed;
+    background-color: var(--gray-color);
+}
+
 .review__form--btn {
     align-self: flex-end;
     margin-top: 0.4rem;
@@ -48,8 +53,9 @@
 
     background-color: var(--dark-button-color);
     color: var(--white-color);
+    cursor: pointer;
 }
 
-.review__form--btn:hover {
+.review__form--btn.active:hover {
     background-color: var(--dark-button-hover-color);
 }
