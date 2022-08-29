@@ -42,7 +42,7 @@ const Comments = ({ review, comments, setComments }) => {
                         className="review__form--btn"
                         onClick={handleComment}
                     >
-                        Post comment
+                        Post
                     </button>
                 </form>
             </section>

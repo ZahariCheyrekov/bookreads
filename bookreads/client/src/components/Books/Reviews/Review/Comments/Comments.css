@@ -34,3 +34,22 @@
     background-color: var(--white-color);
     box-shadow: 0px 0px 4px var(--divider-color);
 }
+
+.review__form--btn {
+    align-self: flex-end;
+    margin-top: 0.4rem;
+    padding: 0.6rem 1.2rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    border-radius: 1.4rem;
+    border: none;
+
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+}
+
+.review__form--btn:hover {
+    background-color: var(--dark-button-hover-color);
+}
