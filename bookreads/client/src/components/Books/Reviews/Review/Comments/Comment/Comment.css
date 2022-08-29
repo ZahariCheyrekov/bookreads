@@ -20,6 +20,21 @@
     overflow: visible;
 }
 
+.review__user__comment--section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review__user__comment--delete {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+}
+
+.review__user__comment--delete:hover {
+    text-decoration: underline;
+}
+
 .review__comment__summary--paragraph:not(:nth-child(1)) {
     margin: 20px 0;
 }

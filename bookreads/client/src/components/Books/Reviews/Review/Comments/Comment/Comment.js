@@ -25,11 +25,16 @@ const Comment = ({ comment }) => {
                 </Link>
             </article >
             <article className="review__user__comment--content">
-                <h4 className="review__user__comment--name">
-                    <Link to={`/user/${comment.user.name.split(' ').join('-').toLowerCase()}/${comment.user.id}`}>
-                        {comment.user.name}
-                    </Link>
-                </h4>
+                <section className="review__user__comment--section">
+                    <h4 className="review__user__comment--name">
+                        <Link to={`/user/${comment.user.name.split(' ').join('-').toLowerCase()}/${comment.user.id}`}>
+                            {comment.user.name}
+                        </Link>
+                    </h4>
+                    <button className="review__user__comment--delete">
+                        Delete
+                    </button>
+                </section>
                 <summary className={`review__user__comment--summray ${showSummary ? 'active' : ''}`}>
                     {comment.commentContent.map(paragraph =>
                         <p
