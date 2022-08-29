@@ -8,21 +8,25 @@ import Comment from './Comment/Comment';
 
 import './Comments.css';
 
-const Comments = ({ review, comments, setComments }) => {
+const Comments = ({ review, comments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [visibleButton, setVisibleButton] = useState(false);
+    const [reviewComments, setReviewComments] = useState(comments);
 
-    const handleComment = (ev) => {
+    const handleComment = async (ev) => {
         ev.preventDefault();
 
         if (visibleButton) {
+            const commentContent = comment.trim().split(/\n+/);
+
             const commentData = {
                 user: review.user,
-                comment: comment.trim(),
+                commentContent,
                 createdAt: new Date()
             }
-            commentOnReview(review._id, commentData);
+            await commentOnReview(review._id, commentData);
+            setReviewComments([...reviewComments, commentData]);
 
             setComment('');
             setVisibleButton(false);
@@ -45,7 +49,7 @@ const Comments = ({ review, comments, setComments }) => {
             <hr className="hr__divider" />
             <section className="review__section--comments">
                 <ul className="review__comments--list">
-                    {comments.map(currentComment =>
+                    {reviewComments.map(currentComment =>
                         <Comment
                             key={uuid()}
                             comment={currentComment}
