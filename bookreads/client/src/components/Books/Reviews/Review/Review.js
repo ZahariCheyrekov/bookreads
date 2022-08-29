@@ -2,16 +2,15 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
-
 import { likeReview } from '../../../../api/requester';
-import { createCommentOnReview } from '../../../../services/review';
+
+import Comments from './Comments/Comments';
 
 import './Review.css';
 
 const Review = ({ review }) => {
     const { user } = useContext(AuthContext);
     const [likes, setLikes] = useState(review.likes);
-    const [comment, setComment] = useState('');
     const [comments, setComments] = useState(review.comments);
     const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
@@ -123,6 +122,12 @@ const Review = ({ review }) => {
                                 </span>
                             </article>
                         </section>
+
+                        <Comments
+                            review={review}
+                            comments={review.comments}
+                            setComments={setComments}
+                        />
                         <hr className="hr__divider"></hr>
                     </article>
                 </li >
