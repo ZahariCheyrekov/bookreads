@@ -7,6 +7,6 @@ const router = express.Router();
 router.get('/books/:id/reviews', getReviewsById);
 router.post('/review/edit/:id', createReview);
 router.post('/books/:id', likeReview);
-router.post('/books/:id', addCommentOnReview);
+router.post('/books/:id/comment', addCommentOnReview);
 
 export default router;
