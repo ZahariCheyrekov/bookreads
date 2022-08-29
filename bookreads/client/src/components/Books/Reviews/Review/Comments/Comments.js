@@ -1,7 +1,10 @@
 import { useContext, useState } from 'react';
+import uuid from 'react-uuid';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 import { commentOnReview } from '../../../../../api/requester';
+
+import Comment from './Comment/Comment';
 
 import './Comments.css';
 
@@ -40,6 +43,16 @@ const Comments = ({ review, comments, setComments }) => {
     return (
         <section className="review__comments">
             <hr className="hr__divider" />
+            <section className="review__section--comments">
+                <ul className="review__comments--list">
+                    {comments.map(currentComment =>
+                        <Comment
+                            key={uuid()}
+                            comment={currentComment}
+                        />
+                    )}
+                </ul>
+            </section>
             <section className="review__section--write">
                 <img
                     className="review__user__comment--img"
