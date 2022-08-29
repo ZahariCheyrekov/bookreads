@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
-import { createCommentOnReview } from '../../../../../services/review';
+import { commentOnReview } from '../../../../../api/requester';
 
 import './Comments.css';
 
@@ -10,13 +9,18 @@ const Comments = ({ review, comments, setComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
 
-    const handleComment = () => {
+    const handleComment = (ev) => {
+        ev.preventDefault();
+
         const commentData = {
             user: review.user,
             comment,
             createdAt: new Date()
         }
-        createCommentOnReview(review._id, commentData);
+        commentOnReview(review._id, commentData);
+
+        setComment('');
+        ev.target.parentNode.reset();
     }
 
     const handleChange = (ev) => {
