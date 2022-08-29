@@ -26,14 +26,21 @@ const Comments = ({ review, comments, setComments }) => {
         <section className="review__comments">
             <hr className="hr__divider" />
             <section className="review__section--write">
-                <img src={user?.result?.imageUrl} alt={user?.result?.name} />
-                <form classNme="areview__form">
-                    <textarea className="review__form--textarea" onChange={handleChange} />
+                <img
+                    className="review__user__comment--img"
+                    src={user?.result?.imageUrl}
+                    alt={user?.result?.name}
+                />
+                <form className="areview__form">
+                    <textarea
+                        className="review__form--textarea"
+                        onChange={handleChange}
+                    />
                     <button
                         className="review__form--btn"
                         onClick={handleComment}
                     >
-                        Add comment
+                        Post comment
                     </button>
                 </form>
             </section>

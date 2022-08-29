@@ -1,0 +1,10 @@
+.review__section--write {
+    display: flex;
+    align-items: center;
+}
+
+.review__user__comment--img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
