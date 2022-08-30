@@ -10,6 +10,7 @@
 
 .recommended__arrows i {
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .recommended__arrows i:first-child {
