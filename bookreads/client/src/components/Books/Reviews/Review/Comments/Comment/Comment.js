@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 import { deleteReviewComment } from '../../../../../../api/reviewAPI';
+import { getUserLink } from '../../../../../../utils/getUserLink';
 
 import './Comment.css';
 
@@ -28,7 +29,7 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setCom
     return (
         <li className="review__user--comment">
             <article className="review__user__comment--img" >
-                <Link to={`/user/${comment.user.name.split(' ').join('-').toLowerCase()}/${comment.user.id}`}>
+                <Link to={getUserLink(comment.user.name, comment.user.id)}>
                     <img
                         className="review__user__comment--img"
                         src={comment.user.imageUrl}
@@ -39,7 +40,7 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setCom
             <article className="review__user__comment--content">
                 <section className="review__user__comment--section">
                     <h4 className="review__user__comment--name">
-                        <Link to={`/user/${comment.user.name.split(' ').join('-').toLowerCase()}/${comment.user.id}`}>
+                        <Link to={getUserLink(comment.user.name, comment.user.id)}>
                             {comment.user.name}
                         </Link>
                     </h4>

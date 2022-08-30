@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
 import { AuthContext } from '../../../../../contexts/AuthContext';
+import { getUserLink } from '../../../../../utils/getUserLink';
 
 import './User.css';
 
@@ -10,7 +11,7 @@ const User = ({ abs }) => {
     const { user } = useContext(AuthContext);
 
     return (
-        <Link to={`/user/${user?.result?.name?.split(' ').join('').toLowerCase()}/${user?.result?._id}`}>
+        <Link to={getUserLink(user.result.name, user.result._id)}>
             <article className={`post__user ${abs && 'abs'}`}>
                 <img className="user__img"
                     src={

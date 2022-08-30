@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
 import { getPostLikes } from '../../../../../services/post';
+import { getUserLink } from '../../../../../utils/getUserLink';
 
 import './PostLikes.css';
 
@@ -36,7 +37,7 @@ const PostLikes = () => {
                                 />
                             </article>
                             <h5 className="like__user--name">
-                                <Link to={`/user/${like.userName.split(' ').join('-').toLowerCase()}/${like.userId}`}>
+                                <Link to={getUserLink(like.userName, like.userId)}>
                                     {like.userName}
                                 </Link>
                             </h5>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { deleteComment } from '../../../../../../api/postAPI';
 import { AuthContext } from '../../../../../../contexts/AuthContext';
+import { getUserLink } from '../../../../../../utils/getUserLink';
 
 import './Comment.css';
 
@@ -35,7 +36,7 @@ const Comment = ({ comment, comments, setComments, postId, postCreatorId }) => {
         <li className="comment__ul--item">
             <article className="comment__article">
                 <h5 className="comment__author">
-                    <Link to={`/user/${comment.creatorName.split(' ').join('').toLowerCase()}/${comment.creatorId}`}>
+                    <Link to={getUserLink(comment.creatorName, comment.creatorId)}>
                         {comment.creatorName}
                     </Link>
                 </h5>

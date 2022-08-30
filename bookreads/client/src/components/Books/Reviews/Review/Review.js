@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthContext';
 import { likeReview } from '../../../../api/reviewAPI';
 import defaultUserPhoto from '../../../../assets/default-user-photo.png';
+import { getUserLink } from '../../../../utils/getUserLink';
 
 import Comments from './Comments/Comments';
 
@@ -41,7 +42,7 @@ const Review = ({ review }) => {
             {review
                 ? <li className="review__item">
                     <aside className="review__aside">
-                        <Link to={`/user/${review.user.name.split(' ').join('-').toLowerCase()}/${review.user.id}`}>
+                        <Link to={getUserLink(review.user.name, review.user.id)}>
                             <article className="review__user--article">
                                 <img
                                     className="review__user--img"
