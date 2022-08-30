@@ -31,18 +31,28 @@ const Recommended = () => {
             setBooksIndex({ start: booksIndex.start + 4, end: booksIndex.end + 4 });
         }
     }
-
+    console.log(recommendedBooks)
     return (
         <section className="recommended">
             <article className="recommended__artile--top">
                 <h3 className="recommended__title">Recommended books</h3>
                 <span className="recommended__arrows">
-                    <i className="fa-solid fa-chevron-left" onClick={handleLeftArrow} />
-                    <i className="fa-solid fa-chevron-right" onClick={handleRightArrow} />
+                    <i
+                        className={`fa-solid fa-chevron-left 
+                        ${booksIndex.start == 0 ? 'inactive' : ''}`
+                        }
+                        onClick={handleLeftArrow}
+                    />
+                    <i
+                        className={`fa-solid fa-chevron-right  
+                        ${booksIndex.start + 4 >= recommendedBooks.length ? 'inactive' : ''}`
+                        }
+                        onClick={handleRightArrow}
+                    />
                 </span>
             </article>
             <ul className="recommended__books">
-                {recommendedBooks.slice(booksIndex.start, booksIndex.end).map(book =>
+                {recommendedBooks.slice(booksIndex.start, booksIndex.end).map((book, index) =>
                     <Book
                         key={book._id}
                         book={book}
