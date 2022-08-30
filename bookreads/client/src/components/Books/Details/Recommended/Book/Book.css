@@ -3,8 +3,12 @@
     transition: all ease-in-out 0.25s;
 }
 
+.recommended__books {
+    width: 920px;
+}
+
 .recommended__books a:not(:first-child) {
-    margin-left: 3rem;
+    margin-left: 2.96rem;
 }
 
 .book:hover {

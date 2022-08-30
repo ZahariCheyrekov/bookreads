@@ -52,7 +52,7 @@ const Recommended = () => {
                 </span>
             </article>
             <ul className="recommended__books">
-                {recommendedBooks.slice(booksIndex.start, booksIndex.end).map((book, index) =>
+                {recommendedBooks.slice(booksIndex.start, booksIndex.end).map(book =>
                     <Book
                         key={book._id}
                         book={book}
