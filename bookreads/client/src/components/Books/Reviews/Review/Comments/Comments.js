@@ -2,7 +2,8 @@ import { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
-import { commentOnReview } from '../../../../../api/reviewAPI'; 
+import { commentOnReview } from '../../../../../api/reviewAPI';
+import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
 
 import Comment from './Comment/Comment';
 
@@ -66,7 +67,7 @@ const Comments = ({ review, comments, setComments }) => {
             <section className="review__section--write">
                 <img
                     className="review__user__comment--img"
-                    src={user?.result?.imageUrl}
+                    src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
                     alt={user?.result?.name}
                 />
                 <form className="review__form">
