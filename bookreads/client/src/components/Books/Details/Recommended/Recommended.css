@@ -2,6 +2,12 @@
     max-height: 450px;
 }
 
+.recommended__artile--top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
 .recommended__title {
     font-family: Georgia, serif;
     font-weight: 400;
