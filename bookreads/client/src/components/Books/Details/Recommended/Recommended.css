@@ -18,6 +18,12 @@
     margin-right: 10px;
 }
 
+.fa-solid.fa-chevron-right.inactive,
+.fa-solid.fa-chevron-left.inactive {
+    color: var(--gray-hover-color);
+    cursor: unset;
+}
+
 .recommended__title {
     font-family: Georgia, serif;
     font-weight: 400;
