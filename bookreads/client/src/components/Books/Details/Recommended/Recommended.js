@@ -20,7 +20,13 @@ const Recommended = () => {
 
     return (
         <section className="recommended">
-            <h3 className="recommended__title">Recommended books</h3>
+            <article className="recommended__artile--top">
+                <h3 className="recommended__title">Recommended books</h3>
+                <span className="recommended__arrows">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </span>
+            </article>
             <ul className="recommended__books">
                 {recommendedBooks.map(book =>
                     <Book
