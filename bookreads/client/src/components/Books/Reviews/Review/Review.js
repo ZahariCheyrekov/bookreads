@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 import { likeReview } from '../../../../api/reviewAPI';
+import defaultUserPhoto from '../../../../assets/default-user-photo.png';
 
 import Comments from './Comments/Comments';
 
@@ -44,7 +45,7 @@ const Review = ({ review }) => {
                             <article className="review__user--article">
                                 <img
                                     className="review__user--img"
-                                    src={review.user.imageUrl}
+                                    src={review.user.imageUrl ? review.user.imageUrl : defaultUserPhoto}
                                     alt={review.user.name}
                                 />
                             </article>
