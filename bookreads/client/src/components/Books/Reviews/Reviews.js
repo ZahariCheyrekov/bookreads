@@ -8,6 +8,7 @@ import Review from './Review/Review';
 
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
 import { getReviews } from '../../../services/review';
+import { getUserLink } from '../../../utils/getUserLink';
 
 import './Reviews.css';
 
@@ -29,8 +30,7 @@ const Reviews = ({ book }) => {
             <h3 className="reviews__title">Reviews & Ratings</h3>
 
             <article className="reviews__user">
-                <Link to={`/user/${user?.result?.name.split(' ').join('')
-                    .toLowerCase()}/${user?.result?.googleId || user?.result?._id}`}>
+                <Link to={getUserLink(user.result.name, user.result._id)}>
                     <article className="profile__section--article">
                         <img src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
                             alt={`${user?.result?.name}`}
