@@ -8,6 +8,14 @@
     justify-content: space-between;
 }
 
+.recommended__arrows i {
+    font-size: 2rem;
+}
+
+.recommended__arrows i:first-child {
+    margin-right: 10px;
+}
+
 .recommended__title {
     font-family: Georgia, serif;
     font-weight: 400;
