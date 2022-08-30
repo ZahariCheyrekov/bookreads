@@ -8,6 +8,8 @@ import CommentSection from './CommentSection/CommentSection';
 import { getBook } from '../../../../services/book';
 import { getUserById } from '../../../../services/user';
 import { likePost } from '../../../../services/post';
+import { getUserLink } from '../../../../utils/getUserLink';
+
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import './Post.css';
@@ -58,11 +60,13 @@ const Post = ({ post }) => {
             <User user={postUser} creatorId={post?.creatorId} abs={true} />
             <div className="post__wrapper">
                 <section className="post__information">
-                    <Link to={`/user/${postUser?.split(' ').join('').toLowerCase()}/${post.creatorId}`}>
-                        <h4 className="post__user--name">
-                            {postUser}
-                        </h4>
-                    </Link>
+                    {postUser &&
+                        <Link to={getUserLink(postUser, post.creatorId)}>
+                            <h4 className="post__user--name">
+                                {postUser}
+                            </h4>
+                        </Link>
+                    }
                     <span className="post__status">
                         {post.status}
                     </span>
