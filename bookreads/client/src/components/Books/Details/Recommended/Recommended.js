@@ -25,7 +25,7 @@ const Recommended = () => {
             setBooksIndex({ start: booksIndex.start - 4, end: booksIndex.end - 4 });
         }
     }
-console.log(recommendedBooks)
+
     const handleRightArrow = () => {
         if (booksIndex.start + 4 < recommendedBooks.length) {
             setBooksIndex({ start: booksIndex.start + 4, end: booksIndex.end + 4 });
