@@ -39,7 +39,7 @@ const Recommended = () => {
                 <span className="recommended__arrows">
                     <i
                         className={`fa-solid fa-chevron-left 
-                        ${booksIndex.start == 0 ? 'inactive' : ''}`
+                        ${booksIndex.start === 0 ? 'inactive' : ''}`
                         }
                         onClick={handleLeftArrow}
                     />
