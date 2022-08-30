@@ -8,7 +8,7 @@ export const getUserById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const { name } = await User.findOne({ id });
+        const { name } = await User.findById(id);
         res.status(200).json(name);
 
     } catch (error) {
