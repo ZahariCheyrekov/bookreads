@@ -50,7 +50,7 @@ const Reviews = ({ book }) => {
 
             <section className="reviews">
                 <ul className="reviews__list">
-                    {reviews.map(review =>
+                    {reviews?.map(review =>
                         <Review
                             key={review?._id}
                             review={review}

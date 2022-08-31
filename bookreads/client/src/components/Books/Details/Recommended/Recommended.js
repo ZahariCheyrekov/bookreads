@@ -27,7 +27,7 @@ const Recommended = () => {
     }
 
     const handleRightArrow = () => {
-        if (booksIndex.start + 4 < recommendedBooks.length) {
+        if (booksIndex.start + 4 < recommendedBooks?.length) {
             setBooksIndex({ start: booksIndex.start + 4, end: booksIndex.end + 4 });
         }
     }
@@ -52,7 +52,7 @@ const Recommended = () => {
                 </span>
             </article>
             <ul className="recommended__books">
-                {recommendedBooks.slice(booksIndex.start, booksIndex.end).map(book =>
+                {recommendedBooks?.slice(booksIndex.start, booksIndex.end).map(book =>
                     <Book
                         key={book._id}
                         book={book}
