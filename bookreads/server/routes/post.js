@@ -10,6 +10,7 @@ import {
     deleteComment
 } from '../controllers/post.js';
 
+
 const router = express.Router();
 
 router.get('/', getPosts);
