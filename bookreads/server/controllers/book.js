@@ -5,12 +5,13 @@ import BookSchema from '../models/Book.js';
 export const getBookById = async (req, res) => {
     const { id } = req.params;
 
-    try {
-        const book = await BookSchema.findById(id);
-        return res.status(200).json(book);
-    } catch (error) {
-        return res.status(404).json({ message: error.message });
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find book with id: ${id}`);
     }
+
+    const book = await BookSchema.findById(id);
+
+    return res.status(200).json(book);
 }
 
 export const getBooksByTags = async (req, res) => {
