@@ -17,20 +17,9 @@ import './Post.css';
 const Post = ({ post }) => {
     const { user } = useContext(AuthContext);
     const [postUser, setPostUser] = useState(null);
-    const [book, setBook] = useState(null);
+    const [book] = useState(post.postBookData);
     const [likes, setLikes] = useState([]);
     const likedByUser = likes.find(like => like.userId === user?.result?._id);
-
-    useEffect(() => {
-        if (post?.bookId) {
-            const fetchBook = async () => {
-                const book = await getBook(post.bookId);
-                setBook(book);
-                setLikes(post.likes);
-            }
-            fetchBook();
-        }
-    }, [post?.bookId, post?.likes]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -71,9 +60,9 @@ const Post = ({ post }) => {
                         {post.status}
                     </span>
                     {book ?
-                        <Link to={`/books/${book._id}`}>
+                        <Link to={`/books/${book.bookId}`}>
                             <h4 className="post__book--title">
-                                {book.title}
+                                {book.bookTitle}
                             </h4>
                         </Link>
                         : null
@@ -85,20 +74,20 @@ const Post = ({ post }) => {
                 {book ?
                     <section className="post__book">
                         <article className="post__book--img">
-                            <img className="post__img" src={book.bookCoverUrl} alt={book.title} />
+                            <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
                         </article>
                         <summary className="post__book--summary">
-                            <Link to={`/books/${book._id}`}>
+                            <Link to={`/books/${book.bookId}`}>
                                 <h4 className="post__summary--title">
-                                    {book.title}
+                                    {book.bookTitle}
                                 </h4>
                             </Link>
-                            <h4 className="post__book--author">by {book.author}</h4>
+                            <h4 className="post__book--author">by {book.bookAuthor}</h4>
                             <p className="post__book--description">
-                                {book.description}
+                                {book.bookDescription}
                             </p>
                             <span className="post__summary--more">
-                                <Link to={`/books/${book._id}`}>
+                                <Link to={`/books/${book.bookId}`}>
                                     Continue reading
                                 </Link>
                             </span>
