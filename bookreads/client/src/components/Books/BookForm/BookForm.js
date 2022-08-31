@@ -49,6 +49,7 @@ const BookForm = () => {
         const postBookData = {
             bookId: id,
             bookAuthor: bookData.author,
+            bookTitle: bookData.title,
             bookDescription: bookData.description,
             bookCoverUrl: bookData.bookCoverUrl
         }
