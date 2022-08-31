@@ -18,8 +18,9 @@ const postSchema = mongoose.Schema({
     spoilers: {
         type: Boolean
     },
-    bookId: {
-        type: String,
+    postBookData: {
+        type: Object,
+        default: {}
     },
     createdAt: {
         type: Date,
