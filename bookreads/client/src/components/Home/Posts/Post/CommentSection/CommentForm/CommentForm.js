@@ -10,6 +10,7 @@ import './CommentForm.css';
 
 const CommentForm = ({ postId, currentComments, setCurrentComments }) => {
     const { user } = useContext(AuthContext);
+    const [userData] = useState({ creatorId: user.result._id, creatorName: user.result.name })
     const [comment, setComment] = useState('');
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true);
     const [showCommentButton, setShowCommentButton] = useState(false);
@@ -32,19 +33,20 @@ const CommentForm = ({ postId, currentComments, setCurrentComments }) => {
         ev.preventDefault();
 
         const commentData = {
-            creatorId: user?.result?._id,
-            creatorName: user?.result?.name,
-            comment,
+            creatorId: userData.creatorId,
+            creatorName: userData.creatorName,
+            comment: comment.trim().split(/\n+/),
             createdAt: new Date(),
             commentId: uuid()
         };
 
-        const newComment = await createComment(postId, commentData);
-        setCurrentComments([...currentComments, newComment]);
+        ev.target.parentNode.reset();
+
+        setCurrentComments([...currentComments, commentData]);
+        await createComment(postId, commentData);
 
         setComment('');
         setCommentButtonDisabled(true);
-        ev.target.parentNode.reset();
     }
 
     return (
