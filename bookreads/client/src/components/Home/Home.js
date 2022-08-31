@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
-import Posts from './Posts/Posts';
+import Post from '../Posts/Post/Post';
+
 import Welcome from '../Welcome/Welcome';
 
 import './Home.css';
@@ -14,7 +15,7 @@ const Home = () => {
             {user
                 ?
                 <main className="main__home">
-                    <Posts />
+                    <Post />
                 </main>
                 : <Welcome />
             }

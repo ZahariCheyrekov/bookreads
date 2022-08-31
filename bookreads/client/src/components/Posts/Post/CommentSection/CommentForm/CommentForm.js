@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 
-import { AuthContext } from '../../../../../../contexts/AuthContext';
-import { createComment } from '../../../../../../services/post';
+import { AuthContext } from '../../../../../contexts/AuthContext';
+import { createComment } from '../../../../../services/post';
 
 import User from '../../User/User';
 

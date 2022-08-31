@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { getUserPostsById } from '../../../services/user';
-import Posts from '../../Home/Posts/Posts';
+import Posts from '../../Posts/Posts';
 
 import './Updates.css';
 

@@ -5,19 +5,19 @@ import User from './User/User';
 import Likes from './Likes/Likes';
 import CommentSection from './CommentSection/CommentSection';
 
-import { likePost } from '../../../../services/post';
-import { getUserLink } from '../../../../utils/getUserLink';
+import { likePost } from '../../../services/post';
+import { getUserLink } from '../../../utils/getUserLink';
 
-import { AuthContext } from '../../../../contexts/AuthContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 import './Post.css';
 
 const Post = ({ post }) => {
     const { user } = useContext(AuthContext);
-    const [postUser] = useState(post.userData);
-    const [book] = useState(post.postBookData);
-    const [likes, setLikes] = useState(post.likes);
-    const likedByUser = likes.find(like => like.userId === user?.result?._id);
+    const [postUser] = useState(post?.userData);
+    const [book] = useState(post?.postBookData);
+    const [likes, setLikes] = useState(post?.likes);
+    const likedByUser = likes?.find(like => like.userId === user?.result?._id);
 
     const handleLike = async () => {
         const userId = user?.result?._id;
@@ -38,7 +38,11 @@ const Post = ({ post }) => {
         <article className="post">
             {postUser ?
                 <>
-                    < User name={postUser.name} image={postUser.imageUrl} id={postUser.id} abs={true} />
+                    <User
+                        name={postUser.name}
+                        image={postUser.imageUrl}
+                        id={postUser.id} abs={true}
+                    />
                     <div className="post__wrapper">
                         <section className="post__information">
                             {postUser.name ?
@@ -98,8 +102,17 @@ const Post = ({ post }) => {
                         </section>
                     </div>
 
-                    <Likes likes={likes} likedByUser={likedByUser} postId={post._id} />
-                    <CommentSection postId={post?._id} postCreatorId={post.creatorId} comments={post.comments} />
+                    <Likes
+                        likes={likes}
+                        likedByUser={likedByUser}
+                        postId={post._id}
+                    />
+
+                    <CommentSection
+                        postId={post?._id}
+                        postCreatorId={post.creatorId}
+                        comments={post.comments}
+                    />
                 </>
                 : null
             }

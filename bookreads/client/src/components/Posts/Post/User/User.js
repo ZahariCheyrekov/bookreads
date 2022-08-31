@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
-import { getUserLink } from '../../../../../utils/getUserLink';
+import defaultUserPhoto from '../../../../assets/default-user-photo.png';
+import { getUserLink } from '../../../../utils/getUserLink';
 
 import './User.css';
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // import FileBase64 from 'react-file-base64';
 
 import defaultUserPhoto from '../../assets/default-user-photo.png';
@@ -61,7 +61,10 @@ const Profile = () => {
                 } */}
                     </section>
 
-                    <Updates />
+                    <Updates
+                        userId={id}
+                        currentUser={currentUser}
+                    />
                 </>
             }
         </main >

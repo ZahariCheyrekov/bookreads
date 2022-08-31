@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
 import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
-import PostLikes from './components/Home/Posts/Post/PostLikes/PostLikes';
+import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import BookForm from './components/Books/BookForm/BookForm';
 import Auth from './components/Auth/Auth';
 import NotFound from './components/NotFound/NotFound';

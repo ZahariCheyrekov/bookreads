@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { deleteComment } from '../../../../../../api/postAPI';
-import { AuthContext } from '../../../../../../contexts/AuthContext';
-import { getUserLink } from '../../../../../../utils/getUserLink';
+import { deleteComment } from '../../../../../api/postAPI';
+import { AuthContext } from '../../../../../contexts/AuthContext';
+import { getUserLink } from '../../../../../utils/getUserLink';
 
 import User from '../../User/User';
 
