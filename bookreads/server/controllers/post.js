@@ -83,9 +83,6 @@ export const createComment = async (req, res) => {
         return res.status(404).send(`No post with id: ${id}`);
     }
 
-    const commentBody = commentData.comment.trim().split(/\n+/);
-    commentData.comment = commentBody;
-
     const post = await PostSchema.findById(id);
 
     post.comments.push(commentData);
