@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import FileBase64 from 'react-file-base64';
+// import FileBase64 from 'react-file-base64';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 import { getUserById } from '../../services/user';
-import { uploadUserImage } from '../../api/userAPI';
+// import { uploadUserImage } from '../../api/userAPI';
 
 import './Profile.css';
 
@@ -13,7 +13,7 @@ const Profile = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [currentUser, setCurrentUser] = useState(null);
-    const [image, setImage] = useState('');
+    // const [image, setImage] = useState('');
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -23,10 +23,10 @@ const Profile = () => {
         fetchUser();
     }, [id]);
 
-    const uploadImage = () => {
-        const imageUrl = image.base64;
-        uploadUserImage(user?.result?._id, imageUrl);
-    }
+    // const uploadImage = () => {
+    //     const imageUrl = image.base64;
+    //     uploadUserImage(user?.result?._id, imageUrl);
+    // }
 
     return (
         <main className="main__profile">
@@ -39,12 +39,12 @@ const Profile = () => {
                 <h4 className="profile__section--user">
                     {currentUser}
                 </h4>
-                <Link to={'/user/edit'}>
+                {/* <Link to={'/user/edit'}>
                     <button className="profile__section--edit">
                         Edit profile
                     </button>
-                </Link>
-                <FileBase64
+                </Link> */}
+                {/* <FileBase64
                     type="file"
                     multiple={false}
                     onDone={(base64) => (setImage(base64))} />
@@ -55,7 +55,7 @@ const Profile = () => {
                             Upload
                         </button>
                     </>
-                }
+                } */}
             </section>
         </main>
     );
