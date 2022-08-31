@@ -1,7 +1,10 @@
+import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 import User from '../models/User.js';
+import PostSchema from '../models/Post.js';
+
 import { SALT, TOKEN_EXPIRATION_TIME } from '../constants/index.js';
 
 export const getUserById = async (req, res) => {
@@ -24,6 +27,18 @@ export const getUsers = async (req, res) => {
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
+}
+
+export const getUserPostsById = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find user with id: ${id}`);
+    }
+
+    const posts = await PostSchema.find({ "userData.id": id });
+
+    return res.status(200).json(posts);
 }
 
 export const signin = async (req, res) => {
