@@ -31,7 +31,7 @@ const Recommended = () => {
             setBooksIndex({ start: booksIndex.start + 4, end: booksIndex.end + 4 });
         }
     }
-    console.log(recommendedBooks)
+
     return (
         <section className="recommended">
             <article className="recommended__artile--top">
