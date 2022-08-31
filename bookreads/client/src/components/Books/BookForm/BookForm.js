@@ -46,10 +46,16 @@ const BookForm = () => {
     const handleClick = (ev) => {
         ev.preventDefault();
         const creatorId = user?.result?.googleId || user?.result?._id;
+        const postBookData = {
+            bookId: id,
+            bookAuthor: bookData.author,
+            bookDescription: bookData.description,
+            bookCoverUrl: bookData.bookCoverUrl
+        }
 
         if (id) {
             editBook(id, bookData);
-            createPost({ creatorId, status: EDITED_A_BOOK, bookId: id, createdAt: new Date() });
+            createPost({ creatorId, status: EDITED_A_BOOK, postBookData, createdAt: new Date() });
             navigate(`/books/${id}`);
         } else {
             createBook({ ...bookData, creatorId });
