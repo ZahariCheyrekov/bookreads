@@ -8,21 +8,30 @@
     padding: 20px;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .profile__section--article {
-    max-width: 100px;
+    width: 152px;
+    height: 152px;
+
+    border-radius: 50%;
+    border: 1px solid var(--gray-color);
 }
 
 .profile__section--article img {
+    width: 150px;
+    height: 150px;
+
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile__section--user {
     font-size: 1.4rem;
-    margin: 10px 0;
+    margin-left: 40px;
+    border-bottom: 1px solid var(--gray-color);
+    height: 32px;
+    width: 100%;
 }
 
 .profile__section--edit {
