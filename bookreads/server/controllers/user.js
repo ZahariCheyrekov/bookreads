@@ -8,8 +8,8 @@ export const getUserById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const { name } = await User.findById(id);
-        res.status(200).json(name);
+        const { name, _id, imageUrl } = await User.findById(id);
+        res.status(200).json({ name, _id, imageUrl });
 
     } catch (error) {
         res.status(404).json({ message: error.message });
