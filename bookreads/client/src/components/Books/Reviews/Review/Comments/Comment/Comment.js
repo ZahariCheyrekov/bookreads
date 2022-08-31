@@ -1,9 +1,12 @@
 import { useState } from 'react';
-
 import { Link } from 'react-router-dom';
+
 import uuid from 'react-uuid';
+
 import { deleteReviewComment } from '../../../../../../api/reviewAPI';
 import { getUserLink } from '../../../../../../utils/getUserLink';
+
+import defaultUserPhoto from '../../../../../../assets/default-user-photo.png'
 
 import './Comment.css';
 
@@ -32,7 +35,7 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setCom
                 <Link to={getUserLink(comment.user.name, comment.user.id)}>
                     <img
                         className="review__user__comment--img"
-                        src={comment.user.imageUrl}
+                        src={comment.user.imageUrl ? comment.user.imageUrl : defaultUserPhoto}
                         alt={comment.user.name}
                     />
                 </Link>
