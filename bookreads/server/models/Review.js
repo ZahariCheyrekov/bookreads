@@ -14,14 +14,16 @@ const reviewSchema = mongoose.Schema({
         default: false
     },
     rating: {
-        type: Number
+        type: Number,
+        default: 0
     },
     createdAt: {
         type: Date,
         default: new Date()
     },
     reviewContent: {
-        type: Array
+        type: Array,
+        default: []
     },
     likes: {
         type: Array,
