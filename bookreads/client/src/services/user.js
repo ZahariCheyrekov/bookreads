@@ -8,3 +8,12 @@ export const getUserById = async (id) => {
         console.log(error);
     }
 }
+
+export const getUserPostsById = async (name, userId) => {
+    try {
+        const { data } = await userAPI.getPostsByUserId(name, userId);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
