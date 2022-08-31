@@ -6,7 +6,7 @@ export const getReviewsById = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`Unable to find book with id: ${id}`);
+        return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
     const reviews = await ReviewSchema.find({ bookId: String(id) });
@@ -19,7 +19,7 @@ export const createReview = async (req, res) => {
     const reviewData = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`Unable to find book with id: ${id}`);
+        return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
     reviewData.reviewContent = reviewData.reviewContent.trim().split(/\n+/);
@@ -40,7 +40,7 @@ export const likeReview = async (req, res) => {
     const { like } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`Unable to find book with id: ${id}`);
+        return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
     const review = await ReviewSchema.findById(id);
@@ -63,7 +63,7 @@ export const addCommentOnReview = async (req, res) => {
     const commentData = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`Unable to find book with id: ${id}`);
+        return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
     const review = await ReviewSchema.findById(id);
@@ -79,7 +79,7 @@ export const deleteCommentOnReview = async (req, res) => {
     const { id, commentId } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).send(`Unable to find book with id: ${id}`);
+        return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
     const review = await ReviewSchema.findById(id);
