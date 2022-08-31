@@ -3,11 +3,9 @@
 }
 
 .main__profile--section {
-    max-width: var(--primary-component-width);
-    margin: 0 auto;
-    padding: 20px;
-
     display: flex;
+    margin: 0 auto;
+    max-width: var(--secondary-component-width);
 }
 
 .profile__section--article {
