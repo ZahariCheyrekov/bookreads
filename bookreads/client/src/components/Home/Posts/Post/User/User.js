@@ -5,17 +5,17 @@ import { getUserLink } from '../../../../../utils/getUserLink';
 
 import './User.css';
 
-const User = ({ user, abs }) => {
+const User = ({ name, image, id, abs }) => {
     return (
         <>
-            {user ?
-                <Link to={getUserLink(user.name, user.id)}>
+            {name ?
+                <Link to={getUserLink(name, id)}>
                     <article className={`post__user ${abs && 'abs'}`}>
                         <img className="user__img"
                             src={
-                                user.imageUrl ? user.imageUrl : defaultUserPhoto
+                                image ? image : defaultUserPhoto
                             }
-                            alt={`${user.name}`}
+                            alt={`${name}`}
                         />
                     </article>
                 </Link>

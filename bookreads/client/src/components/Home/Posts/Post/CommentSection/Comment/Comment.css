@@ -55,6 +55,17 @@
     text-decoration: underline;
 }
 
+.comment__ul--item {
+    display: flex;
+}
+
+.comment__content--wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
+}
+
 .comment__ul--item .comment__paragraph:nth-child(2) {
     margin: 4px 0 0;
 }

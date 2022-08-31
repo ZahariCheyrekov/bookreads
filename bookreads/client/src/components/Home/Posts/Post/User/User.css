@@ -1,14 +1,16 @@
-.post__user.abs {
+.post__user {
     width: 40px;
     height: 40px;
     overflow: hidden;
 
+    border-radius: 50%;
+    border: 1px solid var(--gray-color);
+}
+
+.post__user.abs {
     position: absolute;
     left: -20px;
     top: 12px;
-
-    border-radius: 50%;
-    border: 1px solid var(--gray-color);
 }
 
 .post__user {

@@ -37,7 +37,8 @@ const Post = ({ post }) => {
     return (
         <article className="post">
             {postUser ?
-                <> < User user={postUser} creatorId={post?.creatorId} abs={true} />
+                <>
+                    < User name={postUser.name} image={postUser.imageUrl} id={postUser.id} abs={true} />
                     <div className="post__wrapper">
                         <section className="post__information">
                             {postUser.name ?
