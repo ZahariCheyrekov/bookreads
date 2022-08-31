@@ -48,14 +48,9 @@
     margin: 12px 0;
 }
 
-.post__book--img {
-    max-width: 120px;
-    max-height: 200px;
-}
-
 .post__book--img img {
     object-fit: cover;
-    width: 120px;
+    width: 130px;
     height: 200px;
 }
 
