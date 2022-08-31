@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 // import FileBase64 from 'react-file-base64';
 
-import { AuthContext } from '../../contexts/AuthContext';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
+
 import { getUserById } from '../../services/user';
 // import { uploadUserImage } from '../../api/userAPI';
+
+import Updates from './Updates/Updates';
 
 import './Profile.css';
 
 const Profile = () => {
     const { id } = useParams();
-    const { user } = useContext(AuthContext);
     const [currentUser, setCurrentUser] = useState(null);
     // const [image, setImage] = useState('');
 
@@ -30,21 +31,23 @@ const Profile = () => {
 
     return (
         <main className="main__profile">
-            <section className="main__profile--section">
-                <article className="profile__section--article">
-                    <img src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
-                        alt={`${currentUser}`}
-                    />
-                </article>
-                <h4 className="profile__section--user">
-                    {currentUser}
-                </h4>
-                {/* <Link to={'/user/edit'}>
+            {currentUser &&
+                <>
+                    <section className="main__profile--section">
+                        <article className="profile__section--article">
+                            <img src={currentUser.imageUrl ? currentUser?.imageUrl : defaultUserPhoto}
+                                alt={`${currentUser?.name}`}
+                            />
+                        </article>
+                        <h4 className="profile__section--user">
+                            {currentUser?.name}
+                        </h4>
+                        {/* <Link to={'/user/edit'}>
                     <button className="profile__section--edit">
                         Edit profile
                     </button>
                 </Link> */}
-                {/* <FileBase64
+                        {/* <FileBase64
                     type="file"
                     multiple={false}
                     onDone={(base64) => (setImage(base64))} />
@@ -56,8 +59,12 @@ const Profile = () => {
                         </button>
                     </>
                 } */}
-            </section>
-        </main>
+                    </section>
+
+                    <Updates />
+                </>
+            }
+        </main >
     );
 }
 
