@@ -1,5 +1,7 @@
 import { API } from './api';
 
+export const getUserRatingById = (bookId, userId) => API.get(`/books/${bookId}/${userId}`);
+
 export const getReviewsById = (bookId) => API.get(`/books/${bookId}/reviews`);
 
 export const createReview = (bookId, reviewData) => API.post(`/review/edit/${bookId}`, reviewData);
