@@ -11,7 +11,7 @@ const CommentSection = ({ postId, postCreatorId, comments }) => {
 
     return (
         <>
-            {comments?.length > 0 &&
+            {currentComments?.length > 0 &&
                 < section className="comment__section">
                     <ul className="comment__ul">
                         {currentComments.map(comment =>
