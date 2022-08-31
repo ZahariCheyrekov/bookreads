@@ -7,7 +7,7 @@ import { getUserLink } from '../../../../../../utils/getUserLink';
 
 import './Comment.css';
 
-const Comment = ({ comment, comments, setComments, postId, postCreatorId }) => {
+const Comment = ({ comment, currentComments, setCurrentComments, postId, postCreatorId }) => {
     const { user } = useContext(AuthContext);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
     const [visibleText, setVisibleText] = useState(false);
@@ -24,8 +24,8 @@ const Comment = ({ comment, comments, setComments, postId, postCreatorId }) => {
 
     const handleDelete = () => {
         deleteComment(postId, comment.commentId);
-        const commentsAfterDelete = comments.filter(current => current.commentId !== comment.commentId);
-        setComments([...commentsAfterDelete]);
+        const commentsAfterDelete = currentComments.filter(current => current.commentId !== comment.commentId);
+        setCurrentComments([...commentsAfterDelete]);
     }
 
     const handleClick = () => {
