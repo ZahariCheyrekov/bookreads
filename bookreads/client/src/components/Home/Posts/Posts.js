@@ -5,16 +5,21 @@ import Post from './Post/Post';
 
 import './Posts.css';
 
-const Posts = () => {
+const Posts = ({ userPosts }) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            const posts = await getPosts();
-            setPosts(posts);
+        if (userPosts) {
+            setPosts(userPosts);
+        } else {
+
+            const fetchPosts = async () => {
+                const posts = await getPosts();
+                setPosts(posts);
+            }
+            fetchPosts();
         }
-        fetchPosts();
-    }, []);
+    }, [userPosts]);
 
     return (
         <section className="posts">
