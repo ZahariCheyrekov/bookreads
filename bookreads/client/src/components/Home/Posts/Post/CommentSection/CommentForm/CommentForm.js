@@ -8,7 +8,7 @@ import User from '../../User/User';
 
 import './CommentForm.css';
 
-const CommentForm = ({ postId, comments, setComments }) => {
+const CommentForm = ({ postId, currentComments, setCurrentComments }) => {
     const { user } = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true);
@@ -40,7 +40,7 @@ const CommentForm = ({ postId, comments, setComments }) => {
         };
 
         const newComment = await createComment(postId, commentData);
-        setComments([...comments, newComment]);
+        setCurrentComments([...currentComments, newComment]);
 
         setComment('');
         setCommentButtonDisabled(true);
