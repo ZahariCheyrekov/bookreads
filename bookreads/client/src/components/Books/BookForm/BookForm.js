@@ -54,13 +54,19 @@ const BookForm = () => {
             bookCoverUrl: bookData.bookCoverUrl
         }
 
+        const userData = {
+            name: user.result.name,
+            id: user.result._id,
+            imageUrl: user.result.imageUrl
+        }
+
         if (id) {
             editBook(id, bookData);
-            createPost({ creatorId, status: EDITED_A_BOOK, postBookData, createdAt: new Date() });
+            createPost({ status: EDITED_A_BOOK, postBookData, userData, createdAt: new Date() });
             navigate(`/books/${id}`);
         } else {
             createBook({ ...bookData, creatorId });
-            createPost({ creatorId, status: CREATED_A_BOOK, bookId: id, createdAt: new Date() });
+            createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
         }
     }
 
