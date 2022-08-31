@@ -1,10 +1,6 @@
 import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
-    creatorId: {
-        type: String,
-        required: true
-    },
     status: {
         type: String,
         required: true
@@ -19,6 +15,10 @@ const postSchema = mongoose.Schema({
         type: Boolean
     },
     postBookData: {
+        type: Object,
+        default: {}
+    },
+    userData: {
         type: Object,
         default: {}
     },
