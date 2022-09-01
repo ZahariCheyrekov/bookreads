@@ -58,7 +58,7 @@ const CreateReview = () => {
             user: userData,
             spoilers,
             rating,
-            reviewContent
+            reviewContent: reviewContent.trim().split(/\n+/)
         }
 
         const postBookData = {
@@ -68,7 +68,7 @@ const CreateReview = () => {
             bookDescription: book.description,
             bookCoverUrl: book.bookCoverUrl,
             rating,
-            reviewContent
+            reviewContent: reviewContent.trim().split(/\n+/)
         }
 
         createReview(book._id, bookData);
