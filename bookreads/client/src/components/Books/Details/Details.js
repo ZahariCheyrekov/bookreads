@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 import { getBook } from '../../../services/book';
+import { ReviewContextProvider } from '../../../contexts/ReviewContext';
 
 import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
@@ -52,7 +53,10 @@ const Details = () => {
                         <Recommended />
 
                         <hr className="hr__divider" />
-                        <Reviews book={book} />
+
+                        <ReviewContextProvider>
+                            <Reviews book={book} />
+                        </ReviewContextProvider>
                     </section>
                 </div >
                 : null
