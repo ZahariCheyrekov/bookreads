@@ -31,7 +31,7 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setCom
 
     return (
         <li className="review__user--comment">
-            <article className="review__user__comment--img" >
+            <article className="review__user__comment--article" >
                 <Link to={getUserLink(comment.user.name, comment.user.id)}>
                     <img
                         className="review__user__comment--img"
