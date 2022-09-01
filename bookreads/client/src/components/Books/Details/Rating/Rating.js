@@ -26,6 +26,9 @@ const Rating = ({ setParentRating, showRateTitle, small }) => {
 
     const handleRating = (star) => {
         setRating(star);
+        if (setParentRating) {
+            setParentRating(star);
+        }
 
         const reviewData = {
             bookId: id,
@@ -34,7 +37,7 @@ const Rating = ({ setParentRating, showRateTitle, small }) => {
                 id: user.result._id,
                 imageUrl: user.result.imageUrl
             },
-            rating
+            rating: star
         }
         createReview(id, reviewData);
     }
