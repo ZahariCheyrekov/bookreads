@@ -21,6 +21,31 @@
     padding: 2px;
 }
 
+.post__review--content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post__review--content.more {
+    display: block;
+    overflow: visible;
+}
+
+.post__review--button {
+    background: transparent;
+    border: none;
+
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--lightblue-color);
+}
+
+.post__review--button:hover {
+    text-decoration: underline;
+}
+
 .post__review--paragraph {
     margin: 16px 0;
     line-height: 1.4;
