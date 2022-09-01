@@ -29,14 +29,14 @@
     color: var(--brown-color);
 }
 
-.header__ul--li a,
+.header__ul--li>a,
 .header__ul--li.browse {
     text-decoration: none;
     padding: 1rem;
 }
 
 .header__ul--li.browse:hover,
-.header__ul--li a:hover {
+.header__ul--li>a:hover {
     background-color: var(--brown-color);
     color: var(--white-color);
 }
@@ -44,6 +44,11 @@
 .header__ul--li.browse {
     cursor: pointer;
     position: relative;
+}
+
+.header__ul--li.browse.active {
+    background-color: var(--brown-color);
+    color: var(--white-color);
 }
 
 .browse__list {
@@ -55,7 +60,26 @@
     padding: 12px;
 
     background-color: var(--comment-section-color);
-    box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
+    box-shadow: 0 5px 10px var(--divider-color);
+}
+
+.browse__list--title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.browse__list--title,
+.browse__list--element {
+    color: var(--dark-button-color);
+}
+
+.browse__list--element {
+    padding: 10px 0;
+}
+
+.browse__list--element:hover {
+    text-decoration: underline;
 }
 
 .header__form--search {
