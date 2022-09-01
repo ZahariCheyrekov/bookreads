@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { createBook, editBook } from '../../../api/bookAPI';
+import { editBook } from '../../../api/bookAPI';
 import { createPost } from '../../../api/postAPI';
 
 import { AuthContext } from '../../../contexts/AuthContext';
-import { getBook } from '../../../services/book';
+import { createNewBook, getBook } from '../../../services/book';
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../constants/actionType';
 
 import FormField from './FormField/FormField';
@@ -43,7 +43,7 @@ const BookForm = () => {
         setBookData({ ...bookData, [ev.target.name]: ev.target.value });
     }
 
-    const handleClick = (ev) => {
+    const handleClick = async (ev) => {
         ev.preventDefault();
         const creatorId = user?.result?.googleId || user?.result?._id;
         const postBookData = {
@@ -65,7 +65,8 @@ const BookForm = () => {
             createPost({ status: EDITED_A_BOOK, postBookData, userData, createdAt: new Date() });
             navigate(`/books/${id}`);
         } else {
-            createBook({ ...bookData, creatorId });
+            const createdBook = await createNewBook({ ...bookData, creatorId });
+            postBookData.bookId = createdBook._id;
             createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
         }
     }
