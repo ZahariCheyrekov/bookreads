@@ -70,7 +70,9 @@ const Post = ({ post }) => {
                         <section className="post__book--review">
                             {post.postBookData.rating > 0 ?
                                 <article className="post__review--rating">
-                                    Rating&nbsp;
+                                    <span className="post_review--span">
+                                        Rating
+                                    </span>&nbsp;
                                     {[...Array(5)].map((_, index) =>
                                         <i
                                             key={index}
