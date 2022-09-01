@@ -15,6 +15,7 @@ const Navigation = () => {
     const navigate = useNavigate();
     const menuRef = useRef();
     const { user, setUser } = useContext(AuthContext);
+    const [isBrowseOpen, setIsBrowseOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
 
     const logout = useCallback(() => {
@@ -47,6 +48,10 @@ const Navigation = () => {
         }
     }
 
+    const handleIsBrowseOpen = () => {
+        setIsBrowseOpen(prevStat => !prevStat);
+    }
+
     const handleProfileClick = () => {
         setProfileOpen(prevState => !prevState);
     }
@@ -69,30 +74,45 @@ const Navigation = () => {
                                     My Books
                                 </Link>
                             </li>
-                            <li className="header__ul--li browse">
+                            <li
+                                className={`header__ul--li browse ${isBrowseOpen ? 'active' : ''}`}
+                                onClick={handleIsBrowseOpen}
+                            >
                                 Browse&nbsp;
                                 <i className="fa-solid fa-caret-down" />
 
-                                <ul className="browse__list">
-                                    <h4 className="browse__list--titel">
-                                        Genres
-                                    </h4>
-                                    <li className="browse__list--element">
-                                        Biography
-                                    </li>
-                                    <li className="browse__list--element">
-                                        Fiction
-                                    </li>
-                                    <li className="browse__list--element">
-                                        History
-                                    </li>
-                                    <li className="browse__list--element">
-                                        Science
-                                    </li>
-                                    <li className="browse__list--element">
-                                        All genres
-                                    </li>
-                                </ul>
+                                {isBrowseOpen &&
+                                    <ul className="browse__list">
+                                        <h4 className="browse__list--title">
+                                            GENRES
+                                        </h4>
+                                        <Link to={''}>
+                                            <li className="browse__list--element">
+                                                Biography
+                                            </li>
+                                        </Link>
+                                        <Link to={''}>
+                                            <li className="browse__list--element">
+                                                Fiction
+                                            </li>
+                                        </Link>
+                                        <Link to={''}>
+                                            <li className="browse__list--element">
+                                                History
+                                            </li>
+                                        </Link>
+                                        <Link to={''}>
+                                            <li className="browse__list--element">
+                                                Science
+                                            </li>
+                                        </Link>
+                                        <Link to={''}>
+                                            <li className="browse__list--element">
+                                                All Genres
+                                            </li>
+                                        </Link>
+                                    </ul>
+                                }
                             </li>
                         </ul>
 
