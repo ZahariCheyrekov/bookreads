@@ -88,7 +88,7 @@ const Post = ({ post }) => {
                                 </article>
                                 : null
                             }
-                            {post?.postBookData?.reviewContent !== '' ?
+                            {post?.status === REVIEWED_A_BOOK ?
                                 <>
                                     <article className={`post__review--content ${showReviewText && 'more'}`}>
                                         {post?.postBookData?.reviewContent?.map((paragraph, index) =>
