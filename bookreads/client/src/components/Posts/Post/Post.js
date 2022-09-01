@@ -18,6 +18,7 @@ const Post = ({ post }) => {
     const [postUser] = useState(post?.userData);
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
+    const [showReviewText, setShowReviewText] = useState(false);
     const likedByUser = likes?.find(like => like.userId === user?.result?._id);
 
     const handleLike = async () => {
@@ -34,7 +35,11 @@ const Post = ({ post }) => {
 
         await likePost(post?._id, userId, userName);
     }
-    console.log(post.postBookData);
+
+    const handleReviewText = () => {
+        setShowReviewText(prevState => !prevState);
+    }
+
     return (
         <article className="post">
             {postUser ? <>
@@ -84,16 +89,24 @@ const Post = ({ post }) => {
                                 : null
                             }
                             {post?.postBookData?.reviewContent !== '' ?
-                                <article className="post__review--content">
-                                    {post?.postBookData?.reviewContent?.map((paragraph, index) =>
-                                        <p
-                                            key={index}
-                                            className="post__review--paragraph"
-                                        >
-                                            {paragraph}
-                                        </p>
-                                    )}
-                                </article>
+                                <>
+                                    <article className={`post__review--content ${showReviewText && 'more'}`}>
+                                        {post?.postBookData?.reviewContent?.map((paragraph, index) =>
+                                            <p
+                                                key={index}
+                                                className="post__review--paragraph"
+                                            >
+                                                {paragraph}
+                                            </p>
+                                        )}
+                                    </article>
+                                    <button
+                                        className="post__review--button"
+                                        onClick={handleReviewText}
+                                    >
+                                        {showReviewText ? 'Less' : 'More'}
+                                    </button>
+                                </>
                                 : null
                             }
                         </section>
