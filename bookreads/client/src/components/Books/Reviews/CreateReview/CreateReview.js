@@ -5,6 +5,8 @@ import { AuthContext } from '../../../../contexts/AuthContext';
 
 import { getBook } from '../../../../services/book';
 import { createReview } from '../../../../api/reviewAPI';
+import { getRatingByUser } from '../../../../services/review';
+
 import Rating from '../../Details/Rating/Rating';
 
 import './CreateReview.css';
@@ -17,6 +19,14 @@ const CreateReview = () => {
     const [reviewContent, setReviewContent] = useState('');
     const [spoilers, setSpoilers] = useState(false);
     const [rating, setParentRating] = useState(0);
+
+    useEffect(() => {
+        const getUserRating = async () => {
+            const currentUserRating = await getRatingByUser(id, user.result._id);
+            setParentRating(currentUserRating);
+        }
+        getUserRating();
+    }, [id, user?.result?._id]);
 
     useEffect(() => {
         const fetchBook = async () => {
