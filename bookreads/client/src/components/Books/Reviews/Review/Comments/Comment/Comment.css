@@ -3,6 +3,15 @@
     margin-bottom: 14px;
 }
 
+review__user__comment--article {
+    width: 40px;
+    height: 40px;
+}
+
+.review__user__comment--img {
+    border: 1px solid var(--gray-color);
+}
+
 .review__user__comment--content {
     width: 100%;
 }
