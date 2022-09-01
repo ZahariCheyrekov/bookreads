@@ -28,7 +28,7 @@
 
 .post__review--rating {
     border-bottom: 1px solid var(--divider-color);
-   
+
     width: 144px;
     padding-bottom: 4px;
 }
@@ -51,7 +51,9 @@
 .post__book {
     display: flex;
     justify-content: space-between;
+}
 
+.post__book.review {
     border: 1px solid var(--divider-color);
     padding: 12px;
 }

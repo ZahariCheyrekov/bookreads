@@ -7,6 +7,7 @@ import CommentSection from './CommentSection/CommentSection';
 
 import { likePost } from '../../../services/post';
 import { getUserLink } from '../../../utils/getUserLink';
+import { REVIEWED_A_BOOK } from '../../../constants/actionType';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 
@@ -96,7 +97,7 @@ const Post = ({ post }) => {
                                 : null
                             }
                         </section>
-                        <section className="post__book">
+                        <section className={`post__book ${post.status === REVIEWED_A_BOOK ? 'review' : ''}`}>
                             <article className="post__book--img">
                                 <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
                             </article>
