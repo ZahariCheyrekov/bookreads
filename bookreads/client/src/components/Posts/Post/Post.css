@@ -16,9 +16,22 @@
     padding: 0 46px 0 0;
 }
 
+.fa-solid.fa-star.fa-review.str {
+    font-size: 0.8rem;
+    padding: 2px;
+}
+
+.post__review--paragraph {
+    margin: 16px 0;
+    line-height: 1.4;
+}
+
 .post__book {
     display: flex;
     justify-content: space-between;
+
+    border: 1px solid var(--divider-color);
+    padding: 12px;
 }
 
 .post__user--name,
