@@ -21,6 +21,7 @@
 
 .header__ul {
     display: flex;
+    align-items: center;
 }
 
 .header__ul--li {
@@ -28,14 +29,33 @@
     color: var(--brown-color);
 }
 
-.header__ul--li a {
+.header__ul--li a,
+.header__ul--li.browse {
     text-decoration: none;
     padding: 1rem;
 }
 
+.header__ul--li.browse:hover,
 .header__ul--li a:hover {
     background-color: var(--brown-color);
     color: var(--white-color);
+}
+
+.header__ul--li.browse {
+    cursor: pointer;
+    position: relative;
+}
+
+.browse__list {
+    position: absolute;
+    top: 55.2px;
+    left: 0;
+
+    width: 100%;
+    padding: 12px;
+
+    background-color: var(--comment-section-color);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
 }
 
 .header__form--search {
