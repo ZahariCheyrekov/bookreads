@@ -15,7 +15,6 @@ export const getUserRating = async (req, res) => {
     if (review?.rating) {
         rating = review.rating;
     }
-    console.log(rating)
 
     return res.status(200).json({ rating: rating });
 }
@@ -42,6 +41,21 @@ export const createReview = async (req, res) => {
 
     if (reviewData.reviewContent) {
         reviewData.reviewContent = reviewData.reviewContent.trim().split(/\n+/);
+    }
+
+    const existingReview = await ReviewSchema.findOne({ bookId: String(id), "user.id": reviewData.user.id });
+
+    if (existingReview) {
+        existingReview.reviewContent = reviewData.reviewContent;
+        if (reviewData.rating !== existingReview.rating) {
+            existingReview.rating = reviewData.rating;
+        }
+        console.log(existingReview.rating, reviewData.rating);
+
+        const reviewId = String(existingReview._id);
+        await ReviewSchema.findByIdAndUpdate(reviewId, existingReview);
+
+        return res.status(204);
     }
 
     const review = await ReviewSchema(reviewData);
