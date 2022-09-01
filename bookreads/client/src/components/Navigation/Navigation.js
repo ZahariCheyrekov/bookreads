@@ -69,8 +69,30 @@ const Navigation = () => {
                                     My Books
                                 </Link>
                             </li>
-                            <li className="header__ul--li">
-                                Browse
+                            <li className="header__ul--li browse">
+                                Browse&nbsp;
+                                <i className="fa-solid fa-caret-down" />
+
+                                <ul className="browse__list">
+                                    <h4 className="browse__list--titel">
+                                        Genres
+                                    </h4>
+                                    <li className="browse__list--element">
+                                        Biography
+                                    </li>
+                                    <li className="browse__list--element">
+                                        Fiction
+                                    </li>
+                                    <li className="browse__list--element">
+                                        History
+                                    </li>
+                                    <li className="browse__list--element">
+                                        Science
+                                    </li>
+                                    <li className="browse__list--element">
+                                        All genres
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
 
