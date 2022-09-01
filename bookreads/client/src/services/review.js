@@ -3,7 +3,7 @@ import * as reviewAPI from '../api/reviewAPI';
 export const getRatingByUser = async (bookId, userId) => {
     try {
         const { data } = await reviewAPI.getUserRatingById(bookId, userId);
-        return data;
+        return data.rating;
     } catch (error) {
         console.log(error);
     }
