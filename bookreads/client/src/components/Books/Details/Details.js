@@ -17,7 +17,7 @@ const Details = () => {
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [book, setBook] = useState(null);
-    const isOwner = user?.result?._id || user?.result?.googleId === book?.creatorId;
+    const [isOwner] = useState(user?.result?._id || user?.result?.googleId === book?.creatorId);
 
     useEffect(() => {
         const fetchBook = async () => {
