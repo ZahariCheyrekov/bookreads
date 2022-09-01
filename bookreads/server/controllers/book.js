@@ -26,7 +26,7 @@ export const getBooksByTags = async (req, res) => {
 
     books = books.filter(book => String(book._id) !== id);
 
-    return res.status(200).json(books);
+    return res.status(200).json(books.slice(0, 12));
 }
 
 export const createBook = async (req, res) => {
