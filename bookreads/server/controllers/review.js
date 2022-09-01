@@ -3,24 +3,21 @@ import mongoose from 'mongoose';
 import ReviewSchema from '../models/Review.js';
 
 export const getUserRating = async (req, res) => {
-    //TODO: Fix function
+    const { id, userId } = req.params;
 
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find review with id: ${id}`);
+    }
 
-    
-    // const { id, userId } = req.params;
+    const review = await ReviewSchema.findOne({ bookId: String(id), "user.id": String(userId) });
 
-    // if (!mongoose.Types.ObjectId.isValid(id)) {
-    //     return res.status(404).send(`Unable to find review with id: ${id}`);
-    // }
+    let rating = 0;
+    if (review?.rating) {
+        rating = review.rating;
+    }
+    console.log(rating)
 
-    // const review = await ReviewSchema.findOne({ bookId: String(id) });
-    // // const review = await ReviewSchema.findOne({ "user.id": String(userId) });
-    // let rating = -1;
-    // if (review?.rating) {
-    //     rating = review.rating;
-    // }
-
-    // return res.status(200).json(0);
+    return res.status(200).json({ rating: rating });
 }
 
 export const getReviewsById = async (req, res) => {
