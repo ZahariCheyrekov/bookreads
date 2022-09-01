@@ -6,16 +6,19 @@ import { AuthContext } from '../../../../contexts/AuthContext';
 import { getBook } from '../../../../services/book';
 import { createReview } from '../../../../api/reviewAPI';
 import { getRatingByUser } from '../../../../services/review';
+import { createPost } from '../../../../api/postAPI';
+import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../constants/actionType';
 
 import Rating from '../../Details/Rating/Rating';
 
 import './CreateReview.css';
 
+
 const CreateReview = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const [book, setBook] = useState();
+    const [book, setBook] = useState(null);
     const [reviewContent, setReviewContent] = useState('');
     const [spoilers, setSpoilers] = useState(false);
     const [rating, setParentRating] = useState(0);
@@ -44,19 +47,40 @@ const CreateReview = () => {
     }
 
     const handleReview = () => {
+        const userData = {
+            name: user?.result?.name,
+            id: user?.result?._id,
+            imageUrl: user?.result?.imageUrl
+        }
+
         const bookData = {
             bookId: book._id,
-            user: {
-                name: user?.result?.name,
-                id: user?.result?._id,
-                imageUrl: user?.result?.imageUrl,
-            },
+            user: userData,
             spoilers,
             rating,
             reviewContent
         }
 
+        const postBookData = {
+            bookId: id,
+            bookAuthor: book.author,
+            bookTitle: book.title,
+            bookDescription: book.description,
+            bookCoverUrl: book.bookCoverUrl,
+            rating,
+            reviewContent
+        }
+
         createReview(book._id, bookData);
+
+        let status = '';
+        if (rating !== 0 && reviewContent === '') {
+            status = RATED_A_BOOK;
+        } else if (reviewContent !== '') {
+            status = REVIEWED_A_BOOK;
+        }
+
+        createPost({ status, postBookData, userData, createdAt: new Date() });
         navigate(`/books/${id}`);
     }
 
