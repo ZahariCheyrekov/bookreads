@@ -50,7 +50,6 @@ export const createReview = async (req, res) => {
         if (reviewData.rating !== existingReview.rating) {
             existingReview.rating = reviewData.rating;
         }
-        console.log(existingReview.rating, reviewData.rating);
 
         const reviewId = String(existingReview._id);
         await ReviewSchema.findByIdAndUpdate(reviewId, existingReview);
