@@ -33,87 +33,114 @@ const Post = ({ post }) => {
 
         await likePost(post?._id, userId, userName);
     }
-
+    console.log(post.postBookData);
     return (
         <article className="post">
-            {postUser ?
-                <>
-                    <User
-                        name={postUser.name}
-                        image={postUser.imageUrl}
-                        id={postUser.id} abs={true}
-                    />
-                    <div className="post__wrapper">
-                        <section className="post__information">
-                            {postUser.name ?
-                                <Link to={getUserLink(postUser.name, post.creatorId)}>
-                                    <h4 className="post__user--name">
-                                        {postUser.name}
-                                    </h4>
-                                </Link>
-                                : null}
-                            <span className="post__status">
-                                {post.status}
-                            </span>
-                            {book ?
+            {postUser ? <>
+                <User
+                    name={postUser.name}
+                    image={postUser.imageUrl}
+                    id={postUser.id} abs={true}
+                />
+                <div className="post__wrapper">
+                    <section className="post__information">
+                        {postUser.name ?
+                            <Link to={getUserLink(postUser.name, post.creatorId)}>
+                                <h4 className="post__user--name">
+                                    {postUser.name}
+                                </h4>
+                            </Link>
+                            : null}
+                        <span className="post__status">
+                            {post.status}
+                        </span>
+                        {book ?
+                            <Link to={`/books/${book.bookId}`}>
+                                <h4 className="post__book--title">
+                                    {book.bookTitle}
+                                </h4>
+                            </Link>
+                            : null
+                        }
+                        <time className="post__time">
+                        </time>
+                    </section>
+
+                    {book ? <>
+                        <section className="post__book--review">
+                            {post.postBookData.rating > 0 ?
+                                <article className="post__review--rating">
+                                    Rating&nbsp;
+                                    {[...Array(5)].map((_, index) =>
+                                        <i
+                                            key={index}
+                                            className={`fa-solid fa-star fa-review str ${index < post.postBookData.rating ? 'rated' : ''}`}
+                                        />
+                                    )}
+                                </article>
+                                : null
+                            }
+                            {post?.postBookData?.reviewContent !== '' ?
+                                <article className="post__review--content">
+                                    {post?.postBookData?.reviewContent?.map((paragraph, index) =>
+                                        <p
+                                            key={index}
+                                            className="post__review--paragraph"
+                                        >
+                                            {paragraph}
+                                        </p>
+                                    )}
+                                </article>
+                                : null
+                            }
+                        </section>
+                        <section className="post__book">
+                            <article className="post__book--img">
+                                <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
+                            </article>
+                            <summary className="post__book--summary">
                                 <Link to={`/books/${book.bookId}`}>
-                                    <h4 className="post__book--title">
+                                    <h4 className="post__summary--title">
                                         {book.bookTitle}
                                     </h4>
                                 </Link>
-                                : null
-                            }
-                            <time className="post__time">
-                            </time>
-                        </section>
-
-                        {book ?
-                            <section className="post__book">
-                                <article className="post__book--img">
-                                    <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
-                                </article>
-                                <summary className="post__book--summary">
+                                <h4 className="post__book--author">by {book.bookAuthor}</h4>
+                                <p className="post__book--description">
+                                    {book.bookDescription}
+                                </p>
+                                <span className="post__summary--more">
                                     <Link to={`/books/${book.bookId}`}>
-                                        <h4 className="post__summary--title">
-                                            {book.bookTitle}
-                                        </h4>
+                                        Continue reading
                                     </Link>
-                                    <h4 className="post__book--author">by {book.bookAuthor}</h4>
-                                    <p className="post__book--description">
-                                        {book.bookDescription}
-                                    </p>
-                                    <span className="post__summary--more">
-                                        <Link to={`/books/${book.bookId}`}>
-                                            Continue reading
-                                        </Link>
-                                    </span>
-                                </summary>
-                            </section>
-                            : null
-                        }
-                        <section className="post__buttons">
-                            <button className="post__button post__button--like" onClick={handleLike}>
-                                {likedByUser ? 'Unlike' : 'Like'}
-                            </button>
-                            <span> · </span>
-                            <button className="post__button post__button--comment">
-                                Comment
-                            </button>
+                                </span>
+                            </summary>
                         </section>
-                    </div>
+                    </>
+                        : null
+                    }
+                    <section className="post__buttons">
+                        <button className="post__button post__button--like" onClick={handleLike}>
+                            {likedByUser ? 'Unlike' : 'Like'}
+                        </button>
+                        <span> · </span>
+                        <button className="post__button post__button--comment">
+                            Comment
+                        </button>
+                    </section>
+                </div>
 
-                    <Likes
-                        likes={likes}
-                        likedByUser={likedByUser}
-                        postId={post._id}
-                    />
+                <Likes
+                    likes={likes}
+                    likedByUser={likedByUser}
+                    postId={post._id}
+                />
 
-                    <CommentSection
-                        postId={post?._id}
-                        postCreatorId={post.creatorId}
-                        comments={post.comments}
-                    />
-                </>
+                <CommentSection
+                    postId={post?._id}
+                    postCreatorId={post.creatorId}
+                    comments={post.comments}
+                />
+            </>
                 : null
             }
         </article >
