@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -7,23 +7,16 @@ import Rating from '../Details/Rating/Rating';
 import Review from './Review/Review';
 
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
-import { getReviews } from '../../../services/review';
+
 import { getUserLink } from '../../../utils/getUserLink';
+import { ReviewContext } from '../../../contexts/ReviewContext';
 
 import './Reviews.css';
 
 const Reviews = ({ book }) => {
+    const reviews = useContext(ReviewContext);
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([]);
-
-    useEffect(() => {
-        const fetchReviews = async () => {
-            const reviews = await getReviews(id);
-            setReviews(reviews);
-        }
-        fetchReviews();
-    }, [id]);
 
     return (
         <section className="reviews">
