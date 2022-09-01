@@ -39,10 +39,6 @@ export const createReview = async (req, res) => {
         return res.status(404).send(`Unable to find review with id: ${id}`);
     }
 
-    if (reviewData.reviewContent) {
-        reviewData.reviewContent = reviewData.reviewContent.trim().split(/\n+/);
-    }
-
     const existingReview = await ReviewSchema.findOne({ bookId: String(id), "user.id": reviewData.user.id });
 
     if (existingReview) {
