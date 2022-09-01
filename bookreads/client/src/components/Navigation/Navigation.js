@@ -14,6 +14,7 @@ import { removeUser } from '../../services/localStorage';
 const Navigation = () => {
     const navigate = useNavigate();
     const menuRef = useRef();
+    const browseRef = useRef();
     const { user, setUser } = useContext(AuthContext);
     const [isBrowseOpen, setIsBrowseOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
@@ -37,13 +38,22 @@ const Navigation = () => {
     }, [user?.token, logout]);
 
     useEffect(() => {
-        window.addEventListener('mousedown', clickHandler)
+        window.addEventListener('mousedown', clickMenuHandler);
+        window.addEventListener('mousedown', clickBrowseHandler);
     }, []);
 
-    const clickHandler = (ev) => {
+    const clickMenuHandler = (ev) => {
         if (menuRef.current !== null) {
             if (!menuRef?.current?.contains(ev.target)) {
                 setProfileOpen(false);
+            }
+        }
+    }
+
+    const clickBrowseHandler = (ev) => {
+        if (browseRef.current !== null) {
+            if (!browseRef?.current?.contains(ev.target)) {
+                setIsBrowseOpen(false);
             }
         }
     }
@@ -82,7 +92,7 @@ const Navigation = () => {
                                 <i className="fa-solid fa-caret-down" />
 
                                 {isBrowseOpen &&
-                                    <ul className="browse__list">
+                                    <ul className="browse__list" ref={browseRef}>
                                         <h4 className="browse__list--title">
                                             GENRES
                                         </h4>
