@@ -26,6 +26,28 @@
     line-height: 1.4;
 }
 
+.post__review--rating {
+    border-bottom: 1px solid var(--divider-color);
+   
+    width: 144px;
+    padding-bottom: 4px;
+}
+
+.post__review--paragraph:first-child {
+    margin-top: 6px;
+}
+
+.post_review--span {
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--gray-color);
+}
+
+.post__book--review {
+    margin: 20px 0;
+}
+
 .post__book {
     display: flex;
     justify-content: space-between;
