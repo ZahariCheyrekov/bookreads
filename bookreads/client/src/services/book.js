@@ -17,3 +17,12 @@ export const getBooks = async (id) => {
         console.log(error);
     }
 }
+
+export const createNewBook = async (bookData) => {
+    try {
+        const { data } = await bookAPI.createBook(bookData);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
