@@ -18,3 +18,16 @@
 .posts__section>.post__article:first-child {
     margin-top: 0;
 }
+
+.profile__updates--none {
+    margin: 20px auto;
+    height: 40vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__updates__none--title {
+    text-align: center;
+}
