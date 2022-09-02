@@ -67,17 +67,17 @@ const Profile = () => {
                         <hr className="profile__hr" />
                         <ul className="profile__bookshelves">
                             <li className="profile__bookshelve">
-                                <Link to={'/user/shelves/read'}>
+                                <Link to={`/user/${id}/shelves/read`}>
                                     read
                                 </Link>
                             </li>
                             <li className="profile__bookshelve">
-                                <Link to={'/user/shelves/currently-reading'}>
+                                <Link to={`/user/${id}/shelves/currently-reading`}>
                                     currently-reading
                                 </Link>
                             </li>
                             <li className="profile__bookshelve">
-                                <Link to={'/user/shelves/to-read'}>
+                                <Link to={`/user/${id}/shelves/to-read`}>
                                     to-read
                                 </Link>
                             </li>
