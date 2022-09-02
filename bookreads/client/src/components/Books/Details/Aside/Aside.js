@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/bookAPI';
@@ -7,6 +8,7 @@ import './Aside.css';
 
 const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
     const navigate = useNavigate();
+    const [visibleBookOptions, setVisibleBookOptions] = useState(false);
 
     const handleDelete = () => {
         deleteBook(id);
@@ -26,18 +28,48 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
                                 Edit book
                             </button>
                         </Link>
-                        <button className="aside__book--button book__delete--button" onClick={handleDelete}>
+                        <button
+                            className="aside__book--button book__delete--button"
+                            onClick={() => setVisibleBookOptions(true)}
+                        >
                             Delete book
                         </button>
                     </>
                 )}
                 <button className="aside__book--button book__button--status">
                     Want to read
-                    <i className="fa-solid fa-angle-down actions"></i>
+                    <i className="fa-solid fa-angle-down actions"
+                        onClick={() => setVisibleBookOptions(true)}
+                    />
                 </button>
                 <Rating />
-            </aside>
-        </section>
+
+                <section className={`aside__book--options ${visibleBookOptions && 'active'}`}>
+                    <h4 className="aside__book__options--title">
+                        Choose a shelf for this book:
+                    </h4>
+
+                    <article className="aside__options--list">
+                        <button className="aside__book__option book__option--want">
+                            Want to Read
+                        </button>
+                        <button className="aside__book__option book__option--reading">
+                            Currently Reading
+                        </button>
+                        <button className="aside__book__option book__option--read">
+                            Read
+                        </button>
+
+                        <button
+                            className="aside__book__option book__option--close"
+                            onClick={() => setVisibleBookOptions(false)}
+                        >
+                            Close
+                        </button>
+                    </article>
+                </section>
+            </aside >
+        </section >
     );
 }
 
