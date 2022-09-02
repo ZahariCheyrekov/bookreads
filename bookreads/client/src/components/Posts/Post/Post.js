@@ -19,7 +19,8 @@ const Post = ({ post }) => {
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
     const [showReviewText, setShowReviewText] = useState(false);
-    const likedByUser = likes?.find(like => like.userId === user?.result?._id);
+    const [showFullReview, setShowFullReview] = useState(post?.postBookData?.spoilers === false);
+    const [likedByUser] = useState(likes?.find(like => like.userId === user?.result?._id));
 
     const handleLike = async () => {
         const userId = user?.result?._id;
@@ -35,7 +36,7 @@ const Post = ({ post }) => {
 
         await likePost(post?._id, userId, userName);
     }
-
+    console.log(post?.postBookData?.spoilers)
     const handleReviewText = () => {
         setShowReviewText(prevState => !prevState);
     }
@@ -88,25 +89,40 @@ const Post = ({ post }) => {
                                 </article>
                                 : null
                             }
-                            {post?.status === REVIEWED_A_BOOK ?
-                                <>
-                                    <article className={`post__review--content ${showReviewText && 'more'}`}>
-                                        {post?.postBookData?.reviewContent?.map((paragraph, index) =>
-                                            <p
-                                                key={index}
-                                                className="post__review--paragraph"
-                                            >
-                                                {paragraph}
-                                            </p>
-                                        )}
+                            {post?.status === REVIEWED_A_BOOK ? <>
+                                {showFullReview ?
+                                    <>
+                                        <article className={`post__review--content ${showReviewText && 'more'}`}>
+                                            {post?.postBookData?.reviewContent?.map((paragraph, index) =>
+                                                <p
+                                                    key={index}
+                                                    className="post__review--paragraph"
+                                                >
+                                                    {paragraph}
+                                                </p>
+                                            )}
+                                        </article>
+                                        <button
+                                            className="post__review--button"
+                                            onClick={handleReviewText}
+                                        >
+                                            {showReviewText ? 'Less' : 'More'}
+                                        </button>
+                                    </>
+                                    :
+                                    <article className="post__review--spoilers">
+                                        <h4 className="post__review__spoilers--title">
+                                            The entire review has been hidden because of spoilers.
+                                        </h4>
+                                        <button
+                                            className="review__spoilers--button"
+                                            onClick={() => setShowFullReview(true)}
+                                        >
+                                            Show full review
+                                        </button>
                                     </article>
-                                    <button
-                                        className="post__review--button"
-                                        onClick={handleReviewText}
-                                    >
-                                        {showReviewText ? 'Less' : 'More'}
-                                    </button>
-                                </>
+                                }
+                            </>
                                 : null
                             }
                         </section>
