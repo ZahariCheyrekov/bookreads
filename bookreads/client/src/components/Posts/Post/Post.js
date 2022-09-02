@@ -52,7 +52,7 @@ const Post = ({ post }) => {
                 <div className="post__wrapper">
                     <section className="post__information">
                         {postUser.name ?
-                            <Link to={getUserLink(postUser.name, post.creatorId)}>
+                            <Link to={getUserLink(postUser.name, post.userData.id)}>
                                 <h4 className="post__user--name">
                                     {postUser.name}
                                 </h4>
@@ -169,7 +169,7 @@ const Post = ({ post }) => {
 
                 <CommentSection
                     postId={post?._id}
-                    postCreatorId={post.creatorId}
+                    postCreatorId={post.userData.id}
                     comments={post.comments}
                 />
             </>
