@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.review__aside {
+    width: 125px;
+}
+
 .review__user--article {
     width: 60px;
     height: 60px;
