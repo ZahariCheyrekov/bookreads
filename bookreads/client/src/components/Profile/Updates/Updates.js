@@ -25,7 +25,16 @@ const Updates = ({ userId, currentUser }) => {
                         {currentUser.name.split(' ')[0]}'s recent updates
                     </h5>
                     <hr className="profile__hr" />
-                    <Posts userPosts={userPosts} />
+
+                    {userPosts.length > 0 ?
+                        <Posts userPosts={userPosts} />
+                        :
+                        <section className="profile__updates--none">
+                            <h3 className="profile__updates__none--title">
+                                No Posts Yet
+                            </h3>
+                        </section>
+                    }
                 </section>
             }
         </>
