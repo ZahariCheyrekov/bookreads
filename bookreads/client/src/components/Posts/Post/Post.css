@@ -73,6 +73,42 @@
     margin: 20px 0;
 }
 
+.post__review--spoilers {
+    padding: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+    background-color: var(--lightgray-color);
+}
+
+.post__review__spoilers--title {
+    margin-bottom: 14px;
+    font-weight: normal;
+}
+
+.review__spoilers--button {
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.review__spoilers--button::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 0%;
+    height: 2px;
+
+    background-color: var(--black-color);
+}
+
+.review__spoilers--button:hover::before {
+    width: 100%;
+}
+
 .post__book {
     display: flex;
     justify-content: space-between;
