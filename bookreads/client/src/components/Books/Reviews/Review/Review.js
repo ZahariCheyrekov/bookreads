@@ -124,10 +124,13 @@ const Review = ({ review }) => {
                                     Like
                                 </span>
                             </article>
-                            <article className="review__button review__button--comment">
+                            <article
+                                className="review__button review__button--comment"
+                                onClick={handleShowComments}
+                            >
                                 <i className="fa-regular fa-comments" />
                                 &nbsp;
-                                <span className="review__button--text" onClick={handleShowComments}>
+                                <span className="review__button--text">
                                     Comment
                                 </span>
                             </article>
