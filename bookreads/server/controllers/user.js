@@ -41,6 +41,34 @@ export const getUserPostsById = async (req, res) => {
     return res.status(200).json(posts);
 }
 
+export const addBookToUserShelve = async (req, res) => {
+    const { id } = req.params;
+    const { shelveName, book } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find user with id: ${id}`);
+    }
+
+    const user = await User.findById(id);
+
+    const existingBookOnSameShelve = user.shelves[shelveName].some(currentBook => currentBook.id === book.id);
+
+    if (existingBookOnSameShelve) {
+        const index = user.shelves[shelveName].findIndex(currentBook => currentBook.id === book.id);
+        user.shelves.shelveName.splice(index, 1);
+    } else {
+        Object.keys(user.shelves).forEach((shelve) => {
+            user.shelves[shelve] = user.shelves[shelve].filter(currentBook => currentBook.id !== book.id);
+        });
+
+        user.shelves.shelveName = user.shelves.shelveName.push(book);
+    }
+
+    await User.findByIdAndUpdate(id, user);
+
+    return res.status(200).json({ shelveName, book });
+}
+
 export const signin = async (req, res) => {
     const { email, password } = req.body;
 
