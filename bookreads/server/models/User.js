@@ -15,6 +15,11 @@ const userSchema = mongoose.Schema({
     },
     imageUrl: {
         type: String
+    },
+    shelves: {
+        read: [],
+        currentlyReading: [],
+        toRead: []
     }
 });
 
