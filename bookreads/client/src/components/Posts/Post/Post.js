@@ -36,7 +36,7 @@ const Post = ({ post }) => {
 
         await likePost(post?._id, userId, userName);
     }
-    console.log(post?.postBookData?.spoilers)
+
     const handleReviewText = () => {
         setShowReviewText(prevState => !prevState);
     }
