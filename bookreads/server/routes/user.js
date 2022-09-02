@@ -4,6 +4,7 @@ import {
     getUserById,
     getUsers,
     getUserPostsById,
+    addBookToUserShelve,
     signin,
     signup,
     uploadUserImage
@@ -15,6 +16,7 @@ const router = express.Router();
 router.get('/:id', getUserById);
 router.get('/', getUsers);
 router.get('/:name/:id', getUserPostsById);
+router.post('/:id/shelves', addBookToUserShelve);
 router.post('/signin', signin);
 router.post('/signup', signup);
 router.patch('/:id/image', uploadUserImage);
