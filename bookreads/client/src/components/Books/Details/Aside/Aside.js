@@ -1,37 +1,54 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { deleteBook } from '../../../../api/bookAPI';
+import { addBookToUserShelve } from '../../../../api/userAPI';
+
+import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../../constants/shelves';
+
+import { AuthContext } from '../../../../contexts/AuthContext';
+
 import Rating from '../Rating/Rating';
 
 import './Aside.css';
 
-const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
+const Aside = ({ book, isOwner }) => {
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
 
     const handleDelete = () => {
-        deleteBook(id);
+        deleteBook(book?._id);
         navigate('/');
+    }
+
+    const handleBookShelve = (shelveName) => {
+        setVisibleBookOptions(false);
+        
+        const bookData = {
+            id: book._id,
+            title: book.title,
+            author: book.author,
+            cover: book.bookCoverUrl
+        }
+
+        addBookToUserShelve(user.result._id, shelveName, bookData);
     }
 
     return (
         <section className="section__aside">
             <aside className="aside__book--content">
                 <article className="aside__book--article">
-                    <img src={bookCoverUrl} alt={title} />
+                    <img src={book?.bookCoverUrl} alt={book?.title} />
                 </article>
                 {isOwner && (
                     <>
-                        <Link to={`/books/${id}/edit`} className="aside__book--link">
+                        <Link to={`/books/${book?._id}/edit`} className="aside__book--link">
                             <button className="aside__book--button">
                                 Edit book
                             </button>
                         </Link>
-                        <button
-                            className="aside__book--button book__delete--button"
-                            onClick={() => setVisibleBookOptions(true)}
-                        >
+                        <button className="aside__book--button book__delete--button">
                             Delete book
                         </button>
                     </>
@@ -50,13 +67,22 @@ const Aside = ({ id, isOwner, bookCoverUrl, title }) => {
                     </h4>
 
                     <article className="aside__options--list">
-                        <button className="aside__book__option book__option--want">
+                        <button
+                            className="aside__book__option book__option--want"
+                            onClick={() => handleBookShelve(WANT_TO_READ_SHELVE)}
+                        >
                             Want to Read
                         </button>
-                        <button className="aside__book__option book__option--reading">
+                        <button
+                            className="aside__book__option book__option--reading"
+                            onClick={() => handleBookShelve(CURRENTLY_READING_SHELVE)}
+                        >
                             Currently Reading
                         </button>
-                        <button className="aside__book__option book__option--read">
+                        <button
+                            className="aside__book__option book__option--read"
+                            onClick={() => handleBookShelve(READ_SHELVE)}
+                        >
                             Read
                         </button>
 
