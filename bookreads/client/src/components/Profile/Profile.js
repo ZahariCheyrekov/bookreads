@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // import FileBase64 from 'react-file-base64';
 
 import defaultUserPhoto from '../../assets/default-user-photo.png';
@@ -60,7 +60,29 @@ const Profile = () => {
                     </>
                 } */}
                     </section>
-
+                    <section className="profile__user--bookshelves">
+                        <h5 className="profile__bookshelves--title">
+                            {currentUser.name.split(' ')[0]}'s bookshelves
+                        </h5>
+                        <hr className="profile__hr" />
+                        <ul className="profile__bookshelves">
+                            <li className="profile__bookshelve">
+                                <Link to={'/user/shelves/read'}>
+                                    read
+                                </Link>
+                            </li>
+                            <li className="profile__bookshelve">
+                                <Link to={'/user/shelves/currently-reading'}>
+                                    currently-reading
+                                </Link>
+                            </li>
+                            <li className="profile__bookshelve">
+                                <Link to={'/user/shelves/to-read'}>
+                                    to-read
+                                </Link>
+                            </li>
+                        </ul>
+                    </section>
                     <Updates
                         userId={id}
                         currentUser={currentUser}
