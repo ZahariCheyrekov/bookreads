@@ -36,9 +36,6 @@ const bookSchema = mongoose.Schema({
     creatorId: {
         type: String,
         required: true
-    },
-    reviews: {
-        type: Array
     }
 });
 
