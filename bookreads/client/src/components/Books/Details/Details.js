@@ -33,10 +33,8 @@ const Details = () => {
             {book ?
                 <div className="div__wrapper">
                     <Aside
-                        id={id}
+                        book={book}
                         isOwner={isOwner}
-                        bookCoverUrl={book.bookCoverUrl}
-                        title={book.title}
                     />
 
                     <section className="section__book--content">
