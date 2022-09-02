@@ -18,6 +18,7 @@ const Review = ({ review }) => {
     const [hasButton] = useState(review.reviewContent.join(' ').length >= 300);
     const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
+    const [showComments, setShowComments] = useState(false);
 
     const handleShowContent = () => {
         setShowContent(prevState => !prevState);
@@ -35,6 +36,10 @@ const Review = ({ review }) => {
             setLikes([...likes, userId]);
             setLikedByUser(true);
         }
+    }
+
+    const handleShowComments = () => {
+        setShowComments(prevState => !prevState);
     }
 
     return (
@@ -122,17 +127,19 @@ const Review = ({ review }) => {
                             <article className="review__button review__button--comment">
                                 <i className="fa-regular fa-comments" />
                                 &nbsp;
-                                <span className="review__button--text">
+                                <span className="review__button--text" onClick={handleShowComments}>
                                     Comment
                                 </span>
                             </article>
                         </section>
 
-                        <Comments
-                            review={review}
-                            comments={review.comments}
-                            setComments={setComments}
-                        />
+                        {showComments &&
+                            <Comments
+                                review={review}
+                                comments={review.comments}
+                                setComments={setComments}
+                            />
+                        }
                         <hr className="hr__divider"></hr>
                     </article>
                 </li >
