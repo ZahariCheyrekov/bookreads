@@ -67,6 +67,7 @@ const CreateReview = () => {
             bookTitle: book.title,
             bookDescription: book.description,
             bookCoverUrl: book.bookCoverUrl,
+            spoilers,
             rating,
             reviewContent: reviewContent.trim().split(/\n+/)
         }
