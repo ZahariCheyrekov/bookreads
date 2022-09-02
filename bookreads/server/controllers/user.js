@@ -55,13 +55,13 @@ export const addBookToUserShelve = async (req, res) => {
 
     if (existingBookOnSameShelve) {
         const index = user.shelves[shelveName].findIndex(currentBook => currentBook.id === book.id);
-        user.shelves.shelveName.splice(index, 1);
+        user.shelves[shelveName].splice(index, 1);
     } else {
         Object.keys(user.shelves).forEach((shelve) => {
             user.shelves[shelve] = user.shelves[shelve].filter(currentBook => currentBook.id !== book.id);
         });
 
-        user.shelves.shelveName = user.shelves.shelveName.push(book);
+        user.shelves[shelveName].push(book);
     }
 
     await User.findByIdAndUpdate(id, user);
