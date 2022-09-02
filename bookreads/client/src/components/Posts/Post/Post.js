@@ -112,7 +112,7 @@ const Post = ({ post }) => {
                                     :
                                     <article className="post__review--spoilers">
                                         <h4 className="post__review__spoilers--title">
-                                            The entire review has been hidden because of spoilers.
+                                            The entire review is hidden because of spoilers.
                                         </h4>
                                         <button
                                             className="review__spoilers--button"
