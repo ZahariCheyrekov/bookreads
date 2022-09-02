@@ -24,7 +24,7 @@ const Aside = ({ book, isOwner }) => {
 
     const handleBookShelve = (shelveName) => {
         setVisibleBookOptions(false);
-        
+
         const bookData = {
             id: book._id,
             title: book.title,
@@ -48,7 +48,10 @@ const Aside = ({ book, isOwner }) => {
                                 Edit book
                             </button>
                         </Link>
-                        <button className="aside__book--button book__delete--button">
+                        <button
+                            className="aside__book--button book__delete--button"
+                            onClick={handleDelete}
+                        >
                             Delete book
                         </button>
                     </>
