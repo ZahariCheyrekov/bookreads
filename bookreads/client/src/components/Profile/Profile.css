@@ -36,3 +36,24 @@
     padding: 6px 30px;
     font-size: 1rem;
 }
+
+.profile__user--bookshelves {
+    width: var(--secondary-component-width);
+    margin: 0 auto;
+}
+
+.profile__bookshelves--title {
+    text-transform: uppercase;
+    margin: 20px 0 8px;
+    font-size: 0.9rem;
+}
+
+.profile__bookshelves {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 40px;
+}
+
+.profile__bookshelve>a {
+    color: var(--lightblue-color);
+}
