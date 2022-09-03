@@ -1,0 +1,6 @@
+
+.shelves__cover--img {
+    width: 80px;
+    height: 110px;
+    object-fit: cover;
+}
