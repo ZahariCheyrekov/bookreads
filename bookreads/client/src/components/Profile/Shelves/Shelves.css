@@ -1,0 +1,8 @@
+.shelves__wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.shelves__list--shelve>a {
+    color: var(--lightblue-color);
+}
