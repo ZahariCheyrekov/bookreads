@@ -1,6 +1,13 @@
-
 .shelves__cover--img {
     width: 80px;
     height: 110px;
     object-fit: cover;
+}
+
+.shelves__td>a {
+    color: var(--lightblue-color);
+}
+
+.shelves__td--title {
+    font-weight: normal;
 }
