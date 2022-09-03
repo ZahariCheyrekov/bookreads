@@ -85,7 +85,7 @@ const Shelves = () => {
                         <table className="shelves__table">
                             <thead className="shelves__thead">
                                 <tr className="shelves__row">
-                                    <th className="shelves__th">
+                                    <th className="shelves__th shelves__table__padding--none">
                                         cover
                                     </th>
                                     <th className="shelves__th">
@@ -99,16 +99,23 @@ const Shelves = () => {
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {books.map(book =>
-                                    <Book
-                                        key={uuid()}
-                                        book={book}
-                                        shelve={shelve}
-                                    />
-                                )}
+                            <tbody className="shelves__tbody">
+                                {books.length > 0 &&
+                                    books.map(book =>
+                                        <Book
+                                            key={uuid()}
+                                            book={book}
+                                            shelve={shelve}
+                                        />
+                                    )
+                                }
                             </tbody>
                         </table>
+                        {books.length == 0 &&
+                            <h4 className="shelves__no__match">
+                                No matching items!
+                            </h4>
+                        }
                     </section>
                 </article>
             </div>

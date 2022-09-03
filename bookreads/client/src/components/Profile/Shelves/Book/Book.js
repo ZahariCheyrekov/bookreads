@@ -8,7 +8,7 @@ const Book = ({ book, shelve }) => {
 
     return (
         <tr className="shelves__row--book">
-            <td className="shelves__td">
+            <td className="shelves__td shelves__table__padding--none">
                 <Link to={`/books/${book.id}`}>
                     <img
                         className="shelves__cover--img"
