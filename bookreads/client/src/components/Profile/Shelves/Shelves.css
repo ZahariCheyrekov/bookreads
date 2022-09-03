@@ -12,10 +12,22 @@
     width: 200px;
 }
 
+.shelves__list--shelve>a {
+    color: var(--lightblue-color);
+}
+
 .shelves__books {
     width: 700px;
 }
 
-.shelves__list--shelve>a {
-    color: var(--lightblue-color);
+.shelves__table {
+    width: 100%;
+}
+
+.shelves__th {
+    font-weight: normal;
+}
+
+.shelves__thead {
+    border: 1px solid var(--divider-color);
 }
