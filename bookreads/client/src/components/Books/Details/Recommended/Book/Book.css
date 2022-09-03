@@ -48,3 +48,24 @@
     font-size: 1.05rem;
     font-weight: normal;
 }
+
+
+@media only screen and (max-width: 1150px) {
+    .book {
+        width: 164px;
+    }
+
+    .book__article {
+        height: 264px;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .book {
+        width: 194px;
+    }
+
+    .book__article {
+        height: 294px;
+    }
+}
