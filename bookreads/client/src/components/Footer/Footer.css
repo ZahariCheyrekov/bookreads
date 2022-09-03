@@ -92,5 +92,9 @@
         margin-bottom: 20px;
     }
 
-    
+    .footer__article--stores {
+        flex-direction: column;
+        align-items: flex-end;
+        width: unset;
+    }
 }
