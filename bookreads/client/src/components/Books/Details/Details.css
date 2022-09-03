@@ -47,10 +47,24 @@
     }
 
     .book {
-        width: 154px;
+        width: 164px;
     }
 
     .book__article {
-        height: 254px;
+        height: 264px;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .recommended__books a:last-child {
+        display: none;
+    }
+
+    .book {
+        width: 194px;
+    }
+
+    .book__article {
+        height: 294px;
     }
 }
