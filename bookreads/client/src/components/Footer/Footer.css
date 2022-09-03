@@ -98,3 +98,24 @@
         width: unset;
     }
 }
+
+@media only screen and (max-width:410px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer__article--stores,
+    .footer__section:nth-child(2) {
+        width: 100%;
+    }
+
+    .footer__article--stores {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer__article--stores>img {
+        height: 60px;
+    }
+}
