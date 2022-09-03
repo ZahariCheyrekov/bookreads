@@ -3,6 +3,19 @@
     margin: 0 auto;
 }
 
+.shelves__article {
+    display: flex;
+    margin: 20px 0;
+}
+
+.shelves {
+    width: 200px;
+}
+
+.shelves__books {
+    width: 700px;
+}
+
 .shelves__list--shelve>a {
     color: var(--lightblue-color);
 }
