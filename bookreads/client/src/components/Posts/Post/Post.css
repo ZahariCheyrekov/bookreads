@@ -198,5 +198,7 @@
         flex-direction: column;
     }
 
- 
+    .post__book--summary {
+        margin: 10px 0;
+    }
 }
