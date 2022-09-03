@@ -11,6 +11,7 @@ import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import BookForm from './components/Books/BookForm/BookForm';
+import Shelves from './components/Profile/Shelves/Shelves';
 import Auth from './components/Auth/Auth';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
@@ -35,7 +36,7 @@ function App() {
                     ))}
 
                     {['read', 'currently-reading', 'to-read'].map((path) => (
-                        <Route key={path} path={`/user/:id/shelves/${path}`} />
+                        <Route key={path} path={`/user/:id/shelves/${path}`} element={<Shelves />} />
                     ))}
                 </Route>
                 <Route element={<GuestRoutes />}>
