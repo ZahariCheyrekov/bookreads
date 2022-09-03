@@ -34,3 +34,32 @@
     display: flex;
     margin: 2.4rem 0;
 }
+
+
+@media only screen and (max-width: 1240px) {
+    .recommended__books {
+        width: unset;
+    }
+
+    .recommended__books a:not(:first-child) {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .recommended__books {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .recommended__books a:last-child {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .recommended__books a:last-child {
+        display: flex;
+    }
+}
