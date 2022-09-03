@@ -31,40 +31,11 @@
     margin: 1.4rem 0;
 }
 
-@media only screen and (max-width: 1240px) {
-    .recommended__books {
-        width: unset;
-    }
 
-    .recommended__books a:not(:first-child) {
-        margin-left: 1rem;
-    }
-}
-
-@media only screen and (max-width: 1150px) {
-    .recommended__books {
-        justify-content: space-between;
-    }
-
-    .book {
-        width: 164px;
-    }
-
-    .book__article {
-        height: 264px;
-    }
-}
-
-@media only screen and (max-width: 1030px) {
-    .recommended__books a:last-child {
-        display: none;
-    }
-
-    .book {
-        width: 194px;
-    }
-
-    .book__article {
-        height: 294px;
+@media only screen and (max-width: 940px) {
+    .div__wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 }
