@@ -30,63 +30,65 @@ const Shelves = () => {
                     My Books
                 </h3>
                 <hr className="profile__hr" />
-                <aside className="shelves">
-                    <h4 className="shelves__title">
-                        Bookshelves
-                    </h4>
-                    <ul className="shelves__list">
-                        <li className="shelves__list--shelve">
-                            <Link to={`/user/${id}/shelves/read`}>
-                                All ({booksCount})
-                            </Link>
-                        </li>
-                        <li className="shelves__list--shelve">
-                            <Link to={`/user/${id}/shelves/read`}>
-                                Read ({shelves?.read.length})
-                            </Link>
-                        </li>
-                        <li className="shelves__list--shelve">
-                            <Link to={`/user/${id}/shelves/currently-reading`}>
-                                Currently Reading ({shelves?.currentlyReading.length})
-                            </Link>
-                        </li>
-                        <li className="shelves__list--shelve">
-                            <Link to={`/user/${id}/shelves/to-read`}>
-                                Want to Read ({shelves?.toRead.length})
-                            </Link>
-                        </li>
-                    </ul>
-                </aside>
-                <section className="shelves__books">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    cover
-                                </th>
-                                <th>
-                                    title
-                                </th>
-                                <th>
-                                    author
-                                </th>
-                                <th>
-                                    shelve
-                                </th>
-                                <th>
-                                    review
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
+                <article className="shelves__article">
+                    <aside className="shelves">
+                        <h4 className="shelves__title">
+                            Bookshelves
+                        </h4>
+                        <ul className="shelves__list">
+                            <li className="shelves__list--shelve">
+                                <Link to={`/user/${id}/shelves/read`}>
+                                    All ({booksCount})
+                                </Link>
+                            </li>
+                            <li className="shelves__list--shelve">
+                                <Link to={`/user/${id}/shelves/read`}>
+                                    Read ({shelves?.read.length})
+                                </Link>
+                            </li>
+                            <li className="shelves__list--shelve">
+                                <Link to={`/user/${id}/shelves/currently-reading`}>
+                                    Currently Reading ({shelves?.currentlyReading.length})
+                                </Link>
+                            </li>
+                            <li className="shelves__list--shelve">
+                                <Link to={`/user/${id}/shelves/to-read`}>
+                                    Want to Read ({shelves?.toRead.length})
+                                </Link>
+                            </li>
+                        </ul>
+                    </aside>
+                    <section className="shelves__books">
+                        <table className="shelves__table">
+                            <thead className="shelves__thead">
+                                <tr className="shelves__row">
+                                    <th className="shelves__th">
+                                        cover
+                                    </th>
+                                    <th className="shelves__th">
+                                        title
+                                    </th>
+                                    <th className="shelves__th">
+                                        author
+                                    </th>
+                                    <th className="shelves__th">
+                                        shelve
+                                    </th>
+                                    <th className="shelves__th">
+                                        review
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="shelves__row">
+                                    <td className="shelves__td">
 
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </article>
             </div>
         </main>
     );
