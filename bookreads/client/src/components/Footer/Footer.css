@@ -112,10 +112,12 @@
 
     .footer__article--stores {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 
     .footer__article--stores>img {
         height: 60px;
+        width: 45%;
     }
 }
