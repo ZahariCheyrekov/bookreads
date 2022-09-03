@@ -111,7 +111,7 @@ const Shelves = () => {
                                 }
                             </tbody>
                         </table>
-                        {books.length == 0 &&
+                        {books.length === 0 &&
                             <h4 className="shelves__no__match">
                                 No matching items!
                             </h4>
