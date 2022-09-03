@@ -30,3 +30,13 @@
     height: 0.1rem;
     margin: 1.4rem 0;
 }
+
+@media only screen and (max-width: 1240px) {
+    .recommended__books {
+        width: unset;
+    }
+
+    .recommended__books a:not(:first-child) {
+        margin-left: 1rem;
+    }
+}
