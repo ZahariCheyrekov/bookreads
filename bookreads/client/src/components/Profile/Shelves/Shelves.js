@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
+import uuid from 'react-uuid';
 
 import { getUserById } from '../../../services/user';
+import Book from './Book/Book';
 
 import './Shelves.css';
 
@@ -12,6 +14,7 @@ const Shelves = () => {
     const [shelves, setShelves] = useState(null);
     const [booksCount, setBooksCount] = useState();
     const [books, setBooks] = useState([]);
+    const [shelve, setShelve] = useState('');
 
     const index = path.pathname.lastIndexOf('/');
     console.log(path.pathname.slice(index + 1));
@@ -28,13 +31,15 @@ const Shelves = () => {
             const index = path.pathname.lastIndexOf('/');
             const shelveName = path.pathname.slice(index + 1);
 
-            if (shelveName == 'read') {
+            if (shelveName === 'read') {
                 setBooks(user.shelves.read);
-            } else if (shelveName == 'currently-reading') {
+            } else if (shelveName === 'currently-reading') {
                 setBooks(user.shelves.currentlyReading);
-            } else if (shelveName == 'to-read') {
+            } else if (shelveName === 'to-read') {
                 setBooks(user.shelves.toRead);
             }
+
+            setShelve(shelveName);
         }
         fetchUser();
     }, [id, path.pathname]);
@@ -92,17 +97,16 @@ const Shelves = () => {
                                     <th className="shelves__th">
                                         shelve
                                     </th>
-                                    <th className="shelves__th">
-                                        review
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="shelves__row">
-                                    <td className="shelves__td">
-
-                                    </td>
-                                </tr>
+                                {books.map(book =>
+                                    <Book
+                                        key={uuid()}
+                                        book={book}
+                                        shelve={shelve}
+                                    />
+                                )}
                             </tbody>
                         </table>
                     </section>
