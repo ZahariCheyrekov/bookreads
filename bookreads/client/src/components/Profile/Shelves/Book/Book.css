@@ -1,3 +1,7 @@
+.shelves__row--book {
+    border-bottom: 0.08rem solid var(--divider-color);
+}
+
 .shelves__cover--img {
     width: 80px;
     height: 110px;
