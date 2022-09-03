@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import { getUserById } from '../../../services/user';
 
 import './Shelves.css';
 
 const Shelves = () => {
+    const path = useLocation();
     const { id } = useParams();
     const [currentUser, setCurrentUser] = useState(null);
     const [shelves, setShelves] = useState(null);
     const [booksCount, setBooksCount] = useState();
+    const [books, setBooks] = useState([]);
+
+    const index = path.pathname.lastIndexOf('/');
+    console.log(path.pathname.slice(index + 1));
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -19,9 +24,22 @@ const Shelves = () => {
 
             const count = Object.values(user.shelves).reduce((bookCount, shelve) => bookCount += shelve.length, 0);
             setBooksCount(count);
+
+            const index = path.pathname.lastIndexOf('/');
+            const shelveName = path.pathname.slice(index + 1);
+
+            if (shelveName == 'read') {
+                setBooks(user.shelves.read);
+            } else if (shelveName == 'currently-reading') {
+                setBooks(user.shelves.currentlyReading);
+            } else if (shelveName == 'to-read') {
+                setBooks(user.shelves.toRead);
+            }
         }
         fetchUser();
-    }, [id]);
+    }, [id, path.pathname]);
+
+    console.log(books);
 
     return (
         <main className="main">
