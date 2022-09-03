@@ -1,30 +1,42 @@
+import { Link, useParams } from 'react-router-dom';
+
 import './Book.css';
 
 const Book = ({ book, shelve }) => {
+    const { id } = useParams();
     console.log(shelve)
+
     return (
         <tr className="shelves__row--book">
             <td className="shelves__td">
-                <img
-                    className="shelves__cover--img"
-                    src={book.cover}
-                    alt={book.title}
-                />
+                <Link to={`/books/${book.id}`}>
+                    <img
+                        className="shelves__cover--img"
+                        src={book.cover}
+                        alt={book.title}
+                    />
+                </Link>
             </td>
             <td className="shelves__td">
-                <h4>
-                    {book.title}
-                </h4>
+                <Link to={`/books/${book.id}`}>
+                    <h4 className="shelves__td--title">
+                        {book.title}
+                    </h4>
+                </Link>
             </td>
             <td className="shelves__td">
-                <h4>
-                    {book.author}
-                </h4>
+                <Link to={`/author/show`}>
+                    <h4 className="shelves__td--title">
+                        {book.author}
+                    </h4>
+                </Link>
             </td>
             <td className="shelves__td">
-                <h4>
-                    {shelve}
-                </h4>
+                <Link to={`/user/${id}/shelves/${shelve}`}>
+                    <h4 className="shelves__td--title">
+                        {shelve}
+                    </h4>
+                </Link>
             </td>
         </tr>
     );
