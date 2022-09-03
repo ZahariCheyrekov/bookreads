@@ -12,6 +12,14 @@
     width: 200px;
 }
 
+.shelves__list {
+    margin: 20px 0;
+}
+
+.shelves__list--shelve {
+    margin: 6px 0;
+}
+
 .shelves__list--shelve>a {
     color: var(--lightblue-color);
 }
