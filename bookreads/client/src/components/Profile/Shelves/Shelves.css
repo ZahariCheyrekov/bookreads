@@ -22,12 +22,20 @@
 
 .shelves__table {
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.8rem;
 }
 
 .shelves__th {
     font-weight: normal;
+    text-align: start;
+    padding: 10px;
 }
 
 .shelves__thead {
     border: 1px solid var(--divider-color);
+}
+
+.shelves__td {
+    padding: 10px;
 }
