@@ -144,6 +144,20 @@
     background-color: var(--dark-button-hover-color);
 }
 
+@media only screen and (max-width: 470px) {
+    .aside__book--content {
+        width: 200px;
+    }
+
+    .aside__book--article {
+        height: 300px;
+    }
+
+    .aside__book--content {
+        margin: 0 auto 30px;
+    }
+}
+
 @media only screen and (max-width: 450px) {
     .book__title {
         font-size: 2rem;
