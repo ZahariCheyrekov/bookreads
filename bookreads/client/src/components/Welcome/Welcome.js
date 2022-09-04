@@ -6,7 +6,7 @@ const Welcome = () => {
     return (
         <>
             <Header />
-            <main className="main">
+            <main className="main main__welcome">
                 <div className="main__wrapper">
                     <section className="wrapper__section wrapper__section--about">
                         <article className="section__article section__article--about">
