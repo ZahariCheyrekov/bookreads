@@ -47,7 +47,7 @@ const Review = ({ review }) => {
             {review
                 ? <li className="review__item">
                     <aside className="review__aside">
-                        <div className="review__user-wrapper">
+                        <div className="review__user--wrapper">
                             <Link to={getUserLink(review.user.name, review.user.id)}>
                                 <article className="review__user--article">
                                     <img
