@@ -13,7 +13,7 @@ const Comment = ({ comment, currentComments, setCurrentComments, postId, postCre
     const { user } = useContext(AuthContext);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
     const [visibleText, setVisibleText] = useState(false);
-    const [visibleButton] = useState(comment.comment.join('').length >= 270);
+    const [visibleButton] = useState(comment.comment.length >= 2 || comment.comment.join('').length >= 100);
 
     useEffect(() => {
         const isCommentOwner =
