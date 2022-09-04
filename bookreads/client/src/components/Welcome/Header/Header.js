@@ -38,6 +38,10 @@ const Header = () => {
                         <h2 className="article__title--big">
                             Tell the world what you are reading.
                         </h2>
+                        <h4 className="article__title--smallest">
+                            Find and read more books. Be part of Boodreads,
+                            the world's largest community for readers like you.
+                        </h4>
                         <aside className="header__aside">
                             <h3 className="header__aside--title">
                                 Discover & read more
