@@ -143,3 +143,9 @@
 .book__option--close:hover {
     background-color: var(--dark-button-hover-color);
 }
+
+@media only screen and (max-width: 450px) {
+    .book__title {
+        font-size: 2rem;
+    }
+}
