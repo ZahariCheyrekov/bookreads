@@ -127,4 +127,9 @@
     .section__content {
         width: 100%;
     }
+
+    .section__content--span::before,
+    .section__content--span::after {
+        display: none;
+    }
 }
