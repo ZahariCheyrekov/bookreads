@@ -1,5 +1,5 @@
 .profile__updates {
-    width: var(--secondary-component-width);
+    max-width: var(--secondary-component-width);
     margin: 0 auto;
 }
 
