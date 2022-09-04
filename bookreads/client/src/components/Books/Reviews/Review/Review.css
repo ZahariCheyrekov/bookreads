@@ -4,7 +4,7 @@
 }
 
 .review__aside {
-    width: 125px;
+    width: 20%;
 }
 
 .review__user--article {
@@ -69,7 +69,7 @@
 
 .review__content {
     padding-left: 60px;
-    width: 762px;
+    width: 80%;
 }
 
 .fa-solid.fa-star.fa-review {
