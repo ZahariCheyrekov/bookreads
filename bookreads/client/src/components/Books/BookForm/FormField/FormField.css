@@ -11,3 +11,12 @@
 .form__textarea::-webkit-scrollbar {
     border-radius: 50%;
 }
+
+
+@media only screen and (max-width: 600px) {
+    input.form__input,
+    textarea.form__input,
+    button.auth__button {
+        margin: 4px 0;
+    }
+}
