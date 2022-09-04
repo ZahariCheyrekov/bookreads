@@ -13,3 +13,14 @@
 .article__paragraph {
     margin: 10px 0;
 }
+
+@media only screen and (max-width: 600px) {
+    .main.main__welcome {
+        padding: 20px;
+    }
+
+    .wrapper__section--about {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
