@@ -9,7 +9,8 @@
 }
 
 .shelves {
-    width: 200px;
+    width: 20%;
+    margin-right: 20px;
 }
 
 .shelves__list {
@@ -25,7 +26,7 @@
 }
 
 .shelves__books {
-    width: 700px;
+    width: 80%;
 }
 
 .shelves__table {
@@ -57,4 +58,10 @@
 
 .shelves__table__padding--none {
     padding-left: 0;
+}
+
+@media only screen and (max-width: 970px) {
+    .shelves__wrapper {
+        width: 90%;
+    }
 }
