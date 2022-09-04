@@ -79,3 +79,19 @@
         font-size: 1.6rem;
     }
 }
+
+@media only screen and (max-width: 410px) {
+    .recommended__books>a:nth-child(3) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .recommended__title {
+        font-size: 1.2rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.4rem;
+    }
+}
