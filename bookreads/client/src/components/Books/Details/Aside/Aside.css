@@ -163,3 +163,17 @@
         font-size: 2rem;
     }
 }
+
+@media only screen and (max-width: 340px) {
+    .aside__book--content {
+        width: 160px;
+    }
+
+    .aside__book--article {
+        height: 260px;
+    }
+
+    .aside__book--button {
+        font-size: 1rem;
+    }
+}

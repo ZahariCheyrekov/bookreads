@@ -86,12 +86,22 @@
     }
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 340px) {
     .recommended__title {
         font-size: 1.2rem;
     }
 
     .recommended__arrows>i {
         font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 310px) {
+    .recommended__title {
+        font-size: 1rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.2rem;
     }
 }
