@@ -123,6 +123,10 @@
 }
 
 @media only screen and (max-width: 860px) {
+    .article__title--big {
+        margin-top: 10px;
+    }
+
     .article__books--img {
         display: none;
     }
@@ -148,11 +152,35 @@
         max-width: 80%;
         border: none;
 
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 0;
     }
 
     .header__aside--paragraph>a {
         color: var(--lightblue-color);
+    }
+}
+
+@media only screen and (max-width: 385px) {
+    .article__article--info {
+        padding: 20px;
+    }
+
+    .article__title--big {
+        font-size: 1.6rem;
+    }
+
+    .article__title--small {
+        font-size: 1.4rem;
+    }
+
+    .article__title--smallest {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 310px) {
+    .aside__button {
+        font-size: 0.8rem;
     }
 }
