@@ -41,6 +41,10 @@
 }
 
 @media only screen and (max-width: 470px) {
+    .main__details {
+        padding: 5rem 1rem 1rem;
+    }
+
     .div__wrapper {
         display: block;
     }
