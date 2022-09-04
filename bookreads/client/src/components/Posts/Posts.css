@@ -1,4 +1,10 @@
 .posts {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 40px auto 50px;
+}
+
+@media only screen and (max-width: 640px) {
+    .posts {
+        margin-top: 0px;
+    }
 }
