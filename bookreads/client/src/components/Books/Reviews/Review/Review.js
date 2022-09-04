@@ -47,18 +47,20 @@ const Review = ({ review }) => {
             {review
                 ? <li className="review__item">
                     <aside className="review__aside">
-                        <Link to={getUserLink(review.user.name, review.user.id)}>
-                            <article className="review__user--article">
-                                <img
-                                    className="review__user--img"
-                                    src={review.user.imageUrl ? review.user.imageUrl : defaultUserPhoto}
-                                    alt={review.user.name}
-                                />
-                            </article>
-                        </Link>
-                        <h4 className="review__user--name">
-                            {review.user.name}
-                        </h4>
+                        <div className="review__user-wrapper">
+                            <Link to={getUserLink(review.user.name, review.user.id)}>
+                                <article className="review__user--article">
+                                    <img
+                                        className="review__user--img"
+                                        src={review.user.imageUrl ? review.user.imageUrl : defaultUserPhoto}
+                                        alt={review.user.name}
+                                    />
+                                </article>
+                            </Link>
+                            <h4 className="review__user--name">
+                                {review.user.name}
+                            </h4>
+                        </div>
                         <button className="review__button--follow">
                             Follow
                         </button>
