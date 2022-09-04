@@ -64,9 +64,18 @@
     }
 }
 
-
 @media only screen and (max-width: 850px) {
     .recommended__books a:last-child {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .recommended__title {
+        font-size: 1.4rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.6rem;
     }
 }
