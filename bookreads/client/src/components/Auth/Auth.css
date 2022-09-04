@@ -122,3 +122,9 @@
 .section__content--button:hover {
     background-color: rgb(234, 233, 233);
 }
+
+@media only screen and (max-width: 430px) {
+    .section__content {
+        width: 100%;
+    }
+}
