@@ -39,3 +39,9 @@
         gap: 1rem;
     }
 }
+
+@media only screen and (max-width: 470px) {
+    .div__wrapper {
+        display: block;
+    }
+}
