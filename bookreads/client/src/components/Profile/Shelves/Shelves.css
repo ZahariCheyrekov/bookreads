@@ -65,3 +65,24 @@
         width: 90%;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .shelves__article {
+        flex-direction: column;
+    }
+
+    .shelves {
+        width: 100%;
+        margin: 0;
+    }
+
+    .shelves__list {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .shelves__books {
+        width: 100%;
+    }
+}
