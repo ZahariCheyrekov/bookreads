@@ -13,3 +13,9 @@
 .book__table--data {
     color: var(--gray-color);
 }
+
+@media only screen and (max-width: 450px) {
+    .book__table {
+        width: 100%;
+    }
+}
