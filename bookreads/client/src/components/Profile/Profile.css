@@ -57,3 +57,16 @@
 .profile__bookshelve>a {
     color: var(--lightblue-color);
 }
+
+@media only screen and (max-width: 385px) {
+    .profile__section--user {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        border-bottom: unset;
+    }
+
+    .profile__bookshelves {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+}
