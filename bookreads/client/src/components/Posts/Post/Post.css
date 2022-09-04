@@ -194,6 +194,10 @@
 }
 
 @media only screen and (max-width: 400px) {
+    .post__information {
+        padding: 0;
+    }
+
     .post__book {
         flex-direction: column;
     }
