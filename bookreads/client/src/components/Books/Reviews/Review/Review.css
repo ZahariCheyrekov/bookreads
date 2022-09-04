@@ -1,5 +1,6 @@
 .review__item {
     display: flex;
+    margin-bottom: 40px;
 }
 
 .review__aside {
@@ -45,6 +46,12 @@
     font-weight: normal;
     font-size: 1.2rem;
     margin: 10px 0;
+
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .review__button--follow {
@@ -62,7 +69,7 @@
 
 .review__content {
     padding-left: 60px;
-    width: 100%;
+    width: 762px;
 }
 
 .fa-solid.fa-star.fa-review {
