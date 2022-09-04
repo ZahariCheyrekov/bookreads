@@ -23,15 +23,14 @@
 }
 
 .comment__paragraphs {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: clip;
+    word-spacing: 1px;
     overflow: hidden;
+    word-break: break-word;
+    max-height: 80px;
 }
 
 .comment__paragraphs.visible {
-    display: block;
+    max-height: unset;
 }
 
 .comment__paragraph {
@@ -68,4 +67,10 @@
 
 .comment__ul--item .comment__paragraph:nth-child(2) {
     margin: 4px 0 0;
+}
+
+@media only screen and (max-width: 500px) {
+    .comment__ul--item>a {
+        display: none;
+    }
 }
