@@ -30,6 +30,13 @@
     font-weight: 300;
 }
 
+.article__title--smallest {
+    display: none;
+    font-size: 1.2rem;
+    margin: 20px 0 60px;
+    font-weight: normal;
+}
+
 .header__aside {
     position: absolute;
     z-index: 10;
@@ -118,5 +125,34 @@
 @media only screen and (max-width: 860px) {
     .article__books--img {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .header__section {
+        background-color: unset;
+        height: unset;
+    }
+
+    .article__article--info {
+        padding: 20px 30px;
+        text-align: center;
+    }
+
+    .article__title--smallest {
+        display: block;
+    }
+
+    .header__aside {
+        position: relative;
+        max-width: 80%;
+        border: none;
+
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    .header__aside--paragraph>a {
+        color: var(--lightblue-color);
     }
 }
