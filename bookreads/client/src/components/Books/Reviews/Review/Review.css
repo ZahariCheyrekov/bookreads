@@ -172,4 +172,10 @@
         padding-left: 0;
         width: 100%;
     }
+
+    .review__aside {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
