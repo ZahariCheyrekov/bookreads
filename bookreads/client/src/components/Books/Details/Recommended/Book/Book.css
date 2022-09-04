@@ -69,3 +69,23 @@
         height: 294px;
     }
 }
+
+@media only screen and (max-width: 650px) {
+    .book {
+        width: 164px;
+    }
+
+    .book__article {
+        height: 264px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .book {
+        width: 104px;
+    }
+
+    .book__article {
+        height: 204px;
+    }
+}
