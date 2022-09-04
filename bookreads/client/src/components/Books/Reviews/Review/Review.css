@@ -162,3 +162,14 @@
 .review__button--text:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+    .review__item {
+        flex-direction: column;
+    }
+
+    .review__content {
+        padding-left: 0;
+        width: 100%;
+    }
+}
