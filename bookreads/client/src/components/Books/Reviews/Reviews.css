@@ -1,5 +1,6 @@
 .reviews__title {
     font-style: italic;
+    margin-bottom: 20px;
 }
 
 .reviews__user {
@@ -33,4 +34,10 @@
 
 .reviews__user--button:hover {
     background-color: var(--dark-button-hover-color);
+}
+
+@media only screen and (max-width: 500px) {
+    .reviews__review--action {
+        flex-direction: column;
+    }
 }
