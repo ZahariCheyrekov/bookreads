@@ -69,8 +69,13 @@ const Post = ({ post }) => {
                             </Link>
                             : null
                         }
-                        <time className="post__time">
-                        </time>
+                        <span className="post__action--span">
+                            <span className="post__action--delete"> 
+                                <i class="fa-regular fa-x" />
+                            </span>
+                            <time className="post__time">
+                            </time>
+                        </span>
                     </section>
 
                     {book ? <>
