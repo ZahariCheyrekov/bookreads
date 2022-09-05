@@ -6,17 +6,15 @@ import './Notification.css';
 
 const Notification = () => {
     const { notificationMessage } = useContext(NotificationContext);
-    const [message, seetMessage] = useState('');
     const [isVisible, setVisible] = useState(false);
 
     useEffect(() => {
-        if (message === notificationMessage) {
-            seetMessage('');
-        }
-
-        seetMessage(notificationMessage);
         setVisible(true);
-    }, [message, notificationMessage]);
+
+        setInterval(() => {
+            setVisible(false);
+        }, 5000);
+    }, [notificationMessage]);
 
     return (
         <>
