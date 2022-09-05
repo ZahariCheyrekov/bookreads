@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { deleteBook } from '../../../../api/bookAPI';
 import { addBookToUserShelve } from '../../../../api/userAPI';
 
-import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../../constants/shelves';
-
 import { AuthContext } from '../../../../contexts/AuthContext';
+import { NotificationContext } from '../../../../contexts/NotificationContext';
+
+import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../../constants/shelves';
+import { USER_DELETED_A_BOOK } from '../../../../constants/notifications';
 
 import Rating from '../Rating/Rating';
 
@@ -15,11 +17,13 @@ import './Aside.css';
 const Aside = ({ book, isOwner }) => {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
+    const { setNotificationMessage } = useContext(NotificationContext);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
 
     const handleDelete = () => {
         deleteBook(book?._id);
         navigate('/');
+        setNotificationMessage(USER_DELETED_A_BOOK);
     }
 
     const handleBookShelve = (shelveName) => {
