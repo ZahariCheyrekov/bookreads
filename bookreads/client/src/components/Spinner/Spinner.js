@@ -1,8 +1,8 @@
 import './Spinner.css';
 
-const Spinner = () => {
+const Spinner = ({ spinnerSize }) => {
     return (
-        <div className="spinner"></div>
+        <div className={`spinner ${spinnerSize ? spinnerSize : 'full'}`}></div>
     );
 }
 
