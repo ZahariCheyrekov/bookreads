@@ -13,3 +13,27 @@
     font-size: 1.2rem;
     border-radius: 10px;
 }
+
+.notification.active {
+    animation: movein 0.5s ease forwards, moveout 0.5s 5s ease forwards;
+}
+
+@keyframes movein {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 20px;
+    }
+}
+
+@keyframes moveout {
+    from {
+        left: 20px;
+    }
+
+    to {
+        left: -100%;
+    }
+}
