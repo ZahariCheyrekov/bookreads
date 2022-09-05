@@ -136,10 +136,14 @@
     color: var(--gray-color);
 }
 
-.post__time {
+.post__action--span {
     position: absolute;
     top: 1rem;
     right: 1rem;
+}
+
+.post__action--delete {
+    color: var(--gray-color);
 }
 
 .post__book {
