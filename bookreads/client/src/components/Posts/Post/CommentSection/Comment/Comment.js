@@ -17,8 +17,8 @@ const Comment = ({ comment, currentComments, setCurrentComments, postId, postCre
 
     useEffect(() => {
         const isCommentOwner =
-            (comment.creatorId === user.result._id)
-            || (postCreatorId === user.result._id);
+            (comment.creatorId === user?.result._id)
+            || (postCreatorId === user?.result._id);
 
         setShowDeleteButton(isCommentOwner);
 
@@ -36,7 +36,7 @@ const Comment = ({ comment, currentComments, setCurrentComments, postId, postCre
 
     return (
         <li className="comment__ul--item">
-            <User name={user.result.name} image={user.result.imageUrl} id={user.result._id} />
+            <User name={user?.result.name} image={user?.result.imageUrl} id={user?.result._id} />
             <div className="comment__content--wrapper">
                 <article className="comment__article">
                     <h5 className="comment__author">
