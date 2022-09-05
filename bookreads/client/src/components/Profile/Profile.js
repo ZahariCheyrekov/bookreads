@@ -8,6 +8,7 @@ import { getUserById } from '../../services/user';
 // import { uploadUserImage } from '../../api/userAPI';
 
 import Updates from './Updates/Updates';
+import Spinner from '../Spinner/Spinner';
 
 import './Profile.css';
 
@@ -31,7 +32,7 @@ const Profile = () => {
 
     return (
         <main className="main__profile">
-            {currentUser &&
+            {currentUser ?
                 <>
                     <section className="main__profile--section">
                         <article className="profile__section--article">
@@ -88,6 +89,7 @@ const Profile = () => {
                         currentUser={currentUser}
                     />
                 </>
+                : <Spinner />
             }
         </main >
     );
