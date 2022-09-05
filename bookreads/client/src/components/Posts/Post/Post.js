@@ -6,6 +6,7 @@ import Likes from './Likes/Likes';
 import CommentSection from './CommentSection/CommentSection';
 
 import { likePost } from '../../../services/post';
+import { deletePost } from '../../../api/postAPI';
 import { getUserLink } from '../../../utils/getUserLink';
 import { REVIEWED_A_BOOK } from '../../../constants/actionType';
 
@@ -41,6 +42,10 @@ const Post = ({ post }) => {
         setShowReviewText(prevState => !prevState);
     }
 
+    const handleDeletePost = () => {
+        deletePost(post._id);
+    }
+
     return (
         <article className="post">
             {postUser ? <>
@@ -70,8 +75,11 @@ const Post = ({ post }) => {
                             : null
                         }
                         <span className="post__action--span">
-                            <span className="post__action--delete"> 
-                                <i class="fa-regular fa-x" />
+                            <span className="post__action--delete">
+                                <i
+                                    className="fa-regular fa-x"
+                                    onClick={handleDeletePost}
+                                />
                             </span>
                             <time className="post__time">
                             </time>
