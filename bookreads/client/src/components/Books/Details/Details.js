@@ -11,6 +11,7 @@ import Tags from './Tags/Tags';
 import Table from './Table/Table';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
+import Spinner from '../../Spinner/Spinner';
 
 import './Details.css';
 
@@ -57,7 +58,7 @@ const Details = () => {
                         </ReviewContextProvider>
                     </section>
                 </div >
-                : null
+                : <Spinner />
             }
         </main >
     );
