@@ -3,7 +3,7 @@ import * as userAPI from '../api/userAPI';
 import { saveUser } from './localStorage';
 import { SIGN_IN, SIGN_UP } from '../constants/actionType';
 
-export const auth = async (action, data, navigate) => {
+export const auth = async (action, data) => {
     try {
         let result;
 
@@ -15,7 +15,6 @@ export const auth = async (action, data, navigate) => {
 
         const user = result.data;
         saveUser(user);
-        navigate('/');
     } catch (error) {
         console.log(error);
     }
