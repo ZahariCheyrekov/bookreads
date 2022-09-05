@@ -7,7 +7,8 @@ import {
     createComment,
     getComments,
     getPostLikes,
-    deleteComment
+    deleteComment,
+    deletePostById
 } from '../controllers/post.js';
 
 
@@ -20,5 +21,6 @@ router.get('/post/:id/comments', getComments);
 router.post('/post/:id/comment', createComment);
 router.get('/post/:id/likes', getPostLikes);
 router.delete('/post/:id/comment/:commentId', deleteComment);
+router.delete('/post/:id', deletePostById);
 
 export default router;
