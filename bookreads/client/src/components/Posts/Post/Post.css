@@ -144,6 +144,7 @@
 
 .post__action--delete {
     color: var(--gray-color);
+    cursor: pointer;
 }
 
 .post__book {
