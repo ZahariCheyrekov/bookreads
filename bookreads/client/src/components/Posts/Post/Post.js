@@ -19,7 +19,7 @@ const Post = ({ post }) => {
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
     const [showReviewText, setShowReviewText] = useState(false);
-    const [showFullReview, setShowFullReview] = useState(user.result._id === post?.userData.id || post?.postBookData?.spoilers === false);
+    const [showFullReview, setShowFullReview] = useState(user?.result._id === post?.userData.id || post?.postBookData?.spoilers === false);
     const [likedByUser] = useState(likes?.find(like => like.userId === user?.result?._id));
 
     const handleLike = async () => {
