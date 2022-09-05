@@ -10,7 +10,7 @@ import './CommentForm.css';
 
 const CommentForm = ({ postId, currentComments, setCurrentComments }) => {
     const { user } = useContext(AuthContext);
-    const [userData] = useState({ creatorId: user.result._id, creatorName: user.result.name })
+    const [userData] = useState({ creatorId: user?.result._id, creatorName: user?.result.name })
     const [comment, setComment] = useState('');
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true);
     const [showCommentButton, setShowCommentButton] = useState(false);
