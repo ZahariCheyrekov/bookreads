@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+
 import { AuthContextProvider } from './contexts/AuthContext';
+import { NotificationContextProvider } from './contexts/NotificationContext';
 
 import './App.css';
 import './index.css';
@@ -23,32 +25,34 @@ import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
 function App() {
     return (
         <AuthContextProvider>
-            <Navigation />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route element={<UserRoutes />}>
-                    <Route path="/user/:name/:id" element={<Profile />} />
-                    <Route path='/books/:id' element={<Details />} />
-                    <Route path='/review/edit/:id' element={<CreateReview />} />
-                    <Route path='/post/:id/likes' element={<PostLikes />} />
+            <NotificationContextProvider>
+                <Navigation />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route element={<UserRoutes />}>
+                        <Route path="/user/:name/:id" element={<Profile />} />
+                        <Route path='/books/:id' element={<Details />} />
+                        <Route path='/review/edit/:id' element={<CreateReview />} />
+                        <Route path='/post/:id/likes' element={<PostLikes />} />
 
-                    {['create', 'books/:id/edit'].map((path) => (
-                        <Route key={path} path={`/${path}`} element={<BookForm />} />
-                    ))}
+                        {['create', 'books/:id/edit'].map((path) => (
+                            <Route key={path} path={`/${path}`} element={<BookForm />} />
+                        ))}
 
-                    {['read', 'currently-reading', 'to-read'].map((path) => (
-                        <Route key={path} path={`/user/:id/shelves/${path}`} element={<Shelves />} />
-                    ))}
-                </Route>
-                <Route element={<GuestRoutes />}>
-                    {['signin', 'signup'].map((path) => (
-                        <Route key={path} path={`/user/${path}`} element={<Auth />} />
-                    ))}
-                </Route>
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Notification />
-            <Footer />
+                        {['read', 'currently-reading', 'to-read'].map((path) => (
+                            <Route key={path} path={`/user/:id/shelves/${path}`} element={<Shelves />} />
+                        ))}
+                    </Route>
+                    <Route element={<GuestRoutes />}>
+                        {['signin', 'signup'].map((path) => (
+                            <Route key={path} path={`/user/${path}`} element={<Auth />} />
+                        ))}
+                    </Route>
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                <Notification />
+                <Footer />
+            </NotificationContextProvider>
         </AuthContextProvider>
     );
 }
