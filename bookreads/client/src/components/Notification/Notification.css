@@ -1,0 +1,15 @@
+.notification {
+    position: fixed;
+    bottom: 40px;
+    left: -100%;
+
+    width: 300px;
+    height: 80px;
+
+    background-color: var(--brown-color);
+    color: var(--white-color);
+
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
