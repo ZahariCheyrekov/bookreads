@@ -16,7 +16,6 @@ const Updates = ({ userId, currentUser }) => {
         getUserPosts();
     }, [userId, currentUser?.name]);
 
-    console.log(userPosts);
     return (
         <>
             {currentUser &&
