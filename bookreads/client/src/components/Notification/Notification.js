@@ -6,19 +6,21 @@ import './Notification.css';
 
 const Notification = () => {
     const { notificationMessage } = useContext(NotificationContext);
+    const [message, seetMessage] = useState('');
     const [isVisible, setVisible] = useState(false);
 
     useEffect(() => {
-        setVisible(true);
+        if (message === notificationMessage) {
+            seetMessage('');
+        }
 
-        setInterval(() => {
-            setVisible(false);
-        }, 5000);
-    }, [notificationMessage]);
+        seetMessage(notificationMessage);
+        setVisible(true);
+    }, [message, notificationMessage]);
 
     return (
         <>
-            {notificationMessage !== '' &&
+            {(isVisible && notificationMessage !== '') &&
                 <section className={`notification active ${isVisible && 'active'}`}>
                     {notificationMessage}
                 </section >
