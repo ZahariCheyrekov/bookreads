@@ -8,14 +8,18 @@ import CommentSection from './CommentSection/CommentSection';
 import { likePost } from '../../../services/post';
 import { deletePost } from '../../../api/postAPI';
 import { getUserLink } from '../../../utils/getUserLink';
+
 import { REVIEWED_A_BOOK } from '../../../constants/actionType';
+import { USER_DELETED_A_POST } from '../../../constants/notifications';
 
 import { AuthContext } from '../../../contexts/AuthContext';
+import { NotificationContext } from '../../../contexts/NotificationContext';
 
 import './Post.css';
 
 const Post = ({ post, posts, setPosts }) => {
     const { user } = useContext(AuthContext);
+    const { setNotificationMessage } = useContext(NotificationContext);
     const [postUser] = useState(post?.userData);
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
@@ -46,6 +50,7 @@ const Post = ({ post, posts, setPosts }) => {
         const filteredPosts = posts.filter(currentPost => currentPost._id !== post._id);
         setPosts(filteredPosts);
         deletePost(post._id);
+        setNotificationMessage(USER_DELETED_A_POST);
     }
 
     return (
