@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { getPosts } from '../../services/post';
 import Post from './Post/Post';
+import Spinner from '../Spinner/Spinner';
 
 import './Posts.css';
 
@@ -21,16 +22,19 @@ const Posts = ({ userPosts }) => {
     }, [userPosts]);
 
     return (
-        <section className="posts">
+        <>
             {posts?.length > 0 ?
-                posts.map(post =>
-                    <Post
-                        key={post._id}
-                        post={post}
-                    />
-                )
-                : null}
-        </section>
+                <section className="posts">
+                    {posts.map(post =>
+                        <Post
+                            key={post._id}
+                            post={post}
+                        />
+                    )}
+                </section>
+                : <Spinner />
+            }
+        </>
     );
 }
 
