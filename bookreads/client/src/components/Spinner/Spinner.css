@@ -1,10 +1,18 @@
 .spinner {
-    width: 100vw;
-    height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.spinner.full {
+    width: 100vw;
+    height: 100vh;
+}
+
+.spinner.medium {
+    margin: 40px auto;
+    width: 100%;
+    height: 100%;
 }
 
 .spinner::after {
