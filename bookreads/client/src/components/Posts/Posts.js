@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import uuid from 'react-uuid';
 
 import { getPosts } from '../../services/post';
 import Post from './Post/Post';
@@ -27,8 +28,10 @@ const Posts = ({ userPosts }) => {
                 <section className="posts">
                     {posts.map(post =>
                         <Post
-                            key={post._id}
+                            key={uuid()}
                             post={post}
+                            posts={posts}
+                            setPosts={setPosts}
                         />
                     )}
                 </section>
