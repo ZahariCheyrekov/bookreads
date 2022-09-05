@@ -5,8 +5,11 @@ import { editBook } from '../../../api/bookAPI';
 import { createPost } from '../../../api/postAPI';
 
 import { AuthContext } from '../../../contexts/AuthContext';
+import { NotificationContext } from '../../../contexts/NotificationContext';
+
 import { createNewBook, getBook } from '../../../services/book';
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../constants/actionType';
+import { USER_CREATED_A_BOOK, USER_EDITED_A_BOOK } from '../../../constants/notifications';
 
 import FormField from './FormField/FormField';
 
@@ -16,6 +19,7 @@ const BookForm = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const { setNotificationMessage } = useContext(NotificationContext);
     const [bookData, setBookData] = useState(
         {
             title: '',
@@ -64,10 +68,12 @@ const BookForm = () => {
             editBook(id, bookData);
             createPost({ status: EDITED_A_BOOK, postBookData, userData, createdAt: new Date() });
             navigate(`/books/${id}`);
+            setNotificationMessage(USER_EDITED_A_BOOK);
         } else {
             const createdBook = await createNewBook({ ...bookData, creatorId });
             postBookData.bookId = createdBook._id;
             createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
+            setNotificationMessage(USER_CREATED_A_BOOK);
         }
     }
 
