@@ -4,6 +4,7 @@ import uuid from 'react-uuid';
 
 import { getUserById } from '../../../services/user';
 import Book from './Book/Book';
+import Spinner from '../../Spinner/Spinner';
 
 import './Shelves.css';
 
@@ -45,79 +46,84 @@ const Shelves = () => {
     }, [id, path.pathname]);
 
     return (
-        <main className="main">
-            <div className="shelves__wrapper">
-                <h3>
-                    My Books
-                </h3>
-                <hr className="profile__hr" />
-                <article className="shelves__article">
-                    <aside className="shelves">
-                        <h4 className="shelves__title">
-                            Bookshelves
-                        </h4>
-                        <ul className="shelves__list">
-                            <li className="shelves__list--shelve">
-                                <Link to={`/user/${id}/shelves/read`}>
-                                    All ({booksCount})
-                                </Link>
-                            </li>
-                            <li className="shelves__list--shelve">
-                                <Link to={`/user/${id}/shelves/read`}>
-                                    Read ({shelves?.read.length})
-                                </Link>
-                            </li>
-                            <li className="shelves__list--shelve">
-                                <Link to={`/user/${id}/shelves/currently-reading`}>
-                                    Currently Reading ({shelves?.currentlyReading.length})
-                                </Link>
-                            </li>
-                            <li className="shelves__list--shelve">
-                                <Link to={`/user/${id}/shelves/to-read`}>
-                                    Want to Read ({shelves?.toRead.length})
-                                </Link>
-                            </li>
-                        </ul>
-                    </aside>
-                    <section className="shelves__books">
-                        <table className="shelves__table">
-                            <thead className="shelves__thead">
-                                <tr className="shelves__row">
-                                    <th className="shelves__th shelves__table__padding--none">
-                                        cover
-                                    </th>
-                                    <th className="shelves__th">
-                                        title
-                                    </th>
-                                    <th className="shelves__th">
-                                        author
-                                    </th>
-                                    <th className="shelves__th">
-                                        shelve
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="shelves__tbody">
-                                {books.length > 0 &&
-                                    books.map(book =>
-                                        <Book
-                                            key={uuid()}
-                                            book={book}
-                                            shelve={shelve}
-                                        />
-                                    )
+        <>
+            {currentUser ?
+                <main className="main">
+                    <div className="shelves__wrapper">
+                        <h3>
+                            My Books
+                        </h3>
+                        <hr className="profile__hr" />
+                        <article className="shelves__article">
+                            <aside className="shelves">
+                                <h4 className="shelves__title">
+                                    Bookshelves
+                                </h4>
+                                <ul className="shelves__list">
+                                    <li className="shelves__list--shelve">
+                                        <Link to={`/user/${id}/shelves/read`}>
+                                            All ({booksCount})
+                                        </Link>
+                                    </li>
+                                    <li className="shelves__list--shelve">
+                                        <Link to={`/user/${id}/shelves/read`}>
+                                            Read ({shelves?.read.length})
+                                        </Link>
+                                    </li>
+                                    <li className="shelves__list--shelve">
+                                        <Link to={`/user/${id}/shelves/currently-reading`}>
+                                            Currently Reading ({shelves?.currentlyReading.length})
+                                        </Link>
+                                    </li>
+                                    <li className="shelves__list--shelve">
+                                        <Link to={`/user/${id}/shelves/to-read`}>
+                                            Want to Read ({shelves?.toRead.length})
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <section className="shelves__books">
+                                <table className="shelves__table">
+                                    <thead className="shelves__thead">
+                                        <tr className="shelves__row">
+                                            <th className="shelves__th shelves__table__padding--none">
+                                                cover
+                                            </th>
+                                            <th className="shelves__th">
+                                                title
+                                            </th>
+                                            <th className="shelves__th">
+                                                author
+                                            </th>
+                                            <th className="shelves__th">
+                                                shelve
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="shelves__tbody">
+                                        {books.length > 0 &&
+                                            books.map(book =>
+                                                <Book
+                                                    key={uuid()}
+                                                    book={book}
+                                                    shelve={shelve}
+                                                />
+                                            )
+                                        }
+                                    </tbody>
+                                </table>
+                                {books.length === 0 &&
+                                    <h4 className="shelves__no__match">
+                                        No matching items!
+                                    </h4>
                                 }
-                            </tbody>
-                        </table>
-                        {books.length === 0 &&
-                            <h4 className="shelves__no__match">
-                                No matching items!
-                            </h4>
-                        }
-                    </section>
-                </article>
-            </div>
-        </main>
+                            </section>
+                        </article>
+                    </div>
+                </main>
+                : <Spinner />
+            }
+        </>
     );
 }
 
