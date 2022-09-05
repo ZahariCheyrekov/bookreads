@@ -107,3 +107,15 @@ export const deleteComment = async (req, res) => {
 
     return res.status(200).json(commentId);
 }
+
+export const deletePostById = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`No post with id: ${id}`);
+    }
+
+    await PostSchema.findByIdAndRemove(id);
+
+    return res.status(200).json('Post was deleted successfully!');
+}
