@@ -44,8 +44,6 @@ const Shelves = () => {
         fetchUser();
     }, [id, path.pathname]);
 
-    console.log(books);
-
     return (
         <main className="main">
             <div className="shelves__wrapper">
