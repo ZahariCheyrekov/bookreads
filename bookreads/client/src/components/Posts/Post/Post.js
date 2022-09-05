@@ -14,13 +14,13 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 import './Post.css';
 
-const Post = ({ post }) => {
+const Post = ({ post, posts, setPosts }) => {
     const { user } = useContext(AuthContext);
     const [postUser] = useState(post?.userData);
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
     const [showReviewText, setShowReviewText] = useState(false);
-    const [showFullReview, setShowFullReview] = useState(user?.result._id === post?.userData.id || post?.postBookData?.spoilers === false);
+    const [showFullReview, setShowFullReview] = useState(user?.result._id === post?.userData?.id || post?.postBookData?.spoilers === false);
     const [likedByUser] = useState(likes?.find(like => like.userId === user?.result?._id));
 
     const handleLike = async () => {
@@ -43,6 +43,8 @@ const Post = ({ post }) => {
     }
 
     const handleDeletePost = () => {
+        const filteredPosts = posts.filter(currentPost => currentPost._id !== post._id);
+        setPosts(filteredPosts);
         deletePost(post._id);
     }
 
