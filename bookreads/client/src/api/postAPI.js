@@ -13,3 +13,5 @@ export const likePost = (postId, userId, userName) => API.post(`/posts/${postId}
 export const createComment = (postId, commentData) => API.post(`/post/${postId}/comment`, commentData);
 
 export const deleteComment = (postId, commentId) => API.delete(`/post/${postId}/comment/${commentId}`);
+
+export const deletePost = (postId) => API.delete(`/post/${postId}`);
