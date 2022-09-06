@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 
-import Logo from '../Logo/Logo';
+import Logo from '../../layouts/Logo/Logo';
 import Menu from './Menu/Menu';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 
