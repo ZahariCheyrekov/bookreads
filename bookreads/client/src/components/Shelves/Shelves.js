@@ -2,49 +2,43 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import uuid from 'react-uuid';
 
-import { getUserById } from '../../services/user';
-
 import Book from './Book/Book';
 import Spinner from '../Spinner/Spinner';
 
 import './Shelves.css';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
 
 const Shelves = () => {
     const path = useLocation();
     const { id } = useParams();
-    const [currentUser, setCurrentUser] = useState(null);
-    const [shelves, setShelves] = useState(null);
+    // const [currentUser, setCurrentUser] = useState(null);
+    const currentUser = useCurrentUser();
+    const [shelves, setShelves] = useState();
     const [booksCount, setBooksCount] = useState();
     const [books, setBooks] = useState([]);
     const [shelve, setShelve] = useState('');
 
-    const index = path.pathname.lastIndexOf('/');
-    console.log(path.pathname.slice(index + 1));
-
     useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getUserById(id);
-            setCurrentUser(user);
-            setShelves(user.shelves);
+        if (currentUser?.shelves) {
+            setShelves(currentUser.shelves);
 
-            const count = Object.values(user.shelves).reduce((bookCount, shelve) => bookCount += shelve.length, 0);
+            const count = Object.values(currentUser.shelves).reduce((bookCount, shelve) => bookCount += shelve.length, 0);
             setBooksCount(count);
 
             const index = path.pathname.lastIndexOf('/');
             const shelveName = path.pathname.slice(index + 1);
 
             if (shelveName === 'read') {
-                setBooks(user.shelves.read);
+                setBooks(currentUser.shelves.read);
             } else if (shelveName === 'currently-reading') {
-                setBooks(user.shelves.currentlyReading);
+                setBooks(currentUser.shelves.currentlyReading);
             } else if (shelveName === 'to-read') {
-                setBooks(user.shelves.toRead);
+                setBooks(currentUser.shelves.toRead);
             }
 
             setShelve(shelveName);
         }
-        fetchUser();
-    }, [id, path.pathname]);
+    }, [id, path.pathname, currentUser?.shelves]);
 
     return (
         <>
