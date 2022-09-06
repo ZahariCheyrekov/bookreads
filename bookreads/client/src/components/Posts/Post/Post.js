@@ -8,6 +8,7 @@ import CommentSection from './CommentSection/CommentSection';
 import { likePost } from '../../../services/post';
 import { deletePost } from '../../../api/postAPI';
 import { getUserLink } from '../../../utils/getUserLink';
+import { getDateFormat } from '../../../utils/getDateFormat';
 
 import { REVIEWED_A_BOOK } from '../../../constants/actionType';
 import { USER_DELETED_A_POST } from '../../../constants/notifications';
@@ -82,14 +83,15 @@ const Post = ({ post, posts, setPosts }) => {
                             : null
                         }
                         <span className="post__action--span">
+                            <time className="post__time">
+                                {getDateFormat(post.createdAt)}
+                            </time>
                             <span className="post__action--delete">
                                 <i
                                     className="fa-regular fa-x"
                                     onClick={handleDeletePost}
                                 />
                             </span>
-                            <time className="post__time">
-                            </time>
                         </span>
                     </section>
 
