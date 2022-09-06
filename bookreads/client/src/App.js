@@ -15,7 +15,7 @@ import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import BookForm from './components/Books/BookForm/BookForm';
 import Shelves from './components/Profile/Shelves/Shelves';
 import Auth from './components/Auth/Auth';
-import NotFound from './components/NotFound/NotFound';
+import NotFound from './pages/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
 import Footer from './layouts/Footer/Footer';
 
