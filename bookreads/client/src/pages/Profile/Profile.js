@@ -23,9 +23,21 @@ const Profile = () => {
                                 alt={`${currentUser?.name}`}
                             />
                         </article>
-                        <h4 className="profile__section--user">
-                            {currentUser.name}
-                        </h4>
+                        <article className="profile__article--info">
+                            <h4 className="profile__section--user">
+                                {currentUser.name}
+                            </h4>
+                            <Link to={''}>
+                                <h4 className="profile__user--followers">
+                                    Followers: {currentUser.connections.followers.length}
+                                </h4>
+                            </Link>
+                            <Link to={''}>
+                                <h4 className="profile__user--following">
+                                    Following: {currentUser.connections.following.length}
+                                </h4>
+                            </Link>
+                        </article>
                     </section>
                     <section className="profile__user--bookshelves">
                         <h5 className="profile__bookshelves--title">
