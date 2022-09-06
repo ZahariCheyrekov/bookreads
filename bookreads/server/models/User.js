@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema({
         read: [],
         currentlyReading: [],
         toRead: []
+    },
+    connections: {
+        following: [],
+        followers: []
     }
 });
 
