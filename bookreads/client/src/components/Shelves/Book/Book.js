@@ -4,7 +4,6 @@ import './Book.css';
 
 const Book = ({ book, shelve }) => {
     const { id } = useParams();
-    console.log(shelve)
 
     return (
         <tr className="shelves__row--book">
