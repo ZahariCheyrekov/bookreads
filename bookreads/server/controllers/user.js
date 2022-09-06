@@ -11,8 +11,8 @@ export const getUserById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const { name, email, shelves, _id, imageUrl } = await User.findById(id);
-        res.status(200).json({ name, email, shelves, _id, imageUrl });
+        const { name, email, shelves, _id, imageUrl, connections } = await User.findById(id);
+        res.status(200).json({ name, email, shelves, _id, imageUrl, connections });
 
     } catch (error) {
         res.status(404).json({ message: error.message });
