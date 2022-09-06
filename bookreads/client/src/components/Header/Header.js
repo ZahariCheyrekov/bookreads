@@ -3,11 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script"
 
-import { googleFailure, start } from '../../../services/google';
-import { GOOGLE_CLIENT_AUTH } from '../../../constants/google';
+import { googleFailure, start } from '../../services/google';
+import { GOOGLE_CLIENT_AUTH } from '../../constants/google';
 
-import books from '../../../assets/books-banner.png'
-import { saveUser } from '../../../services/localStorage';
+import books from '../../assets/books-banner.png'
+import { saveUser } from '../../services/localStorage';
 
 import './Header.css';
 
