@@ -13,7 +13,7 @@ import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import BookForm from './components/Books/BookForm/BookForm';
-import Shelves from './components/Profile/Shelves/Shelves';
+import Shelves from './components/Shelves/Shelves';
 import Auth from './components/Auth/Auth';
 import NotFound from './pages/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
