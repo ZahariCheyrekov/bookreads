@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SIGN_IN, SIGN_UP } from '../../constants/actionType';
 import { auth } from '../../services/auth';
 
-import Logo from '../Logo/Logo';
+import Logo from '../../layouts/Logo/Logo';
 
 import './Auth.css';
 
