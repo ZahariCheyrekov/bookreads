@@ -1,4 +1,5 @@
-import { API } from './api';
+import { API } from '../lib/axios';
+
 
 export const getPosts = () => API.get('/');
 
