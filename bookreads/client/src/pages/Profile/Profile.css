@@ -16,6 +16,20 @@
     border: 1px solid var(--gray-color);
 }
 
+.profile__article--info {
+    width: 447px;
+    padding-left: 40px;
+}
+
+.profile__article--info>a {
+    color: var(--lightblue-color);
+}
+
+.profile__user--followers,
+.profile__user--following {
+    font-weight: 500;
+}
+
 .profile__section--article img {
     width: 150px;
     height: 150px;
@@ -26,10 +40,10 @@
 
 .profile__section--user {
     font-size: 1.4rem;
-    margin-left: 40px;
     border-bottom: 1px solid var(--gray-color);
+
+    margin-bottom: 10px;
     height: 32px;
-    width: 100%;
 }
 
 .profile__section--edit {
