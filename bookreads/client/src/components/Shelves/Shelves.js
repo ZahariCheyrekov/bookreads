@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import uuid from 'react-uuid';
 
-import { getUserById } from '../../../services/user';
+import { getUserById } from '../../services/user';
+
 import Book from './Book/Book';
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../Spinner/Spinner';
 
 import './Shelves.css';
 
