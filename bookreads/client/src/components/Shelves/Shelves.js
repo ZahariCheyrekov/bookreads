@@ -10,9 +10,8 @@ import { useCurrentUser } from '../../hooks/useCurrentUser';
 
 const Shelves = () => {
     const path = useLocation();
-    const { id } = useParams();
-    // const [currentUser, setCurrentUser] = useState(null);
     const currentUser = useCurrentUser();
+    const { id } = useParams();
     const [shelves, setShelves] = useState();
     const [booksCount, setBooksCount] = useState();
     const [books, setBooks] = useState([]);
