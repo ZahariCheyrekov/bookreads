@@ -5,8 +5,8 @@ import defaultUserPhoto from '../../assets/default-user-photo.png';
 
 import { getUserById } from '../../services/user';
 
-import Spinner from '../Spinner/Spinner';
-import Updates from '../Updates/Updates';
+import Spinner from '../../components/Spinner/Spinner';
+import Updates from '../../components/Updates/Updates';
 
 import './Profile.css';
 
