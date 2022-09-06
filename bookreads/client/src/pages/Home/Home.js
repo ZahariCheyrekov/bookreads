@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
-import Posts from '../Posts/Posts';
+import Posts from '../../components/Posts/Posts';
 
-import Welcome from '../Welcome/Welcome';
+import Welcome from './Welcome/Welcome';
 
 import './Home.css';
 
