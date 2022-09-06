@@ -8,7 +8,7 @@ import './index.css';
 
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home/Home';
-import Profile from './components/Profile/Profile';
+import Profile from './pages/Profile/Profile';
 import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
