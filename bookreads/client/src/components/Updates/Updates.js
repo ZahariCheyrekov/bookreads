@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { getUserPostsById } from '../../../services/user';
-import Posts from '../../Posts/Posts';
-import Spinner from '../../Spinner/Spinner';
+import { getUserPostsById } from '../../services/user';
+
+import Posts from '../Posts/Posts';
+import Spinner from '../Spinner/Spinner';
 
 import './Updates.css';
 
