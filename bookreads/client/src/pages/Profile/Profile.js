@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import defaultUserPhoto from '../../assets/default-user-photo.png';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
 
-import { getUserById } from '../../services/user';
+import defaultUserPhoto from '../../assets/default-user-photo.png';
 
 import Spinner from '../../components/Spinner/Spinner';
 import Updates from '../../components/Updates/Updates';
@@ -12,15 +11,7 @@ import './Profile.css';
 
 const Profile = () => {
     const { id } = useParams();
-    const [currentUser, setCurrentUser] = useState(null);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getUserById(id);
-            setCurrentUser(user);
-        }
-        fetchUser();
-    }, [id]);
+    const currentUser = useCurrentUser();
 
     return (
         <main className="main__profile">
@@ -28,12 +19,12 @@ const Profile = () => {
                 <>
                     <section className="main__profile--section">
                         <article className="profile__section--article">
-                            <img src={currentUser.imageUrl ? currentUser?.imageUrl : defaultUserPhoto}
+                            <img src={currentUser.imageUrl ? currentUser.imageUrl : defaultUserPhoto}
                                 alt={`${currentUser?.name}`}
                             />
                         </article>
                         <h4 className="profile__section--user">
-                            {currentUser?.name}
+                            {currentUser.name}
                         </h4>
                     </section>
                     <section className="profile__user--bookshelves">
@@ -44,17 +35,17 @@ const Profile = () => {
                         <ul className="profile__bookshelves">
                             <li className="profile__bookshelve">
                                 <Link to={`/user/${id}/shelves/read`}>
-                                    read ({currentUser?.shelves?.read.length})
+                                    read ({currentUser.shelves.read.length})
                                 </Link>
                             </li>
                             <li className="profile__bookshelve">
                                 <Link to={`/user/${id}/shelves/currently-reading`}>
-                                    currently-reading ({currentUser?.shelves?.currentlyReading.length})
+                                    currently-reading ({currentUser.shelves.currentlyReading.length})
                                 </Link>
                             </li>
                             <li className="profile__bookshelve">
                                 <Link to={`/user/${id}/shelves/to-read`}>
-                                    to-read ({currentUser?.shelves?.toRead.length})
+                                    to-read ({currentUser.shelves.toRead.length})
                                 </Link>
                             </li>
                         </ul>
