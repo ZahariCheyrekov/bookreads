@@ -17,7 +17,7 @@ import Shelves from './components/Profile/Shelves/Shelves';
 import Auth from './components/Auth/Auth';
 import NotFound from './components/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
-import Footer from './components/Footer/Footer';
+import Footer from './layouts/Footer/Footer';
 
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
