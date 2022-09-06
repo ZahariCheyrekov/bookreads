@@ -7,7 +7,7 @@ import './App.css';
 import './index.css';
 
 import Navigation from './components/Navigation/Navigation';
-import Home from './components/Home/Home';
+import Home from './pages/Home/Home';
 import Profile from './components/Profile/Profile';
 import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
