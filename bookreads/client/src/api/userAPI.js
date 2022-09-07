@@ -12,5 +12,3 @@ export const addBookToUserShelve = (userId, shelveName, book) => API.post(`/user
 export const signin = (userData) => API.post(`/user/signin`, userData);
 
 export const signup = (userData) => API.post(`/user/signup`, userData);
-
-export const followUser = (userId, followerData) => API.post(`/user/${userId}`, followerData);
