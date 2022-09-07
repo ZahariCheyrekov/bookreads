@@ -142,15 +142,28 @@ export const followUserById = async (req, res) => {
     const { id } = req.params;
     const followerData = req.body;
 
-    const existingUser = await User.findById(id);
+    const userToFollow = await User.findById(id);
 
-    if (!existingUser) {
+    if (!userToFollow) {
         return res.status(404).json({ message: 'User doesn\'t exist.' });
     }
 
-    existingUser.connections.followers.push(followerData);
+    userToFollow.connections.followers.push(followerData);
 
-    await User.findByIdAndUpdate(id, existingUser);
+    const userFollower = await User.findById(followerData.id);
+    if (!userFollower) {
+        return res.status(404).json({ message: 'User doesn\'t exist.' });
+    }
+
+    const userData = {
+        id: String(userToFollow._id),
+        name: userToFollow.name,
+        imageUrl: userToFollow.imageUrl
+    }
+    userFollower.connections.following.push(userData);
+
+    await User.findByIdAndUpdate(id, userToFollow);
+    await User.findByIdAndUpdate(followerData.id, userFollower);
 
     return res.status(204).json({ follower: followerData.name });
 }
