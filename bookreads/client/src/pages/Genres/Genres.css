@@ -13,16 +13,6 @@
     padding-left: 50px;
 }
 
-.genres__aside--list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.genres__aside__list--item>a {
-    color: var(--lightblue-color);
-}
-
 .genres__form {
     display: flex;
     flex-direction: column;
