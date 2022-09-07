@@ -116,7 +116,7 @@ const Navigation = () => {
                                                 Science
                                             </li>
                                         </Link>
-                                        <Link to={''}>
+                                        <Link to={'/genres'}>
                                             <li className="browse__list--element">
                                                 All Genres
                                             </li>
