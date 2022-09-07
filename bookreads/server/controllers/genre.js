@@ -11,7 +11,6 @@ export const getDefaultBooks = async (req, res) => {
 export const getBooksByGenre = async (req, res) => {
     const { genre, bookCount } = req.params;
 
-    console.log(bookCount)
     const booksGenre = genre.slice(0, 1).toUpperCase() + genre.slice(1).toLowerCase();
 
     const booksByGenre = await BookSchema.find({ tags: booksGenre });
