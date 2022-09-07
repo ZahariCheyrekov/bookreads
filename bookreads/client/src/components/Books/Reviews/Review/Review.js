@@ -7,7 +7,6 @@ import { likeReview } from '../../../../api/reviewAPI';
 import defaultUserPhoto from '../../../../assets/default-user-photo.png';
 
 import { getUserLink } from '../../../../utils/getUserLink';
-import { followUser } from '../../../../api/userAPI';
 
 import Comments from './Comments/Comments';
 
@@ -45,16 +44,6 @@ const Review = ({ review }) => {
         setShowComments(prevState => !prevState);
     }
 
-    const handleClick = () => {
-        const followerData = {
-            id: user.result._id,
-            name: user.result.name,
-            imageUrl: user.result.imageUrl
-        }
-
-        followUser(review.user.id, followerData);
-    }
-
     return (
         <>
             {review
@@ -74,12 +63,6 @@ const Review = ({ review }) => {
                                 {review.user.name}
                             </h4>
                         </div>
-                        <button
-                            className="review__button--follow"
-                            onClick={handleClick}
-                        >
-                            Follow
-                        </button>
                     </aside>
                     <article className="review__content">
                         <section className="review__rating">
