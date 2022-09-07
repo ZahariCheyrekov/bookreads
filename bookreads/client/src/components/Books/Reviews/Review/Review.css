@@ -54,21 +54,6 @@
     overflow: hidden;
 }
 
-.review__button--follow {
-    background-color: var(--dark-button-color);
-    color: var(--white-color);
-
-    padding: 0.6rem 1.6rem;
-    font-size: 1rem;
-
-    border-radius: 1.4rem;
-    border: none;
-}
-
-.review__button--follow:hover {
-    background-color: var(--dark-button-hover-color);
-}
-
 .review__content {
     padding-left: 60px;
     width: 80%;
