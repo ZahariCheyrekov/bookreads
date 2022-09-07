@@ -27,7 +27,7 @@ export const genres = [
     'Psychology',
     'Romance',
     'Science',
-    'Science',
+    'Science Fiction',
     'Sports',
     'Thriller',
     'Travel'
