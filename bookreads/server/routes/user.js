@@ -7,8 +7,7 @@ import {
     addBookToUserShelve,
     signin,
     signup,
-    uploadUserImage,
-    followUserById
+    uploadUserImage
 } from '../controllers/user.js';
 
 
@@ -21,6 +20,5 @@ router.post('/:id/shelves', addBookToUserShelve);
 router.post('/signin', signin);
 router.post('/signup', signup);
 router.patch('/:id/image', uploadUserImage);
-router.post('/:id', followUserById);
 
 export default router;
