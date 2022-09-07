@@ -10,6 +10,10 @@
     border-bottom: 1px solid var(--divider-color);
 }
 
+.genre__books {
+    flex-basis: 70%;
+}
+
 .genre__books--list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -17,7 +21,7 @@
 }
 
 .genre__book--item {
-    width: 120px;
+    width: 112px;
     height: 180px;
 }
 
