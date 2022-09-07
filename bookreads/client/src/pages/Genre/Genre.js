@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Link, useParams } from 'react-router-dom';
 
+import GenreList from '../../layouts/GenreList/GenreList';
 import { getBooksByGivenGenre } from '../../services/genre';
 
 import './Genre.css';
@@ -21,11 +22,10 @@ export const Genre = () => {
     return (
         <main className="main">
             <div className="genre__books--wrapper">
-                <h3 className="genres__title">
-                    {genre.toUpperCase()}
-                </h3>
-
                 <section className="genre__books">
+                    <h3 className="genres__title">
+                        {genre.toUpperCase()}
+                    </h3>
                     <h4 className="genre__name--title">
                         {genre.toUpperCase()} BOOKS
                     </h4>
@@ -42,6 +42,7 @@ export const Genre = () => {
                         )}
                     </ul>
                 </section>
+                <GenreList />
             </div>
         </main>
     );
