@@ -1,0 +1,13 @@
+.genres__page--article {
+    max-width: var(--medium-component-width);
+    margin: 0 auto;
+}
+
+.genres__form {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--lightgray-color);
+    border-radius: 2px;
+    padding: 12px;
+}
