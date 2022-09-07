@@ -1,0 +1,17 @@
+.genre__books--wrapper {
+    max-width: var(--medium-component-width);
+    margin: 0 auto;
+}
+
+.genre__books--list {
+    display: flex;
+}
+
+.genre__book--item {
+    width: 120px;
+    height: 180px;
+}
+
+.genre__book--item>img {
+    object-fit: cover;
+}
