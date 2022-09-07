@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { genres } from '../../constants/shelves';
-import { getDefaultBooks, getBooksByGivenGenre } from '../../services/genre';
+import { getDefaultBooks } from '../../services/genre';
 
 import Spinner from '../../components/Spinner/Spinner';
 
 import './Genres.css';
 
 const Genres = () => {
+    const navigate = useNavigate();
     const [genreInput, setGenreInput] = useState('');
     const [defaultBooks, setDefaultBooks] = useState({});
 
@@ -21,10 +22,11 @@ const Genres = () => {
         fetchBooks();
     }, []);
 
-    const handleFindGenre = async (ev) => {
+    const handleFindGenre = (ev) => {
         ev.preventDefault();
 
-        const books = await getBooksByGivenGenre(genreInput);
+        const genre = genreInput.toLowerCase();
+        navigate(`/genres/${genre}`);
     }
 
     return (
