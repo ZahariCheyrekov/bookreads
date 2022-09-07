@@ -1,9 +1,9 @@
 import BookSchema from '../models/Book.js';
 
 export const getDefaultBooks = async (req, res) => {
-    const biographyBooks = await BookSchema.find({ tags: "Biography" });
-    const fictionBooks = await BookSchema.find({ tags: "Fiction" });
-    const philosophyBooks = await BookSchema.find({ tags: "Philosophy" });
+    const biographyBooks = await BookSchema.find({ tags: "Biography" }).limit(5);
+    const fictionBooks = await BookSchema.find({ tags: "Fiction" }).limit(5);
+    const philosophyBooks = await BookSchema.find({ tags: "Philosophy" }).limit(5);
 
     return res.status(200).json({ biographyBooks, fictionBooks, philosophyBooks });
 }
