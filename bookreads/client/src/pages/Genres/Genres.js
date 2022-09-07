@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import { genres } from '../../constants/shelves';
 import { getDefaultBooks } from '../../services/genre';
 
 import Spinner from '../../components/Spinner/Spinner';
+import GenreList from '../../layouts/GenreList/GenreList';
 
 import './Genres.css';
 
@@ -120,23 +120,7 @@ const Genres = () => {
                                 </section>
                             </article>
                         </section>
-                        <aside className="genres__aside">
-                            <h3 className="genres__aside--title genres__title">
-                                Browse
-                            </h3>
-                            <ul className="genres__aside--list">
-                                {genres.map(genre =>
-                                    <li
-                                        key={genre}
-                                        className="genres__aside__list--item"
-                                    >
-                                        <Link to={`/genres/${genre.toLowerCase()}`}>
-                                            {genre}
-                                        </Link>
-                                    </li>
-                                )}
-                            </ul>
-                        </aside>
+                        <GenreList />
                     </article>
                 </main >
                 : <Spinner />
