@@ -12,6 +12,7 @@ import Profile from './pages/Profile/Profile';
 import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
+import Genres from './pages/Genres/Genres';
 import BookForm from './components/Books/BookForm/BookForm';
 import Shelves from './components/Shelves/Shelves';
 import Auth from './components/Auth/Auth';
@@ -34,6 +35,7 @@ function App() {
                         <Route path='/books/:id' element={<Details />} />
                         <Route path='/review/edit/:id' element={<CreateReview />} />
                         <Route path='/post/:id/likes' element={<PostLikes />} />
+                        <Route path='/genres' element={<Genres />} />
 
                         {['create', 'books/:id/edit'].map((path) => (
                             <Route key={path} path={`/${path}`} element={<BookForm />} />
