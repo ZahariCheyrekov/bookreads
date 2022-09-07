@@ -1,15 +1,28 @@
 .genre__books--wrapper {
+    display: flex;
     max-width: var(--medium-component-width);
     margin: 0 auto;
 }
 
+.genre__name--title {
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--divider-color);
+}
+
 .genre__books--list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
 }
 
 .genre__book--item {
     width: 120px;
     height: 180px;
+}
+
+.genre__book--item>a>img {
+    object-fit: cover;
 }
 
 .genre__book--item>img {
