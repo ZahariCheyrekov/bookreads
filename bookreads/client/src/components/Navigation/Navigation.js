@@ -96,22 +96,22 @@ const Navigation = () => {
                                         <h4 className="browse__list--title">
                                             GENRES
                                         </h4>
-                                        <Link to={''}>
+                                        <Link to={'/genres/biography'}>
                                             <li className="browse__list--element">
                                                 Biography
                                             </li>
                                         </Link>
-                                        <Link to={''}>
+                                        <Link to={'/genres/fiction'}>
                                             <li className="browse__list--element">
                                                 Fiction
                                             </li>
                                         </Link>
-                                        <Link to={''}>
+                                        <Link to={'/genres/history'}>
                                             <li className="browse__list--element">
                                                 History
                                             </li>
                                         </Link>
-                                        <Link to={''}>
+                                        <Link to={'genres/science'}>
                                             <li className="browse__list--element">
                                                 Science
                                             </li>
