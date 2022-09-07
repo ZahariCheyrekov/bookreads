@@ -57,7 +57,8 @@ export const editBook = async (req, res) => {
     }
 
     const updatedBook = await BookSchema.findByIdAndUpdate(_id, book);
-    res.json(updatedBook);
+    
+    return res.status(200).json(updatedBook);
 }
 
 export const deleteBook = async (req, res) => {
