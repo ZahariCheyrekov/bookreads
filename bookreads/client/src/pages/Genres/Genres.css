@@ -10,7 +10,7 @@
 
 .genres__aside {
     flex-basis: 30%;
-    margin-left: 50px;
+    padding-left: 50px;
 }
 
 .genres__aside--list {
