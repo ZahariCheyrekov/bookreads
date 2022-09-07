@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { genres } from '../../constants/shelves';
+
 import './Genres.css';
 
 const Genres = () => {
@@ -61,84 +63,16 @@ const Genres = () => {
                         Browse
                     </h3>
                     <ul className="genres__aside--list">
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Art</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Biography</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Business</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Classics</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Comics</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Cookbooks</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Crime</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Ebooks</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Fantasy</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Fiction</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>History</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Horror</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Comedy</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Memoir</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Music</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Mystery</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Nonfiction</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Philosophy</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Poetry</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Psychology</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Romance</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Science</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Science Fiction</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Sports</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Thriller</Link>
-                        </li>
-                        <li className="genres__aside__list--item">
-                            <Link to={''}>Travel</Link>
-                        </li>
+                        {genres.map(genre =>
+                            <li
+                                key={genre}
+                                className="genres__aside__list--item"
+                            >
+                                <Link to={`/genres/${genre.toLowerCase()}`}>
+                                    {genre}
+                                </Link>
+                            </li>
+                        )}
                     </ul>
                 </aside>
             </article>
