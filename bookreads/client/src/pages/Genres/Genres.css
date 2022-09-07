@@ -1,6 +1,26 @@
 .genres__page--article {
+    display: flex;
     max-width: var(--medium-component-width);
     margin: 0 auto;
+}
+
+.genres {
+    flex-basis: 70%;
+}
+
+.genres__aside {
+    flex-basis: 30%;
+    margin-left: 30px;
+}
+
+.genres__aside--list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.genres__aside__list--item>a {
+    color: var(--lightblue-color);
 }
 
 .genres__form {
