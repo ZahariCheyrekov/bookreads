@@ -11,3 +11,33 @@
     border-radius: 2px;
     padding: 12px;
 }
+
+.genres__title {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.genres__form--input {
+    height: 30px;
+    outline: none;
+    padding: 4px 12px;
+
+    border: 1px solid var(--divider-color);
+    border-radius: 2px;
+}
+
+.genres__form--input:focus {
+    box-shadow: 0 0 4px var(--divider-color);
+}
+
+.genres__form--button {
+    padding: 2px;
+    background-color: var(--divider-color);
+    border-radius: 2px;
+    border: none;
+    font-size: 1rem;
+}
+
+.genres__form--button:hover {
+    background-color: var(--gray-hover-color);
+}
