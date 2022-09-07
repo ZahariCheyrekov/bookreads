@@ -137,33 +137,3 @@ export const uploadUserImage = async (req, res) => {
 
     return res.status(204);
 }
-
-export const followUserById = async (req, res) => {
-    const { id } = req.params;
-    const followerData = req.body;
-
-    const userToFollow = await User.findById(id);
-
-    if (!userToFollow) {
-        return res.status(404).json({ message: 'User doesn\'t exist.' });
-    }
-
-    userToFollow.connections.followers.push(followerData);
-
-    const userFollower = await User.findById(followerData.id);
-    if (!userFollower) {
-        return res.status(404).json({ message: 'User doesn\'t exist.' });
-    }
-
-    const userData = {
-        id: String(userToFollow._id),
-        name: userToFollow.name,
-        imageUrl: userToFollow.imageUrl
-    }
-    userFollower.connections.following.push(userData);
-
-    await User.findByIdAndUpdate(id, userToFollow);
-    await User.findByIdAndUpdate(followerData.id, userFollower);
-
-    return res.status(204).json({ follower: followerData.name });
-}
