@@ -16,6 +16,7 @@ const Navigation = () => {
     const menuRef = useRef();
     const browseRef = useRef();
     const { user, setUser } = useContext(AuthContext);
+    const [searchTitle, setSearchTitle] = useState('');
     const [isBrowseOpen, setIsBrowseOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
     const [searchBarOpen, setSeachBarOpen] = useState(false);
@@ -61,7 +62,6 @@ const Navigation = () => {
 
     const handleCancelButton = (ev) => {
         ev.preventDefault();
-
         setSeachBarOpen(false);
     }
 
@@ -130,15 +130,24 @@ const Navigation = () => {
                                 }
                             </li>
                         </ul>
-
                         <form className="header__form--search">
-                            <input className="header__form--input" placeholder="Enter book title" />
-                            <i className="fa-solid fa-magnifying-glass" />
+                            <input
+                                className="header__form--input"
+                                placeholder="Enter book title"
+                                onChange={(ev) => setSearchTitle(ev.target.value.trim())}
+                            />
+                            <i
+                                className="fa-solid fa-magnifying-glass"
+                                onClick={() => navigate(`/books/search/${searchTitle}`)}
+                            />
                         </form>
-
                         {searchBarOpen &&
                             <form className="header__form--search header__form__search--small">
-                                <input className="header__form--input" placeholder="Enter book title" />
+                                <input
+                                    className="header__form--input"
+                                    placeholder="Enter book title"
+                                    onChange={(ev) => setSearchTitle(ev.target.value.trim())}
+                                />
                                 <button
                                     className="header__form__small--button"
                                     onClick={handleCancelButton}
