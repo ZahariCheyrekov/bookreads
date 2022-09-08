@@ -1,0 +1,51 @@
+.main__details {
+    padding: var(--main-padding);
+}
+
+.div__wrapper {
+    max-width: var(--primary-component-width);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.book__title {
+    font-family: Copernicus, "Libre Baskerville", Georgia, serif;
+    font-weight: 400;
+}
+
+.book__author {
+    font-family: serif;
+    font-weight: 200;
+    font-size: 1.6rem;
+    margin: 20px 0;
+}
+
+.hr__divider {
+    border: none;
+    background-color: var(--divider-color);
+
+    height: 0.1rem;
+    margin: 1.4rem 0;
+}
+
+
+@media only screen and (max-width: 940px) {
+    .div__wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .main__details {
+        padding: 5rem 1rem 1rem;
+    }
+
+    .div__wrapper {
+        display: block;
+    }
+}

@@ -1,0 +1,56 @@
+.review__section--write {
+    display: flex;
+    align-items: flex-start;
+}
+
+.review__user__comment--img {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.review__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review__form--textarea {
+    height: 40px;
+    min-height: 40px;
+    padding: 10px;
+
+    outline: none;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    resize: vertical;
+    background-color: var(--comment-section-color);
+}
+
+.review__form--textarea:focus {
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 4px var(--divider-color);
+}
+
+.review__form--btn {
+    align-self: flex-end;
+    margin-top: 0.4rem;
+    padding: 0.6rem 1.2rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    border-radius: 1.4rem;
+    border: none;
+
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.review__form--btn.active:hover {
+    background-color: var(--dark-button-hover-color);
+}

@@ -1,0 +1,107 @@
+.recommended {
+    max-height: 450px;
+    margin-bottom: 80px;
+}
+
+.recommended__artile--top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.recommended__arrows i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.recommended__arrows i:first-child {
+    margin-right: 10px;
+}
+
+.fa-solid.fa-chevron-right.inactive,
+.fa-solid.fa-chevron-left.inactive {
+    color: var(--gray-hover-color);
+    cursor: unset;
+}
+
+.recommended__title {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.recommended__books {
+    display: flex;
+    margin: 2.4rem 0;
+}
+
+
+@media only screen and (max-width: 1240px) {
+    .recommended__books {
+        width: unset;
+    }
+
+    .recommended__books a:not(:first-child) {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .recommended__books {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .recommended__books a:last-child {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .recommended__books a:last-child {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .recommended__books a:last-child {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .recommended__title {
+        font-size: 1.4rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .recommended__books>a:nth-child(3) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .recommended__title {
+        font-size: 1.2rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 310px) {
+    .recommended__title {
+        font-size: 1rem;
+    }
+
+    .recommended__arrows>i {
+        font-size: 1.2rem;
+    }
+}

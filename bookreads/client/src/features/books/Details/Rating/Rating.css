@@ -1,0 +1,53 @@
+.rating {
+    width: 200px;
+}
+
+.rating.small {
+    width: 150px;
+}
+
+.rating__stars {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-solid.fa-star {
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 0 5.5px;
+    transition: all ease-in-out 0.15s;
+}
+
+.fa-solid.fa-star.small {
+    font-size: 1rem;
+}
+
+.fa-solid.fa-star.rated {
+    color: var(--star-color);
+}
+
+.fa-solid.fa-star.unrated {
+    color: var(--gray-color);
+}
+
+.rating__title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 340px) {
+    .rating {
+        width: 100%;
+    }
+
+    .rating__stars {
+        justify-content: center;
+    }
+
+    .fa-solid.fa-star {
+        font-size: 1.2rem;
+        padding: 0.2rem;
+    }
+}
