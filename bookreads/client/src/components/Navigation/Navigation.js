@@ -69,6 +69,9 @@ const Navigation = () => {
     return (
         <section className="section__navigation">
             <nav className="navigation header__navigation">
+                <span className="navigation__search--icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
                 <Logo />
                 {user && Object.keys(user).length > 0
                     ?
