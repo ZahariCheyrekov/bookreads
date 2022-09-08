@@ -8,7 +8,6 @@ import { ReviewContextProvider } from '../../contexts/ReviewContext';
 import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
 import Tags from './Tags/Tags';
-import Table from './Table/Table';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
 import Spinner from '../../../../components/Spinner/Spinner';
@@ -45,7 +44,38 @@ const Details = () => {
 
                             <Summary description={book?.description} />
                             <Tags tags={book.tags} />
-                            <Table book={book} />
+                            
+                            <table className="book__table">
+                                <tbody className="book__table--tbody">
+                                    <tr className="book__table--row">
+                                        <th className="book__table--heading">This edition</th>
+                                    </tr>
+                                    <tr className="book__table--row">
+                                        <td className="book__table--data">
+                                            Pages
+                                        </td>
+                                        <td className="book__table--data">
+                                            {book.pages}
+                                        </td>
+                                    </tr>
+                                    <tr className="book__table--row">
+                                        <td className="book__table--data">
+                                            Language
+                                        </td>
+                                        <td className="book__table--data">
+                                            {book.language}
+                                        </td>
+                                    </tr>
+                                    <tr className="book__table--row">
+                                        <td className="book__table--data">
+                                            Published
+                                        </td>
+                                        <td className="book__table--data">
+                                            {new Date(book.datePublished).toDateString()}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </article>
 
                         <hr className="hr__divider" />
