@@ -18,6 +18,7 @@ const Navigation = () => {
     const { user, setUser } = useContext(AuthContext);
     const [isBrowseOpen, setIsBrowseOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
+    const [searchBarOpen, setSeachBarOpen] = useState(false);
 
     const logout = useCallback(() => {
         removeUser();
@@ -58,19 +59,20 @@ const Navigation = () => {
         }
     }
 
-    const handleIsBrowseOpen = () => {
-        setIsBrowseOpen(prevStat => !prevStat);
-    }
+    const handleCancelButton = (ev) => {
+        ev.preventDefault();
 
-    const handleProfileClick = () => {
-        setProfileOpen(prevState => !prevState);
+        setSeachBarOpen(false);
     }
 
     return (
         <section className="section__navigation">
             <nav className="navigation header__navigation">
                 <span className="navigation__search--icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i
+                        className="fa-solid fa-magnifying-glass"
+                        onClick={() => setSeachBarOpen(prevState => !prevState)}
+                    />
                 </span>
                 <Logo />
                 {user && Object.keys(user).length > 0
@@ -89,7 +91,7 @@ const Navigation = () => {
                             </li>
                             <li
                                 className={`header__ul--li browse ${isBrowseOpen ? 'active' : ''}`}
-                                onClick={handleIsBrowseOpen}
+                                onClick={() => setIsBrowseOpen(prevState => !prevState)}
                             >
                                 Browse&nbsp;
                                 <i className="fa-solid fa-caret-down" />
@@ -133,16 +135,27 @@ const Navigation = () => {
                             <input className="header__form--input" placeholder="Search books" />
                         </form>
 
+                        {searchBarOpen &&
+                            <form className="header__form--search header__form__search--small">
+                                <input className="header__form--input" placeholder="Search books" />
+                                <button
+                                    className="header__form__small--button"
+                                    onClick={handleCancelButton}
+                                >
+                                    Cancel
+                                </button>
+                            </form>
+                        }
                         <article className="header__article header__article--profile" ref={menuRef}>
                             <img
-                                onClick={handleProfileClick}
+                                onClick={() => setProfileOpen(prevState => !prevState)}
                                 src={user?.result?.imageUrl ? user.result?.imageUrl : defaultUserPhoto}
                                 alt={user?.result?.name}
                             />
 
                             <Menu
                                 profileOpen={profileOpen}
-                                handleProfileClick={handleProfileClick}
+                                handleProfileClick={() => setProfileOpen(prevState => !prevState)}
                                 logout={logout}
                             />
                         </article>
