@@ -16,7 +16,7 @@ import Genres from './pages/Genres/Genres';
 import Genre from './pages/Genre/Genre';
 import BookForm from './components/Books/BookForm/BookForm';
 import Shelves from './components/Shelves/Shelves';
-import Auth from './components/Auth/Auth';
+import Auth from './features/authentication/components/Auth';
 import NotFound from './pages/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
 import Footer from './layouts/Footer/Footer';
@@ -49,7 +49,7 @@ function App() {
                     </Route>
                     <Route element={<GuestRoutes />}>
                         {['signin', 'signup'].map((path) => (
-                            <Route key={path} path={`/user/${path}`} element={<Auth />} />
+                            <Route key={path} path={`/user/${path}`} element={<Auth />} / >
                         ))}
                     </Route>
                     <Route path="*" element={<NotFound />} />
