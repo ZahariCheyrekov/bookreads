@@ -32,3 +32,27 @@
 .genre__book--item>img {
     object-fit: cover;
 }
+
+.genre__section--empty {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.genre__section__title--big {
+    font-size: 2rem;
+}
+
+.genre__section__title--small {
+    margin: 4px 0 20px;
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.genre__section--link {
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+
+    font-size: 1rem;
+    padding: 8px 30px;
+    border-radius: 20px;
+}
