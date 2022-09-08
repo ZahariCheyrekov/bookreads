@@ -133,6 +133,7 @@ const Navigation = () => {
 
                         <form className="header__form--search">
                             <input className="header__form--input" placeholder="Enter book title" />
+                            <i className="fa-solid fa-magnifying-glass" />
                         </form>
 
                         {searchBarOpen &&
