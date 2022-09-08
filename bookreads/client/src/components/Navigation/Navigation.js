@@ -132,12 +132,12 @@ const Navigation = () => {
                         </ul>
 
                         <form className="header__form--search">
-                            <input className="header__form--input" placeholder="Search books" />
+                            <input className="header__form--input" placeholder="Enter book title" />
                         </form>
 
                         {searchBarOpen &&
                             <form className="header__form--search header__form__search--small">
-                                <input className="header__form--input" placeholder="Search books" />
+                                <input className="header__form--input" placeholder="Enter book title" />
                                 <button
                                     className="header__form__small--button"
                                     onClick={handleCancelButton}
