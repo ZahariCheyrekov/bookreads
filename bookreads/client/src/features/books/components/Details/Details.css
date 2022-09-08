@@ -23,6 +23,22 @@
     margin: 20px 0;
 }
 
+.book__table--heading {
+    font-family: Copernicus, "Libre Baskerville", Georgia, serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+.book__table {
+    width: 400px;
+    border-spacing: 0 1rem;
+}
+
+.book__table--data {
+    color: var(--gray-color);
+}
+
 .hr__divider {
     border: none;
     background-color: var(--divider-color);
@@ -47,5 +63,11 @@
 
     .div__wrapper {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .book__table {
+        width: 100%;
     }
 }
