@@ -1,5 +1,6 @@
 .footer {
     background-color: var(--lightgray-color);
+    box-shadow: 0 0 4px 2px var(--divider-color);
     padding: 2rem 0;
 }
 
