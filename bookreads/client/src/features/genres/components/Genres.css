@@ -90,3 +90,14 @@
 .genres__default--book>a>img {
     object-fit: cover;
 }
+
+
+@media only screen and (max-width: 1000px) {
+    .genre__books--wrapper {
+        flex-direction: column;
+    }
+
+    .genres__aside {
+        padding: 0;
+    }
+}

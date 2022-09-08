@@ -15,8 +15,8 @@
 }
 
 .genre__books--list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -55,4 +55,16 @@
     font-size: 1rem;
     padding: 8px 30px;
     border-radius: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .genre__books {
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .genre__books--list {
+        justify-content: center;
+    }
 }
