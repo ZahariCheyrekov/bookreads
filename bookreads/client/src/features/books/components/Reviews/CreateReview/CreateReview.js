@@ -13,7 +13,6 @@ import Rating from '../../Details/Rating/Rating';
 
 import './CreateReview.css';
 
-
 const CreateReview = () => {
     const navigate = useNavigate();
     const { id } = useParams();
