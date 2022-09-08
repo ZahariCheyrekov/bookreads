@@ -73,7 +73,8 @@ const Auth = () => {
 
             <section className="auth__section section__content">
                 <p className="section__content--paragraph">
-                    By signing in, you agree to the Bookreads Terms of Service and Privacy Policy.
+                    By signing in, you agree to the Bookreads
+                    Terms of Service and Privacy Policy.
                 </p>
                 <span className="section__content--span">
                     {isSignIn ? "Don't have an account?" : "Already have an account?"}
