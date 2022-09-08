@@ -90,15 +90,25 @@
 }
 
 .header__form--search {
+    position: relative;
     width: 30%;
+}
+
+.header__form--search>i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
 .header__form--input {
     width: 100%;
+    padding: 0.4rem;
+    padding-right: 2.2rem;
+
+    font-size: 1rem;
     border-radius: 2px;
     border: 1px solid var(--gray-color);
-    font-size: 1rem;
-    padding: 0.4rem 0.2rem;
 }
 
 .header__article--profile {
