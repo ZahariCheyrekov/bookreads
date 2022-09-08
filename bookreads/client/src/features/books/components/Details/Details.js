@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import { getBook } from '../../services/book';
@@ -7,7 +7,6 @@ import { ReviewContextProvider } from '../../contexts/ReviewContext';
 
 import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
-import Tags from './Tags/Tags';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
 import Spinner from '../../../../components/Spinner/Spinner';
@@ -43,8 +42,16 @@ const Details = () => {
                             <h2 className="book__author">{book.author}</h2>
 
                             <Summary description={book?.description} />
-                            <Tags tags={book.tags} />
-                            
+
+                            <ul className="book__tags">
+                                {book.tags.map((tag, index) =>
+                                    <li key={index} className="book__tag">
+                                        <Link to={`/genres/${tag.toLowerCase().split(' ').join('-')}`}>
+                                            {tag}
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
                             <table className="book__table">
                                 <tbody className="book__table--tbody">
                                     <tr className="book__table--row">
