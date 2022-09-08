@@ -29,6 +29,12 @@ export const getBooksByTags = async (req, res) => {
     return res.status(200).json(books.slice(0, 16));
 }
 
+export const getBooksByTitle = async (req, res) => {
+    const { bookTitle } = req.params;
+
+    console.log(bookTitle);
+}
+
 export const createBook = async (req, res) => {
     const bookData = req.body;
     const description = bookData.description.trim().split(/\n+/);
@@ -57,7 +63,7 @@ export const editBook = async (req, res) => {
     }
 
     const updatedBook = await BookSchema.findByIdAndUpdate(_id, book);
-    
+
     return res.status(200).json(updatedBook);
 }
 
