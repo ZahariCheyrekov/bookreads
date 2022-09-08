@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { editBook } from '../../../api/bookAPI';
-import { createPost } from '../../../api/postAPI';
+import { editBook } from '../../api/bookAPI';
+import { createPost } from '../../../../api/postAPI';
 
-import { AuthContext } from '../../../contexts/AuthContext';
-import { NotificationContext } from '../../../contexts/NotificationContext';
+import { AuthContext } from '../../../../contexts/AuthContext';
+import { NotificationContext } from '../../../../contexts/NotificationContext';
 
-import { createNewBook, getBook } from '../../../services/book';
-import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../constants/actionType';
-import { USER_CREATED_A_BOOK, USER_EDITED_A_BOOK } from '../../../constants/notifications';
+import { createNewBook, getBook } from '../../services/book';
+import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../../constants/actionType';
+import { USER_CREATED_A_BOOK, USER_EDITED_A_BOOK } from '../../../../constants/notifications';
 
 import FormField from './FormField';
 

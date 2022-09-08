@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
-import { getBook } from '../../../services/book';
-import { ReviewContextProvider } from '../../../contexts/ReviewContext';
+import { getBook } from '../../services/book';
+import { ReviewContextProvider } from '../../contexts/ReviewContext';
 
 import Aside from './Aside/Aside';
 import Summary from './Summary/Summary';
@@ -11,7 +11,7 @@ import Tags from './Tags/Tags';
 import Table from './Table/Table';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
-import Spinner from '../../../components/Spinner/Spinner';
+import Spinner from '../../../../components/Spinner/Spinner';
 
 import './Details.css';
 

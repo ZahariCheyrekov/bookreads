@@ -1,4 +1,4 @@
-import { API } from '../lib/axios';
+import { API } from '../../../lib/axios';
 
 
 export const getUserRatingById = (bookId, userId) => API.get(`/books/${bookId}/${userId}`);

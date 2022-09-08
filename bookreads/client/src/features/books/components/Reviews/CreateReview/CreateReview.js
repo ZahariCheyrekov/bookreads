@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import { AuthContext } from '../../../../contexts/AuthContext';
+import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { getBook } from '../../../../services/book';
-import { createReview } from '../../../../api/reviewAPI';
-import { getRatingByUser } from '../../../../services/review';
-import { createPost } from '../../../../api/postAPI';
-import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../constants/actionType';
+import { getBook } from '../../../services/book';
+import { createReview } from '../../../api/reviewAPI';
+import { getRatingByUser } from '../../../services/review';
+import { createPost } from '../../../../../api/postAPI';
+import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
 
 import Rating from '../../Details/Rating/Rating';
 

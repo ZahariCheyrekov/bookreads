@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 
-import { AuthContext } from '../../../../../contexts/AuthContext';
-import { commentOnReview } from '../../../../../api/reviewAPI';
-import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
+import { AuthContext } from '../../../../../../contexts/AuthContext';
+import { commentOnReview } from '../../../../api/reviewAPI';
+import defaultUserPhoto from '../../../../../../assets/default-user-photo.png';
 
 import Comment from './Comment/Comment';
 

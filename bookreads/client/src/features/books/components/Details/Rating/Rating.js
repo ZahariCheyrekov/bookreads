@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { createReview } from '../../../../api/reviewAPI';
-import { AuthContext } from '../../../../contexts/AuthContext';
-import { getRatingByUser } from '../../../../services/review';
+import { createReview } from '../../../api/reviewAPI';
+import { AuthContext } from '../../../../../contexts/AuthContext';
+import { getRatingByUser } from '../../../services/review';
 
 import './Rating.css';
 

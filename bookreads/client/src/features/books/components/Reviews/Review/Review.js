@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../../../../contexts/AuthContext';
-import { likeReview } from '../../../../api/reviewAPI';
+import { AuthContext } from '../../../../../contexts/AuthContext';
+import { likeReview } from '../../../api/reviewAPI';
 
-import defaultUserPhoto from '../../../../assets/default-user-photo.png';
+import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
 
-import { getUserLink } from '../../../../utils/getUserLink';
+import { getUserLink } from '../../../../../utils/getUserLink';
 
 import Comments from './Comments/Comments';
 

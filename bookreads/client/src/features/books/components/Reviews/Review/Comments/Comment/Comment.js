@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import uuid from 'react-uuid';
 
-import { deleteReviewComment } from '../../../../../../api/reviewAPI';
-import { getUserLink } from '../../../../../../utils/getUserLink';
+import { deleteReviewComment } from '../../../../../api/reviewAPI';
+import { getUserLink } from '../../../../../../../utils/getUserLink';
 
-import defaultUserPhoto from '../../../../../../assets/default-user-photo.png'
+import defaultUserPhoto from '../../../../../../../assets/default-user-photo.png'
 
 import './Comment.css';
 

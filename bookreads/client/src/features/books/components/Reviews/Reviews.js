@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { AuthContext } from '../../../contexts/AuthContext';
+import { AuthContext } from '../../../../contexts//AuthContext';
 
 import Rating from '../Details/Rating/Rating';
 import Review from './Review/Review';
 
-import defaultUserPhoto from '../../../assets/default-user-photo.png';
+import defaultUserPhoto from '../../../../assets/default-user-photo.png';
 
-import { getUserLink } from '../../../utils/getUserLink';
-import { ReviewContext } from '../../../contexts/ReviewContext';
+import { getUserLink } from '../../../../utils/getUserLink';
+import { ReviewContext } from '../../contexts/ReviewContext';
 
 import './Reviews.css';
 

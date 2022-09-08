@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getBooks } from '../../../../services/book';
+import { getBooks } from '../../../services/book';
 import Book from './Book/Book';
 
 import './Recommended.css';
