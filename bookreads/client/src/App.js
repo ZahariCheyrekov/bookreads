@@ -12,7 +12,7 @@ import Profile from './pages/Profile/Profile';
 import Details from './components/Books/Details/Details';
 import CreateReview from './components/Books/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
-import Genres from './pages/Genres/Genres';
+import Genres from './features/genres/components/Genres';
 import Genre from './features/genres/components/Genre';
 import BookForm from './components/Books/BookForm/BookForm';
 import Shelves from './components/Shelves/Shelves';
@@ -49,7 +49,7 @@ function App() {
                     </Route>
                     <Route element={<GuestRoutes />}>
                         {['signin', 'signup'].map((path) => (
-                            <Route key={path} path={`/user/${path}`} element={<Auth />} / >
+                            <Route key={path} path={`/user/${path}`} element={<Auth />} />
                         ))}
                     </Route>
                     <Route path="*" element={<NotFound />} />
