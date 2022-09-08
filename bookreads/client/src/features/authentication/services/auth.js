@@ -1,7 +1,7 @@
-import * as userAPI from '../api/userAPI';
+import * as userAPI from '../../../api/userAPI';
 
-import { saveUser } from './localStorage';
-import { SIGN_IN, SIGN_UP } from '../constants/actionType';
+import { saveUser } from '../../../services/localStorage';
+import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 
 export const auth = async (action, data) => {
     try {

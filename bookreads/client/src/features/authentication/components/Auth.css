@@ -1,0 +1,135 @@
+.main__auth {
+    padding: var(--main-padding);
+}
+
+.main__auth .header__navigation--article {
+    margin: 0 auto;
+}
+
+.main__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.form__legend {
+    font-family: 'Copernicus';
+    font-size: 2.6rem;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.form__label {
+    font-size: 1.2rem;
+}
+
+.form__label.password {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input.password {
+    padding-right: 2.3rem;
+}
+
+.form__input {
+    border: 1px solid var(--gray-color);
+    background-color: rgb(240, 240, 240);
+    outline: none;
+    transition: all ease-in-out 0.2s;
+}
+
+.fa-regular.fa-eye {
+    position: absolute;
+    top: 52%;
+    right: 10px;
+    cursor: pointer;
+}
+
+.form__input:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.form__input:focus {
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 2px;
+}
+
+.form__input,
+.auth__button {
+    margin: 14px 0;
+    padding: 0.4rem 0.8rem;
+
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    height: 34px;
+}
+
+.form__button {
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+    border: none;
+}
+
+.form__button:hover {
+    background-color: var(--dark-button-hover-color);
+}
+
+.section__content {
+    line-height: 1.4;
+    width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.section__content--paragraph {
+    margin: 10px 0 30px;
+}
+
+.section__content--span {
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    padding: 0 10px;
+}
+
+.section__content--span::before,
+.section__content--span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 23%;
+    border-top: 0.1rem solid var(--dark-button-color);
+}
+
+.section__content--span::before {
+    left: 0;
+}
+
+.section__content--span::after {
+    right: 0;
+}
+
+.section__content--button {
+    border: 2px solid var(--gray-color);
+    background-color: transparent;
+    width: 100%;
+}
+
+.section__content--button:hover {
+    background-color: rgb(234, 233, 233);
+}
+
+@media only screen and (max-width: 430px) {
+    .section__content {
+        width: 100%;
+    }
+
+    .section__content--span::before,
+    .section__content--span::after {
+        display: none;
+    }
+}
