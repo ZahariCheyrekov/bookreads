@@ -10,6 +10,7 @@
 }
 
 .header__navigation {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -138,5 +139,27 @@
 
     .navigation__search--icon {
         display: inline-block;
+    }
+
+    .header__form__search--small {
+        display: flex;
+        position: absolute;
+        bottom: -52px;
+        left: -20px;
+
+        width: 108%;
+        padding: 10px;
+
+        background-color: var(--lightgray-color);
+        border-top: 0.1rem solid var(--divider-color);
+    }
+
+    .header__form__small--button {
+        margin-left: 10px;
+        font-size: 1.2rem;
+
+        background: transparent;
+        color: var(--lightblue-color);
+        border: none;
     }
 }
