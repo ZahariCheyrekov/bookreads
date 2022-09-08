@@ -18,6 +18,15 @@ export const getBooks = async (id) => {
     }
 }
 
+export const getBooksByTitle = async (bookTitle) => {
+    try {
+        const { data } = await bookAPI.getBooksByGivenTitle(bookTitle);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const createNewBook = async (bookData) => {
     try {
         const { data } = await bookAPI.createBook(bookData);
