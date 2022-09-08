@@ -15,6 +15,7 @@ export const auth = async (action, data) => {
 
         const user = result.data;
         saveUser(user);
+        
     } catch (error) {
         console.log(error);
     }
