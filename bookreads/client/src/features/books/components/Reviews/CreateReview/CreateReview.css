@@ -84,3 +84,23 @@
     padding: 4px 20px;
     font-size: 1rem;
 }
+
+@media only screen and (max-width: 650px) {
+    .create__review__book--info {
+        flex-direction: column;
+    }
+
+    .create__review__title {
+        font-size: 1.8rem;
+    }
+
+    .create__review__book--title {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .create__review__wrapper {
+        margin-top: 2rem;
+    }
+}
