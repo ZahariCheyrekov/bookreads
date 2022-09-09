@@ -3,3 +3,12 @@
     max-width: var(--medium-component-width);
     margin: 0 auto;
 }
+
+.search__section {
+    width: 70%;
+}
+
+.search__section--title {
+    font-size: 1.6rem;
+    color: var(--brown-color);
+}
