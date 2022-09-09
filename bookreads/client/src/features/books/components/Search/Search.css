@@ -40,3 +40,11 @@
 .search__form--button {
     width: 20%;
 }
+
+.search__results {
+    margin: 20px 0;
+}
+
+.search__title--book {
+    font-weight: normal;
+}
