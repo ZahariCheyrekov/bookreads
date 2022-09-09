@@ -1,8 +1,11 @@
+import { useParams } from 'react-router-dom';
 import GenreList from '../../../genres/components/GenreList';
 
 import './Search.css';
 
 const Search = () => {
+    const { bookTitle } = useParams();
+
     return (
         <main className="main">
             <div className="search__wrapper">
@@ -14,6 +17,11 @@ const Search = () => {
                         <input className="search__form--input" />
                         <button className="search__form--button">Search</button>
                     </form>
+                    <section className="search__results">
+                        <h4 className="search__title--book">
+                            Title: {bookTitle}
+                        </h4>
+                    </section>
                 </section>
                 <GenreList />
             </div>
