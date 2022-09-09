@@ -30,6 +30,11 @@
 .search__form--input {
     width: 80%;
     outline: none;
+    border: 1px solid var(--divider-color);
+}
+
+.search__form--input:focus {
+    box-shadow: 0 0 4px var(--divider-color);
 }
 
 .search__form--button {
