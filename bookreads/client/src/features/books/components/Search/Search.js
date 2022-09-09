@@ -7,9 +7,13 @@ const Search = () => {
         <main className="main">
             <div className="search__wrapper">
                 <section className="search__section">
-                    <h4 className="search__section--title">
-
-                    </h4>
+                    <h3 className="search__section--title">
+                        Search
+                    </h3>
+                    <form className="search__form">
+                        <input className="search__form--input" />
+                        <button className="search__form--button">Search</button>
+                    </form>
                 </section>
                 <GenreList />
             </div>
