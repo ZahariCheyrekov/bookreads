@@ -14,6 +14,7 @@ import CreateReview from './features/books/components/Reviews/CreateReview/Creat
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import Genres from './features/genres/components/Genres';
 import Genre from './features/genres/components/Genre';
+import Search from './features/books/components/Search/Search';
 import BookForm from './features/books/components/BookForm/BookForm';
 import Shelves from './components/Shelves/Shelves';
 import Auth from './features/authentication/components/Auth';
@@ -38,6 +39,7 @@ function App() {
                         <Route path='/post/:id/likes' element={<PostLikes />} />
                         <Route path='/genres' element={<Genres />} />
                         <Route path='/genres/:genre' element={<Genre />} />
+                        <Route path='/books/search/:bookTitle' element={<Search />} />
 
                         {['create', 'books/:id/edit'].map((path) => (
                             <Route key={path} path={`/${path}`} element={<BookForm />} />
