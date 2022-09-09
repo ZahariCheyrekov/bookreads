@@ -8,7 +8,12 @@ const Search = () => {
     const { bookTitle } = useParams();
     const [books, setBooks] = useState([]);
 
-    
+    useEffect(() => {
+        const fetchBooks = async () => {
+            const books = await getBooksByTitle(bookTitle);
+        }
+        fetchBooks();
+    }, [bookTitle]);
 
     return (
         <main className="main">
