@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import GenreList from '../../../genres/components/GenreList';
 
@@ -5,6 +6,9 @@ import './Search.css';
 
 const Search = () => {
     const { bookTitle } = useParams();
+    const [books, setBooks] = useState([]);
+
+    
 
     return (
         <main className="main">
