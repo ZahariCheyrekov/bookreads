@@ -39,7 +39,13 @@ const Menu = ({ profileOpen, handleProfileClick, logout }) => {
                             Browse
                         </Link>
                     </li>
-                   
+                    <li className="profile__ul--li">
+                        <Link to={`/user/${user.result._id}/shelves/read`}
+                            onClick={handleProfileClick}
+                        >
+                            Shelves
+                        </Link>
+                    </li>
                     <li className="profile__ul--li">
                         <Link to={'/'} onClick={() => {
                             handleProfileClick();
