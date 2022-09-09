@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 import GenreList from '../../../genres/components/GenreList';
+
+import { getBooksByTitle } from '../../services/book';
 
 import './Search.css';
 
@@ -11,6 +14,7 @@ const Search = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             const books = await getBooksByTitle(bookTitle);
+            setBooks(books);
         }
         fetchBooks();
     }, [bookTitle]);
