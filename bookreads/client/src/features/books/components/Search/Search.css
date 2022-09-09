@@ -1,0 +1,5 @@
+.search__wrapper {
+    display: flex;
+    max-width: var(--medium-component-width);
+    margin: 0 auto;
+}
