@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import GenreList from '../../../genres/components/GenreList';
 
 import './Search.css';
