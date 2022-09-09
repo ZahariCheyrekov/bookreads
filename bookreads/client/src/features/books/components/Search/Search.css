@@ -6,9 +6,17 @@
 
 .search__section {
     width: 70%;
+    margin-right: 20px;
 }
 
 .search__section--title {
+    margin-bottom: 10px;
     font-size: 1.6rem;
     color: var(--brown-color);
+}
+
+.search__form {
+    padding: 12px;
+    background-color: var(--lightgray-color);
+    border-radius: 2px;
 }
