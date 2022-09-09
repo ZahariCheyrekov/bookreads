@@ -1,7 +1,11 @@
 import './Search.css';
 
- const Search = () => {
+const Search = () => {
     return (
+        <main>
 
+        </main>
     );
 }
+
+export default Search;
