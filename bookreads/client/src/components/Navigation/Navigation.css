@@ -162,9 +162,9 @@
         display: flex;
         position: absolute;
         bottom: -52px;
-        left: -20px;
+        left: 0;
 
-        width: 108%;
+        width: 100%;
         padding: 10px;
 
         background-color: var(--lightgray-color);
