@@ -148,6 +148,10 @@ const Navigation = () => {
                                     placeholder="Enter book title"
                                     onChange={(ev) => setSearchTitle(ev.target.value.trim())}
                                 />
+                                <i
+                                    className="fa-solid fa-magnifying-glass"
+                                    onClick={() => navigate(`/books/search/${searchTitle}`)}
+                                />
                                 <button
                                     className="header__form__small--button"
                                     onClick={handleCancelButton}
