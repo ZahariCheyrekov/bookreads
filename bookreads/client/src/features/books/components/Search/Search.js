@@ -2,7 +2,7 @@ import './Search.css';
 
 const Search = () => {
     return (
-        <main>
+        <main className="main">
 
         </main>
     );
