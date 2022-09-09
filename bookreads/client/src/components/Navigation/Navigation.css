@@ -102,6 +102,10 @@
     cursor: pointer;
 }
 
+.header__form__search--small>i {
+    right: 90px;
+}
+
 .header__form--input {
     width: 100%;
     padding: 0.4rem;
