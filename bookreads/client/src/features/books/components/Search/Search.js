@@ -35,7 +35,9 @@ const Search = () => {
                             Title: {bookTitle}
                         </h4>
                         <ul className="search__books__result--list">
+                            <li className="search__book__list--item">
 
+                            </li>
                         </ul>
                     </section>
                 </section>
