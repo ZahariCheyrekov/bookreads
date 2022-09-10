@@ -5,7 +5,7 @@ import uuid from 'react-uuid';
 import Book from './Book/Book';
 import Spinner from '../Spinner/Spinner';
 
-import { useCurrentUser } from '../../hooks/useCurrentUser';
+import { useCurrentUser } from '../../../../hooks/useCurrentUser';
 
 import './Shelves.css';
 
