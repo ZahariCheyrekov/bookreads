@@ -1,0 +1,115 @@
+.shelves__wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.shelves__article {
+    display: flex;
+    margin: 20px 0;
+}
+
+.shelves {
+    width: 20%;
+    margin-right: 20px;
+}
+
+.shelves__list {
+    margin: 20px 0;
+}
+
+.shelves__list--shelve {
+    margin: 6px 0;
+}
+
+.shelves__list--shelve>a {
+    color: var(--lightblue-color);
+}
+
+.shelves__books {
+    width: 80%;
+}
+
+.shelves__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shelves__th {
+    font-weight: normal;
+    text-align: start;
+    padding: 10px;
+}
+
+.shelves__thead {
+    border-bottom: 0.08rem solid var(--divider-color);
+}
+
+.shelves__td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.shelves__no__match {
+    margin: 30px 0;
+    font-weight: 500;
+    text-align: center;
+    color: var(--gray-color);
+}
+
+.shelves__table__padding--none {
+    padding-left: 0;
+}
+
+
+@media only screen and (max-width: 970px) {
+    .shelves__wrapper {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .shelves__article {
+        flex-direction: column;
+    }
+
+    .shelves {
+        width: 100%;
+        margin: 0;
+    }
+
+    .shelves__list {
+        display: flex;
+        margin: 10px 0;
+        gap: 1rem;
+    }
+
+    .shelves__books {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .shelves__list {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .shelves__wrapper {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .shelves__row>.shelves__th:nth-child(4),
+    .shelves__row--book>.shelves__td:nth-child(4) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .main {
+        padding: 4rem 1rem 1rem;
+    }
+}
