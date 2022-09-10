@@ -34,6 +34,9 @@ const Search = () => {
                         <h4 className="search__title--book">
                             Title: {bookTitle}
                         </h4>
+                        <ul className="search__books__result--list">
+
+                        </ul>
                     </section>
                 </section>
                 <GenreList />
