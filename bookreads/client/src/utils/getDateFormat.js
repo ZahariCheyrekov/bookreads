@@ -16,5 +16,8 @@ export const getDateFormat = (createdAt) => {
     } else if (secondsDiff >= 86_400 && secondsDiff < 604_800) {
         const days = Math.round(secondsDiff / 60 / 60 / 24);
         return `${days}d`;
+    } else {
+        const weeks = Math.round(secondsDiff / 60 / 60 / 24 / 7);
+        return `${weeks}w`;
     }
 }
