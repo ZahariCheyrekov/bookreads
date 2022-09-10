@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get('/:id', getBookById);
 router.get('/:id/recommended', getBooksByTags);
-router.get('/books/search/:title', getBooksByTitle);
+router.get('/search/:title', getBooksByTitle);
 router.post('/', createBook);
 router.patch('/:id/edit', editBook);
 router.delete('/:id', deleteBook);
