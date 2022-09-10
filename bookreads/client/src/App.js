@@ -8,7 +8,7 @@ import './index.css';
 
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home/Home';
-import Profile from './pages/Profile/Profile';
+import Profile from './features/profile/components/Profile';
 import Details from './features/books/components/Details/Details';
 import CreateReview from './features/books/components/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
@@ -16,7 +16,6 @@ import Genres from './features/genres/components/Genres';
 import Genre from './features/genres/components/Genre';
 import Search from './features/books/components/Search/Search';
 import BookForm from './features/books/components/BookForm/BookForm';
-import Shelves from './components/Shelves/Shelves';
 import Auth from './features/authentication/components/Auth';
 import NotFound from './pages/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
