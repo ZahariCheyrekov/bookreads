@@ -16,6 +16,7 @@ import Genres from './features/genres/components/Genres';
 import Genre from './features/genres/components/Genre';
 import Search from './features/books/components/Search/Search';
 import BookForm from './features/books/components/BookForm/BookForm';
+import Shelves from './features/profile/components/Shelves/Shelves';
 import Auth from './features/authentication/components/Auth';
 import NotFound from './pages/NotFound/NotFound';
 import Notification from './components/Notification/Notification';
