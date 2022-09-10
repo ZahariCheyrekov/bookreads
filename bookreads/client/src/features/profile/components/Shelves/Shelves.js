@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 import Book from './Book/Book';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../../../..//components/Spinner/Spinner';
 
 import { useCurrentUser } from '../../../../hooks/useCurrentUser';
 
