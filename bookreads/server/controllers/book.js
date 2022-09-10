@@ -30,9 +30,12 @@ export const getBooksByTags = async (req, res) => {
 }
 
 export const getBooksByTitle = async (req, res) => {
-    const { bookTitle } = req.params;
+    const { title } = req.params;
 
-    console.log(bookTitle);
+    const booksByTitle = await BookSchema({ title: title });
+
+    console.log(booksByTitle)
+
 }
 
 export const createBook = async (req, res) => {
