@@ -5,8 +5,9 @@ import uuid from 'react-uuid';
 import Book from '../../features/profile/components/Shelves/Book/Book';
 import Spinner from '../Spinner/Spinner';
 
-import './Shelves.css';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
+
+import './Shelves.css';
 
 const Shelves = () => {
     const path = useLocation();
