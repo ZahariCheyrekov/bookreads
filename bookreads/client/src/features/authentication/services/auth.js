@@ -21,7 +21,7 @@ export const auth = async (action, data, navigate) => {
 
             const isValidInput = validateInputFields(dataForValidation);
 
-            if (isValidInput) {
+            if (!isValidInput) {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
 
