@@ -2,10 +2,12 @@ import * as userAPI from '../../../api/userAPI';
 
 import { saveUser } from '../../../services/localStorage';
 import { validateInputFields } from '../../../validation/validateInputFields';
+import { validatePasswordEquality } from '../../../validation/vaidatePasswordEquality';
+
 import { notify } from '../../../lib/toastify';
 
 import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
-import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
+import { ALL_FIELDS_ARE_REQUIRED, PASSWORDS_DONT_MATCH } from '../../../constants/errors';
 
 export const auth = async (action, data, navigate) => {
     try {
@@ -32,10 +34,13 @@ export const auth = async (action, data, navigate) => {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
 
-            const
+            const validPassword = validatePasswordEquality(data.password, data.repeatPassword);
 
-                result = await userAPI.signup(data);
+            if (!validPassword) {
+                throw new Error(PASSWORDS_DONT_MATCH);
+            }
 
+            result = await userAPI.signup(data);
         }
 
         const user = result.data;
