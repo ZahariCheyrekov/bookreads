@@ -49,6 +49,11 @@ export const auth = async (action, data, navigate) => {
 
     } catch (error) {
         console.log(error);
-        notify(error.message);
+
+        if (error.response) {
+            notify(error.response.data.message);
+        } else {
+            notify(error.message);
+        }
     }
 } 
