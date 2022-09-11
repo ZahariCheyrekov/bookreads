@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 import { NotificationContextProvider } from './contexts/NotificationContext';
@@ -24,6 +25,8 @@ import Footer from './layouts/Footer/Footer';
 
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
