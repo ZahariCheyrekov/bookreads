@@ -6,7 +6,7 @@ import { validatePasswordEquality } from '../../../validation/validatePasswordEq
 
 import { notify } from '../../../lib/toastify';
 
-import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
+import { LOGIN_SUCCESSFUL, REGISTER_SUCCESSFUL, SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 import { ALL_FIELDS_ARE_REQUIRED, PASSWORDS_DONT_MATCH } from '../../../constants/errors';
 
 export const auth = async (action, data, navigate) => {
@@ -26,6 +26,7 @@ export const auth = async (action, data, navigate) => {
             }
 
             result = await userAPI.signin(data);
+            notify(LOGIN_SUCCESSFUL);
 
         } else if (action === SIGN_UP) {
             const isValidInput = validateInputFields(data);
@@ -41,6 +42,7 @@ export const auth = async (action, data, navigate) => {
             }
 
             result = await userAPI.signup(data);
+            notify(REGISTER_SUCCESSFUL);
         }
 
         const user = result.data;
