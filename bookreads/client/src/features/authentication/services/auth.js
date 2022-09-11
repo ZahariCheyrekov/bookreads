@@ -2,7 +2,7 @@ import * as userAPI from '../../../api/userAPI';
 
 import { saveUser } from '../../../services/localStorage';
 import { validateInputFields } from '../../../validation/validateInputFields';
-import { validatePasswordEquality } from '../../../validation/vaidatePasswordEquality';
+import { validatePasswordEquality } from '../../../validation/validatePasswordEquality';
 
 import { notify } from '../../../lib/toastify';
 
