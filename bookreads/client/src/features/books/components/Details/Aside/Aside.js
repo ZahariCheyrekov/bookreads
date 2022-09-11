@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { notify } from '../../../../../lib/toastify';
+
 import { deleteBook } from '../../../api/bookAPI';
 import { addBookToUserShelve } from '../../../../../api/userAPI';
 
@@ -12,7 +14,6 @@ import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
 import Rating from '../Rating/Rating';
 
 import './Aside.css';
-import { notify } from '../../../../../lib/toastify';
 
 const Aside = ({ book, isOwner }) => {
     const navigate = useNavigate();
