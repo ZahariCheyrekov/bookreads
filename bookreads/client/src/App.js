@@ -20,7 +20,6 @@ import BookForm from './features/books/components/BookForm/BookForm';
 import Shelves from './features/profile/components/Shelves/Shelves';
 import Auth from './features/authentication/components/Auth';
 import NotFound from './pages/NotFound/NotFound';
-import Notification from './components/Notification/Notification';
 import Footer from './layouts/Footer/Footer';
 
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
@@ -59,7 +58,7 @@ function App() {
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-                <Notification />
+                <ToastContainer />
                 <Footer />
             </NotificationContextProvider>
         </AuthContextProvider>
