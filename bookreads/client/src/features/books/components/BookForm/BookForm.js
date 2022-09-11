@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { notify } from '../../../../lib/toastify';
+
 import { editBook } from '../../api/bookAPI';
 import { createPost } from '../../../../api/postAPI';
 
@@ -73,7 +75,7 @@ const BookForm = () => {
             const createdBook = await createNewBook({ ...bookData, creatorId });
             postBookData.bookId = createdBook._id;
             createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
-            setNotificationMessage(USER_CREATED_A_BOOK);
+            notify(USER_CREATED_A_BOOK);
         }
     }
 
