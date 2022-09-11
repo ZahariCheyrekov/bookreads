@@ -7,7 +7,6 @@ import { editBook } from '../../api/bookAPI';
 import { createPost } from '../../../../api/postAPI';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
-import { NotificationContext } from '../../../../contexts/NotificationContext';
 
 import { createNewBook, getBook } from '../../services/book';
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../../constants/actionType';
@@ -21,7 +20,6 @@ const BookForm = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const { setNotificationMessage } = useContext(NotificationContext);
     const [bookData, setBookData] = useState(
         {
             title: '',
