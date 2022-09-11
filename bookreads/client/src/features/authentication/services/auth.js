@@ -2,6 +2,8 @@ import * as userAPI from '../../../api/userAPI';
 
 import { saveUser } from '../../../services/localStorage';
 import { validateInput } from '../../../validation/validateInput';
+import { notify } from '../../../lib/toastify';
+
 import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 
 export const auth = async (action, data) => {
@@ -24,7 +26,7 @@ export const auth = async (action, data) => {
         } catch (error) {
             console.log(error);
         }
-    }else{
-        
+    } else {
+        notify(ALL_FIELDS_ARE_REQUIRED);
     }
 }
