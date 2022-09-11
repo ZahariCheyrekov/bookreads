@@ -7,27 +7,35 @@ import { notify } from '../../../lib/toastify';
 import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
 
-export const auth = async (action, data) => {
+export const auth = async (action, data, navigate) => {
 
-    const isValidInput = validateInput(data);
+    try {
+        let result;
 
-    if (isValidInput) {
-        try {
-            let result;
-
-            if (action === SIGN_IN) {
-                result = await userAPI.signin(data);
-            } else if (action === SIGN_UP) {
-                result = await userAPI.signup(data);
+        if (action === SIGN_IN) {
+            const dataForValidation = {
+                email: data.email,
+                password: data.password
             }
 
-            const user = result.data;
-            saveUser(user);
+            const isValidInput = validateInput(dataForValidation);
+            if (isValidInput) {
+                result = await userAPI.signin(data);
+            } else {
+                throw new Error(ALL_FIELDS_ARE_REQUIRED);
+            }
+            console.log(isValidInput)
 
-        } catch (error) {
-            console.log(error);
+        } else if (action === SIGN_UP) {
+            result = await userAPI.signup(data);
         }
-    } else {
-        notify(ALL_FIELDS_ARE_REQUIRED);
+
+        const user = result.data;
+        saveUser(user);
+        navigate('/');
+
+    } catch (error) {
+        console.log(error);
+        notify(error.message);
     }
-}
+} 
