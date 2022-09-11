@@ -24,7 +24,7 @@ import GuestRoutes from './components/ProtectedRoutes/GuestRoutes';
 import './App.css';
 import './index.css';
 
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 function App() {
     return (
