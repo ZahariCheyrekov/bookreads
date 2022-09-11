@@ -51,3 +51,8 @@ a:hover {
 button {
     cursor: pointer;
 }
+
+.Toastify__progress-bar-theme--dark.Toastify__progress-bar--default {
+    background-color: var(--green-color);
+
+}
