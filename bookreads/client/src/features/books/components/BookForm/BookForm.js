@@ -68,7 +68,7 @@ const BookForm = () => {
             editBook(id, bookData);
             createPost({ status: EDITED_A_BOOK, postBookData, userData, createdAt: new Date() });
             navigate(`/books/${id}`);
-            setNotificationMessage(USER_EDITED_A_BOOK);
+            notify(USER_EDITED_A_BOOK);
         } else {
             const createdBook = await createNewBook({ ...bookData, creatorId });
             postBookData.bookId = createdBook._id;
