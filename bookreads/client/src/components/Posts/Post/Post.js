@@ -5,6 +5,8 @@ import User from './User/User';
 import Likes from './Likes/Likes';
 import CommentSection from './CommentSection/CommentSection';
 
+import { notify } from '../../../lib/toastify';
+
 import { likePost } from '../../../services/post';
 import { deletePost } from '../../../api/postAPI';
 import { getUserLink } from '../../../utils/getUserLink';
@@ -49,7 +51,7 @@ const Post = ({ post, posts, setPosts }) => {
         const filteredPosts = posts.filter(currentPost => currentPost._id !== post._id);
         setPosts(filteredPosts);
         deletePost(post._id);
-        setNotificationMessage(USER_DELETED_A_POST);
+        notify(USER_DELETED_A_POST);
     }
 
     return (
