@@ -8,7 +8,6 @@ import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
 
 export const auth = async (action, data, navigate) => {
-
     try {
         let result;
 
@@ -19,19 +18,24 @@ export const auth = async (action, data, navigate) => {
             }
 
             const isValidInput = validateInputFields(dataForValidation);
+
             if (isValidInput) {
-                result = await userAPI.signin(data);
-            } else {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
 
+            result = await userAPI.signin(data);
+
         } else if (action === SIGN_UP) {
             const isValidInput = validateInputFields(data);
-            if (isValidInput) {
-                result = await userAPI.signup(data);
-            } else {
+
+            if (!isValidInput) {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
+
+            const
+
+                result = await userAPI.signup(data);
+
         }
 
         const user = result.data;
