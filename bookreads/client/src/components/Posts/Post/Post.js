@@ -14,13 +14,11 @@ import { REVIEWED_A_BOOK } from '../../../constants/actionType';
 import { USER_DELETED_A_POST } from '../../../constants/notifications';
 
 import { AuthContext } from '../../../contexts/AuthContext';
-import { NotificationContext } from '../../../contexts/NotificationContext';
 
 import './Post.css';
 
 const Post = ({ post, posts, setPosts }) => {
     const { user } = useContext(AuthContext);
-    const { setNotificationMessage } = useContext(NotificationContext);
     const [postUser] = useState(post?.userData);
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
