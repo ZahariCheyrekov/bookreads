@@ -1,7 +1,7 @@
 import * as userAPI from '../../../api/userAPI';
 
 import { saveUser } from '../../../services/localStorage';
-import { validateInput } from '../../../validation/validateInput';
+import { validateInputFields } from '../../../validation/validateInputFields';
 import { notify } from '../../../lib/toastify';
 
 import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
@@ -18,13 +18,12 @@ export const auth = async (action, data, navigate) => {
                 password: data.password
             }
 
-            const isValidInput = validateInput(dataForValidation);
+            const isValidInput = validateInputFields(dataForValidation);
             if (isValidInput) {
                 result = await userAPI.signin(data);
             } else {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
-            console.log(isValidInput)
 
         } else if (action === SIGN_UP) {
             result = await userAPI.signup(data);
