@@ -12,6 +12,7 @@ import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
 import Rating from '../Rating/Rating';
 
 import './Aside.css';
+import { notify } from '../../../../../lib/toastify';
 
 const Aside = ({ book, isOwner }) => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Aside = ({ book, isOwner }) => {
     const handleDelete = () => {
         deleteBook(book?._id);
         navigate('/');
-        (USER_DELETED_A_BOOK);
+        notify(USER_DELETED_A_BOOK);
     }
 
     const handleBookShelve = (shelveName) => {
