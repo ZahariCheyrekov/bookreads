@@ -36,7 +36,6 @@ const Auth = () => {
 
         const actionType = isSignIn ? SIGN_IN : SIGN_UP;
         await auth(actionType, formData, navigate);
-        navigate('/');
     }
 
     return (
