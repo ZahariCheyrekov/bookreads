@@ -26,7 +26,12 @@ export const auth = async (action, data, navigate) => {
             }
 
         } else if (action === SIGN_UP) {
-            result = await userAPI.signup(data);
+            const isValidInput = validateInputFields(data);
+            if (isValidInput) {
+                result = await userAPI.signup(data);
+            } else {
+                throw new Error(ALL_FIELDS_ARE_REQUIRED);
+            }
         }
 
         const user = result.data;
