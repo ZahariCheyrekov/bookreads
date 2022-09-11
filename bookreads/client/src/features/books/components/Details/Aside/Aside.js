@@ -5,7 +5,6 @@ import { deleteBook } from '../../../api/bookAPI';
 import { addBookToUserShelve } from '../../../../../api/userAPI';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
-import { NotificationContext } from '../../../../../contexts/NotificationContext';
 
 import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../../../constants/shelves';
 import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
@@ -17,13 +16,12 @@ import './Aside.css';
 const Aside = ({ book, isOwner }) => {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
-    const { setNotificationMessage } = useContext(NotificationContext);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
 
     const handleDelete = () => {
         deleteBook(book?._id);
         navigate('/');
-        setNotificationMessage(USER_DELETED_A_BOOK);
+        (USER_DELETED_A_BOOK);
     }
 
     const handleBookShelve = (shelveName) => {
