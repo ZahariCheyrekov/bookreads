@@ -5,6 +5,7 @@ import { validateInput } from '../../../validation/validateInput';
 import { notify } from '../../../lib/toastify';
 
 import { SIGN_IN, SIGN_UP } from '../constants/actionTypes';
+import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
 
 export const auth = async (action, data) => {
 
