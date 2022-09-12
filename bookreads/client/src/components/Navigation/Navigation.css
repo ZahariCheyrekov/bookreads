@@ -94,11 +94,14 @@
     width: 30%;
 }
 
-.header__form--search>i {
+.header__form--button {
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+    
+    background: transparent;
+    border: none;
     cursor: pointer;
 }
 
