@@ -1,0 +1,1 @@
+export const NEGATIVE_PAGES_ERROR = 'The book must have a positive number of pages';
