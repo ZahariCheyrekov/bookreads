@@ -1,7 +1,8 @@
 import * as bookAPI from '../api/bookAPI';
 
 import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
-import { NEGATIVE_PAGES_ERROR } from '../constants/bookConstants';
+import { NEGATIVE_PAGES_ERROR } from '../constants/errors';
+import { BOOK_CREATED } from '../constants/messages';
 
 import { notify, notifyError } from '../../../lib/toastify';
 import { validateInputFields } from '../../../validation/validateInputFields';
@@ -46,7 +47,7 @@ export const createNewBook = async (bookData) => {
         }
 
         const { data } = await bookAPI.createBook(bookData);
-        notify();
+        notify(BOOK_CREATED);
         return data;
 
     } catch (error) {
