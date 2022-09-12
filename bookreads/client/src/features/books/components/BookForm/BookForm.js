@@ -3,14 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { notify } from '../../../../lib/toastify';
 
-import { createBook, editBook } from '../../api/bookAPI';
+import { editBook } from '../../api/bookAPI';
 import { createPost } from '../../../../api/postAPI';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 
 import { createNewBook, getBook } from '../../services/book';
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../../constants/actionType';
-import { USER_CREATED_A_BOOK, USER_EDITED_A_BOOK } from '../../../../constants/notifications';
+import { USER_EDITED_A_BOOK } from '../../../../constants/notifications';
 
 import FormField from './FormField';
 
@@ -67,14 +67,15 @@ const BookForm = () => {
         if (id) {
             editBook(id, bookData);
             createPost({ status: EDITED_A_BOOK, postBookData, userData, createdAt: new Date() });
-            navigate(`/books/${id}`);
             notify(USER_EDITED_A_BOOK);
+            navigate(`/books/${id}`);
         } else {
             const createdBook = await createNewBook({ ...bookData, creatorId });
             if (createdBook) {
                 postBookData.bookId = createdBook._id;
                 createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
             }
+            navigate(`/books/${createdBook._id}`);
         }
     }
 
