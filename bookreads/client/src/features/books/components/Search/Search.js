@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import GenreList from '../../../genres/components/GenreList';
 
@@ -8,6 +8,7 @@ import { getBooksByTitle } from '../../services/book';
 import './Search.css';
 
 const Search = () => {
+    const navigate = useNavigate();
     const { bookTitle } = useParams();
     const [books, setBooks] = useState([]);
     const [searchTitle, setSearchTitle] = useState('');
@@ -20,6 +21,11 @@ const Search = () => {
         }
         fetchBooks();
     }, [bookTitle]);
+
+    const handleSearch = async (ev) => {
+        ev.preventDefault();
+        navigate(`/books/search/${searchTitle}`);
+    }
 
     return (
         <main className="main">
@@ -34,7 +40,12 @@ const Search = () => {
                             value={searchTitle}
                             onChange={(ev) => setSearchTitle(ev.target.value.trim())}
                         />
-                        <button className="search__form--button">Search</button>
+                        <button
+                            className="search__form--button"
+                            onClick={handleSearch}
+                        >
+                            Search
+                        </button>
                     </form>
                     <section className="search__results">
                         <h4 className="search__title--book">
@@ -61,7 +72,7 @@ const Search = () => {
                                             </h4>
                                         </summary>
                                     </article>
-                                    <hr className="hr__search__divider"/>
+                                    <hr className="hr__search__divider" />
                                 </li>
                             )}
                         </ul>
