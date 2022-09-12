@@ -45,7 +45,7 @@ export const Genre = () => {
                                 No books with genre "{`${genre}`}"
                             </h4>
                             <h5 className="genre__section__title--small">
-                                Create book with this genre or with other one.
+                                Create book with this genre or with other one
                             </h5>
                             <Link to={'/create'} className="genre__section--link">
                                 Create book
