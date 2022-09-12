@@ -16,8 +16,10 @@ export const getDateFormat = (createdAt) => {
     } else if (secondsDiff >= 86_400 && secondsDiff < 604_800) {
         const days = Math.round(secondsDiff / 60 / 60 / 24);
         return `${days}d`;
-    } else {
+    } else if (secondsDiff >= 604_800 && secondsDiff < 1_814_400) {
         const weeks = Math.round(secondsDiff / 60 / 60 / 24 / 7);
         return `${weeks}w`;
+    } else {
+        return new Date(createdAt).toUTCString().slice(0, 11);
     }
 }
