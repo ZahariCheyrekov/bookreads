@@ -13,7 +13,11 @@
 
 .post__information {
     line-height: 1.4;
-    padding: 0 46px 0 0;
+    display: flex;
+}
+
+.post__top--content {
+    padding-right: 20px;
 }
 
 .fa-solid.fa-star.fa-review.str {
@@ -137,9 +141,8 @@
 }
 
 .post__action--span {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    display: flex;
+    gap: 0.2rem;
 }
 
 .post__action--delete {
