@@ -58,7 +58,7 @@
 
     transform: scaleX(0);
     transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.4s ease-out;
 }
 
 .book__tag>a:hover {
