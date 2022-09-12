@@ -85,3 +85,13 @@
     height: 0.1rem;
     margin: 0.8rem 0;
 }
+
+@media only screen and (max-width: 1000px) {
+    .search__wrapper {
+        flex-direction: column;
+    }
+
+    .search__section {
+        width: 100%;
+    }
+}
