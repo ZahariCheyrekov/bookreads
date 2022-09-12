@@ -214,3 +214,13 @@
         margin: 10px 0;
     }
 }
+
+@media only screen and (max-width: 350px) {
+    .post__information {
+        flex-direction: column;
+    }
+
+    .post__action--span {
+        margin-top: 8px;
+    }
+}
