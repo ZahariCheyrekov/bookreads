@@ -32,10 +32,9 @@ export const getBooksByTags = async (req, res) => {
 export const getBooksByTitle = async (req, res) => {
     const { title } = req.params;
 
-    const booksByTitle = await BookSchema({ title: title });
+    const booksByTitle = await BookSchema.find({ title: { $regex: `${title}`, $options: 'i' } });
 
-    console.log(booksByTitle)
-
+    return res.status(200).json(booksByTitle);
 }
 
 export const createBook = async (req, res) => {
