@@ -74,7 +74,6 @@ const BookForm = () => {
             if (createdBook) {
                 postBookData.bookId = createdBook._id;
                 createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
-                notify(USER_CREATED_A_BOOK);
             }
         }
     }
