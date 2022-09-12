@@ -74,8 +74,8 @@ const BookForm = () => {
             if (createdBook) {
                 postBookData.bookId = createdBook._id;
                 createPost({ status: CREATED_A_BOOK, postBookData, userData, createdAt: new Date() });
+                navigate(`/books/${createdBook._id}`);
             }
-            navigate(`/books/${createdBook._id}`);
         }
     }
 
