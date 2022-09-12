@@ -146,7 +146,7 @@
     }
 }
 
-@media only screen and (max-width: 815px) {
+@media only screen and (max-width: 940px) {
     .header__ul {
         display: none;
     }
