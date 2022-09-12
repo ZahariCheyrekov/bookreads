@@ -64,24 +64,26 @@ const Post = ({ post, posts, setPosts }) => {
                 />
                 <div className="post__wrapper">
                     <section className="post__information">
-                        {postUser.name ?
-                            <Link to={getUserLink(postUser.name, post.userData.id)}>
-                                <h4 className="post__user--name">
-                                    {postUser.name}
-                                </h4>
-                            </Link>
-                            : null}
-                        <span className="post__status">
-                            {post.status}
-                        </span>
-                        {book ?
-                            <Link to={`/books/${book.bookId}`}>
-                                <h4 className="post__book--title">
-                                    {book.bookTitle}
-                                </h4>
-                            </Link>
-                            : null
-                        }
+                        <article className="post__top--content">
+                            {postUser.name ?
+                                <Link to={getUserLink(postUser.name, post.userData.id)}>
+                                    <h4 className="post__user--name">
+                                        {postUser.name}
+                                    </h4>
+                                </Link>
+                                : null}
+                            <span className="post__status">
+                                {post.status}
+                            </span>
+                            {book ?
+                                <Link to={`/books/${book.bookId}`}>
+                                    <h4 className="post__book--title">
+                                        {book.bookTitle}
+                                    </h4>
+                                </Link>
+                                : null
+                            }
+                        </article>
                         <span className="post__action--span">
                             <time className="post__time">
                                 {getDateFormat(post.createdAt)}
