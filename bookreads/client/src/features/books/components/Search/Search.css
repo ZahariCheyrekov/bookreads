@@ -21,9 +21,13 @@
     border-radius: 2px;
 }
 
-.search__form--input,
-.search__form--button {
+.search__form--input {
     padding: 4px 10px;
+    font-size: 1rem;
+}
+
+.search__form--button {
+    padding: 2px 10px;
     font-size: 1rem;
 }
 
