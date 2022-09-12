@@ -150,7 +150,9 @@ const Post = ({ post, posts, setPosts }) => {
                         </section>
                         <section className={`post__book ${post.status === REVIEWED_A_BOOK ? 'review' : ''}`}>
                             <article className="post__book--img">
-                                <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
+                                <Link to={`/books/${book.bookId}`}>
+                                    <img className="post__img" src={book.bookCoverUrl} alt={book.bookTitle} />
+                                </Link>
                             </article>
                             <summary className="post__book--summary">
                                 <Link to={`/books/${book.bookId}`}>
