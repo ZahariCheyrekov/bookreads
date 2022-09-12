@@ -33,6 +33,13 @@ const Menu = ({ profileOpen, handleProfileClick, logout }) => {
                         </Link>
                     </li>
                     <li className="profile__ul--li">
+                        <Link to={'/create'}
+                            onClick={handleProfileClick}
+                        >
+                            Create book
+                        </Link>
+                    </li>
+                    <li className="profile__ul--li">
                         <Link to={'/genres'}
                             onClick={handleProfileClick}
                         >
