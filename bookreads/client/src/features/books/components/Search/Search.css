@@ -48,3 +48,36 @@
 .search__title--book {
     font-weight: normal;
 }
+
+.search__book__result--item {
+    display: flex;
+}
+
+.search__book--summary {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.book__result--title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.book__result--author {
+    font-weight: 500;
+}
+
+.search__book__result--item>a>img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.hr__search__divider {
+    border: none;
+    background-color: var(--divider-color);
+ 
+    height: 0.1rem;
+    margin: 0.8rem 0;
+}
