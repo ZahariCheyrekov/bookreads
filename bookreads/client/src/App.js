@@ -59,6 +59,7 @@ function App() {
             <ToastContainer
                 position='bottom-left'
                 theme='dark'
+                limit={1}
             />
             <Footer />
         </AuthContextProvider>
