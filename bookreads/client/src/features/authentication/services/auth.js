@@ -4,7 +4,7 @@ import { saveUser } from '../../../services/localStorage';
 import { validateInputFields } from '../../../validation/validateInputFields';
 import { validatePasswordEquality } from '../../../validation/validatePasswordEquality';
 
-import { notify } from '../../../lib/toastify';
+import { notify, notifyError } from '../../../lib/toastify';
 
 import { LOGIN_SUCCESSFUL, REGISTER_SUCCESSFUL, SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 import { ALL_FIELDS_ARE_REQUIRED, PASSWORDS_DONT_MATCH } from '../../../constants/errors';
@@ -53,9 +53,9 @@ export const auth = async (action, data, navigate) => {
         console.log(error);
 
         if (error.response) {
-            notify(error.response.data.message);
+            notifyError(error.response.data.message);
         } else {
-            notify(error.message);
+            notifyError(error.message);
         }
     }
 } 
