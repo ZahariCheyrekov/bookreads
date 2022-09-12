@@ -67,7 +67,9 @@ const Navigation = () => {
 
     const handleSearch = (ev) => {
         ev.preventDefault();
-        navigate(`/books/search/${searchTitle}`);
+        if (searchTitle.trim() !== '') {
+            navigate(`/books/search/${searchTitle}`);
+        }
     }
 
     return (
