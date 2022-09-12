@@ -22,7 +22,7 @@ const Search = () => {
         fetchBooks();
     }, [bookTitle]);
 
-    const handleSearch = async (ev) => {
+    const handleSearch = (ev) => {
         ev.preventDefault();
         navigate(`/books/search/${searchTitle}`);
     }
