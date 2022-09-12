@@ -49,6 +49,10 @@
     font-weight: normal;
 }
 
+.search__books__result--list {
+    margin: 30px 0;
+}
+
 .search__book__result--item {
     display: flex;
 }
@@ -77,7 +81,7 @@
 .hr__search__divider {
     border: none;
     background-color: var(--divider-color);
- 
+
     height: 0.1rem;
     margin: 0.8rem 0;
 }
