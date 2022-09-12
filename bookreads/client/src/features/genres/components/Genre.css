@@ -57,6 +57,10 @@
     border-radius: 20px;
 }
 
+.genre__section--link:hover {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 1000px) {
     .genre__books {
         margin-bottom: 40px;
