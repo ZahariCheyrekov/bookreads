@@ -3,7 +3,7 @@ import * as bookAPI from '../api/bookAPI';
 import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
 import { NEGATIVE_PAGES_ERROR } from '../constants/bookConstants';
 
-import { notify } from '../../../lib/toastify';
+import { notify, notifyError } from '../../../lib/toastify';
 import { validateInputFields } from '../../../validation/validateInputFields';
 
 export const getBook = async (id) => {
@@ -46,16 +46,16 @@ export const createNewBook = async (bookData) => {
         }
 
         const { data } = await bookAPI.createBook(bookData);
+        notify();
         return data;
 
     } catch (error) {
         console.log(error);
 
         if (error.response) {
-            
-            notify(error.response.data.message);
+            notifyError(error.response.data.message);
         } else {
-            notify(error.message);
+            notifyError(error.message);
         }
     }
 }
