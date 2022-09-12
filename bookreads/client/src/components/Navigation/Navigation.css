@@ -42,6 +42,10 @@
     padding: 1rem;
 }
 
+.header__ul--li>a:hover {
+    text-decoration: none;
+}
+
 .header__ul--li.browse:hover,
 .header__ul--li>a:hover {
     background-color: var(--brown-color);
@@ -99,7 +103,7 @@
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    
+
     background: transparent;
     border: none;
     cursor: pointer;
