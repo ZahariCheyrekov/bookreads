@@ -61,6 +61,10 @@
     transition: transform 0.3s ease-out;
 }
 
+.book__tag>a:hover {
+    text-decoration: none;
+}
+
 .book__table--heading {
     font-family: Copernicus, "Libre Baskerville", Georgia, serif;
     font-weight: bold;
