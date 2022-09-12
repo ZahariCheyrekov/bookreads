@@ -65,6 +65,11 @@ const Navigation = () => {
         setSeachBarOpen(false);
     }
 
+    const handleSearch = (ev) => {
+        ev.preventDefault();
+        navigate(`/books/search/${searchTitle}`);
+    }
+
     return (
         <section className="section__navigation">
             <nav className="navigation header__navigation">
@@ -141,10 +146,12 @@ const Navigation = () => {
                                 placeholder="Enter book title"
                                 onChange={(ev) => setSearchTitle(ev.target.value.trim())}
                             />
-                            <i
-                                className="fa-solid fa-magnifying-glass"
-                                onClick={() => navigate(`/books/search/${searchTitle}`)}
-                            />
+                            <button
+                                className="header__form--button"
+                                onClick={handleSearch}
+                            >
+                                <i className="fa-solid fa-magnifying-glass" />
+                            </button>
                         </form>
                         {searchBarOpen &&
                             <form className="header__form--search header__form__search--small">
@@ -159,6 +166,7 @@ const Navigation = () => {
                                 />
                                 <button
                                     className="header__form__small--button"
+                                    type="submit"
                                     onClick={handleCancelButton}
                                 >
                                     Cancel
