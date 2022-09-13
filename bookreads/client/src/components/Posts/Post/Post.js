@@ -24,7 +24,8 @@ const Post = ({ post, posts, setPosts }) => {
     const [postUser] = useState(post?.userData);
     const [book] = useState(post?.postBookData);
     const [likes, setLikes] = useState(post?.likes);
-    const [showReviewText, setShowReviewText] = useState(post?.postBookData?.reviewContent?.join('').length <= 100);
+    const [hasReviewTextButton] = useState(post?.postBookData?.reviewContent?.join('').length >= 100);
+    const [showReviewText, setShowReviewText] = useState(false);
     const [showFullReview, setShowFullReview] = useState(user?.result?._id === post?.userData?.id || post?.postBookData?.spoilers === false);
     const [likedByUser] = useState(likes?.some(like => like.userId === user?.result?._id));
 
@@ -126,7 +127,7 @@ const Post = ({ post, posts, setPosts }) => {
                                                 </p>
                                             )}
                                         </article>
-                                        {!showReviewText &&
+                                        {hasReviewTextButton &&
                                             <button
                                                 className="post__review--button"
                                                 onClick={handleReviewText}
