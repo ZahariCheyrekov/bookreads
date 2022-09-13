@@ -47,7 +47,7 @@ const Menu = ({ profileOpen, handleProfileClick, logout }) => {
                         </Link>
                     </li>
                     <li className="profile__ul--li">
-                        <Link to={`/user/${user.result._id}/shelves/read`}
+                        <Link to={`/user/${user.result._id}/shelves`}
                             onClick={handleProfileClick}
                         >
                             Shelves
