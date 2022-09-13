@@ -12,6 +12,6 @@ test('renders correctly', () => {
     const headingElement = screen.getByRole('heading', { level: 3 });
     expect(headingElement).toBeInTheDocument();
 
-    const componentMessage = screen.getByText(/The resource requested could not be found on this server :\(/i);
+    const componentMessage = screen.getByText(/The resource requested could not be found on this server :\(/);
     expect(componentMessage).toBeInTheDocument();
 });
