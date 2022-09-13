@@ -88,8 +88,6 @@ const Details = () => {
                         <hr className="hr__divider" />
                         <Recommended />
 
-                        <hr className="hr__divider" />
-
                         <ReviewContextProvider>
                             <Reviews book={book} />
                         </ReviewContextProvider>
