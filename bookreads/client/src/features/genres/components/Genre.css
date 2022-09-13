@@ -58,6 +58,7 @@
 }
 
 .genre__section--link:hover {
+    background-color: var(--dark-button-hover-color);
     text-decoration: none;
 }
 
