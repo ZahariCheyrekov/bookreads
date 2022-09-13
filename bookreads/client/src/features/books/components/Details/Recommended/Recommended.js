@@ -33,33 +33,40 @@ const Recommended = () => {
     }
 
     return (
-        <section className="recommended">
-            <article className="recommended__artile--top">
-                <h3 className="recommended__title">Recommended books</h3>
-                <span className="recommended__arrows">
-                    <i
-                        className={`fa-solid fa-chevron-left 
+        <>
+            {recommendedBooks.length > 0 &&
+                <>
+                    <section className="recommended">
+                        <article className="recommended__artile--top">
+                            <h3 className="recommended__title">Recommended books</h3>
+                            <span className="recommended__arrows">
+                                <i
+                                    className={`fa-solid fa-chevron-left 
                         ${booksIndex.start === 0 ? 'inactive' : ''}`
-                        }
-                        onClick={handleLeftArrow}
-                    />
-                    <i
-                        className={`fa-solid fa-chevron-right  
+                                    }
+                                    onClick={handleLeftArrow}
+                                />
+                                <i
+                                    className={`fa-solid fa-chevron-right  
                         ${booksIndex.start + 4 >= recommendedBooks.length ? 'inactive' : ''}`
-                        }
-                        onClick={handleRightArrow}
-                    />
-                </span>
-            </article>
-            <ul className="recommended__books">
-                {recommendedBooks?.slice(booksIndex.start, booksIndex.end).map(book =>
-                    <Book
-                        key={book._id}
-                        book={book}
-                    />
-                )}
-            </ul>
-        </section>
+                                    }
+                                    onClick={handleRightArrow}
+                                />
+                            </span>
+                        </article>
+                        <ul className="recommended__books">
+                            {recommendedBooks?.slice(booksIndex.start, booksIndex.end).map(book =>
+                                <Book
+                                    key={book._id}
+                                    book={book}
+                                />
+                            )}
+                        </ul>
+                    </section>
+                    <hr className="hr__divider" />
+                </>
+            }
+        </>
     );
 }
 
