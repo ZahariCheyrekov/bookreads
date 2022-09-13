@@ -85,6 +85,7 @@
 .review__paragraph {
     margin: 20px 0;
     line-height: 1.5;
+    word-break: break-all;
 }
 
 .review__span {
