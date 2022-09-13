@@ -97,7 +97,7 @@ const Navigation = () => {
                                 </Link>
                             </li>
                             <li className="header__ul--li">
-                                <Link to={`/user/${user?.result?._id}/shelves/read`} >
+                                <Link to={`/user/${user?.result?._id}/shelves`} >
                                     My Books
                                 </Link>
                             </li>
