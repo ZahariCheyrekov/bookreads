@@ -27,7 +27,7 @@ const Post = ({ post, posts, setPosts }) => {
     const [hasReviewTextButton] = useState(post?.postBookData?.reviewContent?.join('').length >= 100);
     const [showReviewText, setShowReviewText] = useState(false);
     const [showFullReview, setShowFullReview] = useState(user?.result?._id === post?.userData?.id || post?.postBookData?.spoilers === false);
-    const [likedByUser] = useState(likes?.some(like => like.userId === user?.result?._id));
+    const [likedByUser, setLikedByUser] = useState(likes?.some(like => like.userId === user?.result?._id));
 
     const handleLike = async () => {
         const userId = user?.result?._id;
@@ -37,8 +37,10 @@ const Post = ({ post, posts, setPosts }) => {
         if (existingLike) {
             const filteredLikes = likes.filter(like => like.userId !== userId);
             setLikes(filteredLikes);
+            setLikedByUser(false);
         } else {
             setLikes([...likes, { userId, userName }]);
+            setLikedByUser(true);
         }
 
         await likePost(post?._id, userId, userName);
