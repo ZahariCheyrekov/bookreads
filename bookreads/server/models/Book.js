@@ -36,6 +36,10 @@ const bookSchema = mongoose.Schema({
     creatorId: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Date,
+        default: new Date()
     }
 });
 
