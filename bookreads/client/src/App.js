@@ -45,7 +45,7 @@ function App() {
                         <Route key={path} path={`/${path}`} element={<BookForm />} />
                     ))}
 
-                    {['read', 'currently-reading', 'to-read'].map((path) => (
+                    {['', 'read', 'currently-reading', 'to-read'].map((path) => (
                         <Route key={path} path={`/user/:id/shelves/${path}`} element={<Shelves />} />
                     ))}
                 </Route>
