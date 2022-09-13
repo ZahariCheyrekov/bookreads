@@ -28,7 +28,13 @@ const Shelves = () => {
             const index = path.pathname.lastIndexOf('/');
             const shelveName = path.pathname.slice(index + 1);
 
-            if (shelveName === 'read') {
+            if (shelveName === 'shelves') {
+                setBooks([
+                    ...currentUser.shelves.read,
+                    ...currentUser.shelves.currentlyReading,
+                    ...currentUser.shelves.toRead
+                ]);
+            } else if (shelveName === 'read') {
                 setBooks(currentUser.shelves.read);
             } else if (shelveName === 'currently-reading') {
                 setBooks(currentUser.shelves.currentlyReading);
@@ -56,7 +62,7 @@ const Shelves = () => {
                                 </h4>
                                 <ul className="shelves__list">
                                     <li className="shelves__list--shelve">
-                                        <Link to={`/user/${id}/shelves/read`}>
+                                        <Link to={`/user/${id}/shelves`}>
                                             All ({booksCount})
                                         </Link>
                                     </li>
