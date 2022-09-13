@@ -1,4 +1,4 @@
-import * as userAPI from '../../../api/userAPI';
+import * as authAPI from '../api/authAPI';
 
 import { saveUser } from '../../../services/localStorage';
 import { validateInputFields } from '../../../validation/validateInputFields';
@@ -25,7 +25,7 @@ export const auth = async (action, data, navigate) => {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
             }
 
-            result = await userAPI.signin(data);
+            result = await authAPI.signin(data);
             notify(LOGIN_SUCCESSFUL);
 
         } else if (action === SIGN_UP) {
@@ -41,7 +41,7 @@ export const auth = async (action, data, navigate) => {
                 throw new Error(PASSWORDS_DONT_MATCH);
             }
 
-            result = await userAPI.signup(data);
+            result = await authAPI.signup(data);
             notify(REGISTER_SUCCESSFUL);
         }
 
