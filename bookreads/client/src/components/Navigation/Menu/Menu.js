@@ -13,7 +13,7 @@ const Menu = ({ profileOpen, handleProfileClick, logout }) => {
         <>
             {profileOpen && (
                 <ul className="header__article--ul article__profile--ul">
-                    <Link to={getUserLink(user.result.name, user.result._id)}
+                    <Link to={getUserLink(user?.result?.name, user?.result?._id)}
                         onClick={handleProfileClick}
                     >
                         <h4 className="profile__ul--name">{user?.result?.name}</h4>
