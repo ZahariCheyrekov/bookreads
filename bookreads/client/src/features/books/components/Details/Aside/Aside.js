@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useBook } from '../../../hooks/useBook';
+
 import { notify } from '../../../../../lib/toastify';
 
 import { deleteBook } from '../../../api/bookAPI';
@@ -15,8 +17,9 @@ import Rating from '../Rating/Rating';
 
 import './Aside.css';
 
-const Aside = ({ book, isOwner }) => {
+const Aside = ({ isOwner }) => {
     const navigate = useNavigate();
+    const book = useBook();
     const { user } = useContext(AuthContext);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
 
