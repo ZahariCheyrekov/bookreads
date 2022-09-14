@@ -40,7 +40,7 @@ const BookForm = () => {
                 setBookData(book);
             }
             fetchBook();
-        }
+        } 
     }, [id]);
 
     const handleChange = (ev) => {
@@ -83,17 +83,17 @@ const BookForm = () => {
         <main className="main">
             <form className="main__form--book">
                 <legend className="form__legend">{id ? 'Edit' : 'Create'} book</legend>
-
-                <FormField htmlFor={'title'} content={'Title'} value={id && bookData?.title} onChange={handleChange} />
-                <FormField htmlFor={'author'} content={'Author'} value={id && bookData?.author} onChange={handleChange} />
-                <FormField htmlFor={'description'} content={'Description'} textearea={true} value={id && bookData?.description} onChange={handleChange} />
-                <FormField htmlFor={'tags'} content={'Tags'} value={id && bookData?.tags} onChange={handleChange} />
-                <FormField htmlFor={'pages'} content={'Pages'} type={'number'} value={id && bookData?.pages} onChange={handleChange} />
-                <FormField htmlFor={'language'} content={'Language'} value={id && bookData?.language} onChange={handleChange} />
-                <FormField htmlFor={'bookCoverUrl'} content={'Book cover url'} type={'url'} value={id && bookData?.bookCoverUrl} onChange={handleChange} />
+                <FormField htmlFor={'title'} content={'Title'} value={bookData?.title} onChange={handleChange} />
+                <FormField htmlFor={'author'} content={'Author'} value={bookData?.author} onChange={handleChange} />
+                <FormField htmlFor={'description'} content={'Description'} textearea={true} value={bookData?.description} onChange={handleChange} />
+                <FormField htmlFor={'tags'} content={'Tags'} value={bookData?.tags} onChange={handleChange} />
+                <FormField htmlFor={'pages'} content={'Pages'} type={'number'} value={bookData?.pages} onChange={handleChange} />
+                <FormField htmlFor={'language'} content={'Language'} value={bookData?.language} onChange={handleChange} />
+                <FormField htmlFor={'bookCoverUrl'} content={'Book cover url'} type={'url'} value={bookData?.bookCoverUrl} onChange={handleChange} />
                 <FormField htmlFor={'datePublished'} content={'Date published'} type={'date'} value={bookData?.datePublished.slice(0, 10)} onChange={handleChange} />
-
-                <button className="form__button auth__button" onClick={handleClick}>
+                <button
+                    className="form__button auth__button"
+                    onClick={handleClick}>
                     {id ? 'Edit' : 'Create'} book
                 </button>
             </form>
