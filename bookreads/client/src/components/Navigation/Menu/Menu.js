@@ -11,6 +11,12 @@ const Menu = ({ handleProfileClick, logout }) => {
 
     return (
         <ul className="header__article--ul article__profile--ul">
+            <span className="header__span--x">
+                <i
+                    className="fa-regular fa-x"
+                    onClick={handleProfileClick}
+                />
+            </span>
             <Link to={getUserLink(user?.result?.name, user?.result?._id)}
                 onClick={handleProfileClick}
             >
