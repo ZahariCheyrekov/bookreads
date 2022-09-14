@@ -5,7 +5,7 @@ import { AuthContext } from '../../../../../contexts/AuthContext';
 
 import { getBook } from '../../../services/book';
 import { createReview } from '../../../api/reviewAPI';
-import { getRatingByUser } from '../../../services/review';
+import { getUserReview } from '../../../services/review';
 import { createPost } from '../../../../../api/postAPI';
 import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
 
@@ -18,17 +18,10 @@ const CreateReview = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [book, setBook] = useState(null);
+    const [userReview, setUserReview] = useState();
     const [reviewContent, setReviewContent] = useState('');
     const [spoilers, setSpoilers] = useState(false);
-    const [rating, setParentRating] = useState(0);
-
-    useEffect(() => {
-        const getUserRating = async () => {
-            const currentUserRating = await getRatingByUser(id, user.result._id);
-            setParentRating(currentUserRating);
-        }
-        getUserRating();
-    }, [id, user?.result?._id]);
+    const [rating, setParentRating] = useState(userReview?.rating);
 
     useEffect(() => {
         const fetchBook = async () => {
@@ -37,6 +30,15 @@ const CreateReview = () => {
         }
         fetchBook();
     }, [id]);
+
+    useEffect(() => {
+        const fetchUserReview = async () => {
+            const currentReview = await getUserReview(id, user?.result._id);
+            setUserReview(currentReview);
+            setReviewContent(currentReview?.reviewContent.join(' '));
+        }
+        fetchUserReview();
+    }, [id, user?.result?._id]);
 
     const handleSpoilers = () => {
         setSpoilers(prevState => !prevState);
@@ -116,6 +118,7 @@ const CreateReview = () => {
                             <h4 className="create__review__rating--title">My rating:</h4>
 
                             <Rating
+                                rating={userReview?.rating}
                                 setParentRating={setParentRating}
                                 showRateTitle={false}
                                 small={true}
@@ -130,6 +133,7 @@ const CreateReview = () => {
                         <form className="create__review__form">
                             <textarea
                                 className="create__review__form--textarea"
+                                value={reviewContent}
                                 onChange={handleReviewContent}
                             />
                         </form>
