@@ -73,7 +73,7 @@ const Navigation = () => {
     }
 
     return (
-        <section className="section__navigation">
+        <section className={`section__navigation ${profileOpen && 'opened'} `}>
             <nav className="navigation header__navigation">
                 <span className="navigation__search--icon">
                     <i
@@ -182,11 +182,13 @@ const Navigation = () => {
                                 alt={user?.result?.name}
                             />
 
-                            <Menu
-                                profileOpen={profileOpen}
-                                handleProfileClick={() => setProfileOpen(prevState => !prevState)}
-                                logout={logout}
-                            />
+                            {profileOpen &&
+                                <Menu
+                                    profileOpen={profileOpen}
+                                    handleProfileClick={() => setProfileOpen(prevState => !prevState)}
+                                    logout={logout}
+                                />
+                            }
                         </article>
                     </>
                     : null
