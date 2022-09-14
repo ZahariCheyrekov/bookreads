@@ -13,7 +13,8 @@ const FormField = ({ htmlFor, content, type, textearea, value, onChange }) => {
                 ? <textarea
                     name={htmlFor}
                     className="form__input form__textarea"
-                    value={value} onChange={onChange}
+                    value={value} 
+                    onChange={onChange}
                 />
                 :
                 <input
