@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 import ReviewSchema from '../models/Review.js';
 
-export const getUserRating = async (req, res) => {
+export const getUserReview = async (req, res) => {
     const { id, userId } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -11,12 +11,7 @@ export const getUserRating = async (req, res) => {
 
     const review = await ReviewSchema.findOne({ bookId: String(id), "user.id": String(userId) });
 
-    let rating = 0;
-    if (review?.rating) {
-        rating = review.rating;
-    }
-
-    return res.status(200).json({ rating: rating });
+    return res.status(200).json(review);
 }
 
 export const getReviewsById = async (req, res) => {
