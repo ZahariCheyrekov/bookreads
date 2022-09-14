@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { useBook } from '../../hooks/useBook';
-
 import { AuthContext } from '../../../../contexts//AuthContext';
 
 import Rating from '../Details/Rating/Rating';
@@ -16,7 +14,6 @@ import { ReviewContext } from '../../contexts/ReviewContext';
 import './Reviews.css';
 
 const Reviews = () => {
-    const book = useBook();
     const reviews = useContext(ReviewContext);
     const { id } = useParams();
     const { user } = useContext(AuthContext);
@@ -37,7 +34,7 @@ const Reviews = () => {
                 <h2 className="reviews__user--question">What do you think?</h2>
                 <section className="reviews__review--action">
                     <Rating />
-                    <Link to={`/review/edit/${id}`} book={book}>
+                    <Link to={`/review/edit/${id}`}>
                         <button className="reviews__user--button">Write a Review</button>
                     </Link>
                 </section>
