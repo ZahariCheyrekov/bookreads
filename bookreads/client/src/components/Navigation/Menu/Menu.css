@@ -23,6 +23,7 @@
     margin-bottom: 0;
 }
 
+
 @media only screen and (max-width: 1200px) {
     .article__profile--ul {
         position: fixed;
@@ -47,8 +48,25 @@
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .profile__ul--name {
+        font-size: 1.4rem;
+    }
+
+    .profile__ul--li {
+        margin: 30px 0;
+        font-size: 1.4rem;
+    }
+}
+
 @media only screen and (max-width: 850px) {
     .article__profile--ul {
         width: 60%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .article__profile--ul {
+        width: 75%;
     }
 }
