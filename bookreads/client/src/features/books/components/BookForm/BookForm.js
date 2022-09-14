@@ -40,7 +40,11 @@ const BookForm = () => {
                 setBookData(book);
             }
             fetchBook();
-        } 
+        } else {
+            setBookData({
+                title: '', author: '', description: '', tags: '', pages: '', language: '', bookCoverUrl: '', datePublished: ''
+            });
+        }
     }, [id]);
 
     const handleChange = (ev) => {
