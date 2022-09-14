@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 import defaultUserPhoto from '../../../../assets/default-user-photo.png';
 import { getPostLikes } from '../../../../services/post';
@@ -11,6 +13,7 @@ import './PostLikes.css';
 
 const PostLikes = () => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
     const [likes, setLikes] = useState(null);
 
     useEffect(() => {
@@ -42,7 +45,7 @@ const PostLikes = () => {
                                     </article>
                                     <h5 className="like__user--name">
                                         <Link to={getUserLink(like.userName, like.userId)}>
-                                            {like.userName}
+                                            {(like.userId === user.result._id) ? 'You' : like.userName}
                                         </Link>
                                     </h5>
                                 </li>
