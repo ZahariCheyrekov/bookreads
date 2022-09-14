@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useUserReview } from '../../../hooks/useUserReview';
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { getBook } from '../../../services/book';
 import { createReview } from '../../../api/reviewAPI';
 import { createPost } from '../../../../../api/postAPI';
 
@@ -13,33 +12,29 @@ import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionTy
 import Rating from '../../Details/Rating/Rating';
 
 import './CreateReview.css';
+import { useBook } from '../../../hooks/useBook';
 
 const CreateReview = () => {
     const navigate = useNavigate();
-    const { id } = useParams();
     const currentUserReview = useUserReview();
+    const book = useBook();
+
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const [book, setBook] = useState(null);
     const [reviewContent, setReviewContent] = useState('');
     const [spoilers, setSpoilers] = useState(false);
     const [rating, setParentRating] = useState(0);
 
     useEffect(() => {
-        const fetchBook = async () => {
-            const book = await getBook(id);
-            setBook(book);
-        }
-        fetchBook();
-    }, [id]);
-
-    useEffect(() => {
+        setSpoilers(currentUserReview?.spoilers);
         setParentRating(currentUserReview?.rating);
         setReviewContent(currentUserReview?.reviewContent.join(' '));
-    }, [currentUserReview?.rating, currentUserReview?.reviewContent]);
+    }, [currentUserReview]);
 
     const handleSpoilers = () => {
         setSpoilers(prevState => !prevState);
     }
+
     const handleReviewContent = (ev) => {
         setReviewContent(ev.target.value);
     }
