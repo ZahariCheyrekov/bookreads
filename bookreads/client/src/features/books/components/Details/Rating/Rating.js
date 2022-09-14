@@ -18,7 +18,9 @@ const Rating = ({ rating, setParentRating, showRateTitle, small }) => {
     useEffect(() => {
         const fetchUserReview = async () => {
             const currentReview = await getUserReview(id, user?.result._id);
-            setCurrentRating(currentReview.rating);
+            if (currentReview) {
+                setCurrentRating(currentReview.rating);
+            }
         }
         fetchUserReview();
     }, [id, user?.result?._id]);
