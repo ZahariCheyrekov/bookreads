@@ -1,7 +1,7 @@
 import express from 'express';
 
 import {
-    getUserRating,
+    getUserReview,
     getReviewsById,
     createReview,
     likeReview,
@@ -13,7 +13,7 @@ import {
 const router = express.Router();
 
 router.get('/books/:id/reviews', getReviewsById);
-router.get('/books/:id/:userId', getUserRating);
+router.get('/books/:id/:userId', getUserReview);
 router.post('/review/edit/:id', createReview);
 router.post('/books/:id', likeReview);
 router.post('/books/:id/comment', addCommentOnReview);
