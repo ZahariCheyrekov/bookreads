@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import { useBook } from '../../hooks/useBook';
+
 import { AuthContext } from '../../../../contexts//AuthContext';
 
 import Rating from '../Details/Rating/Rating';
@@ -13,7 +15,8 @@ import { ReviewContext } from '../../contexts/ReviewContext';
 
 import './Reviews.css';
 
-const Reviews = ({ book }) => {
+const Reviews = () => {
+    const book = useBook();
     const reviews = useContext(ReviewContext);
     const { id } = useParams();
     const { user } = useContext(AuthContext);
