@@ -1,6 +1,6 @@
 .article__profile--ul {
     position: absolute;
-    margin-top: 0.56rem;
+    top: 47px;
     right: 0;
 
     width: 250px;
@@ -21,4 +21,34 @@
 
 .profile__ul--li:last-child {
     margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .article__profile--ul {
+        position: fixed;
+        top: 55px;
+        right: -20px;
+
+        width: 30%;
+        height: 100%;
+    }
+
+    .section__navigation.opened::before {
+        content: "";
+
+        position: fixed;
+        top: 55px;
+
+        width: 100%;
+        height: 100vh;
+
+        background-color: var(--black-color);
+        opacity: 0.7;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .article__profile--ul {
+        width: 60%;
+    }
 }
