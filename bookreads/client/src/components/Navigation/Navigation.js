@@ -184,7 +184,6 @@ const Navigation = () => {
 
                             {profileOpen &&
                                 <Menu
-                                    profileOpen={profileOpen}
                                     handleProfileClick={() => setProfileOpen(prevState => !prevState)}
                                     logout={logout}
                                 />
