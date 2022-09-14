@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+import { useUserReview } from '../../../hooks/useUserReview';
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
 import { getBook } from '../../../services/book';
 import { createReview } from '../../../api/reviewAPI';
-import { getUserReview } from '../../../services/review';
 import { createPost } from '../../../../../api/postAPI';
+
 import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
 
 import Rating from '../../Details/Rating/Rating';
@@ -16,12 +17,12 @@ import './CreateReview.css';
 const CreateReview = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+    const currentUserReview = useUserReview();
     const { user } = useContext(AuthContext);
     const [book, setBook] = useState(null);
-    const [userReview, setUserReview] = useState();
     const [reviewContent, setReviewContent] = useState('');
     const [spoilers, setSpoilers] = useState(false);
-    const [rating, setParentRating] = useState(userReview?.rating);
+    const [rating, setParentRating] = useState(0);
 
     useEffect(() => {
         const fetchBook = async () => {
@@ -32,13 +33,9 @@ const CreateReview = () => {
     }, [id]);
 
     useEffect(() => {
-        const fetchUserReview = async () => {
-            const currentReview = await getUserReview(id, user?.result._id);
-            setUserReview(currentReview);
-            setReviewContent(currentReview?.reviewContent.join(' '));
-        }
-        fetchUserReview();
-    }, [id, user?.result?._id]);
+        setParentRating(currentUserReview?.rating);
+        setReviewContent(currentUserReview?.reviewContent.join(' '));
+    }, [currentUserReview?.rating, currentUserReview?.reviewContent]);
 
     const handleSpoilers = () => {
         setSpoilers(prevState => !prevState);
@@ -118,7 +115,7 @@ const CreateReview = () => {
                             <h4 className="create__review__rating--title">My rating:</h4>
 
                             <Rating
-                                rating={userReview?.rating}
+                                rating={currentUserReview?.rating}
                                 setParentRating={setParentRating}
                                 showRateTitle={false}
                                 small={true}
