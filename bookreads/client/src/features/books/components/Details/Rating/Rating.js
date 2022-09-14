@@ -3,29 +3,28 @@ import { useParams } from 'react-router-dom';
 
 import { createReview } from '../../../api/reviewAPI';
 import { AuthContext } from '../../../../../contexts/AuthContext';
-import { getRatingByUser } from '../../../services/review';
+import { getUserReview } from '../../../services/review';
 
 import './Rating.css';
 
 const stars = [1, 2, 3, 4, 5];
 
-const Rating = ({ setParentRating, showRateTitle, small }) => {
+const Rating = ({ rating, setParentRating, showRateTitle, small }) => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const [rating, setRating] = useState(null);
+    const [currentRating, setCurrentRating] = useState(rating);
     const [hoverStar, setHoverStar] = useState(null);
-    const [userRating, setUserRating] = useState(0);
 
     useEffect(() => {
-        const getUserRating = async () => {
-            const currentUserRating = await getRatingByUser(id, user.result._id);
-            setUserRating(currentUserRating);
+        const fetchUserReview = async () => {
+            const currentReview = await getUserReview(id, user?.result._id);
+            setCurrentRating(currentReview.rating);
         }
-        getUserRating();
+        fetchUserReview();
     }, [id, user?.result?._id]);
 
     const handleRating = (star) => {
-        setRating(star);
+        setCurrentRating(star);
         if (setParentRating) {
             setParentRating(star);
         }
@@ -48,7 +47,7 @@ const Rating = ({ setParentRating, showRateTitle, small }) => {
                 {stars.map(star =>
                     <i
                         className=
-                        {`fa-solid fa-star ${star - 1 < (hoverStar || rating || userRating) ? 'rated' : 'unrated'} ${small && 'small'}`}
+                        {`fa-solid fa-star ${star - 1 < (hoverStar || currentRating) ? 'rated' : 'unrated'} ${small && 'small'}`}
                         key={star}
                         onClick={() => handleRating(star)}
                         onMouseEnter={() => setHoverStar(star)}
