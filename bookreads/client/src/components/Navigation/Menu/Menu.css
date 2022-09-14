@@ -5,10 +5,24 @@
 
     width: 250px;
     padding: 12px;
+    padding-right: 17px;
     z-index: 50;
 
     background-color: var(--white-color);
     box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+}
+
+.header__span--x {
+    position: relative;
+}
+
+.header__span--x>.fa-regular.fa-x {
+    display: none;
+    position: absolute;
+    right: 45px;
+
+    font-size: 2.2rem;
+    color: var(--white-color);
 }
 
 .profile__ul--name {
@@ -32,6 +46,10 @@
 
         width: 30%;
         height: 100%;
+    }
+
+    .header__span--x>.fa-regular.fa-x {
+        display: block;
     }
 
     .section__navigation.opened::before {
