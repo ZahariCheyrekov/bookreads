@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { AuthContext } from '../../../../contexts/AuthContext';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { getBook } from '../../services/book';
+import { useBook } from '../../hooks/useBook';
+
+import { AuthContext } from '../../../../contexts/AuthContext';
 import { ReviewContextProvider } from '../../contexts/ReviewContext';
 
 import Aside from './Aside/Aside';
@@ -14,27 +15,15 @@ import Spinner from '../../../../components/Spinner/Spinner';
 import './Details.css';
 
 const Details = () => {
+    const book = useBook();
     const { user } = useContext(AuthContext);
-    const { id } = useParams();
-    const [book, setBook] = useState(null);
     const [isOwner] = useState(user?.result?._id || user?.result?.googleId === book?.creatorId);
-
-    useEffect(() => {
-        const fetchBook = async () => {
-            const book = await getBook(id);
-            setBook(book);
-        }
-        fetchBook();
-    }, [id]);
 
     return (
         <main className="main__details">
             {book ?
                 <div className="div__wrapper">
-                    <Aside
-                        book={book}
-                        isOwner={isOwner}
-                    />
+                    <Aside isOwner={isOwner} />
 
                     <section className="section__book--content">
                         <article className="section__article--book">
@@ -89,7 +78,7 @@ const Details = () => {
                         <Recommended />
 
                         <ReviewContextProvider>
-                            <Reviews book={book} />
+                            <Reviews />
                         </ReviewContextProvider>
                     </section>
                 </div >
