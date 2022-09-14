@@ -1,7 +1,7 @@
 import { API } from '../../../lib/axios';
 
 
-export const getUserRatingById = (bookId, userId) => API.get(`/books/${bookId}/${userId}`);
+export const getUserReviewForBook = (bookId, userId) => API.get(`/books/${bookId}/${userId}`);
 
 export const getReviewsById = (bookId) => API.get(`/books/${bookId}/reviews`);
 
