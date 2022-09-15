@@ -33,6 +33,11 @@ const Reviews = () => {
                         review={userReview}
                         userReview={true}
                     />
+                    <span className="reviews__user__review--edit">
+                        <Link to={`/review/edit/${id}`}>
+                            Edit review
+                        </Link>
+                    </span>
                 </>
                 :
                 <article className="reviews__user">
