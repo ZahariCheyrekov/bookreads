@@ -14,9 +14,9 @@ import { ReviewContext } from '../../contexts/ReviewContext';
 import './Reviews.css';
 
 const Reviews = () => {
-    const { reviews, userReview } = useContext(ReviewContext);
     const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const { reviews, userReview } = useContext(ReviewContext);
 
     return (
         <section className="reviews">
