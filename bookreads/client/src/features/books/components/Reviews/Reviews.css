@@ -3,6 +3,10 @@
     margin-bottom: 20px;
 }
 
+.reviews__user__review--article .review__item .review__comments {
+    margin-bottom: 30px;
+}
+
 .reviews__user__review--title {
     font-style: italic;
     font-size: 1.4rem;
