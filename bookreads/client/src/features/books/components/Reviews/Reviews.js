@@ -61,7 +61,7 @@ const Reviews = () => {
 
             <section className="reviews">
                 <ul className="reviews__list">
-                    {reviews?.map(review =>
+                    {reviews.filter(review => review.user.id !== user.result._id)?.map(review =>
                         <Review
                             key={review?._id}
                             review={review}
