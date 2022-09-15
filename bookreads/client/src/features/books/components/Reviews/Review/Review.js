@@ -12,7 +12,7 @@ import Comments from './Comments/Comments';
 
 import './Review.css';
 
-const Review = ({ review }) => {
+const Review = ({ review, userReview }) => {
     const { user } = useContext(AuthContext);
     const [reviewRating] = useState(review.rating);
     const [likes, setLikes] = useState(review.likes);
@@ -47,7 +47,8 @@ const Review = ({ review }) => {
     return (
         <>
             {review
-                ? <li className="review__item">
+                ?
+                <li className="review__item">
                     <aside className="review__aside">
                         <div className="review__user--wrapper">
                             <Link to={getUserLink(review.user.name, review.user.id)}>
@@ -144,7 +145,9 @@ const Review = ({ review }) => {
                                 setComments={setComments}
                             />
                         }
-                        <hr className="hr__divider"></hr>
+                        {!userReview &&
+                            <hr className="hr__divider"></hr>
+                        }
                     </article>
                 </li >
                 : null
