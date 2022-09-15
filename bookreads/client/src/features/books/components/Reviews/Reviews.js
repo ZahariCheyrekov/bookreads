@@ -24,7 +24,7 @@ const Reviews = () => {
                 Reviews & Ratings
             </h3>
             {userReview ?
-                <>
+                <article className="reviews__user__review--article">
                     <h4 className="reviews__user__review--title">
                         My Review
                     </h4>
@@ -33,7 +33,7 @@ const Reviews = () => {
                         review={userReview}
                         userReview={true}
                     />
-                </>
+                </article>
                 :
                 <article className="reviews__user">
                     <Link to={getUserLink(user.result.name, user.result._id)}>
