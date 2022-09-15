@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
 import { getUserLink } from '../../../../../utils/getUserLink';
+import { getReviewDate } from '../../../utils/getReviewDate';
 import { likeReview } from '../../../api/reviewAPI';
 
 import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
@@ -13,6 +14,7 @@ import Comments from './Comments/Comments';
 import './Review.css';
 
 const Review = ({ review, userReview }) => {
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [reviewRating] = useState(review.rating);
     const [likes, setLikes] = useState(review.likes);
@@ -67,12 +69,26 @@ const Review = ({ review, userReview }) => {
                     </aside>
                     <article className="review__content">
                         <section className="review__rating">
-                            {[...Array(5)].map((_, index) =>
-                                <i
-                                    key={index}
-                                    className={`fa-solid fa-star fa-review ${index < reviewRating ? 'rated' : ''}`}
-                                />
-                            )}
+                            {reviewRating === 0
+                                ?
+                                <strong>
+                                    Read
+                                </strong>
+                                :
+                                <span>
+                                    {[...Array(5)].map((_, index) =>
+                                        <i
+                                            key={index}
+                                            className={`fa-solid fa-star fa-review 
+                                            ${index < reviewRating ? 'rated' : ''}`
+                                            }
+                                        />
+                                    )}
+                                </span>
+                            }
+                            <time className="review__created--time">
+                                {getReviewDate(review.createdAt)}
+                            </time>
                         </section>
                         <section className={`review__section--content ${showContent && 'active'}`}>
                             {review.reviewContent.map((paragraph, index) =>
@@ -145,8 +161,13 @@ const Review = ({ review, userReview }) => {
                                 setComments={setComments}
                             />
                         }
-                        {!userReview &&
-                            <hr className="hr__divider"></hr>
+                        {userReview
+                            ? <Link to={`/review/edit/${id}`} className="user__review--link">
+                                <span className="reviews__user__review--edit">
+                                    Edit review
+                                </span>
+                            </Link>
+                            : <hr className="hr__divider"></hr>
                         }
                     </article>
                 </li >
