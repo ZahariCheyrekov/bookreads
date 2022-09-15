@@ -109,27 +109,38 @@ const Review = ({ review, userReview }) => {
                                 </span>
                             }
                         </section>
-                        {(likes.length > 0 || comments.length > 0) ?
+                        {(likes.length > 0 || comments.length > 0) &&
                             <section className="review__likes__comments">
-                                <article className="review__likes">
-                                    <span className="review__likes--number">
-                                        {likes.length}&nbsp;
-                                    </span>
-                                    <span className="review__likes--text">
-                                        {likes.length === 1 ? 'like' : 'likes'}
-                                    </span>
-                                </article>
-                                <span className="review__likes__comments--dot"> · </span>
-                                <article className="review__comments">
-                                    <span className="review__comments--number">
-                                        {comments.length}&nbsp;
-                                    </span>
-                                    <span className="review__comments--text">
-                                        {comments.length === 0 || comments.length === 1 ? 'comment' : 'comments'}
-                                    </span>
-                                </article>
+                                {likes.length > 0 &&
+                                    <article className="review__likes">
+                                        <span className="review__likes--number">
+                                            {likes.length}&nbsp;
+                                        </span>
+                                        <span className="review__likes--text">
+                                            {likes.length === 1
+                                                ? 'like'
+                                                : 'likes'
+                                            }
+                                        </span>
+                                    </article>
+                                }
+                                {(likes.length > 0 && comments.length > 0) &&
+                                    <span className="review__likes__comments--dot"> · </span>
+                                }
+                                {comments.length > 0 &&
+                                    <article className="review__comments">
+                                        <span className="review__comments--number">
+                                            {comments.length}&nbsp;
+                                        </span>
+                                        <span className="review__comments--text">
+                                            {comments.length === 0 || comments.length === 1
+                                                ? 'comment'
+                                                : 'comments'
+                                            }
+                                        </span>
+                                    </article>
+                                }
                             </section>
-                            : null
                         }
                         <section className="review__section--buttons">
                             <article
