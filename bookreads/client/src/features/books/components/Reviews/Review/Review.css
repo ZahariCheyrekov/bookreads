@@ -59,6 +59,15 @@
     width: 80%;
 }
 
+.review__rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review__created--time {
+    color: var(--gray-color);
+}
+
 .fa-solid.fa-star.fa-review {
     font-size: 1.2rem;
     cursor: unset;
@@ -150,6 +159,27 @@
 .review__button--text:hover {
     text-decoration: underline;
 }
+
+.reviews__user__review--edit {
+    background-color: var(--dark-button-color);
+    color: var(--white-color);
+
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1.2rem;
+
+    margin: 1rem 0;
+    padding: 6px 20px;
+}
+
+.reviews__user__review--edit:hover {
+    background-color: var(--dark-button-hover-color);
+}
+
+.user__review--link:hover {
+    text-decoration: none;
+}
+
 
 @media only screen and (max-width: 600px) {
     .review__item {
