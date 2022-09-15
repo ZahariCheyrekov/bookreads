@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 
+import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home/Home';
 import Profile from './features/profile/components/Profile';
@@ -29,6 +30,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <AuthContextProvider>
+            <ScrollToTop />
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
