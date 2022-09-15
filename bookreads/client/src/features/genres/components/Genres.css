@@ -84,6 +84,7 @@
 }
 
 .genres__default--book {
+    position: relative;
     width: 115px;
     height: 180px;
 }
@@ -92,8 +93,26 @@
     object-fit: cover;
 }
 
+.genres__default--book>a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background: var(--black-color);
+    transition: all ease-in-out 0.2s;
+    opacity: 0;
+}
+
+.genres__default--book>a:hover::after{
+    opacity: 0.3;
+}
+
 
 @media only screen and (max-width: 1000px) {
+
     .genres__page--article,
     .genre__books--wrapper {
         flex-direction: column;
