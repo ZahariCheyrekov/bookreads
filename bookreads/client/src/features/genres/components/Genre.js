@@ -29,14 +29,14 @@ export const Genre = () => {
                     {books.length > 0 ?
                         <ul className="genre__books--list">
                             {books.map(book =>
-                                <li
-                                    key={book._id}
-                                    className="genre__book--item"
-                                >
-                                    <Link to={`/books/${book._id}`}>
+                                <Link to={`/books/${book._id}`}>
+                                    <li
+                                        key={book._id}
+                                        className="genre__book--item"
+                                    >
                                         <img src={book.bookCoverUrl} alt={book.title} />
-                                    </Link>
-                                </li>
+                                    </li>
+                                </Link>
                             )}
                         </ul>
                         :
