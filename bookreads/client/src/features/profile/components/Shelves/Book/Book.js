@@ -4,13 +4,14 @@ import { deleteBookFromShelve } from '../../../api/profileAPI';
 
 import './Book.css';
 
-const Book = ({ book, shelve, books, setBooks }) => {
+const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelves }) => {
     const { id } = useParams();
 
-    const removeBookFromShelve = () => {
+    const removeBookFromShelve = async () => {
         const filteredBooks = books.filter(currentBook => currentBook.id !== book.id);
         setBooks(filteredBooks);
-        deleteBookFromShelve(id, shelve, book.id);
+
+       
     }
 
     return (
@@ -45,14 +46,7 @@ const Book = ({ book, shelve, books, setBooks }) => {
                     </h4>
                 </Link>
             </td>
-            <td className="shelves__td">
-                <button
-                    className="shelves__td--delete"
-                    onClick={removeBookFromShelve}
-                >
-                    Delete
-                </button>
-            </td>
+          
         </tr>
     );
 }
