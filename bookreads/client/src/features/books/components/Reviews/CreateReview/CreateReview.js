@@ -5,10 +5,12 @@ import { useBook } from '../../../hooks/useBook';
 import { useUserReview } from '../../../hooks/useUserReview';
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { createReview, deleteReviewById } from '../../../api/reviewAPI';
+import { notify } from '../../../../../lib/toastify';
 import { createPost } from '../../../../../api/postAPI';
+import { createReview, deleteReviewById } from '../../../api/reviewAPI';
 
 import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
+import { REVIEW_DELETED } from '../../../constants/messages';
 
 import Rating from '../../Details/Rating/Rating';
 
@@ -81,6 +83,7 @@ const CreateReview = () => {
     const handleDeleteReview = () => {
         deleteReviewById(currentUserReview._id);
         navigate(`/books/${id}`);
+        notify(REVIEW_DELETED);
     }
 
     return (
