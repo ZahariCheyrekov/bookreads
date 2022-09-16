@@ -80,9 +80,29 @@
     accent-color: var(--blue-color);
 }
 
+.create__review__save {
+    display: flex;
+    justify-content: space-between;
+}
+
 .create__review__button--save {
     padding: 4px 20px;
     font-size: 1rem;
+}
+
+.review__delete--button {
+    background-color: var(--dark-red-color);
+    color: var(--white-color);
+
+    border: none;
+    border-radius: 20px;
+
+    padding: 6px 20px;
+    font-size: 1rem;
+}
+
+.review__delete--button:hover {
+    background-color: var(--red-color);
 }
 
 @media only screen and (max-width: 650px) {
@@ -104,3 +124,4 @@
         margin-top: 2rem;
     }
 }
+
