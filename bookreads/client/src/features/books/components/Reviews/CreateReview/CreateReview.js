@@ -5,7 +5,7 @@ import { useBook } from '../../../hooks/useBook';
 import { useUserReview } from '../../../hooks/useUserReview';
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { createReview } from '../../../api/reviewAPI';
+import { createReview, deleteReviewById } from '../../../api/reviewAPI';
 import { createPost } from '../../../../../api/postAPI';
 
 import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
@@ -75,6 +75,11 @@ const CreateReview = () => {
         }
 
         createPost({ status, postBookData, userData, createdAt: new Date() });
+        navigate(`/books/${id}`);
+    }
+
+    const handleDeleteReview = () => {
+        deleteReviewById(currentUserReview._id);
         navigate(`/books/${id}`);
     }
 
@@ -148,6 +153,12 @@ const CreateReview = () => {
                                 onClick={handleReview}
                             >
                                 Save
+                            </button>
+                            <button
+                                className="review__delete--button"
+                                onClick={handleDeleteReview}
+                            >
+                                Delete review
                             </button>
                         </section>
                     </section>
