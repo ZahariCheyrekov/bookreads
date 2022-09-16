@@ -1,16 +1,18 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useCurrentUser } from '../../../../../hooks/useCurrentUser';
 import { useBook } from '../../../hooks/useBook';
 
 import { notify } from '../../../../../lib/toastify';
 
+import { getUserBookStatus } from '../../../utils/getUserBookStatus';
 import { deleteBook } from '../../../api/bookAPI';
 import { addBookToUserShelve } from '../../../../../api/userAPI';
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../../../constants/shelves';
+import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../constants/shelves';
 import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
 
 import Rating from '../Rating/Rating';
@@ -20,8 +22,17 @@ import './Aside.css';
 const Aside = ({ isOwner }) => {
     const navigate = useNavigate();
     const book = useBook();
+    const currentUser = useCurrentUser();
     const { user } = useContext(AuthContext);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
+    const [bookShelveStatus, setBookShelveStatus] = useState('');
+
+    useEffect(() => {
+        if (currentUser && book) {
+            const status = getUserBookStatus(currentUser, book._id);
+            setBookShelveStatus(status);
+        }
+    }, [currentUser, book]);
 
     const handleDelete = () => {
         deleteBook(book?._id);
@@ -29,8 +40,9 @@ const Aside = ({ isOwner }) => {
         notify(USER_DELETED_A_BOOK);
     }
 
-    const handleBookShelve = (shelveName) => {
+    const handleBookShelve = (ev, shelveName) => {
         setVisibleBookOptions(false);
+        setBookShelveStatus(ev.target.textContent)
 
         const bookData = {
             id: book._id,
@@ -64,7 +76,7 @@ const Aside = ({ isOwner }) => {
                     </>
                 )}
                 <button className="aside__book--button book__button--status">
-                    Want to read
+                    {bookShelveStatus}
                     <i className="fa-solid fa-angle-down actions"
                         onClick={() => setVisibleBookOptions(true)}
                     />
@@ -79,19 +91,19 @@ const Aside = ({ isOwner }) => {
                     <article className="aside__options--list">
                         <button
                             className="aside__book__option book__option--want"
-                            onClick={() => handleBookShelve(WANT_TO_READ_SHELVE)}
+                            onClick={(ev) => handleBookShelve(ev, WANT_TO_READ_SHELVE)}
                         >
                             Want to Read
                         </button>
                         <button
                             className="aside__book__option book__option--reading"
-                            onClick={() => handleBookShelve(CURRENTLY_READING_SHELVE)}
+                            onClick={(ev) => handleBookShelve(ev, CURRENTLY_READING_SHELVE)}
                         >
                             Currently Reading
                         </button>
                         <button
                             className="aside__book__option book__option--read"
-                            onClick={() => handleBookShelve(READ_SHELVE)}
+                            onClick={(ev) => handleBookShelve(ev, READ_SHELVE)}
                         >
                             Read
                         </button>
