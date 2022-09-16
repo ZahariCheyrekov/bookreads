@@ -38,6 +38,11 @@
     background-color: transparent;
 }
 
+.book__button--status {
+    padding: 0 2rem 0 0rem;
+    font-size: 1.2rem;
+}
+
 .aside__book--button:first-child {
     margin: 0.8rem 0;
 }
