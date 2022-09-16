@@ -108,6 +108,8 @@ const Shelves = () => {
                                                     key={uuid()}
                                                     book={book}
                                                     shelve={shelve}
+                                                    books={books}
+                                                    setBooks={setBooks}
                                                 />
                                             )
                                         }
