@@ -46,7 +46,16 @@ const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelve
                     </h4>
                 </Link>
             </td>
-          
+            {shelve !== 'shelves' &&
+                <td className="shelves__td">
+                    <button
+                        className="shelves__td--delete"
+                        onClick={removeBookFromShelve}
+                    >
+                        Delete
+                    </button>
+                </td>
+            }
         </tr>
     );
 }
