@@ -155,16 +155,27 @@ export const removeBookFromShelve = async (req, res) => {
         return res.status(404).send(`Unable to find book with id: ${bookId}`);
     }
 
-    const shelves = {
-        'to-read': 'toRead',
-        'currently-reading': 'currentlyReading',
-        'read': 'read',
-    }
+    if (shelveName === 'shelves') {
+        Object.entries(existingUser.shelves).forEach(([shelve, shelveBooks]) => {
+            shelveBooks.forEach(book => {
+                if (book.id === bookId) {
+                    existingUser.shelves[shelve] = existingUser.shelves[shelve]
+                        .filter(book => book.id !== bookId);
+                }
+            });
+        });
+    } else {
+        const shelves = {
+            'to-read': 'toRead',
+            'currently-reading': 'currentlyReading',
+            'read': 'read',
+        }
 
-    const shelve = shelves[shelveName];
-    existingUser.shelves[shelve] = existingUser.shelves[shelve].filter(book => book.id !== bookId);
+        const shelve = shelves[shelveName];
+        existingUser.shelves[shelve] = existingUser.shelves[shelve].filter(book => book.id !== bookId);
+    }
 
     await User.findByIdAndUpdate(id, existingUser);
 
-    res.status(204).json();
+    return res.status(200).json();
 }
