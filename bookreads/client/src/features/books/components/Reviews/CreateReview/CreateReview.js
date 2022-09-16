@@ -20,7 +20,6 @@ const CreateReview = () => {
     const navigate = useNavigate();
     const currentUserReview = useUserReview();
     const book = useBook();
-
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [reviewContent, setReviewContent] = useState('');
@@ -157,12 +156,14 @@ const CreateReview = () => {
                             >
                                 Save
                             </button>
-                            <button
-                                className="review__delete--button"
-                                onClick={handleDeleteReview}
-                            >
-                                Delete review
-                            </button>
+                            {currentUserReview &&
+                                <button
+                                    className="review__delete--button"
+                                    onClick={handleDeleteReview}
+                                >
+                                    Delete review
+                                </button>
+                            }
                         </section>
                     </section>
                 </div>
