@@ -17,6 +17,7 @@ const Shelves = () => {
     const [booksCount, setBooksCount] = useState();
     const [books, setBooks] = useState([]);
     const [shelve, setShelve] = useState('');
+    const [bookShelve, setBookShelve] = useState('');
 
     useEffect(() => {
         if (currentUser?.shelves) {
@@ -36,10 +37,13 @@ const Shelves = () => {
                 ]);
             } else if (shelveName === 'read') {
                 setBooks(currentUser.shelves.read);
+                setBookShelve('read');
             } else if (shelveName === 'currently-reading') {
                 setBooks(currentUser.shelves.currentlyReading);
+                setBookShelve('currentlyReading');
             } else if (shelveName === 'to-read') {
                 setBooks(currentUser.shelves.toRead);
+                setBookShelve('toRead');
             }
 
             setShelve(shelveName);
