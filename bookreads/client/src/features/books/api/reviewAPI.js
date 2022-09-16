@@ -11,4 +11,6 @@ export const likeReview = (reviewId, like) => API.post(`/books/${reviewId}`, { l
 
 export const commentOnReview = (reviewId, commentData) => API.post(`/books/${reviewId}/comment`, commentData);
 
+export const deleteReviewById = (reviewId) => API.delete(`/reviews/${reviewId}`);
+
 export const deleteReviewComment = (reviewId, commentId) => API.delete(`/books/${reviewId}/comment/${commentId}`,);
