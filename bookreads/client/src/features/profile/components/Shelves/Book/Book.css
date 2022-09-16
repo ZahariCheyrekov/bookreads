@@ -15,3 +15,16 @@
 .shelves__td--title {
     font-weight: normal;
 }
+
+.shelves__td--delete {
+    background-color: var(--dark-red-color);
+    color: var(--white-color);
+
+    padding: 4px;
+    border: none;
+    border-radius: 10px;
+}
+
+.shelves__td--delete:hover {
+    background-color: var(--red-color);
+}
