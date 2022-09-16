@@ -7,6 +7,7 @@ import {
     likeReview,
     addCommentOnReview,
     deleteCommentOnReview,
+    deleteReview,
 } from '../controllers/review.js';
 
 
@@ -18,5 +19,6 @@ router.post('/review/edit/:id', createReview);
 router.post('/books/:id', likeReview);
 router.post('/books/:id/comment', addCommentOnReview);
 router.delete('/books/:id/comment/:commentId', deleteCommentOnReview);
+router.delete('/reviews/:id', deleteReview);
 
 export default router;
