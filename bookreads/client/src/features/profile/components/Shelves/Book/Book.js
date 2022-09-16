@@ -11,7 +11,12 @@ const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelve
         const filteredBooks = books.filter(currentBook => currentBook.id !== book.id);
         setBooks(filteredBooks);
 
-       
+        const filteredBookShelve = shelves[bookShelve].filter(currentBook => currentBook.id !== book.id);
+        shelves[bookShelve] = filteredBookShelve;
+
+        setBooksCount(prevState => prevState - 1);
+
+        await deleteBookFromShelve(id, shelve, book.id);
     }
 
     return (
