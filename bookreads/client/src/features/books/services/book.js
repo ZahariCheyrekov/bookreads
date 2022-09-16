@@ -13,6 +13,12 @@ export const getBook = async (id) => {
         return data;
     } catch (error) {
         console.log(error);
+
+        if (error.response) {
+            notifyError(error.response.data.message);
+        } else {
+            notifyError(error.message);
+        }
     }
 }
 
@@ -22,6 +28,12 @@ export const getBooks = async (id) => {
         return data;
     } catch (error) {
         console.log(error);
+
+        if (error.response) {
+            notifyError(error.response.data.message);
+        } else {
+            notifyError(error.message);
+        }
     }
 }
 
@@ -31,6 +43,12 @@ export const getBooksByTitle = async (bookTitle) => {
         return data;
     } catch (error) {
         console.log(error);
+
+        if (error.response) {
+            notifyError(error.response.data.message);
+        } else {
+            notifyError(error.message);
+        }
     }
 }
 
