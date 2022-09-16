@@ -1,9 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
 
+import { deleteBookFromShelve } from '../../../api/profileAPI';
+
 import './Book.css';
 
-const Book = ({ book, shelve }) => {
+const Book = ({ book, shelve, books, setBooks }) => {
     const { id } = useParams();
+
+    const removeBookFromShelve = () => {
+        const filteredBooks = books.filter(currentBook => currentBook.id !== book.id);
+        setBooks(filteredBooks);
+        deleteBookFromShelve(id, shelve, book.id);
+    }
 
     return (
         <tr className="shelves__row--book">
@@ -36,6 +44,14 @@ const Book = ({ book, shelve }) => {
                         {shelve}
                     </h4>
                 </Link>
+            </td>
+            <td className="shelves__td">
+                <button
+                    className="shelves__td--delete"
+                    onClick={removeBookFromShelve}
+                >
+                    Delete
+                </button>
             </td>
         </tr>
     );
