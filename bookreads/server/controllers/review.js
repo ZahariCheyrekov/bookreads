@@ -99,6 +99,18 @@ export const addCommentOnReview = async (req, res) => {
     return res.status(201).json(commentData);
 }
 
+export const deleteReview = async (req, res) => {
+    const { id, } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find review with id: ${id}`);
+    }
+
+    await ReviewSchema.findByIdAndDelete(id);
+
+    return res.status(204);
+}
+
 export const deleteCommentOnReview = async (req, res) => {
     const { id, commentId } = req.params;
 
