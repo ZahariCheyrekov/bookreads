@@ -137,3 +137,34 @@ export const uploadUserImage = async (req, res) => {
 
     return res.status(204);
 }
+
+export const removeBookFromShelve = async (req, res) => {
+    const { id, shelveName, bookId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send(`Unable to find user with id: ${id}`);
+    }
+
+    const existingUser = await User.findById(id);
+
+    if (!existingUser) {
+        return res.status(404).json({ message: 'User doesn\'t exist.' });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(bookId)) {
+        return res.status(404).send(`Unable to find book with id: ${bookId}`);
+    }
+
+    const shelves = {
+        'to-read': 'toRead',
+        'currently-reading': 'currentlyReading',
+        'read': 'read',
+    }
+
+    const shelve = shelves[shelveName];
+    existingUser.shelves[shelve] = existingUser.shelves[shelve].filter(book => book.id !== bookId);
+
+    await User.findByIdAndUpdate(id, existingUser);
+
+    res.status(204).json();
+}
