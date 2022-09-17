@@ -6,14 +6,16 @@ import { useBook } from '../../../hooks/useBook';
 
 import { notify } from '../../../../../lib/toastify';
 
-import { getUserBookStatus } from '../../../utils/getUserBookStatus';
 import { deleteBook } from '../../../api/bookAPI';
 import { addBookToUserShelve } from '../../../../../api/userAPI';
+import { getUserBookStatus } from '../../../utils/getUserBookStatus';
+import { createPost } from '../../../../../api/postAPI'
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../constants/shelves';
 import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
+import { FINISHED_BOOK, IS_READING, WANTS_TO_READ } from '../../../constants/bookStatus';
+import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../constants/shelves';
 
 import Rating from '../Rating/Rating';
 
@@ -51,6 +53,36 @@ const Aside = ({ isOwner }) => {
             cover: book.bookCoverUrl
         }
 
+        const postBookData = {
+            bookId: book._id,
+            bookAuthor: book.author,
+            bookTitle: book.title,
+            bookDescription: book.description,
+            bookCoverUrl: book.bookCoverUrl
+        }
+
+        const userData = {
+            name: user.result.name,
+            id: user.result._id,
+            imageUrl: user.result.imageUrl
+        }
+
+        let status;
+        switch (shelveName) {
+            case ('read'):
+                status = FINISHED_BOOK;
+                break;
+            case ('currentlyReading'):
+                status = IS_READING;
+                break;
+            case ('toRead'):
+                status = WANTS_TO_READ;
+                break;
+            default:
+                break;
+        }
+
+        createPost({ status, postBookData, userData, createdAt: new Date() });
         addBookToUserShelve(user.result._id, shelveName, bookData);
     }
 
