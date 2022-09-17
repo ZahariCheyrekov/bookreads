@@ -1,0 +1,1 @@
+export const INVALID_PASSWORD_LENGTH = 'Password must be at least 6 characters long';
