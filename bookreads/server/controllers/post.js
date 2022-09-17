@@ -5,7 +5,7 @@ import PostSchema from '../models/Post.js';
 export const getPosts = async (req, res) => {
     try {
         const posts = await PostSchema.find();
-        return res.status(200).json(posts);
+        return res.status(200).json(posts.reverse());
 
     } catch (error) {
         return res.status(404).json({ message: error.message });
