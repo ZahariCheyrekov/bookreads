@@ -31,11 +31,11 @@ const Auth = () => {
         setFormData({ ...formData, [ev.target.name]: ev.target.value.trim() })
     }
 
-    const handleAuth = async (ev) => {
+    const handleAuth = (ev) => {
         ev.preventDefault();
 
         const actionType = isSignIn ? SIGN_IN : SIGN_UP;
-        await auth(actionType, formData, navigate);
+        auth(actionType, formData, navigate);
     }
 
     return (
