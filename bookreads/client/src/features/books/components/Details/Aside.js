@@ -7,9 +7,8 @@ import { notify } from '../../../../lib/toastify';
 
 import { getUserBookStatus } from '../../utils/getUserBookStatus';
 import { getUserById } from '../../../../services/user';
-import { addBookToUserShelve } from '../../../../api/userAPI';
 import { createPost } from '../../../../api/postAPI'
-import { deleteBook } from '../../api/bookAPI';
+import { addBookToUserShelve, deleteBook } from '../../api/bookAPI';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 
