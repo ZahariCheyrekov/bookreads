@@ -4,13 +4,14 @@ import { WANT_TO_READ_SHELVE, CURRENTLY_READING_SHELVE, READ_SHELVE } from '../c
 export const getUserBookStatus = (user, bookId) => {
     let bookOnShelve = '';
 
-    Object.entries(user.shelves).forEach(([shelveName, shelve]) => {
-        shelve.forEach(book => {
+    for (const [shelveName, shelve] of Object.entries(user.shelves)) {
+        for (const book of shelve) {
             if (bookId === book.id) {
                 bookOnShelve = shelveName;
+                break;
             }
-        });
-    });
+        }
+    }
 
     const bookStatus = getBookShelveStatus(bookOnShelve);
     return bookStatus;
