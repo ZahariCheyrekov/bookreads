@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
+import { AuthContext } from '../../../../../contexts/AuthContext';
 
 import { deleteBookFromShelve } from '../../../api/profileAPI';
 
@@ -6,6 +9,7 @@ import './Book.css';
 
 const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelves }) => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
 
     const removeBookFromShelve = async () => {
         const filteredBooks = books.filter(currentBook => currentBook.id !== book.id);
@@ -51,7 +55,8 @@ const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelve
                     </h4>
                 </Link>
             </td>
-            {shelve !== 'shelves' &&
+            {user?.result._id === id ?
+                shelve !== 'shelves' &&
                 <td className="shelves__td">
                     <button
                         className="shelves__td--delete"
@@ -60,6 +65,7 @@ const Book = ({ book, shelve, bookShelve, books, setBooks, setBooksCount, shelve
                         Delete
                     </button>
                 </td>
+                : null
             }
         </tr>
     );
