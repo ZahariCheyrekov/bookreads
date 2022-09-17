@@ -3,6 +3,7 @@ import * as authAPI from '../api/authAPI';
 import { saveUser } from '../../../services/localStorage';
 import { validateInputFields } from '../../../validation/validateInputFields';
 import { validatePasswordEquality } from '../../../validation/validatePasswordEquality';
+import { validatePasswordLength } from '../validation/validatePasswordLength';
 
 import { notify, notifyError } from '../../../lib/toastify';
 
