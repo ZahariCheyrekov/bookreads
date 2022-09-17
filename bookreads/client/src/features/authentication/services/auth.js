@@ -9,6 +9,7 @@ import { notify, notifyError } from '../../../lib/toastify';
 
 import { LOGIN_SUCCESSFUL, REGISTER_SUCCESSFUL, SIGN_IN, SIGN_UP } from '../constants/actionTypes';
 import { ALL_FIELDS_ARE_REQUIRED, PASSWORDS_DONT_MATCH } from '../../../constants/errors';
+import { INVALID_PASSWORD_LENGTH } from '../constants/error';
 
 export const auth = async (action, data, navigate) => {
     try {
@@ -34,6 +35,12 @@ export const auth = async (action, data, navigate) => {
 
             if (!isValidInput) {
                 throw new Error(ALL_FIELDS_ARE_REQUIRED);
+            }
+
+            const validPasswordLength = validatePasswordLength(data.password);
+
+            if (!validPasswordLength) {
+                throw new Error(INVALID_PASSWORD_LENGTH);
             }
 
             const validPassword = validatePasswordEquality(data.password, data.repeatPassword);
