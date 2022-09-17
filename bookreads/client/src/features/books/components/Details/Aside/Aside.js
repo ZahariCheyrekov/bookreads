@@ -13,7 +13,7 @@ import { createPost } from '../../../../../api/postAPI'
 
 import { AuthContext } from '../../../../../contexts/AuthContext';
 
-import { USER_DELETED_A_BOOK } from '../../../../../constants/notifications';
+import { USER_DELETED_A_BOOK } from '../../../../../constants/messages';
 import { FINISHED_BOOK, IS_READING, WANTS_TO_READ } from '../../../constants/bookStatus';
 import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../constants/shelves';
 
