@@ -1,20 +1,19 @@
-import { useContext, useEffect, useState } from 'react';
-
-import { AuthContext } from '../contexts/AuthContext';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getUserById } from '../services/user';
 
 export const useCurrentUser = () => {
-    const { user } = useContext(AuthContext);
+    const { id } = useParams();
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
         const fetchUser = async () => {
-            const currentUser = await getUserById(user?.result._id);
-            setCurrentUser(currentUser);
+            const user = await getUserById(id);
+            setCurrentUser(user);
         }
         fetchUser();
-    }, [user]);
+    }, [id]);
 
     return currentUser;
 }
