@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useBook } from '../../hooks/useBook';
@@ -7,7 +7,6 @@ import { AuthContext } from '../../../../contexts/AuthContext';
 import { ReviewContextProvider } from '../../contexts/ReviewContext';
 
 import Aside from './Aside/Aside';
-import Summary from './Summary/Summary';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
 import Spinner from '../../../../components/Spinner/Spinner';
@@ -18,6 +17,12 @@ const Details = () => {
     const book = useBook();
     const { user } = useContext(AuthContext);
     const [isOwner] = useState(user?.result?._id || user?.result?.googleId === book?.creatorId);
+    const [visibleSummary, setVisibleSummary] = useState(false);
+    const [hasSummaryButton, setHasSummaryButton] = useState();
+
+    useEffect(() => {
+        setHasSummaryButton(book?.description.join('').length >= 400)
+    }, [book]);
 
     return (
         <main className="main__details">
@@ -30,7 +35,22 @@ const Details = () => {
                             <h1 className="book__title">{book.title}</h1>
                             <h2 className="book__author">{book.author}</h2>
 
-                            <Summary description={book?.description} />
+                            <summary className={visibleSummary ? 'book__summary--visible' : 'book__summary'}>
+                                {book.description.map((paragraph, index) =>
+                                    <p key={index} className="book__summary--paragraph">
+                                        {paragraph}
+                                    </p>
+                                )}
+                                {hasSummaryButton &&
+                                    <span className={visibleSummary ? 'book__summary--less' : 'book__summary--more'}
+                                        onClick={() => setVisibleSummary(prevState => !prevState)}
+                                    >
+                                        {visibleSummary ? 'Show less' : 'Show more'}
+                                        &nbsp;
+                                        <i className={`fa-solid fa-angle-down ${visibleSummary ? 'up-arrow' : 'down-arrow'}`}></i>
+                                    </span>
+                                }
+                            </summary>
 
                             <ul className="book__tags">
                                 {book.tags.map((tag, index) =>
