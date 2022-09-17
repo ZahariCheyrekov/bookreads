@@ -1,23 +1,23 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { useCurrentUser } from '../../../../../hooks/useCurrentUser';
-import { useBook } from '../../../hooks/useBook';
+import { useCurrentUser } from '../../../../hooks/useCurrentUser';
+import { useBook } from '../../hooks/useBook';
 
-import { notify } from '../../../../../lib/toastify';
+import { notify } from '../../../../lib/toastify';
 
-import { deleteBook } from '../../../api/bookAPI';
-import { addBookToUserShelve } from '../../../../../api/userAPI';
-import { getUserBookStatus } from '../../../utils/getUserBookStatus';
-import { createPost } from '../../../../../api/postAPI'
+import { deleteBook } from '../../api/bookAPI';
+import { addBookToUserShelve } from '../../../../api/userAPI';
+import { getUserBookStatus } from '../../utils/getUserBookStatus';
+import { createPost } from '../../../../api/postAPI'
 
-import { AuthContext } from '../../../../../contexts/AuthContext';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
-import { USER_DELETED_A_BOOK } from '../../../../../constants/messages';
-import { FINISHED_BOOK, IS_READING, WANTS_TO_READ } from '../../../constants/bookStatus';
-import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../../constants/shelves';
+import { USER_DELETED_A_BOOK } from '../../../../constants/messages';
+import { FINISHED_BOOK, IS_READING, WANTS_TO_READ } from '../../constants/bookStatus';
+import { CURRENTLY_READING_SHELVE, READ_SHELVE, WANT_TO_READ_SHELVE } from '../../constants/shelves';
 
-import Rating from '../Rating/Rating';
+import Rating from './Rating/Rating';
 
 import './Aside.css';
 
