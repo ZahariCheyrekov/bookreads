@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { useCurrentUser } from '../../../../hooks/useCurrentUser';
 import { useBook } from '../../hooks/useBook';
 
 import { notify } from '../../../../lib/toastify';
 
-import { deleteBook } from '../../api/bookAPI';
-import { addBookToUserShelve } from '../../../../api/userAPI';
 import { getUserBookStatus } from '../../utils/getUserBookStatus';
+import { getUserById } from '../../../../services/user';
+import { addBookToUserShelve } from '../../../../api/userAPI';
 import { createPost } from '../../../../api/postAPI'
+import { deleteBook } from '../../api/bookAPI';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 
@@ -24,10 +24,18 @@ import './Aside.css';
 const Aside = ({ isOwner }) => {
     const navigate = useNavigate();
     const book = useBook();
-    const currentUser = useCurrentUser();
     const { user } = useContext(AuthContext);
+    const [currentUser, setCurrentUser] = useState(null);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
     const [bookShelveStatus, setBookShelveStatus] = useState('');
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            const currentUser = await getUserById(user?.result._id);
+            setCurrentUser(currentUser);
+        }
+        fetchCurrentUser();
+    }, [user]);
 
     useEffect(() => {
         if (currentUser && book) {
