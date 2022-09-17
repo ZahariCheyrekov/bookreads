@@ -101,9 +101,16 @@
     }
 }
 
-@media only screen and (max-width: 410px) {
+@media only screen and (max-width: 460px) {
     .shelves__row>.shelves__th:nth-child(4),
     .shelves__row--book>.shelves__td:nth-child(4) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .shelves__row>.shelves__th:nth-child(3),
+    .shelves__row--book>.shelves__td:nth-child(3) {
         display: none;
     }
 }
