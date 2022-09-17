@@ -8,8 +8,8 @@ import { validatePasswordLength } from '../validation/validatePasswordLength';
 import { notify, notifyError } from '../../../lib/toastify';
 
 import { LOGIN_SUCCESSFUL, REGISTER_SUCCESSFUL, SIGN_IN, SIGN_UP } from '../constants/actionTypes';
-import { ALL_FIELDS_ARE_REQUIRED, PASSWORDS_DONT_MATCH } from '../../../constants/errors';
-import { INVALID_PASSWORD_LENGTH } from '../constants/error';
+import { ALL_FIELDS_ARE_REQUIRED } from '../../../constants/errors';
+import { INVALID_PASSWORD_LENGTH, PASSWORDS_DONT_MATCH } from '../constants/errors';
 
 export const auth = async (action, data, navigate) => {
     try {
