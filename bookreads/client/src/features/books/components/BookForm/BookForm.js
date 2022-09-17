@@ -10,7 +10,7 @@ import { createPost } from '../../../../api/postAPI';
 import { createNewBook, getBook } from '../../services/book';
 
 import { CREATED_A_BOOK, EDITED_A_BOOK } from '../../../../constants/actionType';
-import { USER_EDITED_A_BOOK } from '../../../../constants/notifications';
+import { USER_EDITED_A_BOOK } from '../../../../constants/messages';
 
 import FormField from './FormField';
 
