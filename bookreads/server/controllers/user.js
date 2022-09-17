@@ -38,7 +38,7 @@ export const getUserPostsById = async (req, res) => {
 
     const posts = await PostSchema.find({ "userData.id": id });
 
-    return res.status(200).json(posts);
+    return res.status(200).json(posts.reverse());
 }
 
 export const addBookToUserShelve = async (req, res) => {
