@@ -13,7 +13,7 @@ import { getUserLink } from '../../../utils/getUserLink';
 import { getDateFormat } from '../../../utils/getDateFormat';
 
 import { REVIEWED_A_BOOK } from '../../../constants/actionType';
-import { USER_DELETED_A_POST } from '../../../constants/notifications';
+import { USER_DELETED_A_POST } from '../../../constants/messages';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 
