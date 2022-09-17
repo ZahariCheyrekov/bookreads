@@ -9,6 +9,8 @@ export const getBooksByGivenTitle = (bookTitle) => API.get(`/books/search/${book
 
 export const createBook = (bookData) => API.post('/books', bookData);
 
+export const addBookToUserShelve = (userId, shelveName, book) => API.post(`/user/${userId}/shelves`, { shelveName, book });
+
 export const editBook = (bookId, bookData) => API.patch(`/books/${bookId}/edit`, bookData);
 
 export const deleteBook = (bookId) => API.delete(`/books/${bookId}`);
