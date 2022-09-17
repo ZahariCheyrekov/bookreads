@@ -25,6 +25,10 @@
     color: var(--white-color);
 }
 
+.fa-regular.fa-x {
+    cursor: pointer;
+}
+
 .profile__ul--name {
     text-transform: uppercase;
 }
