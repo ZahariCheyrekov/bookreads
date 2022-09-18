@@ -24,9 +24,13 @@
     object-fit: cover;
 }
 
-.prifile__user__article--info {
+.profile__user__article--info {
     width: 100%;
     padding-left: 20px;
+}
+
+.profile__user__article--info>a {
+    color: var(--lightblue-color);
 }
 
 .profile__section--user {
