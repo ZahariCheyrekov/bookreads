@@ -127,7 +127,8 @@
 }
 
 .header__article--profile {
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
     position: relative;
 }
 
