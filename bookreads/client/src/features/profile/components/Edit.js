@@ -34,6 +34,7 @@ const Edit = () => {
                     <img
                         src={file ? (file?.base64 ? file.base64 : file) : defaultUserPhoto}
                         alt={file.name}
+                        className="profile__edit--img"
                     />
                     {file &&
                         <>
