@@ -1,4 +1,13 @@
 .profile__edit--section {
-    max-width: var(--secondary-component-width);
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
+    max-width: var(--secondary-component-width);
+}
+
+.profile__edit--img {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    object-fit: cover;
 }
