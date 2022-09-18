@@ -5,6 +5,10 @@
     max-width: var(--secondary-component-width);
 }
 
+.profile__edit--section>input {
+    margin-top: 20px;
+}
+
 .profile__edit--img {
     width: 300px;
     height: 400px;
