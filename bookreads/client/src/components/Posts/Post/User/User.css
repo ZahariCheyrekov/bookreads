@@ -1,10 +1,6 @@
 .post__user {
     width: 40px;
     height: 40px;
-    overflow: hidden;
-
-    border-radius: 50%;
-    border: 1px solid var(--gray-color);
 }
 
 .post__user.abs {
@@ -20,7 +16,6 @@
 
 .user__img {
     border-radius: 50%;
-    width: 39px;
-    height: 39px;
+    border: 1px solid var(--gray-color);
     object-fit: cover;
 }
