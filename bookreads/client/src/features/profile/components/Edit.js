@@ -12,7 +12,7 @@ import './Edit.css';
 
 const Edit = () => {
     const { user } = useContext(AuthContext);
-    const [file, setFile] = useState('');
+    const [file, setFile] = useState(user?.result.imageUrl);
 
     const uploadImage = () => {
         const imageUrl = file.base64;
@@ -31,7 +31,10 @@ const Edit = () => {
                         multiple={false}
                         onDone={(base64) => (setFile(base64))}
                     />
-
+                    <img
+                        src={file ? (file?.base64 ? file.base64 : file) : defaultUserPhoto}
+                        alt={file.name}
+                    />
                     {file &&
                         <>
                             <button onClick={uploadImage}>
