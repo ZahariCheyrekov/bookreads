@@ -23,7 +23,7 @@ const Profile = () => {
                                 alt={`${currentUser?.name}`}
                             />
                         </article>
-                        <article className="prifile__user__article--info">
+                        <article className="profile__user__article--info">
                             <h4 className="profile__section--user">
                                 {currentUser.name}
                             </h4>
