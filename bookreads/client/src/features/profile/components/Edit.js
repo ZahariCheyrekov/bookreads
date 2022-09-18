@@ -29,10 +29,11 @@ const Edit = () => {
                     <FileBase64
                         type="file"
                         multiple={false}
-                        onDone={(base64) => (setFile(base64))} />
+                        onDone={(base64) => (setFile(base64))}
+                    />
+
                     {file &&
                         <>
-                            <img src={file.base64} alt={user?.result.name} />
                             <button onClick={uploadImage}>
                                 Upload
                             </button>
