@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 
 import Logo from '../../layouts/Logo/Logo';
-import Menu from './Menu/Menu';
+import Menu from './Menu';
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 
 import './Navigation.css';
