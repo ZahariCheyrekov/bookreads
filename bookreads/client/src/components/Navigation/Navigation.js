@@ -178,8 +178,8 @@ const Navigation = () => {
                         <article className="header__article header__article--profile" ref={menuRef}>
                             <img
                                 onClick={() => setProfileOpen(prevState => !prevState)}
-                                src={user?.result?.imageUrl ? user.result?.imageUrl : defaultUserPhoto}
-                                alt={user?.result?.name}
+                                src={user?.result.imageUrl ? user?.result.imageUrl : defaultUserPhoto}
+                                alt={user?.result.name}
                             />
 
                             {profileOpen &&
