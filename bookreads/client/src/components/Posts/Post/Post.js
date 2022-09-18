@@ -53,6 +53,7 @@ const Post = ({ post, posts, setPosts }) => {
     const handleDeletePost = () => {
         const filteredPosts = posts.filter(currentPost => currentPost._id !== post._id);
         setPosts(filteredPosts);
+
         deletePost(post._id);
         notify(USER_DELETED_A_POST);
     }
