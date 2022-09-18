@@ -181,7 +181,6 @@ const Navigation = () => {
                                 src={user?.result.imageUrl ? user?.result.imageUrl : defaultUserPhoto}
                                 alt={user?.result.name}
                             />
-
                             {profileOpen &&
                                 <Menu
                                     handleProfileClick={() => setProfileOpen(prevState => !prevState)}
