@@ -1,8 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
+import { useContext } from 'react';
 
 import { useCurrentUser } from '../../../hooks/useCurrentUser';
+import { getUserLink } from '../../../utils/getUserLink';
 
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
+
+import { AuthContext } from '../../../contexts/AuthContext';
 
 import Spinner from '../../../components/Spinner/Spinner';
 import Updates from './Updates';
@@ -11,6 +15,7 @@ import './Profile.css';
 
 const Profile = () => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
     const currentUser = useCurrentUser();
 
     return (
@@ -27,9 +32,11 @@ const Profile = () => {
                             <h4 className="profile__section--user">
                                 {currentUser.name}
                             </h4>
-                            <Link to={'/s'}>
-                                Change photo
-                            </Link>
+                            {user?.result._id === id &&
+                                <Link to={`${getUserLink(currentUser.name, id)}/edit`}>
+                                    Edit profile
+                                </Link>
+                            }
                         </article>
                     </section>
                     <section className="profile__user--bookshelves">
