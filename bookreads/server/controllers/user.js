@@ -125,7 +125,7 @@ export const uploadUserImage = async (req, res) => {
     const { id } = req.params;
     const { imageUrl } = req.body;
 
-    const existingUser = await User.findOne({ id });
+    const existingUser = await User.findById(id);
 
     if (!existingUser) {
         return res.status(404).json({ message: 'User doesn\'t exist.' });
@@ -135,7 +135,7 @@ export const uploadUserImage = async (req, res) => {
 
     await User.findByIdAndUpdate(id, existingUser);
 
-    return res.status(204);
+    return res.status(204).json();
 }
 
 export const removeBookFromShelve = async (req, res) => {

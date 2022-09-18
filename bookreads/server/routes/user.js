@@ -20,7 +20,7 @@ router.get('/:name/:id', getUserPostsById);
 router.post('/:id/shelves', addBookToUserShelve);
 router.post('/signin', signin);
 router.post('/signup', signup);
-router.patch('/:id/image', uploadUserImage);
+router.post('/:id/image', uploadUserImage);
 router.delete('/:id/shelves/:shelveName/:bookId', removeBookFromShelve);
 
 export default router;
