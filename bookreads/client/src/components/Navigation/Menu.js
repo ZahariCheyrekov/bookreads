@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../../../contexts/AuthContext';
-import { getUserLink } from '../../../utils/getUserLink';
+import { AuthContext } from '../../contexts/AuthContext';
+import { getUserLink } from '../../utils/getUserLink';
 
 import './Menu.css';
 
