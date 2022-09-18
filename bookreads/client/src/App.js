@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home/Home';
 import Profile from './features/profile/components/Profile';
+import Edit from './features/profile/components/Edit';
 import Details from './features/books/components/Details/Details';
 import CreateReview from './features/books/components/Reviews/CreateReview/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
@@ -33,9 +34,10 @@ function App() {
             <ScrollToTop />
             <Navigation />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path='/' element={<Home />} />
                 <Route element={<UserRoutes />}>
-                    <Route path="/user/:name/:id" element={<Profile />} />
+                    <Route path='/user/:name/:id' element={<Profile />} />
+                    <Route path='/user/:name/:id/edit' element={<Edit />} />
                     <Route path='/books/:id' element={<Details />} />
                     <Route path='/review/edit/:id' element={<CreateReview />} />
                     <Route path='/post/:id/likes' element={<PostLikes />} />
