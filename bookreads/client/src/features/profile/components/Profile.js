@@ -23,9 +23,14 @@ const Profile = () => {
                                 alt={`${currentUser?.name}`}
                             />
                         </article>
-                        <h4 className="profile__section--user">
-                            {currentUser.name}
-                        </h4>
+                        <article className="prifile__user__article--info">
+                            <h4 className="profile__section--user">
+                                {currentUser.name}
+                            </h4>
+                            <Link to={'/s'}>
+                                Change photo
+                            </Link>
+                        </article>
                     </section>
                     <section className="profile__user--bookshelves">
                         <h5 className="profile__bookshelves--title">
