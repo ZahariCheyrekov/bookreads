@@ -24,14 +24,17 @@
     object-fit: cover;
 }
 
+.prifile__user__article--info {
+    width: 100%;
+    padding-left: 20px;
+}
+
 .profile__section--user {
     font-size: 1.4rem;
     border-bottom: 1px solid var(--gray-color);
 
     margin-bottom: 10px;
-    width: 100%;
     height: 32px;
-    margin-left: 20px;
 }
 
 .profile__section--edit {
