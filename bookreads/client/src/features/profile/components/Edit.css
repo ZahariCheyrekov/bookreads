@@ -1,0 +1,4 @@
+.profile__edit--section {
+    max-width: var(--secondary-component-width);
+    margin: 0 auto;
+}
