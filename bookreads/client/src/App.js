@@ -38,7 +38,6 @@ function App() {
                 <Route element={<UserRoutes />}>
                     <Route path='/user/:name/:id' element={<Profile />} />
                     <Route path='/user/:name/:id/edit' element={<Edit />} />
-                    <Route path='/books/:id' element={<Details />} />
                     <Route path='/review/edit/:id' element={<CreateReview />} />
                     <Route path='/post/:id/likes' element={<PostLikes />} />
 
@@ -52,6 +51,7 @@ function App() {
                 </Route>
                 <Route path='/genres' element={<Genres />} />
                 <Route path='/genres/:genre' element={<Genre />} />
+                <Route path='/books/:id' element={<Details />} />
                 <Route path='/books/search/:bookTitle' element={<Search />} />
 
                 <Route element={<GuestRoutes />}>
