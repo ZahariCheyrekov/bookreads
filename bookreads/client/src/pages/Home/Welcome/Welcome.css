@@ -11,11 +11,38 @@
     display: flex;
     gap: 10rem;
 
-    margin: 1rem 0;
+    margin: 2rem 0 3.2rem;
 }
 
 .article__paragraph {
     margin: 10px 0;
+}
+
+.welcome__search--form {
+    position: relative;
+    width: 30%;
+}
+
+.welcome__search--input {
+    width: 100%;
+    padding: 0.2rem;
+    outline: none;
+    
+    font-size: 1rem;
+    border: 1px solid var(--divider-color);
+}
+
+.welcome__search--input:focus {
+    box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+}
+
+.welcome__search--button {
+    position: absolute;
+    right: 6px;
+    top: 25%;
+
+    border: none;
+    background-color: transparent;
 }
 
 .welcome__genres--article {
@@ -41,6 +68,7 @@
     height: 300px;
     width: 250px;
 }
+
 
 @media only screen and (max-width: 600px) {
     .main.main__welcome {
