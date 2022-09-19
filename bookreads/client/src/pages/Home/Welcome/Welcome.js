@@ -9,8 +9,9 @@ import './Welcome.css';
 
 const Welcome = () => {
 
-    const handleSearch = () => {
-
+    const handleSearch = (ev) => {
+        ev.preventDefault();
+        navigate(`/books/search/${searchTitle}`);
     }
 
     return (
