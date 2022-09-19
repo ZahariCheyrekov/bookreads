@@ -97,9 +97,11 @@ const Details = () => {
                         <hr className="hr__divider" />
                         <Recommended />
 
-                        <ReviewContextProvider>
-                            <Reviews />
-                        </ReviewContextProvider>
+                        {user &&
+                            <ReviewContextProvider>
+                                <Reviews />
+                            </ReviewContextProvider>
+                        }
                     </section>
                 </div >
                 : <Spinner />
