@@ -1,5 +1,5 @@
-.main__welcome {
-    padding: 2rem;
+.main.main__welcome {
+    padding: 2.2rem;
 }
 
 .main__wrapper {
@@ -11,11 +11,17 @@
     display: flex;
     gap: 10rem;
 
-    margin: 2rem 0 3.2rem;
+    margin: 0 0 2rem;
 }
 
 .article__paragraph {
     margin: 10px 0;
+}
+
+.welcome__search--title {
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .welcome__search--form {
@@ -27,7 +33,7 @@
     width: 100%;
     padding: 0.2rem;
     outline: none;
-    
+
     font-size: 1rem;
     border: 1px solid var(--divider-color);
 }
