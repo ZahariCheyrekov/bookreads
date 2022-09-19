@@ -40,7 +40,10 @@ const Welcome = () => {
                         </h4>
                         <form className="welcome__search--form">
                             <input className="welcome__search--input" placeholder="Book title" />
-                            <button className="welcome__search--button">
+                            <button
+                                className="welcome__search--button"
+                                onClick={handleSearch}
+                            >
                                 <i className="fa-solid fa-magnifying-glass" />
                             </button>
                         </form>
