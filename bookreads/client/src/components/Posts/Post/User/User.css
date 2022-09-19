@@ -11,11 +11,12 @@
 
 .post__user {
     max-width: 40px;
-    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--gray-color);
 }
 
 .user__img {
     border-radius: 50%;
-    border: 1px solid var(--gray-color);
     object-fit: cover;
+    border: 1px solid var(--gray-color);
 }

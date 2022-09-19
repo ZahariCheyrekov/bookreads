@@ -8,17 +8,16 @@
 }
 
 .review__user--article {
+    position: relative;
     width: 60px;
     height: 60px;
 
     border-radius: 50%;
-    object-fit: cover;
-    position: relative;
-
     background-color: var(--gray-color);
 }
 
-.review__user--article img {
+.review__user--article>img {
+    object-fit: cover;
     border-radius: 50%;
     border: 0.1rem solid var(--gray-color);
 }
