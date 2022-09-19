@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FileBase64 from 'react-file-base64';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 
+import { getUserLink } from '../../../utils/getUserLink';
 import { uploadUserImage } from '../api/profileAPI';
 
 import Spinner from '../../../components/Spinner/Spinner';
@@ -11,12 +13,14 @@ import defaultUserPhoto from '../../../assets/default-user-photo.png';
 import './Edit.css';
 
 const Edit = () => {
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const [file, setFile] = useState(user?.result.imageUrl);
 
     const uploadImage = () => {
         const imageUrl = file.base64;
         uploadUserImage(user?.result?._id, imageUrl);
+        navigate(getUserLink(user.result.name, user.result._id));
     }
 
     return (
