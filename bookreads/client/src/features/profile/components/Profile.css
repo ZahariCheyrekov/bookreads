@@ -12,8 +12,8 @@
     width: 153px;
     height: 153px;
 
+    object-fit: cover;
     border-radius: 50%;
-    border: 1px solid var(--gray-color);
 }
 
 .profile__section--article img {
@@ -21,7 +21,7 @@
     height: 150px;
 
     border-radius: 50%;
-    object-fit: cover;
+    border: 1px solid var(--gray-color);
 }
 
 .profile__user__article--info {
