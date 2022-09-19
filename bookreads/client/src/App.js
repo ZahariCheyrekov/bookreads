@@ -41,8 +41,6 @@ function App() {
                     <Route path='/books/:id' element={<Details />} />
                     <Route path='/review/edit/:id' element={<CreateReview />} />
                     <Route path='/post/:id/likes' element={<PostLikes />} />
-                    <Route path='/genres' element={<Genres />} />
-                    <Route path='/genres/:genre' element={<Genre />} />
                     <Route path='/books/search/:bookTitle' element={<Search />} />
 
                     {['create', 'books/:id/edit'].map((path) => (
@@ -53,6 +51,9 @@ function App() {
                         <Route key={path} path={`/user/:id/shelves/${path}`} element={<Shelves />} />
                     ))}
                 </Route>
+                <Route path='/genres' element={<Genres />} />
+                <Route path='/genres/:genre' element={<Genre />} />
+
                 <Route element={<GuestRoutes />}>
                     {['signin', 'signup'].map((path) => (
                         <Route key={path} path={`/user/${path}`} element={<Auth />} />
