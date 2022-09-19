@@ -29,11 +29,13 @@ const Aside = ({ isOwner }) => {
     const [bookShelveStatus, setBookShelveStatus] = useState('');
 
     useEffect(() => {
-        const fetchCurrentUser = async () => {
-            const currentUser = await getUserById(user?.result._id);
-            setCurrentUser(currentUser);
+        if (user) {
+            const fetchCurrentUser = async () => {
+                const currentUser = await getUserById(user?.result._id);
+                setCurrentUser(currentUser);
+            }
+            fetchCurrentUser();
         }
-        fetchCurrentUser();
     }, [user]);
 
     useEffect(() => {
