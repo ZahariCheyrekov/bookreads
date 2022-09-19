@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { genres } from '../../../features/genres/constants/genres';
 
+import bookStack from '../../../assets/book-stack.png';
 import Header from './Header/Header';
 
 import './Welcome.css';
@@ -43,18 +44,21 @@ const Welcome = () => {
                                 <i className="fa-solid fa-magnifying-glass" />
                             </button>
                         </form>
-                        <ul className="welcome__genres--list">
-                            {genres.map(genre =>
-                                <li
-                                    key={genre}
-                                    className="welcome__genres--item"
-                                >
-                                    <Link to={`/genres/${genre.toLowerCase()}`}>
-                                        {genre}
-                                    </Link>
-                                </li>
-                            )}
-                        </ul>
+                        <article className="welcome__genres--article">
+                            <ul className="welcome__genres--list">
+                                {genres.map(genre =>
+                                    <li
+                                        key={genre}
+                                        className="welcome__genres--item"
+                                    >
+                                        <Link to={`/genres/${genre.toLowerCase()}`}>
+                                            {genre}
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                            <img src={bookStack} alt="books" />
+                        </article>
                     </section>
                 </div>
             </main>
