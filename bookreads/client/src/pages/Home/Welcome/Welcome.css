@@ -14,6 +14,22 @@
     margin: 10px 0;
 }
 
+.welcome__genres--list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 30px;
+}
+
+.welcome__genres--item {
+    flex-basis: 30%;
+}
+
+.welcome__genres--item>a {
+    color: var(--lightblue-color);
+}
+
+
 @media only screen and (max-width: 600px) {
     .main.main__welcome {
         padding: 20px;
