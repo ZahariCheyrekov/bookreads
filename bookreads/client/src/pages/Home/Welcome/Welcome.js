@@ -8,6 +8,11 @@ import Header from './Header/Header';
 import './Welcome.css';
 
 const Welcome = () => {
+
+    const handleSearch = () => {
+
+    }
+
     return (
         <>
             <Header />
