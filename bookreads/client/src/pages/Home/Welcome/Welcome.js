@@ -48,7 +48,11 @@ const Welcome = () => {
                             Search and browse books
                         </h4>
                         <form className="welcome__search--form">
-                            <input className="welcome__search--input" placeholder="Book title" />
+                            <input
+                                className="welcome__search--input"
+                                placeholder="Book title"
+                                onChange={(ev) => setSearchTitle(ev.target.value.trim())}
+                            />
                             <button
                                 className="welcome__search--button"
                                 onClick={handleSearch}
