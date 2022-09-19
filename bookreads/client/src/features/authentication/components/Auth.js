@@ -11,7 +11,7 @@ import './Auth.css';
 const Auth = () => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const [isSignIn, setIsSignIn] = useState();
+    const [isSignIn, setIsSignIn] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({ name: '', email: '', password: '', repeatPassword: '' });
 
