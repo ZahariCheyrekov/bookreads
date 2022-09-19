@@ -16,9 +16,14 @@ import './Details.css';
 const Details = () => {
     const book = useBook();
     const { user } = useContext(AuthContext);
-    const [isOwner] = useState(user?.result?._id || user?.result?.googleId === book?.creatorId);
+    const [isOwner, setIsOwner] = useState(false);
     const [visibleSummary, setVisibleSummary] = useState(false);
     const [hasSummaryButton, setHasSummaryButton] = useState();
+
+    useEffect(() => {
+        const isBookOwner = user && (user?.result?._id || user?.result?.googleId) === book?.creatorId;
+        setIsOwner(isBookOwner);
+    }, [user, book]);
 
     useEffect(() => {
         setHasSummaryButton(book?.description.join('').length >= 400)
