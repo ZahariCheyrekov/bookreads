@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { genres } from '../../../features/genres/constants/genres';
 
@@ -6,8 +6,10 @@ import bookStack from '../../../assets/book-stack.png';
 import Header from './Header/Header';
 
 import './Welcome.css';
+import { useState } from 'react';
 
 const Welcome = () => {
+    const [searchTitle, setSearchTitle] = useState('');
 
     const handleSearch = (ev) => {
         ev.preventDefault();
