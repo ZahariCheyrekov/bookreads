@@ -82,8 +82,7 @@ const Navigation = () => {
                     />
                 </span>
                 <Logo />
-                {user && Object.keys(user).length > 0
-                    ?
+                {user &&
                     <>
                         <ul className="header__ul">
                             <li className="header__ul--li">
@@ -155,7 +154,7 @@ const Navigation = () => {
                                 <i className="fa-solid fa-magnifying-glass" />
                             </button>
                         </form>
-                        {searchBarOpen &&
+                        {searchBarOpen ?
                             <form className="header__form--search header__form__search--small">
                                 <input
                                     className="header__form--input"
@@ -174,6 +173,7 @@ const Navigation = () => {
                                     Cancel
                                 </button>
                             </form>
+                            : null
                         }
                         <article className="header__article header__article--profile" ref={menuRef}>
                             <img
@@ -189,7 +189,6 @@ const Navigation = () => {
                             }
                         </article>
                     </>
-                    : null
                 }
             </nav>
         </section >
