@@ -95,6 +95,14 @@ const Aside = ({ isOwner }) => {
         addBookToUserShelve(user.result._id, shelveName, bookData);
     }
 
+    const handleVisibleBookOptions = () => {
+        if (user) {
+            setVisibleBookOptions(true);
+        } else {
+            navigate('/user/signin');
+        }
+    }
+
     return (
         <section className="section__aside">
             <aside className="aside__book--content">
@@ -122,7 +130,7 @@ const Aside = ({ isOwner }) => {
                         : WANT_TO_READ
                     }
                     <i className="fa-solid fa-angle-down actions"
-                        onClick={() => setVisibleBookOptions(true)}
+                        onClick={handleVisibleBookOptions}
                     />
                 </button>
                 <Rating />
