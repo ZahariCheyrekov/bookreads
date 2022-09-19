@@ -10,6 +10,7 @@ import { useState } from 'react';
 
 const Welcome = () => {
     const [searchTitle, setSearchTitle] = useState('');
+    const navigate = useNavigate();
 
     const handleSearch = (ev) => {
         ev.preventDefault();
