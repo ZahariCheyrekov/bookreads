@@ -16,14 +16,16 @@ const Rating = ({ rating, setParentRating, showRateTitle, small }) => {
     const [hoverStar, setHoverStar] = useState(null);
 
     useEffect(() => {
-        const fetchUserReview = async () => {
-            const currentReview = await getUserReview(id, user?.result._id);
-            if (currentReview) {
-                setCurrentRating(currentReview.rating);
+        if (user) {
+            const fetchUserReview = async () => {
+                const currentReview = await getUserReview(id, user?.result._id);
+                if (currentReview) {
+                    setCurrentRating(currentReview.rating);
+                }
             }
+            fetchUserReview();
         }
-        fetchUserReview();
-    }, [id, user?.result?._id]);
+    }, [id, user]);
 
     const handleRating = (star) => {
         setCurrentRating(star);
