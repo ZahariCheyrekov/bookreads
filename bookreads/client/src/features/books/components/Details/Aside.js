@@ -139,7 +139,6 @@ const Aside = ({ isOwner }) => {
                     <h4 className="aside__book__options--title">
                         Choose a shelf for this book:
                     </h4>
-
                     <article className="aside__options--list">
                         <button
                             className="aside__book__option book__option--want"
@@ -159,7 +158,6 @@ const Aside = ({ isOwner }) => {
                         >
                             Read
                         </button>
-
                         <button
                             className="aside__book__option book__option--close"
                             onClick={() => setVisibleBookOptions(false)}
