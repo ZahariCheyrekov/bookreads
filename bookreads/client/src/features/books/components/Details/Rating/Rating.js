@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { createReview } from '../../../api/reviewAPI';
 import { AuthContext } from '../../../../../contexts/AuthContext';
@@ -10,6 +10,7 @@ import './Rating.css';
 const stars = [1, 2, 3, 4, 5];
 
 const Rating = ({ rating, setParentRating, showRateTitle, small }) => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [currentRating, setCurrentRating] = useState(rating);
@@ -28,21 +29,25 @@ const Rating = ({ rating, setParentRating, showRateTitle, small }) => {
     }, [id, user]);
 
     const handleRating = (star) => {
-        setCurrentRating(star);
-        if (setParentRating) {
-            setParentRating(star);
-        }
+        if (user) {
+            setCurrentRating(star);
+            if (setParentRating) {
+                setParentRating(star);
+            }
 
-        const reviewData = {
-            bookId: id,
-            user: {
-                name: user.result.name,
-                id: user.result._id,
-                imageUrl: user.result.imageUrl
-            },
-            rating: star
+            const reviewData = {
+                bookId: id,
+                user: {
+                    name: user.result.name,
+                    id: user.result._id,
+                    imageUrl: user.result.imageUrl
+                },
+                rating: star
+            }
+            createReview(id, reviewData);
+        } else {
+            navigate('/user/signin');
         }
-        createReview(id, reviewData);
     }
 
     return (
