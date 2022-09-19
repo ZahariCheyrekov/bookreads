@@ -1,3 +1,7 @@
+.main__welcome {
+    padding: 2rem;
+}
+
 .main__wrapper {
     max-width: var(--primary-component-width);
     margin: 0 auto;
@@ -12,6 +16,10 @@
 
 .article__paragraph {
     margin: 10px 0;
+}
+
+.welcome__genres--article {
+    display: flex;
 }
 
 .welcome__genres--list {
@@ -29,6 +37,10 @@
     color: var(--lightblue-color);
 }
 
+.welcome__genres--article>img {
+    height: 300px;
+    width: 250px;
+}
 
 @media only screen and (max-width: 600px) {
     .main.main__welcome {
