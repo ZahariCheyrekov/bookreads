@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+
+import { genres } from '../../../features/genres/constants/genres';
+
 import Header from './Header/Header';
 
 import './Welcome.css';
@@ -28,6 +32,29 @@ const Welcome = () => {
                                 (and least favorite) books on Bookreads.
                             </p>
                         </article>
+                    </section>
+                    <section className="welcome__search__section">
+                        <h4 className="welcome__search--title">
+                            Search and browse books
+                        </h4>
+                        <form className="welcome__search--form">
+                            <input className="welcome__search--input" placeholder="Book title" />
+                            <button className="welcome__search--button">
+                                <i className="fa-solid fa-magnifying-glass" />
+                            </button>
+                        </form>
+                        <ul className="welcome__genres--list">
+                            {genres.map(genre =>
+                                <li
+                                    key={genre}
+                                    className="welcome__genres--item"
+                                >
+                                    <Link to={`/genres/${genre.toLowerCase()}`}>
+                                        {genre}
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
                     </section>
                 </div>
             </main>
