@@ -38,7 +38,10 @@ const Edit = () => {
                     />
                     {file &&
                         <>
-                            <button onClick={uploadImage}>
+                            <button
+                                className="profile__edit--button"
+                                onClick={uploadImage}
+                            >
                                 Upload
                             </button>
                         </>
