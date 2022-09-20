@@ -136,7 +136,7 @@
 }
 
 .header__article--profile>img {
-    border: 1px solid var(--gray-color);
+    border: 0.1rem solid var(--gray-color);
     border-radius: 50%;
 
     cursor: pointer;
