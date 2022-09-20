@@ -92,12 +92,14 @@ const Post = ({ post, posts, setPosts }) => {
                             <time className="post__time">
                                 {getDateFormat(post.createdAt)}
                             </time>
-                            <span className="post__action--delete">
-                                <i
-                                    className="fa-regular fa-x"
-                                    onClick={handleDeletePost}
-                                />
-                            </span>
+                            {user?.result._id === postUser.id &&
+                                <span className="post__action--delete">
+                                    <i
+                                        className="fa-regular fa-x"
+                                        onClick={handleDeletePost}
+                                    />
+                                </span>
+                            }
                         </span>
                     </section>
 
