@@ -109,13 +109,6 @@
     cursor: pointer;
 }
 
-.header__form__search--small>i {
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    right: 90px;
-}
-
 .header__form--input {
     width: 100%;
     padding: 0.4rem;
@@ -124,6 +117,13 @@
     font-size: 1rem;
     border-radius: 2px;
     border: 1px solid var(--gray-color);
+}
+
+.header__form--button {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 90px;
 }
 
 .header__article--profile {
@@ -142,6 +142,7 @@
     cursor: pointer;
     object-fit: cover;
 }
+
 
 @media only screen and (max-width: 1200px) {
     .header__navigation {
