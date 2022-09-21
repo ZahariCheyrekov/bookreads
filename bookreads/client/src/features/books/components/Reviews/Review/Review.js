@@ -23,6 +23,7 @@ const Review = ({ review, userReview }) => {
     const [likedByUser, setLikedByUser] = useState(likes.find(like => like === user?.result?._id));
     const [showContent, setShowContent] = useState(false);
     const [showComments, setShowComments] = useState(false);
+    const [showFullReview, setShowFullReview] = useState(user?.result._id === review.user.id || review.spoilers === false);
 
     const handleLike = () => {
         const userId = user?.result?._id;
@@ -82,11 +83,9 @@ const Review = ({ review, userReview }) => {
                                 {getReviewDate(review.createdAt)}
                             </time>
                         </section>
-                        {review?.spoilers
-                            ? <section className="review__section--spoilers">
-
-                            </section>
-                            : <section className={`review__section--content ${showContent && 'active'}`}>
+                        {showFullReview
+                            ?
+                            <section className={`review__section--content ${showContent && 'active'}`}>
                                 {review.reviewContent.map((paragraph, index) =>
                                     <p
                                         key={index}
@@ -105,6 +104,17 @@ const Review = ({ review, userReview }) => {
                                     </span>
                                 }
                             </section>
+                            : <article className="post__review--spoilers">
+                                <h4 className="post__review__spoilers--title">
+                                    The entire review is hidden because of spoilers.
+                                </h4>
+                                <button
+                                    className="review__spoilers--button"
+                                    onClick={() => setShowFullReview(true)}
+                                >
+                                    Show full review
+                                </button>
+                            </article>
                         }
                         {(likes.length > 0 || comments.length > 0) &&
                             <section className="review__likes__comments">
