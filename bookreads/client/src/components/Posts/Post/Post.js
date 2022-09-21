@@ -210,7 +210,6 @@ const Post = ({ post, posts, setPosts }) => {
                 : null
             }
         </article >
-
     );
 }
 
