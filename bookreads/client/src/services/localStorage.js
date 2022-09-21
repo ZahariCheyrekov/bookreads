@@ -11,6 +11,13 @@ export const getUser = () => {
     }
 }
 
+export const changeUserImage = (url) => {
+    let user = getUser();
+    user.result.imageUrl = url;
+
+    saveUser(user);
+}
+
 export const removeUser = () => localStorage.removeItem(USER);
 
 export const getToken = () => getUser()?.token;
