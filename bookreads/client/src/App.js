@@ -9,7 +9,7 @@ import Home from './pages/Home/Home';
 import Profile from './features/profile/components/Profile';
 import Edit from './features/profile/components/Edit';
 import Details from './features/books/components/Details/Details';
-import CreateReview from './features/books/components/Reviews/CreateReview/CreateReview';
+import CreateReview from './features/books/components/Reviews/CreateReview';
 import PostLikes from './components/Posts/Post/PostLikes/PostLikes';
 import Genres from './features/genres/components/Genres';
 import Genre from './features/genres/components/Genre';
