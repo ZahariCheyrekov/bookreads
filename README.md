@@ -17,3 +17,10 @@ Bookreads is social media and it's all about books. This is a place to find your
 6. Type `npm start` to run the project in the browser. It will start on `http://localhost:3000`, but you can change it to another if necessary. Type `y` to do it.
 7. Explore Bookreads.
 8. Meet your next book and share what you think with other users.
+
+
+# <p id="applicationpictures">Application Pictures</p>
+
+## Desktop
+
+## Mobile
