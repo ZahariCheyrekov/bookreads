@@ -2,6 +2,9 @@
 
 You can visit the project from here: https://bookreads-ab7cf.web.app/
 
+# <p id="about">About this project</p>
+
+Bookreads is social media and it's all about books. This is a place to find your next book to read. Any user can create books, review books, create posts, rate books, comment on posts and be an author.
 
 # <p id="howtorun">How to run the app on your computer</p>
 
