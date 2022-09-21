@@ -24,16 +24,16 @@ const Profile = () => {
                 <>
                     <section className="main__profile--section">
                         <article className="profile__section--article">
-                            <img src={currentUser.imageUrl ? currentUser.imageUrl : defaultUserPhoto}
-                                alt={`${currentUser?.name}`}
+                            <img src={user?.result.imageUrl ? user?.result.imageUrl : defaultUserPhoto}
+                                alt={`${user?.result.name}`}
                             />
                         </article>
                         <article className="profile__user__article--info">
                             <h4 className="profile__section--user">
-                                {currentUser.name}
+                                {user?.result.name}
                             </h4>
                             {user?.result._id === id &&
-                                <Link to={`${getUserLink(currentUser.name, id)}/edit`}>
+                                <Link to={`${getUserLink(user?.result.name, id)}/edit`}>
                                     Edit profile
                                 </Link>
                             }
@@ -41,7 +41,7 @@ const Profile = () => {
                     </section>
                     <section className="profile__user--bookshelves">
                         <h5 className="profile__bookshelves--title">
-                            {currentUser.name.split(' ')[0]}'s bookshelves
+                            {user?.result.name.split(' ')[0]}'s bookshelves
                         </h5>
                         <hr className="profile__hr" />
                         <ul className="profile__bookshelves">
