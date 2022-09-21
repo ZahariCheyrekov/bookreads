@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getUserPostsById } from '../../../services/user';
 
 import Posts from '../../../components/Posts/Posts';
-import Spinner from '../../../components/Spinner/Spinner';
+import Spinner from '../../../components/Spinner';
 
 import './Updates.css';
 

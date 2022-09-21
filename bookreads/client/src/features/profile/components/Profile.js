@@ -8,7 +8,7 @@ import defaultUserPhoto from '../../../assets/default-user-photo.png';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 
-import Spinner from '../../../components/Spinner/Spinner';
+import Spinner from '../../../components/Spinner';
 import Updates from './Updates';
 
 import './Profile.css';

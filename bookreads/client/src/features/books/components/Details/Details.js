@@ -9,7 +9,7 @@ import { ReviewContextProvider } from '../../contexts/ReviewContext';
 import Aside from './Aside';
 import Recommended from './Recommended/Recommended';
 import Reviews from '../Reviews/Reviews';
-import Spinner from '../../../../components/Spinner/Spinner';
+import Spinner from '../../../../components/Spinner';
 
 import './Details.css';
 

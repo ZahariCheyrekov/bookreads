@@ -3,7 +3,7 @@ import uuid from 'react-uuid';
 
 import { getPosts } from '../../services/post';
 import Post from './Post/Post';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../Spinner';
 
 import './Posts.css';
 

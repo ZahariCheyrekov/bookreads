@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { getDefaultBooks } from '../services/genre';
 
-import Spinner from '../../../components/Spinner/Spinner';
+import Spinner from '../../../components/Spinner';
 import GenreList from './GenreList';
 
 import './Genres.css';

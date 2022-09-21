@@ -7,7 +7,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import { getUserLink } from '../../../utils/getUserLink';
 import { uploadUserImage } from '../api/profileAPI';
 
-import Spinner from '../../../components/Spinner/Spinner';
+import Spinner from '../../../components/Spinner';
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
 
 import './Edit.css';

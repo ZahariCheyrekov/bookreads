@@ -7,7 +7,7 @@ import defaultUserPhoto from '../../../../assets/default-user-photo.png';
 import { getPostLikes } from '../../../../services/post';
 import { getUserLink } from '../../../../utils/getUserLink';
 
-import Spinner from '../../../Spinner/Spinner';
+import Spinner from '../../../Spinner';
 
 import './PostLikes.css';
 
