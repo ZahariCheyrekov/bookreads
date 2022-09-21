@@ -180,7 +180,7 @@ const Navigation = () => {
                         />
                         <button
                             className="header__form--button"
-                            onClick={handleBookSearch}
+                            onClick={handleSearch}
                         >
                             <i className="fa-solid fa-magnifying-glass" />
                         </button>
