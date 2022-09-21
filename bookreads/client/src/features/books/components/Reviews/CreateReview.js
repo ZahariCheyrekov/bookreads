@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import { useBook } from '../../../hooks/useBook';
-import { useUserReview } from '../../../hooks/useUserReview';
-import { AuthContext } from '../../../../../contexts/AuthContext';
+import { useBook } from '../../hooks/useBook';
+import { useUserReview } from '../../hooks/useUserReview';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
-import { notify } from '../../../../../lib/toastify';
-import { createPost } from '../../../../../api/postAPI';
-import { createReview, deleteReviewById } from '../../../api/reviewAPI';
+import { notify } from '../../../../lib/toastify';
+import { createPost } from '../../../../api/postAPI';
+import { createReview, deleteReviewById } from '../../api/reviewAPI';
 
-import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../../constants/actionType';
-import { REVIEW_DELETED } from '../../../constants/messages';
+import { RATED_A_BOOK, REVIEWED_A_BOOK } from '../../../../constants/actionType';
+import { REVIEW_DELETED } from '../../constants/messages';
 
-import Rating from '../../Details/Rating/Rating';
+import Rating from '../Details/Rating/Rating';
 
 import './CreateReview.css';
 
