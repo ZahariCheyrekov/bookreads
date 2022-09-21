@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://bookreads-server.vercel.app/';
+export const BASE_URL = 'https://vast-erin-blackbuck-wig.cyclic.app/';
