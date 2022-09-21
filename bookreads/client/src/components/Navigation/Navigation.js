@@ -179,7 +179,7 @@ const Navigation = () => {
                             onChange={(ev) => setSearchTitle(ev.target.value.trim())}
                         />
                         <button
-                            className="header__form--button"
+                            className="header__form__srch--button"
                             onClick={handleSearch}
                         >
                             <i className="fa-solid fa-magnifying-glass" />

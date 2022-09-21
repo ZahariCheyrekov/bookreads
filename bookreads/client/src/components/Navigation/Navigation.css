@@ -119,11 +119,14 @@
     border: 1px solid var(--gray-color);
 }
 
-.header__form--button {
+.header__form__srch--button {
     position: absolute;
-    transform: translateY(-50%);
     top: 50%;
+    transform: translateY(-50%);
     right: 90px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
 }
 
 .header__article--profile {
