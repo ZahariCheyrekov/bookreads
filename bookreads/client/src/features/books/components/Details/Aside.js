@@ -26,7 +26,7 @@ const Aside = ({ isOwner }) => {
     const { user } = useContext(AuthContext);
     const [currentUser, setCurrentUser] = useState(null);
     const [visibleBookOptions, setVisibleBookOptions] = useState(false);
-    const [bookShelveStatus, setBookShelveStatus] = useState('');
+    const [bookShelveStatus, setBookShelveStatus] = useState(WANT_TO_READ);
 
     useEffect(() => {
         if (user) {
