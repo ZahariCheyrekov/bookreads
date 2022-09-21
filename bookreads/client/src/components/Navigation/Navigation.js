@@ -156,27 +156,6 @@ const Navigation = () => {
                                 <i className="fa-solid fa-magnifying-glass" />
                             </button>
                         </form>
-                        {searchBarOpen ?
-                            <form className="header__form--search header__form__search--small">
-                                <input
-                                    className="header__form--input"
-                                    placeholder="Enter book title"
-                                    onChange={(ev) => setSearchTitle(ev.target.value.trim())}
-                                />
-                                <i
-                                    className="fa-solid fa-magnifying-glass"
-                                    onClick={() => navigate(`/books/search/${searchTitle}`)}
-                                />
-                                <button
-                                    className="header__form__small--button"
-                                    type="submit"
-                                    onClick={handleCancelButton}
-                                >
-                                    Cancel
-                                </button>
-                            </form>
-                            : null
-                        }
                         <article className="header__article header__article--profile" ref={menuRef}>
                             <img
                                 onClick={() => setProfileOpen(prevState => !prevState)}
@@ -191,6 +170,27 @@ const Navigation = () => {
                             }
                         </article>
                     </>
+                }
+                {searchBarOpen ?
+                    <form className="header__form--search header__form__search--small">
+                        <input
+                            className="header__form--input"
+                            placeholder="Enter book title"
+                            onChange={(ev) => setSearchTitle(ev.target.value.trim())}
+                        />
+                        <i
+                            className="fa-solid fa-magnifying-glass"
+                            onClick={() => navigate(`/books/search/${searchTitle}`)}
+                        />
+                        <button
+                            className="header__form__small--button"
+                            type="submit"
+                            onClick={handleCancelButton}
+                        >
+                            Cancel
+                        </button>
+                    </form>
+                    : null
                 }
             </nav>
         </section >
