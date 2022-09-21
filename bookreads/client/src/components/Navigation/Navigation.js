@@ -2,14 +2,16 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 
+import { AuthContext } from '../../contexts/AuthContext';
+
+import { removeUser } from '../../services/localStorage';
+
 import Logo from '../../layouts/Logo/Logo';
 import Menu from './Menu';
+
 import defaultUserPhoto from '../../assets/default-user-photo.png';
 
 import './Navigation.css';
-
-import { AuthContext } from '../../contexts/AuthContext';
-import { removeUser } from '../../services/localStorage';
 
 const Navigation = () => {
     const navigate = useNavigate();
