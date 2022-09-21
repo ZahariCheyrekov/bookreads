@@ -11,6 +11,7 @@ import Spinner from '../../../components/Spinner/Spinner';
 import defaultUserPhoto from '../../../assets/default-user-photo.png';
 
 import './Edit.css';
+import { changeUserImage } from '../../../services/localStorage';
 
 const Edit = () => {
     const navigate = useNavigate();
@@ -19,7 +20,10 @@ const Edit = () => {
 
     const uploadImage = () => {
         const imageUrl = file.base64;
+
+        changeUserImage(imageUrl);
         uploadUserImage(user?.result?._id, imageUrl);
+    
         navigate(getUserLink(user.result.name, user.result._id));
     }
 
