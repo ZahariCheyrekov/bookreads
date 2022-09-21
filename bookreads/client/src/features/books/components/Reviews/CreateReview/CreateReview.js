@@ -140,6 +140,7 @@ const CreateReview = () => {
                         <article className="create__review__spoilers">
                             <input
                                 className="spoilers--hide"
+                                defaultChecked={spoilers}
                                 type="checkbox"
                                 onClick={handleSpoilers}
                             />
