@@ -1,33 +1,10 @@
-import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { GoogleLogin } from 'react-google-login';
-import { gapi } from "gapi-script"
-
-import { googleFailure, start } from '../../../../services/google';
-import { GOOGLE_CLIENT_AUTH } from '../../../../constants/google';
+import { Link } from 'react-router-dom';
 
 import books from '../../../../assets/books-banner.png'
-
-import { saveUser } from '../../../../services/localStorage';
 
 import './Header.css';
 
 const Header = () => {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        gapi.load(GOOGLE_CLIENT_AUTH, start);
-    }, []);
-
-    const googleSuccess = async (res) => {
-        const result = res?.profileObj;
-        const token = res?.tokenId;
-
-        const user = { result: result, token }
-        saveUser(user);
-        navigate('/');
-    }
-
     return (
         <header className="header">
             <section className="header__section">
@@ -48,20 +25,12 @@ const Header = () => {
                                 Discover & read more
                             </h3>
 
-                            <GoogleLogin
-                                onSuccess={googleSuccess}
-                                onFailure={googleFailure}
-                                render={renderProps => (
-                                    <button onClick={renderProps.onClick}
-                                        disabled={renderProps.disabled}
-                                        className="aside__button aside__button--google">
-                                        <i className="fa-brands fa-google"></i>
-                                        &nbsp;
-                                        Continue with Google
-                                    </button>
-                                )}
-                                cookiePolicy="single_host_origin"
-                            />
+                            <Link to={'/user/signin'}>
+                                <button className="aside__button aside__button--signin">
+                                    Sign in to Bookreads
+                                </button>
+                            </Link>
+
                             <Link to={'/user/signup'}>
                                 <button className="aside__button aside__button--email">
                                     Sign up with email
