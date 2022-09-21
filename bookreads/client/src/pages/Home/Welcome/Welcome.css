@@ -92,3 +92,10 @@
         gap: 3rem;
     }
 }
+
+@media only screen and (max-width: 370px) {
+    .welcome__genres--list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
