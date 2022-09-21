@@ -121,9 +121,10 @@
 
 .header__form__srch--button {
     position: absolute;
-    top: 50%;
     transform: translateY(-50%);
+    top: 50%;
     right: 90px;
+
     font-size: 1rem;
     background-color: transparent;
     border: none;
@@ -150,10 +151,11 @@
 @media only screen and (max-width: 1200px) {
     .header__navigation {
         padding: 0 20px;
+        width: unset;
     }
 
-    .header__navigation {
-        width: unset;
+    .header__form__search--small {
+        display: none;
     }
 }
 
