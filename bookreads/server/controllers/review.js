@@ -39,6 +39,7 @@ export const createReview = async (req, res) => {
     if (existingReview) {
         existingReview.reviewContent = reviewData.reviewContent;
         existingReview.user.imageUrl = reviewData.user.imageUrl;
+        existingReview.spoilers = reviewData.spoilers;
 
         if (reviewData.rating !== existingReview.rating) {
             existingReview.rating = reviewData.rating;
