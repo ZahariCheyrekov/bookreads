@@ -1,6 +1,6 @@
 # Bookreads
 
-You can visit the project from here: https://bookreads-ab7cf.web.app/
+You can visit the project from here: 
 
 # <p id="about">About this project</p>
 
