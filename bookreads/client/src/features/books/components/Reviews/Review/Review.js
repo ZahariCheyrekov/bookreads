@@ -24,10 +24,6 @@ const Review = ({ review, userReview }) => {
     const [showContent, setShowContent] = useState(false);
     const [showComments, setShowComments] = useState(false);
 
-    const handleShowContent = () => {
-        setShowContent(prevState => !prevState);
-    }
-
     const handleLike = () => {
         const userId = user?.result?._id;
         likeReview(review._id, userId);
@@ -40,10 +36,6 @@ const Review = ({ review, userReview }) => {
             setLikes([...likes, userId]);
             setLikedByUser(true);
         }
-    }
-
-    const handleShowComments = () => {
-        setShowComments(prevState => !prevState);
     }
 
     return (
@@ -90,25 +82,30 @@ const Review = ({ review, userReview }) => {
                                 {getReviewDate(review.createdAt)}
                             </time>
                         </section>
-                        <section className={`review__section--content ${showContent && 'active'}`}>
-                            {review.reviewContent.map((paragraph, index) =>
-                                <p
-                                    key={index}
-                                    className="review__paragraph"
-                                >
-                                    {paragraph}
-                                </p>
-                            )}
-                            {hasButton &&
-                                <span
-                                    className={`review__span ${showContent ? 'less' : 'more'}`}
-                                    onClick={handleShowContent}
-                                >
-                                    Show {showContent ? 'less' : 'more'}&nbsp;
-                                    <i className="fa-solid fa-angle-down down-arrow"></i>
-                                </span>
-                            }
-                        </section>
+                        {review?.spoilers
+                            ? <section className="review__section--spoilers">
+
+                            </section>
+                            : <section className={`review__section--content ${showContent && 'active'}`}>
+                                {review.reviewContent.map((paragraph, index) =>
+                                    <p
+                                        key={index}
+                                        className="review__paragraph"
+                                    >
+                                        {paragraph}
+                                    </p>
+                                )}
+                                {hasButton &&
+                                    <span
+                                        className={`review__span ${showContent ? 'less' : 'more'}`}
+                                        onClick={() => setShowContent(prevState => !prevState)}
+                                    >
+                                        Show {showContent ? 'less' : 'more'}&nbsp;
+                                        <i className="fa-solid fa-angle-down down-arrow"></i>
+                                    </span>
+                                }
+                            </section>
+                        }
                         {(likes.length > 0 || comments.length > 0) &&
                             <section className="review__likes__comments">
                                 {likes.length > 0 &&
@@ -155,7 +152,7 @@ const Review = ({ review, userReview }) => {
                             </article>
                             <article
                                 className="review__button review__button--comment"
-                                onClick={handleShowComments}
+                                onClick={() => setShowComments(prevState => !prevState)}
                             >
                                 <i className="fa-regular fa-comments" />
                                 &nbsp;
