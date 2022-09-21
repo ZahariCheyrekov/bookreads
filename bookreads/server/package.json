@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "MIT",
