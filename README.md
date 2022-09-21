@@ -42,3 +42,23 @@ Bookreads is social media and it's all about books. This is a place to find your
 ![bookreads-genres](https://user-images.githubusercontent.com/95768526/191563303-148d9e4c-55b9-4a62-82ee-31175317768a.png)
 
 ## Mobile
+![bookreads-mobile-home-guest](https://user-images.githubusercontent.com/95768526/191567253-a26d0cca-517d-498e-8fe2-ef50dd2a8d19.png)
+
+![bookreads-mobile-signin](https://user-images.githubusercontent.com/95768526/191567258-d9ede547-27f9-400d-8502-c38cda723464.png)
+
+![bookreads-mobile-signup](https://user-images.githubusercontent.com/95768526/191567260-ca3ff5dc-5993-4779-a716-0d21cd381e94.png)
+
+![bookreads-mobile-home-user](https://user-images.githubusercontent.com/95768526/191567264-8bffaf0f-b927-4be4-8e74-fec955dbe490.png)
+
+![bookreads-book-details](https://user-images.githubusercontent.com/95768526/191567269-154ba702-e029-4ecf-b672-3ac819420544.png)
+
+![bookreads-profile](https://user-images.githubusercontent.com/95768526/191567272-0733a002-3cb2-4d77-943c-8bc56d96b34b.png)
+
+![bookreads-profile-shelves](https://user-images.githubusercontent.com/95768526/191567277-6fb2165d-2571-49da-b98b-3e484ee2b429.png)
+
+![bookreads-genres](https://user-images.githubusercontent.com/95768526/191567279-9aba90d5-16c7-455e-85ee-c832fa16b4fb.png)
+
+![bookreads-sidenav](https://user-images.githubusercontent.com/95768526/191567424-5bd63a85-f769-4b3e-b58b-fc0cc1b8956c.png)
+
+![bookreads-genres-search](https://user-images.githubusercontent.com/95768526/191567442-6ff4b005-4b89-4ff1-9345-645062de1e6c.png)
+
