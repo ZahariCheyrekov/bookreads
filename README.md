@@ -65,7 +65,21 @@ Bookreads is social media and it's all about books. This is a place to find your
     - delete review (creator)
   
   - Guest 
-    - browse book reviews 
+    - browse book reviews
+
+- <strong>Profile</strong>
+  - Author
+    - view your publications
+    - comment on your publications
+    - edit your profile picture
+
+  - Random User
+    - view user posts
+    - like user posts
+    - comment on user posts
+    - read user post review
+    - find user book rating
+
 
 # <p id="tools">Tools</p>
 
