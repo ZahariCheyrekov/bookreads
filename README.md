@@ -135,6 +135,29 @@ Bookreads is social media and it's all about books. This is a place to find your
   - invite to giveaway
 
 
+# <p id="project-structure">Project Structure</p>
+  - Client
+    - api
+    - assets
+    - components
+    - constants
+    - contexts
+    - features
+    - hooks
+    - layouts
+    - lib
+    - pages
+    - services
+    - utils
+    - validation
+
+  - Server
+    - config
+    - constants
+    - controllers
+    - models
+    - routes
+
 # <p id="tools">Tools</p>
 
  - <a href="https://reactjs.org/">React</a>
