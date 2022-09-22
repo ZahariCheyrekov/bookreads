@@ -28,6 +28,23 @@ Bookreads is social media and it's all about books. This is a place to find your
 8. Meet your next book and share what you think with other users.
 
 
+# <p id="tools">Tools</p>
+
+ - <a href="https://reactjs.org/">React</a>
+  - <a href="https://reactrouter.com/">React Router</a>
+  - <a href="https://www.npmjs.com/package/react-file-base64">React File Base64</a>
+  - <a href="https://firebase.google.com/">Firebase</a>
+  - <a href="https://app.cyclic.sh/">Cyclic</a>
+  - <a href="https://nodejs.org/en/">Node</a>
+  - <a href="https://expressjs.com/">Express</a>
+  - <a href="https://www.npmjs.com/package/nodemon">nodemon</a>
+  - <a href="https://www.mongodb.com/">MongoDB</a>
+  - <a href="https://mongoosejs.com/">Mongoose</a>
+  - <a href="https://jwt.io/">jwt</a>
+  - <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>
+  - <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
+
+
 # <p id="applicationpictures">Application Pictures</p>
 
 ## Desktop
