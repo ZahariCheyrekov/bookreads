@@ -38,7 +38,7 @@ Bookreads is social media and it's all about books. This is a place to find your
   - Register
     - create new account
 
-- <strong>Books</strong>
+- <strong>Book</strong>
   - User
     - browse books
     - search books by title
@@ -55,9 +55,9 @@ Bookreads is social media and it's all about books. This is a place to find your
     - search books by genre
     - view books 
   
-- <strong>Reviews</strong>
+- <strong>Review</strong>
   - User
-    - browse book reviews 
+    - browse book reviews
     - create review
     - comment on review
     - like review
@@ -67,6 +67,20 @@ Bookreads is social media and it's all about books. This is a place to find your
   - Guest 
     - browse book reviews
 
+- <strong>Post</strong>
+  - Author
+    - view post
+    - read post
+    - create post 
+    - delete post 
+    - comment on post  
+  
+  - User
+    - view post
+    - read post
+    - like post 
+    - comment on post
+
 - <strong>Profile</strong>
   - Author
     - view publications
@@ -74,7 +88,7 @@ Bookreads is social media and it's all about books. This is a place to find your
     - edit profile picture
     - delete publication/s
 
-  - Random User
+  - User
     - view user publications
     - like user publications
     - comment on user publications
