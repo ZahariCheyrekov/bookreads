@@ -108,6 +108,31 @@ Bookreads is social media and it's all about books. This is a place to find your
 
 # <p id="future-features">Future Features</p>
 
+- <strong>Connections</strong>
+  - Followers
+    - follow user
+    - unfollow user
+    - block user
+    - unblock user
+    
+  - Following
+    - see who follows use
+    - remove user from followers
+    - block user 
+    - unblock user
+
+- <strong>Chat</strong>
+  - send message to Bookreads user
+  
+- <strong>Discussions</strong>
+  - start discussion
+  - invite users to discussion
+  
+- <strong>Giveaway</strong>
+  - create book giveaway
+  - enter giveaway
+  - invite to giveaway
+
 
 # <p id="tools">Tools</p>
 
