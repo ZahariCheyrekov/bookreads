@@ -6,6 +6,7 @@ You can visit the project from here: https://bookreads-1ddbf.web.app/
 # Table of Contents
   - <a href="#about">About this Project</a>
   - <a href="#howtorun">How to run the app on your computer</a>
+  - <a href="#features">Features</a>
   - <a href="#tools">Tools</a>
   - <a href="#applicationpictures">Application Pictures</a>
 
@@ -26,6 +27,9 @@ Bookreads is social media and it's all about books. This is a place to find your
 6. Type `npm start` to run the project in the browser. It will start on `http://localhost:3000`, but you can change it to another if necessary. Type `y` to do it.
 7. Explore Bookreads.
 8. Meet your next book and share what you think with other users.
+
+
+# <p id="features">Features</p>
 
 
 # <p id="tools">Tools</p>
