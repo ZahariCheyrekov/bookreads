@@ -55,7 +55,18 @@ Bookreads is social media and it's all about books. This is a place to find your
     - search books by genre
     - view books 
   
-    
+- <strong>Reviews</strong>
+  - User
+    - browse book reviews 
+    - create review
+    - comment on review
+    - like review
+    - edit review (creator)
+    - delete review (creator)
+  
+  - Guest 
+    - browse book reviews 
+
 # <p id="tools">Tools</p>
 
  - <a href="https://reactjs.org/">React</a>
