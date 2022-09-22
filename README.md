@@ -5,10 +5,11 @@ You can visit the project from here: https://bookreads-1ddbf.web.app/
 
 # Table of Contents
   - <a href="#about">About this Project</a>
-  - <a href="#howtorun">How to run the app on your computer</a>
+  - <a href="#how-to-run">How to run the app on your computer</a>
   - <a href="#features">Features</a>
+  - <a href="#future-features">Future Features</a>
   - <a href="#tools">Tools</a>
-  - <a href="#applicationpictures">Application Pictures</a>
+  - <a href="#application-pictures">Application Pictures</a>
 
 
 # <p id="about">About this project</p>
@@ -16,7 +17,7 @@ You can visit the project from here: https://bookreads-1ddbf.web.app/
 Bookreads is social media and it's all about books. This is a place to find your next book to read. Any user can create books, review books, create posts, rate books, comment on posts and be an author.
 
 
-# <p id="howtorun">How to run the app on your computer</p>
+# <p id="how-to-run">How to run the app on your computer</p>
 
 1. You can download the project ZIP file or you can clone the repository directly.
 2. Open the project with IDE/Code Editor.
@@ -105,6 +106,9 @@ Bookreads is social media and it's all about books. This is a place to find your
     - find user book rating
 
 
+# <p id="future-features">Future Features</p>
+
+
 # <p id="tools">Tools</p>
 
  - <a href="https://reactjs.org/">React</a>
@@ -123,7 +127,7 @@ Bookreads is social media and it's all about books. This is a place to find your
   - <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
 
 
-# <p id="applicationpictures">Application Pictures</p>
+# <p id="application-pictures">Application Pictures</p>
 
 ## Desktop
 
