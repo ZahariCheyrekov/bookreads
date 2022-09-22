@@ -31,7 +31,14 @@ Bookreads is social media and it's all about books. This is a place to find your
 
 # <p id="features">Features</p>
 
-
+- <strong>Authentication</strong>
+  - Login
+    - log in with existing account
+     
+  - Register
+    - create new account
+    
+    
 # <p id="tools">Tools</p>
 
  - <a href="https://reactjs.org/">React</a>
