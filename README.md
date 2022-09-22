@@ -137,26 +137,26 @@ Bookreads is social media and it's all about books. This is a place to find your
 
 # <p id="project-structure">Project Structure</p>
   - Client
-    - api
-    - assets
-    - components
-    - constants
-    - contexts
-    - features
-    - hooks
-    - layouts
-    - lib
-    - pages
-    - services
-    - utils
-    - validation
+    - api - for all of the project api requests
+    - assets - for project assets
+    - components - all of the components used in multiple places
+    - constants - all of the project constant variables
+    - contexts - all of the project contexts
+    - features - all of the project features (authentication, books, genres and profile)
+    - hooks - all of the custom hooks
+    - layouts - for every partial code used by many components
+    - lib - for 3rd party libraries and their configuration files
+    - pages - for all of the application pages that does not store complicated logic
+    - services - for each application service and its requests
+    - utils - that contains functions used in multiple files
+    - validation - stores validation functions
 
   - Server
-    - config
-    - constants
-    - controllers
-    - models
-    - routes
+    - config - configuring the application
+    - constants - all of the project constant variables
+    - controllers - folder, where we can separate the route and the controller function
+    - models - stores database schemas
+    - routes - contains various application routes
 
 # <p id="tools">Tools</p>
 
