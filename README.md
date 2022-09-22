@@ -81,6 +81,11 @@ Bookreads is social media and it's all about books. This is a place to find your
     - like post 
     - comment on post
 
+- <strong>Search</strong>
+  - search post
+  - search book by title
+  - search book by genre
+
 - <strong>Profile</strong>
   - Author
     - view publications
