@@ -2,6 +2,9 @@
 
 You can visit the project from here: https://bookreads-1ddbf.web.app/
 
+# Project Idea
+
+The project idea was inspired by <a href="https://www.goodreads.com/">Goodreads</a>.
 
 # Table of Contents
   - <a href="#about">About this Project</a>
