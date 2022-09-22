@@ -69,14 +69,15 @@ Bookreads is social media and it's all about books. This is a place to find your
 
 - <strong>Profile</strong>
   - Author
-    - view your publications
-    - comment on your publications
-    - edit your profile picture
+    - view publications
+    - comment on publications
+    - edit profile picture
+    - delete publication/s
 
   - Random User
-    - view user posts
-    - like user posts
-    - comment on user posts
+    - view user publications
+    - like user publications
+    - comment on user publications
     - read user post review
     - find user book rating
 
