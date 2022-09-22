@@ -37,7 +37,19 @@ Bookreads is social media and it's all about books. This is a place to find your
      
   - Register
     - create new account
-    
+
+- <strong>Books</strong>
+  - User
+    - browse books
+    - search books
+    - search books by genre
+    - view books
+    - create new book
+    - rate book
+    - edit book (creator)
+    - delete book (creator)
+
+  
     
 # <p id="tools">Tools</p>
 
