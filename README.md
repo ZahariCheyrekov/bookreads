@@ -33,6 +33,7 @@ Bookreads is social media and it's all about books. This is a place to find your
  - <a href="https://reactjs.org/">React</a>
   - <a href="https://reactrouter.com/">React Router</a>
   - <a href="https://www.npmjs.com/package/react-file-base64">React File Base64</a>
+  - <a href="https://www.npmjs.com/package/react-toastify">React-Toastify</a>
   - <a href="https://firebase.google.com/">Firebase</a>
   - <a href="https://app.cyclic.sh/">Cyclic</a>
   - <a href="https://nodejs.org/en/">Node</a>
