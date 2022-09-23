@@ -47,17 +47,10 @@ const Review = ({ review, userReview }) => {
                     <aside className="review__aside">
                         <div className="review__user--wrapper">
                             <Link to={getUserLink(review.user.name, review.user.id)}>
-                                <article className="review__user--article">
-                                    <img
-                                        className="review__user--img"
-                                        src={review.user.imageUrl ? review.user.imageUrl : defaultUserPhoto}
-                                        alt={review.user.name}
-                                    />
-                                </article>
+                                <h4 className="review__user--name">
+                                    {review.user.name}
+                                </h4>
                             </Link>
-                            <h4 className="review__user--name">
-                                {review.user.name}
-                            </h4>
                         </div>
                     </aside>
                     <article className="review__content">
