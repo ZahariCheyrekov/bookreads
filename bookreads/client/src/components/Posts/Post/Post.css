@@ -57,6 +57,7 @@
 .post__review--paragraph {
     margin: 16px 0;
     line-height: 1.4;
+    word-break: break-word;
 }
 
 .post__review--rating {
