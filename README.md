@@ -1,6 +1,6 @@
 # Bookreads
 
-You can visit the project from here: https://bookreads-1ddbf.web.app/
+You can visit the project from here: https://bookreads-7225a.web.app
 
 # Project Idea
 
