@@ -65,7 +65,6 @@ const BookForm = () => {
         const userData = {
             name: user.result.name,
             id: user.result._id,
-            imageUrl: user.result.imageUrl
         }
 
         if (id) {

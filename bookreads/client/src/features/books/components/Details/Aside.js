@@ -73,7 +73,6 @@ const Aside = ({ isOwner }) => {
         const userData = {
             name: user.result.name,
             id: user.result._id,
-            imageUrl: user.result.imageUrl
         }
 
         let status;
