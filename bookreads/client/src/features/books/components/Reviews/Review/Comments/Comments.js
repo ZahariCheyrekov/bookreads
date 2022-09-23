@@ -2,8 +2,8 @@ import { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 
 import { AuthContext } from '../../../../../../contexts/AuthContext';
+
 import { commentOnReview } from '../../../../api/reviewAPI';
-import defaultUserPhoto from '../../../../../../assets/default-user-photo.png';
 
 import Comment from './Comment/Comment';
 
@@ -22,7 +22,10 @@ const Comments = ({ review, comments, setComments }) => {
             const commentContent = comment.trim().split(/\n+/);
 
             const commentData = {
-                user: review.user,
+                user: {
+                    name: user?.result.name,
+                    id: user?.result._id
+                },
                 commentId: uuid(),
                 commentContent,
                 createdAt: new Date()
@@ -65,11 +68,6 @@ const Comments = ({ review, comments, setComments }) => {
                 </ul>
             </section>
             <section className="review__section--write">
-                <img
-                    className="review__user__comment--img"
-                    src={user?.result?.imageUrl ? user?.result?.imageUrl : defaultUserPhoto}
-                    alt={user?.result?.name}
-                />
                 <form className="review__form">
                     <textarea
                         className="review__form--textarea"

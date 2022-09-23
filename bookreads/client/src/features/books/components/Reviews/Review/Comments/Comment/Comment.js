@@ -6,13 +6,12 @@ import uuid from 'react-uuid';
 import { deleteReviewComment } from '../../../../../api/reviewAPI';
 import { getUserLink } from '../../../../../../../utils/getUserLink';
 
-import defaultUserPhoto from '../../../../../../../assets/default-user-photo.png'
-
 import './Comment.css';
 
 const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setComments }) => {
     const [hasButton] = useState(comment.commentContent.join(' ').length >= 300);
     const [showSummary, setShowSummary] = useState(false);
+
 
     const handleClick = () => {
         setShowSummary(prevState => !prevState);
@@ -31,15 +30,6 @@ const Comment = ({ reveiewId, comment, reviewComments, setReviewComments, setCom
 
     return (
         <li className="review__user--comment">
-            <article className="review__user__comment--article" >
-                <Link to={getUserLink(comment.user.name, comment.user.id)}>
-                    <img
-                        className="review__user__comment--img"
-                        src={comment.user.imageUrl ? comment.user.imageUrl : defaultUserPhoto}
-                        alt={comment.user.name}
-                    />
-                </Link>
-            </article >
             <article className="review__user__comment--content">
                 <section className="review__user__comment--section">
                     <h4 className="review__user__comment--name">

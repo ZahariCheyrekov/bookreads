@@ -7,8 +7,6 @@ import { getUserLink } from '../../../../../utils/getUserLink';
 import { getReviewDate } from '../../../utils/getReviewDate';
 import { likeReview } from '../../../api/reviewAPI';
 
-import defaultUserPhoto from '../../../../../assets/default-user-photo.png';
-
 import Comments from './Comments/Comments';
 
 import './Review.css';
