@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useBook } from '../../hooks/useBook';
+import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../../../../contexts/AuthContext';
 import { ReviewContextProvider } from '../../contexts/ReviewContext';
+
+import { getBook } from '../../services/book';
 
 import Aside from './Aside';
 import Recommended from './Recommended/Recommended';
@@ -14,11 +14,20 @@ import Spinner from '../../../../components/Spinner';
 import './Details.css';
 
 const Details = () => {
-    const book = useBook();
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const [book, setBook] = useState();
     const [isOwner, setIsOwner] = useState(false);
     const [visibleSummary, setVisibleSummary] = useState(false);
     const [hasSummaryButton, setHasSummaryButton] = useState();
+
+    useEffect(() => {
+        const fetchBook = async () => {
+            const book = await getBook(id);
+            setBook(book);
+        }
+        fetchBook();
+    }, [id]);
 
     useEffect(() => {
         const isBookOwner = user && (user?.result?._id || user?.result?.googleId) === book?.creatorId;
@@ -33,7 +42,10 @@ const Details = () => {
         <main className="main__details">
             {book ?
                 <div className="div__wrapper">
-                    <Aside isOwner={isOwner} />
+                    <Aside
+                        book={book}
+                        isOwner={isOwner}
+                    />
 
                     <section className="section__book--content">
                         <article className="section__article--book">
