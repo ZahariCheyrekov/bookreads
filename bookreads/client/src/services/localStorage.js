@@ -1,6 +1,19 @@
 import { USER } from '../constants/user';
 
-export const saveUser = (userData) => localStorage.setItem(USER, JSON.stringify(userData));
+export const saveUser = (userData) => {
+    const user = {
+        result: {
+            name: userData.result.name,
+            _id: userData.result._id,
+            shelves: userData.result.shelves,
+            imageUrl: userData.result.imageUrl
+        },
+        token: userData.token
+    }
+
+    localStorage.setItem(USER, JSON.stringify(user));
+    console.log(user)
+}
 
 export const getUser = () => {
     const serializesUser = localStorage.getItem(USER);
