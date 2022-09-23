@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import User from './User/User';
 import Likes from './Likes/Likes';
 import CommentSection from './CommentSection/CommentSection';
 
@@ -61,11 +60,6 @@ const Post = ({ post, posts, setPosts }) => {
     return (
         <article className="post">
             {postUser ? <>
-                <User
-                    name={postUser.name}
-                    image={postUser.imageUrl}
-                    id={postUser.id} abs={true}
-                />
                 <div className="post__wrapper">
                     <section className="post__information">
                         <article className="post__top--content">
