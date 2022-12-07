@@ -11,7 +11,7 @@ The project idea was inspired by <a href="https://www.goodreads.com/">Goodreads<
   - <a href="#how-to-run">How to run the app on your computer</a>
   - <a href="#features">Features</a>
   - <a href="#future-features">Future Features</a>
-  - <a href="project-structure">Project Structure</a>
+  - <a href="#project-structure">Project Structure</a>
   - <a href="#tools">Tools</a>
   - <a href="#application-pictures">Application Pictures</a>
 
