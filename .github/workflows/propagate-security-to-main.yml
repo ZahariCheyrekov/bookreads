@@ -1,0 +1,33 @@
+name: Propagate security fixes from main to master
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  propagate-if-merged:
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'security')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Create PR main → master
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(security): propagate npm audit fixes to master"
+          title: "chore(security): propagate audit fix updates to master"
+          body: |
+            Auto-created after merging security fixes to main.
+            Original PR: ${{ github.event.pull_request.html_url }}
+
+            **Manual merge required** – review changes, run tests, then merge when ready.
+          branch: security-to-master-${{ github.run_id }}
+          base: master
+          delete-branch: true
+          labels: dependencies, security

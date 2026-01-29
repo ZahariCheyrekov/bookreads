@@ -1,0 +1,40 @@
+name: Auto-fix npm security vulnerabilities
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 3 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  audit-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci --legacy-peer-deps
+
+      - run: npm audit fix --legacy-peer-deps
+        continue-on-error: true
+
+      - name: Create PR to main (if changes)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(security): auto-fix npm vulnerabilities --legacy-peer-deps"
+          title: "chore(security): npm audit fix updates"
+          body: |
+            Automated `npm audit fix --legacy-peer-deps`.
+            Test before merging to main.
+          branch: auto-security-fixes
+          delete-branch: true
+          base: main
+          labels: dependencies, security
