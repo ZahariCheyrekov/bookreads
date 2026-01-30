@@ -1,4 +1,4 @@
-name: Auto-fix npm security vulnerabilities (client)
+name: Auto-fix npm security vulnerabilities (server)
 
 on:
   schedule:
@@ -10,40 +10,40 @@ permissions:
   pull-requests: write
 
 jobs:
-  audit-and-fix-client:
+  audit-and-fix-server:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js for client
+      - name: Setup Node.js for server
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: bookreads/client/package-lock.json
+          cache-dependency-path: bookreads/server/package-lock.json
 
-      - name: Install dependencies (client)
-        working-directory: bookreads/client
+      - name: Install dependencies (server)
+        working-directory: bookreads/server
         run: npm ci --legacy-peer-deps
 
-      - name: Run npm audit fix (client)
-        working-directory: bookreads/client
+      - name: Run npm audit fix (server)
+        working-directory: bookreads/server
         run: npm audit fix --legacy-peer-deps
         continue-on-error: true
 
-      - name: Create PR to main (if client changes)
+      - name: Create PR to main (if server changes)
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(security): auto-fix npm vulnerabilities in client --legacy-peer-deps"
-          title: "chore(security): npm audit fix updates (client)"
+          commit-message: "chore(security): auto-fix npm vulnerabilities in server --legacy-peer-deps"
+          title: "chore(security): npm audit fix updates (server)"
           body: |
-            Automated `npm audit fix --legacy-peer-deps` in /bookreads/client.
+            Automated `npm audit fix --legacy-peer-deps` in /bookreads/server.
 
             - Fixes applied where possible.
-            - Review dependency changes and test the client before merging to main.
-          branch: auto-security-fixes-client
+            - Review dependency changes and test the server before merging to main.
+          branch: auto-security-fixes-server
           delete-branch: true
           base: main
-          labels: dependencies, security, client
+          labels: dependencies, security, server
