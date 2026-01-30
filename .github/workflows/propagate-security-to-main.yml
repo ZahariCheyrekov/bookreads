@@ -20,22 +20,21 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Fetch latest master to compare
+          # Ensure latest state
           git fetch origin master:master
 
-          # Check diff count
-          ahead=$(git rev-list --count master..HEAD)
-          echo "Commits ahead of master: $ahead"
-
-          if [ "$ahead" -eq 0 ]; then
-            echo "No changes to propagate - branches are identical"
+          # Log divergence for debug
+          ahead_count=$(git rev-list --count master..HEAD)
+          echo "Commits ahead of master: $ahead_count"
+          if [ "$ahead_count" -eq 0 ]; then
+            echo "No new changes - skipping PR creation"
             exit 0
           fi
 
-          # Create PR
+          # Create the PR (will fail gracefully if already exists)
           gh pr create \
             --base master \
             --head main \
             --title "chore(security): propagate npm audit fixes to master" \
-            --body "Auto-created after merging security fixes to main.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\n**Manual merge required** – review changes (including large lockfile diffs), run tests, then merge when ready." \
-            --label dependencies,security || echo "PR creation skipped (may already exist or other issue)"
+            --body "Auto-created after merging security fixes to main.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\n**Manual merge required** – review (note: large package-lock.json diffs expected), test, then merge.\n\nDiff: https://github.com/${{ github.repository }}/compare/master...main" \
+            --label dependencies,security || echo "PR creation failed/skipped (likely already exists or no diff)"
