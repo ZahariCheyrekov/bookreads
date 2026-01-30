@@ -16,18 +16,26 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Create PR main → master
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(security): propagate npm audit fixes to master"
-          title: "chore(security): propagate audit fix updates to master"
-          body: |
-            Auto-created after merging security fixes to main.
-            Original PR: ${{ github.event.pull_request.html_url }}
+      - name: Create propagation PR with gh CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch latest master to compare
+          git fetch origin master:master
 
-            **Manual merge required** – review changes, run tests, then merge when ready.
-          branch: security-to-master-${{ github.run_id }}
-          base: master
-          delete-branch: true
-          labels: dependencies, security
+          # Check diff count
+          ahead=$(git rev-list --count master..HEAD)
+          echo "Commits ahead of master: $ahead"
+
+          if [ "$ahead" -eq 0 ]; then
+            echo "No changes to propagate - branches are identical"
+            exit 0
+          fi
+
+          # Create PR
+          gh pr create \
+            --base master \
+            --head main \
+            --title "chore(security): propagate npm audit fixes to master" \
+            --body "Auto-created after merging security fixes to main.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\n**Manual merge required** – review changes (including large lockfile diffs), run tests, then merge when ready." \
+            --label dependencies,security || echo "PR creation skipped (may already exist or other issue)"
