@@ -5,6 +5,11 @@ on:
     types: [closed]
     branches:
       - develop
+  workflow_dispatch:
+    inputs:
+      security_pr_number:
+        description: "Merged dependabot_security PR number from develop"
+        required: true
 
 permissions:
   contents: write
@@ -12,7 +17,11 @@ permissions:
 
 jobs:
   propagate-if-merged:
-    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'dependabot_security')
+    if: |
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       contains(github.event.pull_request.labels.*.name, 'dependabot_security')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +35,12 @@ jobs:
         run: |
           git fetch origin --no-tags
 
-          security_pr_number="${{ github.event.pull_request.number }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            security_pr_number="${{ github.event.inputs.security_pr_number }}"
+          else
+            security_pr_number="${{ github.event.pull_request.number }}"
+          fi
+
           propagation_branch="auto-security-propagation-${security_pr_number}-${GITHUB_RUN_ID}"
 
           # Start from master and only apply commits from the merged security PR.
@@ -40,6 +54,8 @@ jobs:
             echo "No commits found in security PR #${security_pr_number}. Skipping."
             exit 0
           fi
+
+          original_pr_url="https://github.com/${{ github.repository }}/pull/${security_pr_number}"
 
           for sha in $commits; do
             echo "Cherry-picking commit: $sha"
@@ -57,5 +73,5 @@ jobs:
             --base master \
             --head "$propagation_branch" \
             --title "chore(security): propagate npm audit fixes to master" \
-            --body "Auto-created after merging security fixes to develop.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\nThis PR cherry-picks only commits from the merged \`dependabot_security\` PR (not the full \`develop\` branch).\n\n**Manual merge required** - review lockfile changes, run tests, then merge." \
+            --body "Auto-created after merging security fixes to develop.\nOriginal PR: ${original_pr_url}\n\nThis PR cherry-picks only commits from the merged \`dependabot_security\` PR (not the full \`develop\` branch).\n\n**Manual merge required** - review lockfile changes, run tests, then merge." \
             --label dependencies,security
