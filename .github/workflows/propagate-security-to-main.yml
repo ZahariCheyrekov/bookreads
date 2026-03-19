@@ -46,6 +46,10 @@ jobs:
           # Start from master and only apply commits from the merged security PR.
           git checkout -B "$propagation_branch" origin/master
 
+          # Required for cherry-pick commits on GitHub-hosted runners.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           commits=$(gh api \
             repos/${{ github.repository }}/pulls/${security_pr_number}/commits \
             --jq '.[].sha')
