@@ -63,7 +63,17 @@ jobs:
 
           for sha in $commits; do
             echo "Cherry-picking commit: $sha"
-            git cherry-pick -x "$sha"
+            if ! git cherry-pick -x "$sha"; then
+              # If commit changes are already present on master, skip empty cherry-pick.
+              if git rev-parse -q --verify CHERRY_PICK_HEAD >/dev/null && [ -z "$(git status --porcelain)" ]; then
+                echo "Commit $sha is empty on master branch context; skipping."
+                git cherry-pick --skip
+              else
+                echo "Cherry-pick failed for $sha due to conflicts."
+                git cherry-pick --abort
+                exit 1
+              fi
+            fi
           done
 
           if [ -z "$(git status --porcelain)" ]; then
