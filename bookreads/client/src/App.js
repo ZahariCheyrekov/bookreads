@@ -66,6 +66,7 @@ function App() {
                 theme='dark'
                 limit={1}
             />
+            <Text>Hello, World!</Text>
             <Footer />
         </AuthContextProvider>
     );
