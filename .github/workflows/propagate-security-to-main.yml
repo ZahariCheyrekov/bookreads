@@ -1,40 +1,61 @@
-name: Propagate security fixes from main to master
+name: Propagate security fixes from develop to master
 
 on:
   pull_request:
     types: [closed]
     branches:
-      - main
+      - develop
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   propagate-if-merged:
-    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'security')
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'dependabot_security')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: master
           fetch-depth: 0
 
-      - name: Create propagation PR with gh CLI
+      - name: Create security-only propagation PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Ensure latest state
-          git fetch origin master:master
+          git fetch origin --no-tags
 
-          # Log divergence for debug
-          ahead_count=$(git rev-list --count master..HEAD)
-          echo "Commits ahead of master: $ahead_count"
-          if [ "$ahead_count" -eq 0 ]; then
-            echo "No new changes - skipping PR creation"
+          security_pr_number="${{ github.event.pull_request.number }}"
+          propagation_branch="auto-security-propagation-${security_pr_number}-${GITHUB_RUN_ID}"
+
+          # Start from master and only apply commits from the merged security PR.
+          git checkout -B "$propagation_branch" origin/master
+
+          commits=$(gh api \
+            repos/${{ github.repository }}/pulls/${security_pr_number}/commits \
+            --jq '.[].sha')
+
+          if [ -z "$commits" ]; then
+            echo "No commits found in security PR #${security_pr_number}. Skipping."
             exit 0
           fi
 
-          # Create the PR (will fail gracefully if already exists)
+          for sha in $commits; do
+            echo "Cherry-picking commit: $sha"
+            git cherry-pick -x "$sha"
+          done
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to propagate after cherry-picking. Skipping PR creation."
+            exit 0
+          fi
+
+          git push --set-upstream origin "$propagation_branch"
+
           gh pr create \
             --base master \
-            --head main \
+            --head "$propagation_branch" \
             --title "chore(security): propagate npm audit fixes to master" \
-            --body "Auto-created after merging security fixes to main.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\n**Manual merge required** – review (note: large package-lock.json diffs expected), test, then merge.\n\nDiff: https://github.com/${{ github.repository }}/compare/master...main" \
-            --label dependencies,security || echo "PR creation failed/skipped (likely already exists or no diff)"
+            --body "Auto-created after merging security fixes to develop.\nOriginal PR: ${{ github.event.pull_request.html_url }}\n\nThis PR cherry-picks only commits from the merged \`dependabot_security\` PR (not the full \`develop\` branch).\n\n**Manual merge required** - review lockfile changes, run tests, then merge." \
+            --label dependencies,security
